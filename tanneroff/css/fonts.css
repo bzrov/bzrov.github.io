@@ -1,0 +1,19 @@
+@font-face {
+font-family: 'Muller ExtraBold';
+src: url('../fonts/MullerExtraBoldDEMO/MullerExtraBoldDEMO.eot');
+src: url('../fonts/MullerExtraBoldDEMO/MullerExtraBoldDEMO.eot?#iefix') format('embedded-opentype'),
+url('../fonts/MullerExtraBoldDEMO/MullerExtraBoldDEMO.woff') format('woff'),
+url('../fonts/MullerExtraBoldDEMO/MullerExtraBoldDEMO.ttf') format('truetype');
+font-weight: normal, bold, 400, 500, 600, 300;
+font-style: normal;
+}
+@font-face {
+font-family: 'themify';
+src: url('../fonts/Themify-Icons/fonts/themify.eot');
+src: url('../fonts/Themify-Icons/fonts/themify.eot?#iefix') format('embedded-opentype'),
+url('../fonts/Themify-Icons/fonts/themify.woff') format('woff'),
+url('../fonts/Themify-Icons/fonts/themify.ttf') format('truetype'),
+url("../fonts/Themify-Icons/fonts/themify.svg#fontname") format("svg");
+font-weight: normal, bold, 400, 500, 600, 300;
+font-style: normal;
+}

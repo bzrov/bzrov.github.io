@@ -1,0 +1,470 @@
+@import "_colors"
+html
+	width: 100%
+	max-width: 100%
+	overflow-x: hidden
+body
+	width: 100%
+	max-width: 100%
+	margin: 0
+	margin: 0
+	overflow-x: hidden !important
+	font-family: 'League Spartan Bold', arial
+	background-color: $white
+	color: $black
+	.hidden
+		opacity: 0
+	.visible
+		opacity: 1
+	.wrap
+		margin: 0 6% 
+	#my-page
+		width: 100%
+		.header
+			padding-top: 30px
+			position: relative
+			.header_nav
+				font-weight: 700
+				display: flex
+				align-items: center
+				justify-content: start
+				.logo
+					padding-right: 16%
+					margin-right: 0px
+				.top_nav
+					padding: 0
+					display: flex
+					align-items: center
+					list-style: none								
+					li
+						margin-right: 40px
+						a
+							text-decoration: none
+							text-transform: uppercase
+							font-size: 8pt
+							letter-spacing: 1.5px
+							font-weight: 700
+							color: $black
+							&::after
+								content: " "
+								width: auto
+								height: 2px
+								background-color: $cyan
+								display: block
+								transform: translateY(6px) scale(0)
+								transition: all 0.2s		
+							&:hover
+								cursor: pointer
+								&::after
+									transform: translateY(6px) scale(1)																																									
+			.header_content
+				padding-top: 60px
+				.block
+					display: flex
+					align-items: center
+					position: relative
+					justify-content: flex-end
+					position: relative
+					.img
+						z-index: 1
+						min-height: 571px
+						min-width: 82%
+						background-image: url("../img/header-slider.png")
+						background-position: center
+						background-size: cover
+						
+						box-shadow: -15px -16px 100px 20px #d8d8d9
+					.text
+						left: -10px
+						top: 25%
+						z-index: 2						
+						position: absolute
+						h5
+							font-weight: 800
+							letter-spacing: 2px
+							text-transform: uppercase
+							color: $cyan
+						h1
+							font-family: 'Playfair Display', serif
+							font-size: 42pt
+							margin: 0
+						p 
+							font-family: 'Poppins', sans-serif
+							color: $gray
+							font-size: 11pt
+				.quote
+					text-align: center
+					padding-top: 120px
+					p
+						font-family: 'Playfair Display', serif
+						font-size: 16pt
+					h6
+						text-transform: uppercase
+						letter-spacing: 2px	
+					hr
+						height: 90px
+						width: 2px
+						background-color: $cyan
+						margin-top: 60px
+						border: none
+
+		.middle-page
+			.media-content
+				position: relative
+				padding-top: 70px
+				.img-first
+					background: url("../img/media-surf-left.png") no-repeat
+					background-size: cover
+					min-height: 320px
+					background-color: $cyan
+					width: 50%
+					background-position: center			
+				.img-second
+					background: url("../img/media-surf-right.png") no-repeat
+					background-size: cover
+					min-height: 320px
+					height: 420px
+					position: absolute
+					background-color: red
+					width: 60%
+					right: 0
+					top: 24%
+					background-position: center
+					.play-video_btn
+						position: absolute
+						left: 46%
+						top: 45%
+						font-size: 42pt
+						color: $cyan
+						opacity: 0
+					&:hover												
+						.play-video_btn							
+							opacity: 1
+							transition: 1s				
+						cursor: pointer	
+
+
+				.text
+					padding-top: 25px
+					padding-left: 7%
+					width: 30%
+					color: $gray
+					line-height: 1.5
+					font-family: "Poppins", sans-serif
+					h5
+						color: $black
+						letter-spacing: 2px
+						text-transform: uppercase
+						font-weight: 700
+						padding-top: 12px
+						&::after
+							content: " "
+							width: 94px
+							height: 2px
+							background-color: $cyan
+							display: block
+							transform: translateY(6px) scale(0)
+							transition: all 0.2s
+						&:hover
+							cursor: pointer
+							&::after
+								transform: translateY(6px) scale(1)
+			.shop
+				padding: 160px 0
+				.slider
+					.fa-chevron-left
+						position: absolute
+						display: block
+						height: 20px
+						width: 20px
+						line-height: 0px
+						
+						cursor: pointer
+						top: 50%
+						webkit-transform: translate(0, -50%)
+						-ms-transform: translate(0, -50%)
+						transform: translate(0, -50%)
+						padding: 0
+						border: none
+						outline: none		
+					.block-slide
+						.img-1
+							background: url("../img/slide-blcok1.png") no-repeat
+						.img-2
+							background: url("../img/slide-blcok2.png") no-repeat
+						.img-3
+							background: url("../img/slide-blcok3.png") no-repeat			
+						.img
+							
+							width: 250px
+							height: 500px
+							background-size: cover
+							display: flex
+							align-items: center
+							position: relative
+							margin: 0 auto
+							.text																
+								text-transform: uppercase
+								position: absolute
+								left: 200px
+								white-space: nowrap
+								h4
+									font-family: "Poppins", sans-serif
+									font-weight: 200
+									letter-spacing: 2px
+									margin: 0
+								h1
+									font-family: 'Playfair Display', serif
+									text-transform: none
+									font-weight: 500
+									margin: 0
+								.price
+									text-align: center
+									margin-top: 30px !important
+									width: 56px
+									margin: 0 auto
+									height: 50px
+									span
+										color: $pink
+										font-family: "Poppins", sans-serif
+										font-size: 16pt
+										z-index: 5
+									p
+										font-size: 11pt
+										letter-spacing: 2px
+										margin: 0
+										font-weight: 700
+										z-index: 5
+										&::after
+											content: ' '
+											display: block
+											background-color: $pink
+											height: 2px
+											width: 54px
+											margin: 0 auto
+											transition: all 0.3s ease-out
+											transform: translateY(2px) scale(0)
+									&:hover
+										cursor: pointer
+										p
+											&::after
+												transform: translateY(2px) scale(1)
+				h5
+					padding-top: 25px				
+					font-family: "Poppins", sans-serif
+					color: $black
+					letter-spacing: 2px													
+					text-align: center		
+					text-transform: uppercase
+					font-weight: 700
+					&::after
+						content: " "
+						margin: 0 auto
+						width: 86px
+						height: 2px
+						background-color: $cyan
+						display: block
+						transform: translateY(6px) 
+						
+					&:hover
+						cursor: pointer
+			.articles
+				.artcile1
+					display: flex
+					align-items: center
+					.text
+						width: 32%
+						padding: 0 5%
+						h1
+							font-family: 'Playfair Display', serif
+							display: flex
+							span							
+								&::after
+									content: " "
+									width: 20px
+									height: 2px
+									background-color: $cyan
+									display: block
+									transform: translateY(6px) 
+									
+						h5
+							font-family: "Poppins", sans-serif
+							color: $black
+							letter-spacing: 2px
+							text-transform: uppercase
+							font-weight: 700
+							padding-top: 12px
+							padding-top: 30px
+							&::after
+								content: " "
+								width: 94px
+								height: 2px
+								background-color: $cyan
+								display: block
+								transform: translateY(6px) 
+								transition: all 0.2s
+							&:hover
+								cursor: pointer
+						p 
+							font-family: "Poppins", sans-serif
+							color: $gray
+					.img
+						height: 380px
+						background-color: $cyan
+						width: 80%
+						background: url("../img/article1.png") no-repeat
+						background-size: cover
+						min-width: 300px
+				.artcile2
+					display: flex
+					align-items: center
+					justify-content: center
+					padding-top: 120px
+					.text
+						width: 28%
+						padding: 0 5%
+						h1
+							font-family: 'Playfair Display', serif
+							display: flex
+							span							
+								&::after
+									content: " "
+									width: 20px
+									height: 2px
+									background-color: $cyan
+									display: block
+									transform: translateY(6px) 
+									
+						h5
+							font-family: "Poppins", sans-serif
+							color: $black
+							letter-spacing: 2px
+							text-transform: uppercase
+							font-weight: 700
+							padding-top: 12px
+							padding-top: 30px
+							&::after
+								content: " "
+								width: 94px
+								height: 2px
+								background-color: $cyan
+								display: block
+								transform: translateY(6px)							
+							&:hover
+								cursor: pointer
+						p 
+							font-family: "Poppins", sans-serif
+							color: $gray
+					.img
+						height: 350px
+						background-color: $cyan
+						width: 55%
+						background: url("../img/article2.png") no-repeat
+						background-size: cover	
+						min-width: 300px
+				hr
+					height: 90px
+					width: 2px
+					background-color: $cyan
+					margin-top: 80px
+					border: none
+			.club
+				text-align: center
+				padding-top: 15px
+				h1
+					font-family: 'Playfair Display', serif
+				p
+					font-family: "Poppins", sans-serif
+					color: $gray
+				form
+					padding-top: 20px
+					input
+						background-color: darken($white, 5%)
+						border: 2px solid #efefef
+						width: 42%
+						padding: 14px 20px
+						
+						&::placeholder
+							color: $black
+							letter-spacing: 2px
+							font-size: 9pt
+							font-weight: 700
+						&:active, &:focus 
+							outline: none
+					button
+						padding: 16px 20px
+						border: none
+						background-color: $cyan
+						color: $white	
+						cursor: pointer
+		footer
+			padding-top: 180px
+			.contacts
+				display: flex
+				align-items: center
+				.img
+					width: 50%
+					height: 420px
+					background-image: url("../img/contacts-footer.png")
+					background-size: cover
+					background-position: center
+				.text
+					padding-left: 4%
+					width: 50%
+					text-transform: uppercase
+					h5
+						color: $gray
+						letter-spacing: 2px
+					h1
+						padding-left: 5%
+						padding-top: 40px
+						padding-bottom: 40px
+						font-family: 'Playfair Display', serif
+						text-transform: none
+					span
+						color: $cyan
+						font-size: 9pt
+						font-weight: 700
+						letter-spacing: 2px
+						&::after						
+							content: " "
+							width: 106px
+							height: 2px
+							background-color: $cyan
+							display: block
+							transform: translateY(6px) 
+						&:hover
+							cursor: pointer
+			.footer
+				text-align: center
+				padding: 100px 0
+				.footer_nav
+					padding-top: 24px 
+					display: flex
+					list-style: none
+					justify-content: center
+					text-transform: uppercase
+					padding-left: 0
+					li
+						padding: 20px 4% 
+						a
+							text-decoration: none
+							color: $black
+							letter-spacing: 2px
+							font-weight: 700
+							font-size: 9pt
+							&::after
+								content: " "
+								width: auto
+								height: 2px
+								background-color: $cyan
+								display: block
+								transform: translateY(6px) scale(0)
+								transition: all 0.2s		
+							&:hover
+								cursor: pointer
+								&::after
+									transform: translateY(6px) scale(1)	
+
+
+	@import "_media"
