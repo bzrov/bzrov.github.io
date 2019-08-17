@@ -1,0 +1,21 @@
+.weather_list {
+  margin-top: 40px;
+  
+}
+
+.weather_list .row:nth-child(odd) .col:last-child {
+  border-right: none;
+}
+
+.weather_list .row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.weather_list .row:nth-child(even) .col:first-child {
+  border-right: none;
+  border-left: none;
+}
+
+.weather_list_title_item {
+  padding: 12px 14px;
+}

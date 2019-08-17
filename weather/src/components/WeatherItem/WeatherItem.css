@@ -1,0 +1,86 @@
+.weather_item {
+ 
+}
+.weather_item_wrap{
+  height: 100%;
+}
+.weather_secondary_info {
+  padding: 2vw;
+}
+
+.weather_main {
+  padding: 2vw;
+}
+
+.link_more {
+  text-decoration: none;
+  color: #000000;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+}
+
+.weather_link_forecast_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.weather_link_forecast_wrapper:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.weather_link_forecast_wrapper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  transition: all 0.3s ease-in-out;
+  transform: translate3d(0, 100%, 0);
+}
+
+.weather_link_forecast:hover .weather_link_forecast_wrapper:after {
+  animation: rotateLine 0.8s both ease-in-out;
+}
+
+.weather_forecast {
+  position: relative;
+  width: 100%;
+}
+
+.weather_forecast_list {
+
+
+  display: flex;
+  overflow-x: scroll;
+  margin: 40px auto;
+}
+
+
+
+
+
+
+
+
+@keyframes rotateLine {
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
