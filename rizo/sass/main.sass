@@ -1,0 +1,536 @@
+@import normalize 
+@import vars 
+html,body
+	height: 100%
+body
+	overflow-x: hidden
+	overflow-y: auto
+	-webkit-overflow-scrolling:touch
+	color: #000000
+	font-size: 30px
+	line-height: 1.2
+	font-family: 'Fira Sans', sans-serif
+	position: relative
+div,input,header,footer,section,span
+	box-sizing: border-box
+
+.wow
+	visibility: hidden
+	
+.container
+	padding: 0 4vw
+	margin: 0 auto
+	max-width: 1920px
+.row
+	display: flex	
+.col-1
+	width: 33.333%
+.col-2
+	width: 66.333%
+.btn
+	padding: 10px 60px
+	background-color: #000000
+	color: #ffffff
+	border: none
+	span
+		text-transform: uppercase
+.btn_negative
+	background-color: #ffffff
+	color: #000000
+.input
+	border: none
+	border-bottom: 2px solid #000000
+	background-color: transparent
+	padding-bottom: 4px
+	border-bottom: 2px solid #000000
+	-webkit-appearance: none
+	-moz-appearance: none
+	-o-appearance: none
+	-webkit-border-radius: 0px
+	border-radius: 0
+	appearance: none
+	background-color: transparent
+.title
+	padding-bottom: 20px
+	text-transform: uppercase
+
+	
+.header__wrapper
+	margin-top: 25px
+	margin-bottom: 30px
+	justify-content: space-between
+.header__title
+	text-transform: uppercase
+.headerAnimation
+	.word_stroke
+		animation: strokeAnimate 1s both 
+		animation-delay: 1.6s
+	.word_stroke_filled
+		animation: fadeInLeft .3s both 
+	
+
+	
+.word_stroke
+	-webkit-text-stroke: 1px #000000
+	color: transparent
+	font-size: 120px
+	text-transform: uppercase
+	background-image: linear-gradient(to right, #1A1A1A, #1A1A1A)
+	-webkit-text-fill-color: transparent
+	-webkit-background-clip: text
+	background-repeat: no-repeat
+	background-position: 100 0%
+	background-size: 100% 0%
+	-webkit-transition: background-size 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)
+	transition: background-size 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)
+	&:hover		
+		background-size: 100% 100%
+.word_stroke_filled
+	background-size: 100% 100%
+
+	&:hover		
+		background-size: 0 100%
+.about__text-word 
+	position: relative
+	
+	&:hover
+
+		cursor: default
+
+.about
+	margin-bottom: 120px
+.about__preview
+	position: relative
+	padding-bottom: 55%
+
+.preview__img 
+	position: absolute
+
+	width: 20%
+	img
+		width: 100%
+.img_pink
+	width: 38%
+	right: 0
+	bottom: 0
+
+	
+.img_black
+	top: 60px
+	left: 0
+
+.img_blue
+	top: 40px
+	right: 3%
+
+.img_green
+	width: 25%
+	top: 20px
+	right: 18%
+.img_yellow
+	width: 15%
+	top: 80px
+	right: 40%
+.img_red
+	top: 0
+	left: 18%
+.img_purpl
+	width: 18%
+	bottom: 60px
+	right: 35%
+.img_orange
+	width: 50%
+	left: 2%
+	bottom: 0
+.example
+	margin-bottom: 120px
+.example__layers
+	position: relative
+	width: 400px
+	height: 250px
+	perspective: 400px
+
+.layer
+	width: 100%
+	height: 100%
+	position: absolute
+	animation: appear both
+	transition: all .3s ease-in-out
+
+.layer_white
+	background: url("../img/example__layer_white.png") no-repeat
+	background-size: cover
+	animation-delay: .5s
+.layer_pink
+	background: url("../img/example__layer_pink.png") no-repeat
+	background-size: cover
+
+	animation-delay: 1.5s
+.layer_yellow
+	background: url("../img/example__layer_yellow.png") no-repeat
+	background-size: cover
+	animation-delay: 2s
+	
+.layer_blue
+	background: url("../img/example__layer_blue.png") no-repeat
+	background-size: cover
+	animation-delay: 2.5s
+.about__btn
+	position: absolute
+	bottom: -30px
+	left: 0
+.example__content
+	padding-left: 30px
+.requirements
+	margin-bottom: 120px
+.requirements__content
+	flex-wrap: wrap
+	justify-content: space-between
+.requirements__item
+	width: 20%
+	min-width: 305px
+	margin: 0 5px 20px 5px
+
+.requirement__picture
+	flex-direction: column
+	width: 305px
+	height: 210px
+	border: 3px solid #000000
+	padding: 10px
+	position: relative
+	&::after
+		content: ""
+		display: block
+		width: 3px
+		height: 100%
+		position: absolute
+		left: 50%
+		top: 0
+		transform: translate(-50%, 0%)
+		background-color: #000000
+		box-sizing: border-box
+.requirement__picture_border
+	justify-content: space-between
+	.row
+		height: 100%
+		justify-content: space-between
+.horizontal-line_dotted
+		width: 100%
+		height: 2px
+		background-image: linear-gradient(to right, #333 40%, rgba(255, 255, 255, 0) 20%)
+		background-position: top
+		background-size: 18px 2px
+		background-repeat: repeat-x
+.vertical-line_dotted
+		width: 2px
+		height: 100%
+		background-image: linear-gradient(to bottom, #333 40%, rgba(255, 255, 255, 0) 20%)
+		background-position: left
+		background-size: 2px 20px
+		background-repeat: repeat-y
+.requirement__picture_fill
+	overflow: hidden
+	background-color: #ffffff
+	&::before
+		content: ""
+		display: block
+		align-self: flex-end
+		width: 50%
+		height: 100%
+		background-color: $main_pink
+
+
+.requirement__picture_stamp
+	text-align: end
+	justify-content: flex-end
+.logo
+	writing-mode: vertical-lr
+	
+.logo__text
+	font-size: 3.5em
+	width: 50%
+.requirement__picture_list
+	height: auto
+	border: none
+	padding: 0
+	&::after
+		display: none
+.pdf
+	align-items: center
+	margin-bottom: 8px
+	&:last-child
+		margin-bottom: 0
+.pdf__picture
+	height: 65px
+	width: 50px
+	position: relative
+	p
+		position: absolute	
+		top: 6px
+		left: -7px
+		padding: 0 5px
+		background-color: $bright_pink
+		color: #ffffff
+		font-size: 15px
+		text-transform: uppercase
+.pdf__text
+	padding-left: 10px
+.calculate
+	margin-bottom: 120px
+.calculate__form
+	justify-content: space-between
+	align-items: flex-end
+	margin-bottom: 20px
+.form__btn
+	text-align: end
+	min-width: 215px
+	margin-left: 5px
+.input__input
+	width: 100%
+.calculate__text
+	text-transform: uppercase
+	font-size: .6em
+.footer
+	margin-bottom: 40px
+.footer__wrapper
+	align-items: flex-start
+	flex-wrap: wrap
+.footer__address,.footer__working-hours,.footer__copyright,.footer__payment-rules
+	text-transform: uppercase
+	font-size: .6em
+.footer__item
+	padding: 0 8px
+	&:first-child
+		padding-left: 0
+	&:last-child
+		padding-right: 0
+.footer__mail,.footer__phone
+	margin-bottom: 6px
+.footer__address, .footer__payment-rules
+	margin-bottom: 12px
+.footer__logo	
+	width: 100%
+
+	align-items: flex-end
+	.logo__text
+		width: initial
+
+.card
+	position: fixed
+	overflow-y: scroll
+	overflow-x: hidden
+	top: 0
+	height: 100%
+	width: 100%
+	background-color: #ffffff
+	padding: 0 1vw
+.popup__container
+	padding: 0 4vw
+.popup__wrapper
+	position: absolute
+	top: 0
+	min-height: 100%
+	height: auto
+	width: calc(100% - 2vw)
+	overflow-y: scroll
+	display: flex
+	flex-direction: column
+	justify-content: space-between	
+.card__title
+	margin-top: 40px
+.card__content
+	position: relative
+	align-items: flex-end
+	justify-content: space-between
+	margin-bottom: 60px
+.card-form__item
+	margin: 15px 0
+.card__label
+	display: inline-block
+	width: 200px
+	min-width: 200px
+.card-form__colors
+	display: flex
+.color_black
+	.colors__checkbox
+		background-color: #000000
+.color_pink
+	.colors__checkbox
+		background-color: $bright_pink	
+.color_red
+	.colors__checkbox
+		background-color: $red
+.color_green
+	.colors__checkbox
+		background-color: $green
+.color_blue
+	.colors__checkbox
+		background-color: $blue
+.color_orange
+	.colors__checkbox
+		background-color: $orange
+.color_yellow
+	.colors__checkbox
+		background-color: $yellow
+.color_purpl
+	.colors__checkbox
+		background-color: $purpl
+.colors__color
+	margin: 0 4px
+
+
+.colors__input
+	appearance: none
+	width: 30px
+	height: 30px
+	position: absolute
+	border: none
+	z-index: 3
+.colors__checkbox
+	position: relative
+	display: inline-block
+	width: 30px
+	height: 30px
+	background-color: red
+	border-radius: 50%
+	&::after
+		content: ""
+		display: none
+		width: 60%
+		height: 2px
+		position: absolute
+		left: 9px
+		top: 15px
+		background-color: #ffffff
+		transform: rotate(125deg)
+	&::before
+		content: ""
+		display: none
+		width: 40%
+		height: 2px
+		position: absolute
+		left: 3px
+		top: 19px
+		background-color: #ffffff
+		transform: rotate(35deg)
+.colors__input:checked + .colors__checkbox
+	&::after
+		display: block
+	&::before
+		display: block
+select
+	padding-right: 20px
+	border: none
+	border-bottom: 2px solid #000000
+	-webkit-appearance: none
+	-moz-appearance: none
+	-o-appearance: none
+	-webkit-border-radius: 0px
+	border-radius: 0
+	appearance: none
+	background-color: transparent
+.select__wrapper
+	display: inline-block
+	position: relative
+	&::after
+		content: ""
+		width: 0
+		height: 0
+		top: 10px
+		right: 0
+		border-style: solid
+		border-width: 10px 7px 0
+		border-color: #000000 transparent transparent transparent
+		position: absolute
+		pointer-events: none
+.card__cost
+	text-align: end
+.cost-total
+	font-size: 3em
+.btn_close
+	position: absolute
+	top: 0 
+	right: 0
+.card__footer
+	background-color: #000000
+	padding-top: 40px
+	padding-bottom: 40px
+	margin-bottom: 15px
+	color: #ffffff
+.phone__input,.email__input
+	border-bottom: 2px solid #ffffff
+	color: #ffffff
+.contact__wrapper
+	justify-content: space-between
+	align-items: flex-end
+.contact__submit
+	flex-basis: 30%
+.contact__btn
+	width: 100%
+	transition: all .3s ease-in-out
+	
+	
+.cotact__text
+	width: 100%
+	margin-top: 10px
+	text-transform: uppercase
+	font-size: .65em
+	font-weight: 300
+.contact__mail
+	margin-bottom: 20px
+.hide
+	display: none
+.show
+	display: flex
+.card__layout
+	margin-bottom: 20px
+.layout__input
+	display: none
+	background-color: #000000
+	border: 1px solid #ffffff
+	
+.layout__input_custom
+	display: inline-block
+	padding: 10px 60px
+	background-color: #000000
+	border: 2px solid #ffffff
+	text-align: center
+.input_invalid
+	border-color: $red
+.form_invalid
+	input
+		border-color: $red
+.btn__success
+	background-color: $green
+.btn__invalid
+	background-color: $red
+	color: #ffffff
+.img_hover
+	position: absolute
+	top: 0
+	left: 0 
+	transition-duration: 300ms
+	transition-timing-function: ease-out
+	
+.none
+	display: none
+.block
+	display: block
+
+@keyframes appear
+	0%
+		opacity: 0
+
+	100%
+		opacity: 1
+
+@keyframes strokeAnimate
+	0%
+		transform: translateX(-100%)
+		opacity: 0
+	
+	100%
+		transform: translateX(0)
+		opacity: 1
+
+@import media

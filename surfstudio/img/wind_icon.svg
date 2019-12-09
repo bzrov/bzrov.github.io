@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="24px" viewBox="0 0 26 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Wind</title>
+    <desc>Created with Sketch.</desc>
+    <g id="GoSurf-Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Go-Surf" transform="translate(-1261.000000, -1774.000000)" fill="#4AF6CD" fill-rule="nonzero">
+            <g id="Surf" transform="translate(0.000000, 1024.000000)">
+                <g id="Map" transform="translate(79.000000, 367.000000)">
+                    <g id="Pensacola-Beach" transform="translate(976.000000, 265.000000)">
+                        <g id="Wind" transform="translate(206.000000, 118.000000)">
+                            <path d="M17.33368,8.71 L0,8.71 L0,10.87632 L17.33368,10.87632 C20.32056,10.87632 22.75,8.445918 22.75,5.46 C22.75,2.47312 20.319598,0.04368 17.33368,0.04368 C14.3468,0.04368 11.91736,2.474082 11.91736,5.46 L14.08368,5.46 C14.08368,3.668444 15.542124,2.21 17.33368,2.21 C19.125236,2.21 20.58368,3.668444 20.58368,5.46 C20.58368,7.251556 19.125236,8.71 17.33368,8.71 Z" id="Shape"></path>
+                            <path d="M20.58368,13.04368 L0,13.04368 L0,15.21 L20.58368,15.21 C22.375236,15.21 23.83368,16.668444 23.83368,18.46 C23.83368,20.251556 22.375236,21.71 20.58368,21.71 C18.792124,21.71 17.33368,20.251556 17.33368,18.46 L15.16736,18.46 C15.16736,21.44688 17.597762,23.87632 20.58368,23.87632 C23.57056,23.87632 26,21.445918 26,18.46 C26,15.47312 23.569598,13.04368 20.58368,13.04368 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
