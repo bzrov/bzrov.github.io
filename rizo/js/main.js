@@ -208,7 +208,7 @@ card_contact_form.addEventListener('submit', (e)=>{
 if (window.innerWidth>968){
     arr_material.forEach((item)=>{
         item.addEventListener('mousemove', e => {
-            cursor_img.src = `../img/${item.dataset.material}.jpg`;
+            cursor_img.src = `./img/${item.dataset.material}.jpg`;
             cursor_img.classList.add("block");
             cursor_img.setAttribute("style", "transform: translateX("+(e.pageX - 10)+"px) translateY("+(e.pageY + 50)+"px);")
         })
