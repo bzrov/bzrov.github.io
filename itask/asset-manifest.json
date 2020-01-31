@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/itask/static/css/main.0f077c51.chunk.css",
+    "main.js": "/itask/static/js/main.3c9f01a5.chunk.js",
+    "main.js.map": "/itask/static/js/main.3c9f01a5.chunk.js.map",
+    "runtime-main.js": "/itask/static/js/runtime-main.c0062158.js",
+    "runtime-main.js.map": "/itask/static/js/runtime-main.c0062158.js.map",
+    "static/js/2.cbce087f.chunk.js": "/itask/static/js/2.cbce087f.chunk.js",
+    "static/js/2.cbce087f.chunk.js.map": "/itask/static/js/2.cbce087f.chunk.js.map",
+    "index.html": "/itask/index.html",
+    "precache-manifest.74d989fca06b992b9d94f922d6a01684.js": "/itask/precache-manifest.74d989fca06b992b9d94f922d6a01684.js",
+    "service-worker.js": "/itask/service-worker.js",
+    "static/css/main.0f077c51.chunk.css.map": "/itask/static/css/main.0f077c51.chunk.css.map",
+    "static/js/2.cbce087f.chunk.js.LICENSE": "/itask/static/js/2.cbce087f.chunk.js.LICENSE",
+    "static/media/AddBoard.sass": "/itask/static/media/add-board-popup-bg.c4adbb3c.png",
+    "static/media/board-error.gif": "/itask/static/media/board-error.d90f7e6f.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0062158.js",
+    "static/js/2.cbce087f.chunk.js",
+    "static/css/main.0f077c51.chunk.css",
+    "static/js/main.3c9f01a5.chunk.js"
+  ]
+}
