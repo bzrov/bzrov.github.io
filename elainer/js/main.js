@@ -3,6 +3,7 @@ $('.results__slider').slick({
     dots: true,
     draggable: false,
     touchMove: false,
+    swipe: false,
     arrows: true,
     prevArrow: $('.results__arrow-prev'),
     nextArrow: $('.results__arrow-next'),
