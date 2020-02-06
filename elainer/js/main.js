@@ -52,13 +52,28 @@ ymaps.ready(init);
 function init(){
     // Создание карты.
     var myMap = new ymaps.Map("map", {
-        center: [55.76, 37.64],
-        zoom: 7,
+        center: [59.96420204699221,30.309987457672122],
+        zoom: 17,
         controls: []
     });
     myMap.geoObjects
-    .add(new ymaps.Placemark([55.790139, 37.814052], {
+    .add(new ymaps.Placemark([59.96420204699221,30.309987457672122], {
         balloonContent: 'цвет <strong>голубой</strong>',
         iconCaption: 'Клиника "Улыбаться Модно!"'
     }))
 }
+
+//Якоря в навигации
+$('a[data-target^="anchor"]').bind('click.smoothscroll',function()
+	{
+		var target = $(this).attr('href'),
+            bl_top = $(target).offset().top;
+        $(".header-menu__item").each((idx,el)=>{
+            $(el).removeClass("header-menu__item_active")
+        })
+        $(this).addClass("header-menu__item_active")
+		$([document.documentElement, document.body]).animate({
+            scrollTop: bl_top
+        },2000);
+        return false;
+	})
