@@ -27,21 +27,45 @@ $('.reviews__slider').slick({
 
 //Открытие вопросов
 $(".question").click(function(){
-    $($(this).parent()).find(".answer").show()
+    $(".questions__item_active").addClass("questions__item_unactive");
+    setTimeout(function(){
+        $(".questions__item_unactive").removeClass("questions__item_active")
+        $(".questions__item_unactive").removeClass("questions__item_unactive")
+    }, 550)
+   
+    const question = $($(this).parent())
+    question.addClass("questions__item_active")
+
 })
 //Медиа меню
+//Открытие медиа-меню
 $(".header__menu_open").click(function(){
     $(".header__menu_media").addClass("header__menu_media_active")
     $(".overlay").addClass("overlay_active")
 })
+//Закрытие медиа-меню по клику на оверлей
 $(".overlay").click(function(){
-    $(".overlay").removeClass("overlay_active")
-    $(".header__menu_media").removeClass("header__menu_media_active")
+    $(".overlay").addClass("overlay_unactive")
+    $(".header__menu_media").addClass("header__menu_media_unactive")
+    setTimeout(function(){
+        $(".overlay").removeClass("overlay_active")
+        $(".overlay").removeClass("overlay_unactive")
+        $(".header__menu_media").removeClass("header__menu_media_active")
+        $(".header__menu_media").removeClass("header__menu_media_unactive")
+    }, 500)
 })
+//Закрытие медиа-меню по клику на иконку
 $(".header__menu-icon_close").click(function(){
-    $(".overlay").removeClass("overlay_active")
-    $(".header__menu_media").removeClass("header__menu_media_active")
+    $(".overlay").addClass("overlay_unactive")
+    $(".header__menu_media").addClass("header__menu_media_unactive")
+    setTimeout(function(){
+        $(".overlay").removeClass("overlay_active")
+        $(".overlay").removeClass("overlay_unactive")
+        $(".header__menu_media").removeClass("header__menu_media_active")
+        $(".header__menu_media").removeClass("header__menu_media_unactive")
+    }, 500)
 })
+
 // Параллакс на элементах
 var rellax = new Rellax('.rellax',
 {
@@ -55,13 +79,15 @@ function init(){
     var myMap = new ymaps.Map("map", {
         center: [59.96420204699221,30.309987457672122],
         zoom: 17,
-        controls: []
+        controls: ["zoomControl"],
+
     });
     myMap.geoObjects
     .add(new ymaps.Placemark([59.96420204699221,30.309987457672122], {
         balloonContent: 'цвет <strong>голубой</strong>',
         iconCaption: 'Клиника "Улыбаться Модно!"'
     }))
+    myMap.behaviors.disable('scrollZoom') 
 }
 
 //Якоря в навигации
@@ -70,11 +96,17 @@ $('a[data-target^="anchor"]').bind('click.smoothscroll',function()
 		var target = $(this).attr('href'),
             bl_top = $(target).offset().top;
         $(".header-menu__item").each((idx,el)=>{
-            $(el).removeClass("header-menu__item_active")
+            $(el).removeClass("menu__item_active")
         })
-        $(this).addClass("header-menu__item_active")
+        $(".footer-menu__item").each((idx,el)=>{
+            $(el).removeClass("menu__item_active")
+        })
+        $(this).addClass("menu__item_active")
 		$([document.documentElement, document.body]).animate({
             scrollTop: bl_top
         },2000);
         return false;
 	})
+
+
+
