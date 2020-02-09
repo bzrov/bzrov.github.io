@@ -502,7 +502,7 @@ ul {
 
 .hero {
   position: relative;
-  min-height: 540px;
+  min-height: 740px;
   margin-top: 96px;
   background-size: 100% 100%;
   background-position: center;
@@ -525,7 +525,7 @@ ul {
 
 .hero__content {
   width: 50%;
-  padding-top: 100px;
+  padding-top: 200px;
   z-index: 1; }
 
 .hero__title {
@@ -1500,6 +1500,9 @@ ul {
   margin-bottom: 40px;
   text-align: center; }
 
+.footer__phone-wrapper_media {
+  margin-left: 15px; }
+
 .footer-phone__text_media {
   text-align: start; }
 
@@ -1604,7 +1607,11 @@ ul {
   .hero__img-bg {
     display: block; }
   .hero__bg {
-    background: initial; } }
+    background: initial; }
+  .hero {
+    min-height: 540px; }
+  .hero__content {
+    padding-top: 100px; } }
 
 @media screen and (max-width: 1198px) {
   .header__item {

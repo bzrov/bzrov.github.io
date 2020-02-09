@@ -104,7 +104,7 @@ $('a[data-target^="anchor"]').bind('click.smoothscroll',function()
         $(this).addClass("menu__item_active")
 		$([document.documentElement, document.body]).animate({
             scrollTop: bl_top
-        },2000);
+        },1000);
         return false;
 	})
 
