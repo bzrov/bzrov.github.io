@@ -26,15 +26,9 @@ $('.reviews__slider').slick({
 });
 
 //Открытие вопросов
-$(".question").click(function(){
-    
-   
-    const question = $($(this).parent())
-    question.addClass("questions__item_active")
 
-})
-$(".question__arrow").click(function(){
-    const question = $($(this).parent().parent())
+$(".question").click(function(){
+    const question = $($(this).parent())
     if(question.hasClass("questions__item_active")){
         question.addClass("questions__item_unactive");
         setTimeout(function(){
@@ -42,6 +36,11 @@ $(".question__arrow").click(function(){
             question.removeClass("questions__item_unactive")
         }, 550)
     }
+})
+$(".question").click(function(){
+    const question = $($(this).parent())
+    question.addClass("questions__item_active")
+
 })
 //Медиа меню
 //Открытие медиа-меню
