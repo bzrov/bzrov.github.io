@@ -27,15 +27,21 @@ $('.reviews__slider').slick({
 
 //Открытие вопросов
 $(".question").click(function(){
-    $(".questions__item_active").addClass("questions__item_unactive");
-    setTimeout(function(){
-        $(".questions__item_unactive").removeClass("questions__item_active")
-        $(".questions__item_unactive").removeClass("questions__item_unactive")
-    }, 550)
+    
    
     const question = $($(this).parent())
     question.addClass("questions__item_active")
 
+})
+$(".question__arrow").click(function(){
+    const question = $($(this).parent().parent())
+    if(question.hasClass("questions__item_active")){
+        question.addClass("questions__item_unactive");
+        setTimeout(function(){
+            question.removeClass("questions__item_active")
+            question.removeClass("questions__item_unactive")
+        }, 550)
+    }
 })
 //Медиа меню
 //Открытие медиа-меню

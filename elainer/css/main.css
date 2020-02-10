@@ -424,6 +424,9 @@ ul {
   font-size: 20px;
   font-weight: 500; }
 
+.header__phone-text {
+  margin-top: 15px; }
+
 .logo__first-word {
   font-weight: bold;
   font-size: 18px;
@@ -571,6 +574,9 @@ ul {
 
 .hero__phone-link {
   color: #1F285A; }
+
+.hero__phone-text {
+  font-weight: 500; }
 
 .hero-phone__tel {
   margin-left: 20px;
@@ -1209,6 +1215,8 @@ ul {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  z-index: 3;
   width: 100%;
   padding: 16px 20px;
   border-radius: 3px;
@@ -1573,19 +1581,21 @@ ul {
 
 @-webkit-keyframes scaleOut {
   0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
   100% {
-    -webkit-transform: scale3d(0, 0, 0);
-            transform: scale3d(0, 0, 0); } }
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+    opacity: 0; } }
 
 @keyframes scaleOut {
   0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1); }
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
   100% {
-    -webkit-transform: scale3d(0, 0, 0);
-            transform: scale3d(0, 0, 0); } }
+    -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+    opacity: 0; } }
 
 @-webkit-keyframes fadeOutLeft {
   0% {
@@ -1697,6 +1707,8 @@ ul {
       margin-bottom: 10px; }
   .hero__text {
     margin-bottom: 30px; }
+  .hero__phone-text {
+    width: 70%; }
   .hero__semicircle {
     min-width: 825px; }
   .advantages__tooth_small {
@@ -1800,6 +1812,10 @@ ul {
   .hero__phone, .hero__text {
     max-width: 380px;
     margin: 0 auto; }
+  .hero__phone-text {
+    width: 100%;
+    margin-top: 8px;
+    text-align: center; }
   .hero__semicircle {
     min-width: initial;
     height: 100vw;
