@@ -398,10 +398,10 @@ ul {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  -webkit-box-align: start;
+  -webkit-align-items: start;
+      -ms-flex-align: start;
+          align-items: start; }
 
 .header__item {
   display: -webkit-box;
@@ -424,8 +424,9 @@ ul {
   font-size: 20px;
   font-weight: 500; }
 
-.header__phone-text {
-  margin-top: 15px; }
+.header__phone-text, .header__phone-text_media {
+  margin-top: 10px;
+  margin-left: 20px; }
 
 .logo__first-word {
   font-weight: bold;
@@ -567,22 +568,24 @@ ul {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  -webkit-box-align: start;
+  -webkit-align-items: start;
+      -ms-flex-align: start;
+          align-items: start; }
 
 .hero__phone-link {
   color: #1F285A; }
 
 .hero__phone-text {
-  font-weight: 500; }
+  font-weight: 500;
+  margin-top: 5px;
+  margin-left: 20px; }
 
 .hero-phone__tel {
   margin-left: 20px;
   font-weight: 600;
   font-size: 18px;
-  line-height: 50px; }
+  line-height: 20px; }
 
 .hero__bg {
   position: absolute;
@@ -1808,14 +1811,16 @@ ul {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
-            justify-content: center; }
+            justify-content: center;
+    margin-top: 10px; }
+  .hero-phone__content {
+    width: 50%;
+    min-width: 180px; }
   .hero__phone, .hero__text {
     max-width: 380px;
-    margin: 0 auto; }
+    margin: 15px auto 0 auto; }
   .hero__phone-text {
-    width: 100%;
-    margin-top: 8px;
-    text-align: center; }
+    margin-top: 8px; }
   .hero__semicircle {
     min-width: initial;
     height: 100vw;
@@ -1936,6 +1941,8 @@ ul {
   .header__tel_media {
     margin-left: 15px;
     font-size: 14px; }
+  .header__phone-text_media {
+    margin-left: 15px; }
   .hero__title {
     width: 100%;
     text-align: center;
