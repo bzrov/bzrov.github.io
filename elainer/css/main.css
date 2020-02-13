@@ -1314,7 +1314,7 @@ ul {
 
 .footer {
   padding-top: 120px;
-  padding-bottom: 100px;
+  padding-bottom: 40px;
   background-color: #0C1233; }
 
 .footer__logo-wrapper {
@@ -1525,6 +1525,18 @@ ul {
 
 .footer__doc-btn_media {
   margin-bottom: 40px; }
+
+.copyright {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 80px; }
+  .copyright a {
+    color: #eaeaea;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    padding-bottom: 1px; }
 
 @-webkit-keyframes btn_flare {
   0% {
