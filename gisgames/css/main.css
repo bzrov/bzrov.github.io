@@ -181,7 +181,7 @@ ul {
   padding-left: 0; }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: -webkit-box;
@@ -401,9 +401,11 @@ ul {
   line-height: 16px; }
 
 .authorization {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
-  min-height: 720px;
   display: none;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -418,13 +420,15 @@ ul {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #12121C;
   background-image: url("../img/bg_gradient.png");
   background-size: cover;
   background-position: center; }
+
+.authorization__wrapper {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%; }
 
 .authorization-popup {
   position: relative;
@@ -443,8 +447,9 @@ ul {
           justify-content: space-between;
   height: 100%;
   padding: 40px 0;
-  min-width: 295px;
-  max-height: 920px; }
+  margin: 0 auto;
+  min-height: 576px;
+  width: 295px; }
 
 .authorization_active {
   display: -webkit-box;
@@ -601,18 +606,21 @@ ul {
     padding-right: 40px; } }
 
 @media screen and (max-width: 768px) {
-  .games__wrapper {
-    overflow-y: scroll; }
+  .games {
+    height: auto; }
   .games__wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
-            flex-direction: column; }
+            flex-direction: column;
+    overflow-y: scroll;
+    padding-bottom: 40px; }
   .game {
     width: 360px;
     min-height: 520px;
-    margin: 20px auto; }
+    margin: 20px auto;
+    max-height: 620px; }
     .game:last-child {
       margin: 20px auto; } }
 

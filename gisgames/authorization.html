@@ -55,72 +55,74 @@
 		</div>
 	</section>
 	<div class="authorization">
-		
-		<div class="authorization-popup">
-			<div class="authorization__btn-close">
-		
-			</div>
-			<p class="authorization__title">
-				Вход
-			</p>
-			<div class="authorization__content">
-				<p class="authorization-content__title">	
-					зарегистрироваться
+		<div class="authorization__wrapper">
+			<div class="authorization-popup">
+				<div class="authorization__btn-close">
+			
+				</div>
+				<p class="authorization__title">
+					Вход
 				</p>
-				<form class="authorization__form">
-					<div class="authorization__field authorization__login">
-						<div class="authorization__login-icon">
-							<svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" clip-rule="evenodd" d="M9.82845 6.82842C11.3905 5.26634 11.3905 2.73368 9.82845 1.17159C8.26636 -0.39053 5.7337 -0.39053 4.17161 1.17159C2.60952 2.73368 2.60952 5.26634 4.17161 6.82842C5.7337 8.39051 8.26636 8.39051 9.82845 6.82842ZM0.864247 10.8828C4.51073 8.41897 9.48925 8.41897 13.1357 10.8828C13.6767 11.2481 14 11.8653 14 12.5342V13C14 14.6569 12.6568 16 11 16H3C1.34315 16 0 14.6569 0 13V12.5342C0 11.8653 0.323224 11.2481 0.864247 10.8828Z" fill="#E5E4E9"/>
-							</svg>
-						</div>
-						<input class="authorization__login-input" placeholder="введите логин">
+				<div class="authorization__content">
+					<p class="authorization-content__title">	
+						зарегистрироваться
+					</p>
+					<form class="authorization__form">
+						<div class="authorization__field authorization__login">
+							<div class="authorization__login-icon">
+								<svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M9.82845 6.82842C11.3905 5.26634 11.3905 2.73368 9.82845 1.17159C8.26636 -0.39053 5.7337 -0.39053 4.17161 1.17159C2.60952 2.73368 2.60952 5.26634 4.17161 6.82842C5.7337 8.39051 8.26636 8.39051 9.82845 6.82842ZM0.864247 10.8828C4.51073 8.41897 9.48925 8.41897 13.1357 10.8828C13.6767 11.2481 14 11.8653 14 12.5342V13C14 14.6569 12.6568 16 11 16H3C1.34315 16 0 14.6569 0 13V12.5342C0 11.8653 0.323224 11.2481 0.864247 10.8828Z" fill="#E5E4E9"/>
+								</svg>
+							</div>
+							<input class="authorization__login-input" placeholder="введите логин">
 
-						</input>
-					</div>
-					<div class="authorization__field authorization__password">
-						<div class="authorization__password-icon">
-							<svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M11.6667 6H10.6667V4.66666C10.6667 2.09344 8.57325 0 6 0C3.42675 0 1.33334 2.09344 1.33334 4.66666V6H0.333344C0.149094 6 0 6.14909 0 6.33334V14.6667C0 15.402 0.597969 16 1.33334 16H10.6667C11.402 16 12 15.402 12 14.6667V6.33334C12 6.14909 11.8509 6 11.6667 6ZM6.99806 12.9632C7.00847 13.0573 6.97822 13.1517 6.91506 13.2223C6.85191 13.293 6.76141 13.3333 6.66669 13.3333H5.33334C5.23863 13.3333 5.14812 13.293 5.08497 13.2223C5.02181 13.1517 4.99153 13.0573 5.00197 12.9632L5.21225 11.0723C4.87078 10.8239 4.66669 10.431 4.66669 10C4.66669 9.26466 5.26466 8.66666 6.00003 8.66666C6.73541 8.66666 7.33337 9.26462 7.33337 10C7.33337 10.431 7.12928 10.8239 6.78781 11.0723L6.99806 12.9632ZM8.66666 6H3.33334V4.66666C3.33334 3.19628 4.52962 2 6 2C7.47038 2 8.66666 3.19628 8.66666 4.66666V6Z" fill="#E5E4E9"/>
-							</svg>		
+							</input>
 						</div>
-						<input class="authorization__password-input" placeholder="введите пароль" type="password" autocomplete="on">
+						<div class="authorization__field authorization__password">
+							<div class="authorization__password-icon">
+								<svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M11.6667 6H10.6667V4.66666C10.6667 2.09344 8.57325 0 6 0C3.42675 0 1.33334 2.09344 1.33334 4.66666V6H0.333344C0.149094 6 0 6.14909 0 6.33334V14.6667C0 15.402 0.597969 16 1.33334 16H10.6667C11.402 16 12 15.402 12 14.6667V6.33334C12 6.14909 11.8509 6 11.6667 6ZM6.99806 12.9632C7.00847 13.0573 6.97822 13.1517 6.91506 13.2223C6.85191 13.293 6.76141 13.3333 6.66669 13.3333H5.33334C5.23863 13.3333 5.14812 13.293 5.08497 13.2223C5.02181 13.1517 4.99153 13.0573 5.00197 12.9632L5.21225 11.0723C4.87078 10.8239 4.66669 10.431 4.66669 10C4.66669 9.26466 5.26466 8.66666 6.00003 8.66666C6.73541 8.66666 7.33337 9.26462 7.33337 10C7.33337 10.431 7.12928 10.8239 6.78781 11.0723L6.99806 12.9632ZM8.66666 6H3.33334V4.66666C3.33334 3.19628 4.52962 2 6 2C7.47038 2 8.66666 3.19628 8.66666 4.66666V6Z" fill="#E5E4E9"/>
+								</svg>		
+							</div>
+							<input class="authorization__password-input" placeholder="введите пароль" type="password" autocomplete="on">
 
-						</input>
-						<div class="authorization__password-look">
-							<svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M0 6C1.38401 2.48798 4.8 0 8.80001 0C12.804 0 16.216 2.48798 17.6 6C16.216 9.51199 12.804 12 8.80001 12C4.8 12 1.38401 9.51199 0 6ZM4.8 5.99996C4.8 8.20796 6.59201 9.99998 8.80001 9.99998C11.008 9.99998 12.8 8.208 12.8 6C12.8 3.792 11.008 1.99999 8.80001 1.99999C6.59201 1.99999 4.8 3.79196 4.8 5.99996ZM6.39999 6.00001C6.39999 4.67599 7.47598 3.60001 8.79999 3.60001C10.124 3.60001 11.2 4.67599 11.2 6.00001C11.2 7.32402 10.124 8.40001 8.79999 8.40001C7.47598 8.40001 6.39999 7.32402 6.39999 6.00001Z" fill="#E5E4E9"/>
-							</svg>	
+							</input>
+							<div class="authorization__password-look">
+								<svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M0 6C1.38401 2.48798 4.8 0 8.80001 0C12.804 0 16.216 2.48798 17.6 6C16.216 9.51199 12.804 12 8.80001 12C4.8 12 1.38401 9.51199 0 6ZM4.8 5.99996C4.8 8.20796 6.59201 9.99998 8.80001 9.99998C11.008 9.99998 12.8 8.208 12.8 6C12.8 3.792 11.008 1.99999 8.80001 1.99999C6.59201 1.99999 4.8 3.79196 4.8 5.99996ZM6.39999 6.00001C6.39999 4.67599 7.47598 3.60001 8.79999 3.60001C10.124 3.60001 11.2 4.67599 11.2 6.00001C11.2 7.32402 10.124 8.40001 8.79999 8.40001C7.47598 8.40001 6.39999 7.32402 6.39999 6.00001Z" fill="#E5E4E9"/>
+								</svg>	
+							</div>
 						</div>
-					</div>
-				</form>
-				<p class="authorization__lost-password">
-					Забыли пароль?
-				</p>
-				<button class="authorization__btn-submit">
-					войти в аккаунт
-				</button>
-			</div>
-			<div class="authorization__social">
-				<p class="authorization__social-text">
-					войти через соцсети
-				</p>
-				<div class="authorization__social-icons">
-					<div class="authorization__social-icon authorization__social-icon_fb">
-						<img src="./img/icon_fb.png" alt="">
-					</div>
-					<div class="authorization__social-icon authorization__social-icon_vk">
-							<img src="./img/icon_vk.png" alt="">
-					</div>
-					<div class="authorization__social-icon authorization__social-icon_yand">
-							<img src="./img/icon_yand.png" alt="">
-					</div>
-					<div class="authorization__social-icon authorization__social-icon_odn">
-							<img src="./img/icon_odn.png" alt="">
+					</form>
+					<p class="authorization__lost-password">
+						Забыли пароль?
+					</p>
+					<button class="authorization__btn-submit">
+						войти в аккаунт
+					</button>
+				</div>
+				<div class="authorization__social">
+					<p class="authorization__social-text">
+						войти через соцсети
+					</p>
+					<div class="authorization__social-icons">
+						<div class="authorization__social-icon authorization__social-icon_fb">
+							<img src="./img/icon_fb.png" alt="">
+						</div>
+						<div class="authorization__social-icon authorization__social-icon_vk">
+								<img src="./img/icon_vk.png" alt="">
+						</div>
+						<div class="authorization__social-icon authorization__social-icon_yand">
+								<img src="./img/icon_yand.png" alt="">
+						</div>
+						<div class="authorization__social-icon authorization__social-icon_odn">
+								<img src="./img/icon_odn.png" alt="">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 	<script
 	src="https://code.jquery.com/jquery-3.4.1.min.js"
