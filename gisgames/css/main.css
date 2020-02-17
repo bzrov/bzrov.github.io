@@ -180,6 +180,9 @@ a {
 ul {
   padding-left: 0; }
 
+input {
+  outline: none; }
+
 .header {
   position: fixed;
   top: 0;
