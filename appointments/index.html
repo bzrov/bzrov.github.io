@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Appoint</title>
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+    </script>
+</head>
+<body>
+	<section class="dashboard">
+		<div class="dashboard__item">
+			<div class="dashboard__item-content">
+				<p class="dashboard__item-number">
+					200
+				</p>
+				<p class="dashboard__item-title">
+					Service Calls
+				</p>
+			</div>
+		</div>
+		<div class="dashboard__item">
+			<div class="dashboard__item-content">
+				<p class="dashboard__item-number">
+					15
+				</p>
+				<p class="dashboard__item-title">
+					Recalls
+				</p>
+			</div>
+		</div>
+		<div class="dashboard__item">
+			<div class="dashboard__item-content">
+				<p class="dashboard__item-number">
+					367
+				</p>
+				<p class="dashboard__item-title">
+					All Appointments
+				</p>
+			</div>
+		</div>
+		<div class="dashboard__item">
+			<div class="dashboard__item-content">
+				<p class="dashboard__item-number">
+					299
+				</p>
+				<p class="dashboard__item-title">
+					Closed Appointments
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="controlls">
+		<div class="controlls__item">
+			<div class="controlls__search search">
+				<div class="controlls__search-btn">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
+					</svg>		
+				</div>
+			</div>
+		</div>
+		<div class="controlls__item">
+			<div class="controlls__date-view">
+				<p class="controlls__date-view-text">Schedule Date</p>
+				<div class="controlls__date-view-arrow">
+					<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+						<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+					</svg>
+							
+				</div>
+				<ul class="controlls__date-view-list date-view-list drop-list">
+					<li class="drop-list__item date-view-list__item drop-list__item_active">Schedule Date</li>
+					<li class="drop-list__item date-view-list__item">Created Date</li>
+				</ul>
+			</div>
+			<div class="controlls__date-period date-period">
+				<p class="controlls__date-period-text">Custom</p>
+				<div class="controlls__date-period-arrow">
+					<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+						<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+					</svg>
+							
+				</div>
+				<ul class="controlls__date-period-list date-period-list drop-list">
+					<li class="drop-list__item date-period-list__item drop-list__item_active">Tomorrow</li>
+					<li class="drop-list__item date-period-list__item">Tomorrow & Next</li>
+					<li class="drop-list__item date-period-list__item">Custom</li>
+					<li class="drop-list__item date-period-list__item">Today</li>
+					<li class="drop-list__item date-period-list__item">Yesterday</li>
+					<li class="drop-list__item date-period-list__item">This week (Sun - today)</li>
+					<li class="drop-list__item date-period-list__item">This week (Mon - today)</li>
+					<li class="drop-list__item date-period-list__item">Last 7 days</li>
+					<li class="drop-list__item date-period-list__item">Last week (Sun - Sat)</li>
+					<li class="drop-list__item date-period-list__item">Last week (Mon - Sun)</li>
+					<li class="drop-list__item date-period-list__item">Last business week (Mon - Fri)</li>
+					<li class="drop-list__item date-period-list__item">Last 14 days</li>
+					<li class="drop-list__item date-period-list__item">Last 30 days</li>
+					<li class="drop-list__item date-period-list__item">This month</li>
+					<li class="drop-list__item date-period-list__item">Last month</li>
+					<li class="drop-list__item date-period-list__item">All</li>
+				</ul>
+			</div>
+
+			<div class="controlls__date-picker">
+				<div class="controlls__date-picker-item">
+					<p class="controlls__date-picker-date controlls__date-picker-date_start">
+						Jan 21, 2019
+					</p>
+					<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M3.08046 2.22566V0H4.73441V2.22566H8.38961V0H10.0436V2.22566H13V16H0V2.22566H3.08046ZM11.7595 14.6857H1.24046V5.00332H11.7595V14.6857Z" fill="#8391AD"/>
+						<path d="M5.54069 5.9978H2.46436V9.25739H5.54069V5.9978Z" fill="#8391AD"/>
+					</svg>
+				</div>
+				<p class="controlls__date-picker-text">to</p>
+				<div class="controlls__date-picker-item">
+					<p class=" controlls__date-picker-date controlls__date-picker-date_end">
+						Jan 25, 2019
+					</p>
+					<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M3.08046 2.22566V0H4.73441V2.22566H8.38961V0H10.0436V2.22566H13V16H0V2.22566H3.08046ZM11.7595 14.6857H1.24046V5.00332H11.7595V14.6857Z" fill="#8391AD"/>
+						<path d="M5.54069 5.9978H2.46436V9.25739H5.54069V5.9978Z" fill="#8391AD"/>
+					</svg>
+		
+				</div>
+			</div>
+			<div class="controlls__reload reload">
+				<div class="controlls__reload-btn">
+					<svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.25474 3.4211C8.64019 2.94667 10.1419 2.92448 11.541 3.35776C12.94 3.79106 14.1632 4.65716 15.0321 5.82979C15.901 7.00243 16.3703 8.42026 16.3716 9.87658C16.3716 9.9023 16.3724 9.92791 16.3741 9.95325H12.9458L17.5695 14.5263L22.1932 9.95325H18.7648C18.7665 9.92725 18.7674 9.90106 18.7674 9.87458C18.7658 7.91093 18.133 5.99912 16.9612 4.41793C15.7896 2.83675 14.1403 1.66889 12.2538 1.08464C10.3673 0.500389 8.34237 0.530309 6.47423 1.17004C4.60607 1.80976 2.99241 3.02584 1.86853 4.64094C0.744655 6.25605 0.16934 8.18571 0.226474 10.1486C0.283609 12.1114 0.970211 14.0048 2.18615 15.5527C3.4021 17.1005 5.08379 18.2218 6.98603 18.7532C8.88827 19.2845 10.9116 19.198 12.7609 18.5064C13.3801 18.2749 13.6931 17.5883 13.4601 16.973C13.2271 16.3575 12.5362 16.0465 11.917 16.278C10.5456 16.791 9.04503 16.8551 7.63431 16.4611C6.22357 16.067 4.9764 15.2353 4.07464 14.0874C3.17287 12.9395 2.66368 11.5354 2.6213 10.0797C2.57894 8.62404 3.0056 7.19296 3.83909 5.99518C4.67257 4.79739 5.86929 3.89552 7.25474 3.4211Z" fill="#8391AD"/>
+					</svg>				
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="table-navigation">
+		<div class="table-navigation__content">
+			<p class="table-navigation__text">Show rows:</p>
+			<p class="table-navigation__rows-amount">
+				500
+			</p>
+			<div class="table-navigation__rows-amount-btn">
+				<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"/>
+					<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
+				</svg>
+			</div>
+			
+				
+			<p class="table-navigation__rest-rows">
+				501-1,000
+			</p>
+			<p>
+				of
+			</p>
+			<p class="table-navigation__total-rows">
+				2000
+			</p>
+		</div>
+		<div class="table-navigation__wrapper-controlls">
+			<div class="table-navigation__controlls">
+				<div class="table-navigation__controll table-navigation__controll_inactive table-navigation__prev ">
+					<svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="9.67592" height="1.5" rx="0.75" transform="matrix(-0.686072 0.727533 -0.843861 -0.536562 8.925 0.80484)" fill="black"/>
+						<rect width="9.67374" height="1.5" rx="0.75" transform="matrix(-0.685219 -0.728337 0.84443 -0.535665 7.48409 14.0548)" fill="black"/>
+						<rect x="1.8" y="14.0547" width="1.8" height="14" rx="0.9" transform="rotate(-180 1.8 14.0547)" fill="black"/>
+					</svg>		
+				</div>
+				<div class="table-navigation__controll table-navigation__prev">
+					<svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="9.67592" height="1.5" rx="0.75" transform="matrix(-0.686072 0.727533 -0.843861 -0.536562 8.50003 1.75015)" fill="black"/>
+						<rect width="9.67374" height="1.5" rx="0.75" transform="matrix(-0.685219 -0.728337 0.84443 -0.535665 7.05911 15.0002)" fill="black"/>
+					</svg>
+				</div>
+				<div class="table-navigation__controll table-navigation__next">
+					<svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="9.67592" height="1.5" rx="0.75" transform="matrix(0.686072 -0.727533 0.843861 0.536562 3.05176e-05 13.25)" fill="black"/>
+						<rect width="9.67374" height="1.5" rx="0.75" transform="matrix(0.685219 0.728337 -0.84443 0.535666 1.44095 3.05176e-05)" fill="black"/>
+					</svg>	
+				</div>
+				<div class="table-navigation__controll table-navigation__next">
+					<svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="9.67592" height="1.5" rx="0.75" transform="matrix(0.686072 -0.727533 0.843861 0.536562 3.05176e-05 13.25)" fill="black"/>
+						<rect width="9.67374" height="1.5" rx="0.75" transform="matrix(0.685219 0.728337 -0.84443 0.535666 1.44095 3.05176e-05)" fill="black"/>
+						<rect x="7.12503" y="0.000152588" width="1.8" height="14" rx="0.9" fill="black"/>
+					</svg>		
+				</div>	
+			</div>
+		</div>
+	</section>
+	<section class="table-section">
+		<table  class="table">
+			<tbody>	
+				<tr>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<p class="table__text table__text_headline">
+								Date
+							</p>
+							<div class="table__sort-btn">
+								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<p class="table__text table__text_headline">
+								Name
+							</p>
+							<div class="table__sort-btn">
+								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Type
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+							<ul class="table__filter-list drop-list">
+								<li class="drop-list__item table__filter-item ">
+									<label class="filter-item">All
+										<input class="filter-item__checkbox" type="checkbox">
+										<span class="filter-item__checkmark"></span>
+									</label>	 
+								</li>
+								<li class="drop-list__item table__filter-item">
+									<label class="filter-item">Service call
+										<input class="filter-item__checkbox" type="checkbox">
+										<span class="filter-item__checkmark"></span>
+									</label> 
+								</li>
+								<li class="drop-list__item table__filter-item">
+									<label class="filter-item">Recall
+										<input class="filter-item__checkbox" type="checkbox">
+										<span class="filter-item__checkmark"></span>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Status
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Property type
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Area
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Created by
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<p class="table__text table__text_headline">
+								Schedule time
+							</p>
+							<div class="table__sort-btn">
+								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__wrapper-text">
+								<p class="table__text table__text_headline">
+									Service Resource
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+							<div class="table__filter-btn">
+								<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+									</g>
+								</svg>		
+							</div>
+						</div>
+					</th>
+					<th>
+						<div class="table__cell table__cell_headline">
+							<div class="table__share-btn">
+								<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g clip-path="url(#clip0)">
+									<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+									<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</th>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_service">
+						<p class="table__text">Service call</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_active">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_recall">
+						<p class="table__text">Recall</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_inactive">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_service">
+						<p class="table__text">Service call</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_active">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_recall">
+						<p class="table__text">Recall</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_inactive">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_service">
+						<p class="table__text">Service call</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_active">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table__cell table__cell_date">
+						<p class="table__text">06/25/2019 2:12 pm</p>
+					</td>
+					<td class="table__cell table__cell_name">
+						<p class="table__text">2675NSM-A-01</p>
+					</td>
+					<td class="table__cell table__cell_type table__cell_type_recall">
+						<p class="table__text">Recall</p>
+					</td>
+					<td class="table__cell table__cell_status">
+						<p class="table__text">Done</p>
+					</td>
+					<td class="table__cell table__cell_property-type">
+						<p class="table__text">Residental</p>
+					</td>
+					<td class="table__cell table__cell_area">
+						<p class="table__text">JAX_FL</p>
+					</td>
+					<td class="table__cell table__cell_created-by">
+						<p class="table__text"></p>
+					</td>
+					<td class="table__cell table__cell_shedule-time">
+						<p class="table__text">06/25/2019
+								(4:00pm-6:00pm)
+								</p>
+					</td>
+					<td class="table__cell table__cell_service-resource">
+						<p class="table__text">Andriy</p>
+					</td>
+					<td class="table__cell table__cell_share">
+						<div class="table__share-btn table__share-btn_inactive">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g clip-path="url(#clip0)">
+								<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
+								</g>
+							</svg>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<script src="js/main.js"></script>
+</body>
+</html>
