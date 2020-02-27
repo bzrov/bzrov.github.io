@@ -55,63 +55,67 @@
 			</div>
 		</div>
 	</section>
-	<section class="controlls">
-		<div class="controlls__item">
-			<div class="controlls__search search">
-				<div class="controlls__search-btn">
+	<section class="controls">
+		<div class="controls__item controls__item_search">
+			<div class="controls__search search">
+				<input class="search-field" type="text">
+				<div class="controls__search-btn">
 					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
 					</svg>		
 				</div>
 			</div>
 		</div>
-		<div class="controlls__item">
-			<div class="controlls__date-view">
-				<p class="controlls__date-view-text">Schedule Date</p>
-				<div class="controlls__date-view-arrow">
-					<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
-						<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
-					</svg>
-							
+		<div class="controls__item">
+			<div class="controls__date-settings">
+				<div class="controls__date-view">
+					<p class="controls__date-view-text">Schedule Date</p>
+					<div class="controls__date-view-arrow">
+						<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+							<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+						</svg>
+								
+					</div>
+					<ul class="controls__date-view-list date-view-list drop-list">
+						<li class="drop-list__item date-view-list__item selected">Schedule Date</li>
+						<li class="drop-list__item date-view-list__item">Created Date</li>
+					</ul>
 				</div>
-				<ul class="controlls__date-view-list date-view-list drop-list">
-					<li class="drop-list__item date-view-list__item drop-list__item_active">Schedule Date</li>
-					<li class="drop-list__item date-view-list__item">Created Date</li>
-				</ul>
-			</div>
-			<div class="controlls__date-period date-period">
-				<p class="controlls__date-period-text">Custom</p>
-				<div class="controlls__date-period-arrow">
-					<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
-						<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
-					</svg>
-							
+				<div class="controls__date-period date-period ">
+					<p class="controls__date-period-text">Custom</p>
+					<div class="controls__date-period-arrow">
+						<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+							<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+						</svg>
+								
+					</div>
+					<ul class="controls__date-period-list date-period-list drop-list">
+						<li class="drop-list__item date-period-list__item selected">Tomorrow</li>
+						<li class="drop-list__item date-period-list__item">Tomorrow & Next</li>
+						<li class="drop-list__item date-period-list__item">Custom</li>
+						<li class="drop-list__item date-period-list__item">Today</li>
+						<li class="drop-list__item date-period-list__item">Yesterday</li>
+						<li class="drop-list__item date-period-list__item">This week (Sun - today)</li>
+						<li class="drop-list__item date-period-list__item">This week (Mon - today)</li>
+						<li class="drop-list__item date-period-list__item">Last 7 days</li>
+						<li class="drop-list__item date-period-list__item">Last week (Sun - Sat)</li>
+						<li class="drop-list__item date-period-list__item">Last week (Mon - Sun)</li>
+						<li class="drop-list__item date-period-list__item">Last business week (Mon - Fri)</li>
+						<li class="drop-list__item date-period-list__item">Last 14 days</li>
+						<li class="drop-list__item date-period-list__item">Last 30 days</li>
+						<li class="drop-list__item date-period-list__item">This month</li>
+						<li class="drop-list__item date-period-list__item">Last month</li>
+						<li class="drop-list__item date-period-list__item">All</li>
+					</ul>
 				</div>
-				<ul class="controlls__date-period-list date-period-list drop-list">
-					<li class="drop-list__item date-period-list__item drop-list__item_active">Tomorrow</li>
-					<li class="drop-list__item date-period-list__item">Tomorrow & Next</li>
-					<li class="drop-list__item date-period-list__item">Custom</li>
-					<li class="drop-list__item date-period-list__item">Today</li>
-					<li class="drop-list__item date-period-list__item">Yesterday</li>
-					<li class="drop-list__item date-period-list__item">This week (Sun - today)</li>
-					<li class="drop-list__item date-period-list__item">This week (Mon - today)</li>
-					<li class="drop-list__item date-period-list__item">Last 7 days</li>
-					<li class="drop-list__item date-period-list__item">Last week (Sun - Sat)</li>
-					<li class="drop-list__item date-period-list__item">Last week (Mon - Sun)</li>
-					<li class="drop-list__item date-period-list__item">Last business week (Mon - Fri)</li>
-					<li class="drop-list__item date-period-list__item">Last 14 days</li>
-					<li class="drop-list__item date-period-list__item">Last 30 days</li>
-					<li class="drop-list__item date-period-list__item">This month</li>
-					<li class="drop-list__item date-period-list__item">Last month</li>
-					<li class="drop-list__item date-period-list__item">All</li>
-				</ul>
 			</div>
+			
 
-			<div class="controlls__date-picker">
-				<div class="controlls__date-picker-item">
-					<p class="controlls__date-picker-date controlls__date-picker-date_start">
+			<div class="controls__date-picker">
+				<div class="controls__date-picker-item">
+					<p class="controls__date-picker-date controls__date-picker-date_start">
 						Jan 21, 2019
 					</p>
 					<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -119,20 +123,41 @@
 						<path d="M5.54069 5.9978H2.46436V9.25739H5.54069V5.9978Z" fill="#8391AD"/>
 					</svg>
 				</div>
-				<p class="controlls__date-picker-text">to</p>
-				<div class="controlls__date-picker-item">
-					<p class=" controlls__date-picker-date controlls__date-picker-date_end">
+				<p class="controls__date-picker-text">to</p>
+				<div class="controls__date-picker-item">
+					<p class=" controls__date-picker-date controls__date-picker-date_end">
 						Jan 25, 2019
 					</p>
 					<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M3.08046 2.22566V0H4.73441V2.22566H8.38961V0H10.0436V2.22566H13V16H0V2.22566H3.08046ZM11.7595 14.6857H1.24046V5.00332H11.7595V14.6857Z" fill="#8391AD"/>
 						<path d="M5.54069 5.9978H2.46436V9.25739H5.54069V5.9978Z" fill="#8391AD"/>
 					</svg>
-		
+				</div>
+				<div class="controls__date-picker-calendar calendar">
+					<div class="calendar__month">
+
+					</div>
 				</div>
 			</div>
-			<div class="controlls__reload reload">
-				<div class="controlls__reload-btn">
+			<div class="controls__reload reload">
+				<div class="controls__reload-btn">
+					<svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.25474 3.4211C8.64019 2.94667 10.1419 2.92448 11.541 3.35776C12.94 3.79106 14.1632 4.65716 15.0321 5.82979C15.901 7.00243 16.3703 8.42026 16.3716 9.87658C16.3716 9.9023 16.3724 9.92791 16.3741 9.95325H12.9458L17.5695 14.5263L22.1932 9.95325H18.7648C18.7665 9.92725 18.7674 9.90106 18.7674 9.87458C18.7658 7.91093 18.133 5.99912 16.9612 4.41793C15.7896 2.83675 14.1403 1.66889 12.2538 1.08464C10.3673 0.500389 8.34237 0.530309 6.47423 1.17004C4.60607 1.80976 2.99241 3.02584 1.86853 4.64094C0.744655 6.25605 0.16934 8.18571 0.226474 10.1486C0.283609 12.1114 0.970211 14.0048 2.18615 15.5527C3.4021 17.1005 5.08379 18.2218 6.98603 18.7532C8.88827 19.2845 10.9116 19.198 12.7609 18.5064C13.3801 18.2749 13.6931 17.5883 13.4601 16.973C13.2271 16.3575 12.5362 16.0465 11.917 16.278C10.5456 16.791 9.04503 16.8551 7.63431 16.4611C6.22357 16.067 4.9764 15.2353 4.07464 14.0874C3.17287 12.9395 2.66368 11.5354 2.6213 10.0797C2.57894 8.62404 3.0056 7.19296 3.83909 5.99518C4.67257 4.79739 5.86929 3.89552 7.25474 3.4211Z" fill="#8391AD"/>
+					</svg>				
+				</div>
+			</div>
+		</div>
+		<div class="controls-mobile__item controls-mobile__item_row">
+			<div class="controls-mobile__search controls__search search ">
+				<input class="search-field" type="text">
+				<div class="controls__search-btn">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
+					</svg>		
+				</div>
+			</div>
+			<div class="controls-mobile__reload reload ">
+				<div class="controls__reload-btn">
 					<svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M7.25474 3.4211C8.64019 2.94667 10.1419 2.92448 11.541 3.35776C12.94 3.79106 14.1632 4.65716 15.0321 5.82979C15.901 7.00243 16.3703 8.42026 16.3716 9.87658C16.3716 9.9023 16.3724 9.92791 16.3741 9.95325H12.9458L17.5695 14.5263L22.1932 9.95325H18.7648C18.7665 9.92725 18.7674 9.90106 18.7674 9.87458C18.7658 7.91093 18.133 5.99912 16.9612 4.41793C15.7896 2.83675 14.1403 1.66889 12.2538 1.08464C10.3673 0.500389 8.34237 0.530309 6.47423 1.17004C4.60607 1.80976 2.99241 3.02584 1.86853 4.64094C0.744655 6.25605 0.16934 8.18571 0.226474 10.1486C0.283609 12.1114 0.970211 14.0048 2.18615 15.5527C3.4021 17.1005 5.08379 18.2218 6.98603 18.7532C8.88827 19.2845 10.9116 19.198 12.7609 18.5064C13.3801 18.2749 13.6931 17.5883 13.4601 16.973C13.2271 16.3575 12.5362 16.0465 11.917 16.278C10.5456 16.791 9.04503 16.8551 7.63431 16.4611C6.22357 16.067 4.9764 15.2353 4.07464 14.0874C3.17287 12.9395 2.66368 11.5354 2.6213 10.0797C2.57894 8.62404 3.0056 7.19296 3.83909 5.99518C4.67257 4.79739 5.86929 3.89552 7.25474 3.4211Z" fill="#8391AD"/>
 					</svg>				
@@ -140,53 +165,77 @@
 			</div>
 		</div>
 	</section>
-	<section class="table-navigation">
-		<div class="table-navigation__content">
-			<p class="table-navigation__text">Show rows:</p>
-			<p class="table-navigation__rows-amount">
-				500
-			</p>
-			<div class="table-navigation__rows-amount-btn">
-				<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"/>
-					<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
-				</svg>
+
+	<section class="table-navigation table-navigation_top">
+		<div class="table-navigation__content table-navigation__content_top">
+			<p class="table-navigation__text table-navigation__text_top">Show rows:</p>
+			<div class="table-navigation__rows-amount-select table-navigation__rows-amount-select_top">
+				<p class="table-navigation__rows-amount" id="table-navigation__rows-amount_top">
+					500
+				</p>
+				<div class="table-navigation__rows-amount-btn" id="table-navigation__rows-amount-btn_top">
+					<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"/>
+						<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
+					</svg>
+				</div>
+				<ul class="table-navigation__rows-amount-list rows-amount-list drop-list" id="table-navigation__rows-amount-list_top">
+					<li class="drop-list__item rows-amount-list__item">50</li>
+					<li class="drop-list__item rows-amount-list__item">100</li>
+					<li class="drop-list__item rows-amount-list__item">250</li>
+					<li class="drop-list__item rows-amount-list__item selected">500</li>
+				</ul>
 			</div>
-			
-				
-			<p class="table-navigation__rest-rows">
+			<p class="table-navigation__rest-rows table-navigation__rest-rows_top">
 				501-1,000
 			</p>
-			<p>
+			<p class="table-navigation__rest-text table-navigation__rest-text_top">
 				of
 			</p>
-			<p class="table-navigation__total-rows">
+			<p class="table-navigation__total-rows table-navigation__total-rows_top">
 				2000
 			</p>
 		</div>
-		<div class="table-navigation__wrapper-controlls">
-			<div class="table-navigation__controlls">
-				<div class="table-navigation__controll table-navigation__controll_inactive table-navigation__prev ">
+		<div class="table-navigation__wrapper-controls">
+			<div class="table-navigation__controls table-navigation__controls_top">
+				<div class="table-navigation__control table-navigation__control_inactive table-navigation__prev ">
 					<svg viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M8.60912 1L3.61258 6.07275L8.60912 11.1455M1 1V11.1455" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>		
 				</div>
-				<div class="table-navigation__controll table-navigation__prev">
+				<div class="table-navigation__control table-navigation__prev">
 					<svg viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M6.22396 1L1.22742 6.07275L6.22396 11.1455" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
 				</div>
-				<div class="table-navigation__controll table-navigation__next">
+				<div class="table-navigation__control table-navigation__next">
 					<svg viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0.868389 11.1455L5.86493 6.07276L0.868388 1.00002" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
 				</div>
-				<div class="table-navigation__controll table-navigation__next">
+				<div class="table-navigation__control table-navigation__next">
 					<svg viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1.50935 11.1458L6.50589 6.07301L1.50935 1.00026M9.11847 11.1458L9.11847 1.00026" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>		
 				</div>	
 			</div>
+		</div>
+		<div class="table-navigation-mobile__sort">
+			<p class="table-navigation-mobile__sort-label">
+				Sort:
+			</p>
+			<p class="table-navigation-mobile__sort-text">
+				Date
+			</p>
+			<div class="table-navigation-mobile__sort-btn">
+				<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"/>
+					<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
+				</svg>
+			</div>
+			<ul class="table-navigation-mobile__sort-list drop-list">
+
+			</ul>
 		</div>
 	</section>
 	<section class="table-section">
@@ -643,61 +692,234 @@
 				</tr>
 			</tbody>
 		</table>
+		<div class="table-mobile">
+			<div class="table-mobile__cell">
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-title">
+						<p class="table-mobile__cell_name">
+							2675NSM-A-01
+						</p>
+						<p class="table-mobile__cell_shedule-time">
+							06/25/2019 (4:00pm-6:00pm)
+						</p>
+					</div>
+					<div class="table-mobile__cell-description">
+						<p class="table-mobile__cell_type table__cell_type_service">
+							Service call
+						</p>
+						<p class="table-mobile__cell_property-type">
+							Residental
+						</p>
+						<p class="table-mobile__cell_status">
+							Done
+						</p>
+					</div>
+				</div>
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-fields">
+						<div class="table-mobile__cell_area">
+							<p class="table-mobile__cell_area-label">
+								Area:
+							</p>
+							<p class="table-mobile__cell_area-content">
+								JAX_FL
+							</p>
+						</div>
+						<div class="table-mobile__cell_service-resource">
+							<p class="table-mobile__cell_service-resource-label">
+								Service Resource:
+							</p>
+							<p class="table-mobile__cell_service-resource-content">
+								Andriy
+							</p>
+						</div>
+					</div>
+					<div class="table-mobile__cell-info">
+						<p class="table-mobile__cell_date">
+							06/25/2019 2:12 pm
+						</p>
+						<div class="table-mobile__cell_created-by">
+							<p class="table-mobile__cell_created-by-label">
+								Created by
+							</p>
+							<p class="table-mobile__cell_created-by-content">
+								Testname
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-mobile__cell">
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-title">
+						<p class="table-mobile__cell_name">
+							2675NSM-A-01
+						</p>
+						<p class="table-mobile__cell_shedule-time">
+							06/25/2019 (4:00pm-6:00pm)
+						</p>
+					</div>
+					<div class="table-mobile__cell-description">
+						<p class="table-mobile__cell_type table__cell_type_service">
+							Service call
+						</p>
+						<p class="table-mobile__cell_property-type">
+							Residental
+						</p>
+						<p class="table-mobile__cell_status">
+							Done
+						</p>
+					</div>
+				</div>
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-fields">
+						<div class="table-mobile__cell_area">
+							<p class="table-mobile__cell_area-label">
+								Area:
+							</p>
+							<p class="table-mobile__cell_area-content">
+								JAX_FL
+							</p>
+						</div>
+						<div class="table-mobile__cell_service-resource">
+							<p class="table-mobile__cell_service-resource-label">
+								Service Resource:
+							</p>
+							<p class="table-mobile__cell_service-resource-content">
+								Andriy
+							</p>
+						</div>
+					</div>
+					<div class="table-mobile__cell-info">
+						<p class="table-mobile__cell_date">
+							06/25/2019 2:12 pm
+						</p>
+						<div class="table-mobile__cell_created-by">
+							<p class="table-mobile__cell_created-by-label">
+								Created by
+							</p>
+							<p class="table-mobile__cell_created-by-content">
+								Testname
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-mobile__cell">
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-title">
+						<p class="table-mobile__cell_name">
+							2675NSM-A-01
+						</p>
+						<p class="table-mobile__cell_shedule-time">
+							06/25/2019 (4:00pm-6:00pm)
+						</p>
+					</div>
+					<div class="table-mobile__cell-description">
+						<p class="table-mobile__cell_type table__cell_type_service">
+							Service call
+						</p>
+						<p class="table-mobile__cell_property-type">
+							Residental
+						</p>
+						<p class="table-mobile__cell_status">
+							Done
+						</p>
+					</div>
+				</div>
+				<div class="table-mobile__cell-row">
+					<div class="table-mobile__cell-fields">
+						<div class="table-mobile__cell_area">
+							<p class="table-mobile__cell_area-label">
+								Area:
+							</p>
+							<p class="table-mobile__cell_area-content">
+								JAX_FL
+							</p>
+						</div>
+						<div class="table-mobile__cell_service-resource">
+							<p class="table-mobile__cell_service-resource-label">
+								Service Resource:
+							</p>
+							<p class="table-mobile__cell_service-resource-content">
+								Andriy
+							</p>
+						</div>
+					</div>
+					<div class="table-mobile__cell-info">
+						<p class="table-mobile__cell_date">
+							06/25/2019 2:12 pm
+						</p>
+						<div class="table-mobile__cell_created-by">
+							<p class="table-mobile__cell_created-by-label">
+								Created by
+							</p>
+							<p class="table-mobile__cell_created-by-content">
+								Testname
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
-	<section class="table-navigation">
-		<div class="table-navigation__content">
-			<p class="table-navigation__text">Show rows:</p>
-			<div class="table-navigation__rows-amount-select">
-				<p class="table-navigation__rows-amount">
+	<section class="table-navigation table-navigation_bottom">
+		<div class="table-navigation__content table-navigation__content_bottom">
+			<p class="table-navigation__text table-navigation__text_bottom">Show rows:</p>
+			<div class="table-navigation__rows-amount-select table-navigation__rows-amount-select_bottom">
+				<p class="table-navigation__rows-amount" id="table-navigation__rows-amount_bottom">
 					500
 				</p>
-				<div class="table-navigation__rows-amount-btn">
+				<div class="table-navigation__rows-amount-btn" id="table-navigation__rows-amount-btn_bottom">
 					<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"/>
 						<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
 					</svg>
 				</div>
-				<ul class="table-navigation__rows-amount-list rows-amount-list drop-list">
+				<ul class="table-navigation__rows-amount-list rows-amount-list drop-list" id="table-navigation__rows-amount-list_bottom">
 					<li class="drop-list__item rows-amount-list__item">50</li>
 					<li class="drop-list__item rows-amount-list__item">100</li>
 					<li class="drop-list__item rows-amount-list__item">250</li>
-					<li class="drop-list__item drop-list__item_active rows-amount-list__item">500</li>
+					<li class="drop-list__item rows-amount-list__item selected">500</li>
 				</ul>
 			</div>
 			<p class="table-navigation__rest-rows">
 				501-1,000
 			</p>
-			<p>
+			<p class="table-navigation__rest-text">
 				of
 			</p>
 			<p class="table-navigation__total-rows">
 				2000
 			</p>
 		</div>
-		<div class="table-navigation__wrapper-controlls">
-			<div class="table-navigation__controlls">
-				<div class="table-navigation__controll table-navigation__controll_inactive table-navigation__prev ">
+		<div class="table-navigation__wrapper-controls table-navigation__wrapper-controls_bottom">
+			<div class="table-navigation__controls table-navigation__controls_bottom">
+				<div class="table-navigation__control table-navigation__control_inactive table-navigation__prev ">
 					<svg viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M8.60912 1L3.61258 6.07275L8.60912 11.1455M1 1V11.1455" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>		
 				</div>
-				<div class="table-navigation__controll table-navigation__prev">
+				<div class="table-navigation__control table-navigation__prev">
 					<svg viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M6.22396 1L1.22742 6.07275L6.22396 11.1455" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
 				</div>
-				<div class="table-navigation__controll table-navigation__next">
+				<div class="table-navigation__control table-navigation__next">
 					<svg viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0.868389 11.1455L5.86493 6.07276L0.868388 1.00002" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>
 				</div>
-				<div class="table-navigation__controll table-navigation__next">
+				<div class="table-navigation__control table-navigation__next">
 					<svg viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1.50935 11.1458L6.50589 6.07301L1.50935 1.00026M9.11847 11.1458L9.11847 1.00026" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 					</svg>		
 				</div>	
 			</div>
 		</div>
+	</section>
+	<section class="table-navigation-mobile">
+
 	</section>
 	<script src="js/main.js"></script>
 </body>
