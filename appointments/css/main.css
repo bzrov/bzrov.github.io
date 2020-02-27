@@ -260,6 +260,7 @@ input {
   white-space: nowrap; }
 
 .drop-list {
+  display: none;
   position: absolute;
   border-radius: 20px;
   padding: 10px 0px;
@@ -347,7 +348,8 @@ input {
   background-color: #E7E9EC;
   border: 1px solid #D0D3DA;
   border-radius: 6px;
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: pointer; }
   .controlls__date-picker-item:before {
     position: absolute;
     top: 0;
@@ -426,7 +428,11 @@ input {
   display: flex; }
 
 .table-navigation__controll {
-  margin-right: 10px; }
+  margin-right: 10px;
+  width: 1em;
+  cursor: pointer; }
+  .table-navigation__controll svg {
+    stroke: #000000; }
 
 .table-navigation__controll_inactive svg {
   stroke: #D0D3DA; }
