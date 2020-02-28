@@ -26,10 +26,16 @@ const
 
     tableFilterBtn = document.querySelector('.table__filter-btn')
     tableFilterList = document.querySelector('.table__filter-list')
-    
+
+     
+    tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
+    tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
+    tableMobileSortItems = document.querySelectorAll('.sort-list__item')
+    tableMobileSortText = document.querySelector('.table-navigation-mobile__sort-text')
+
+
     //DATE VIEW HANDLERS 
     dateView.addEventListener('click', function() {
-        console.log('test')
         if (!dateView.classList.contains('open')) {
             dateView.classList.add('open');
             dateViewList.classList.add('visible');
@@ -51,6 +57,7 @@ const
           dateViewText.textContent = itemText;
         });
       }
+
     //DATE PERIOD HANDLERS
     datePeriod.addEventListener('click', function() {
         if (!datePeriod.classList.contains('open')) {
@@ -74,6 +81,7 @@ const
           datePeriodText.textContent = itemText;
         });
       }
+
     //ROWS NUMBER HANDLERS
     rowsNumber.addEventListener('click', function() {
         if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('show')) {
@@ -140,4 +148,37 @@ const
           rowsNumberListDown.classList.remove('visible');
         });
       }
-
+    //TABLE NAVIGATION MOBILE SORT
+    tableMobileSort.addEventListener('click', function(e) {
+        if (!tableMobileSort.classList.contains('open')) {
+            tableMobileSort.classList.add('open');
+            tableMobileSortList.classList.add('visible');
+        } 
+        if(e.target.classList.contains('sort-list__sort-btn')){
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+        }
+    })
+    for (let i = 0; i < tableMobileSortItems.length; i++) {
+        tableMobileSortItems[i].addEventListener('click', function() {
+          if (!tableMobileSortItems[i].classList.contains('selected')) { tableMobileSortItems[i].classList.add('selected'); }
+          for (let j = i - 1; j >=0; j--) {
+            if (tableMobileSortItems[j].classList.contains('selected')) { tableMobileSortItems[j].classList.remove('selected'); }
+          }
+          for (let k = i + 1; k < tableMobileSortItems.length; k++) {
+            if (tableMobileSortItems[k].classList.contains('selected')) { tableMobileSortItems[k].classList.remove('selected'); }
+          }
+          let itemText = tableMobileSortItems[i].textContent;
+          tableMobileSortText.textContent = itemText;
+        });
+      }
+    //TABLE FILTER
+    tableFilterBtn.addEventListener('click', function(e) {
+        tableFilterList =  e.currentTarget.parentNode.querySelector('.table__filter-list')
+        if (!tableFilterList.classList.contains('visible')) {
+            tableFilterList.classList.add('visible');
+          } else {
+            tableFilterList.classList.remove('visible');
+          }
+    })
+      

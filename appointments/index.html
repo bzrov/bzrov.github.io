@@ -135,8 +135,67 @@
 				</div>
 				<div class="controls__date-picker-calendar calendar">
 					<div class="calendar__month">
+						<span>January 2020</span>
+					</div>
+					<div class="calendar__controlls">
 
 					</div>
+					<table class="calendar__table">
+						<tr class="calendar-table__row-week">
+							<td class="calendar-table__cell">s</td>
+							<td class="calendar-table__cell">m</td>
+							<td class="calendar-table__cell">t</td>
+							<td class="calendar-table__cell">w</td>
+							<td class="calendar-table__cell">t</td>
+							<td class="calendar-table__cell">f</td>
+							<td class="calendar-table__cell">s</td>
+						</tr>
+						<tr class="calendar-table__row-days">
+							<td class="calendar-table__cell calendar-table__cell-day"></td>
+							<td class="calendar-table__cell calendar-table__cell-day"></td>
+							<td class="calendar-table__cell calendar-table__cell-day">1</td>
+							<td class="calendar-table__cell calendar-table__cell-day">2</td>
+							<td class="calendar-table__cell calendar-table__cell-day">3</td>
+							<td class="calendar-table__cell calendar-table__cell-day">4</td>
+							<td class="calendar-table__cell calendar-table__cell-day">5</td>
+						</tr>
+						<tr class="calendar-table__row-days">
+							<td class="calendar-table__cell calendar-table__cell-day">6</td>
+							<td class="calendar-table__cell calendar-table__cell-day">7</td>
+							<td class="calendar-table__cell calendar-table__cell-day">8</td>
+							<td class="calendar-table__cell calendar-table__cell-day">9</td>
+							<td class="calendar-table__cell calendar-table__cell-day">10</td>
+							<td class="calendar-table__cell calendar-table__cell-day">11</td>
+							<td class="calendar-table__cell calendar-table__cell-day">12</td>
+						</tr>
+						<tr class="calendar-table__row-days">
+							<td class="calendar-table__cell calendar-table__cell-day">13</td>
+							<td class="calendar-table__cell calendar-table__cell-day">14</td>
+							<td class="calendar-table__cell calendar-table__cell-day">15</td>
+							<td class="calendar-table__cell calendar-table__cell-day">16</td>
+							<td class="calendar-table__cell calendar-table__cell-day">17</td>
+							<td class="calendar-table__cell calendar-table__cell-day">18</td>
+							<td class="calendar-table__cell calendar-table__cell-day">19</td>
+						</tr>
+						<tr class="calendar-table__row-days">
+							<td class="calendar-table__cell calendar-table__cell-day">20</td>
+							<td class="calendar-table__cell calendar-table__cell-day">21</td>
+							<td class="calendar-table__cell calendar-table__cell-day">22</td>
+							<td class="calendar-table__cell calendar-table__cell-day">23</td>
+							<td class="calendar-table__cell calendar-table__cell-day">24</td>
+							<td class="calendar-table__cell calendar-table__cell-day">25</td>
+							<td class="calendar-table__cell calendar-table__cell-day">26</td>
+						</tr>
+						<tr class="calendar-table__row-days">
+							<td class="calendar-table__cell calendar-table__cell-day">27</td>
+							<td class="calendar-table__cell calendar-table__cell-day">28</td>
+							<td class="calendar-table__cell calendar-table__cell-day">29</td>
+							<td class="calendar-table__cell calendar-table__cell-day">30</td>
+							<td class="calendar-table__cell calendar-table__cell-day">31</td>
+							<td class="calendar-table__cell calendar-table__cell-day"></td>
+							<td class="calendar-table__cell calendar-table__cell-day"></td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<div class="controls__reload reload">
@@ -233,8 +292,39 @@
 					<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"/>
 				</svg>
 			</div>
-			<ul class="table-navigation-mobile__sort-list drop-list">
-
+			<ul class="table-navigation-mobile__sort-list sort-list drop-list">
+				<li class="drop-list__item sort-list__item selected">Date</li>
+				<li class="drop-list__item sort-list__item">Name</li>
+				<li class="drop-list__item sort-list__item">Type</li>
+				<li class="drop-list__item sort-list__item">Status</li>
+				<li class="drop-list__item sort-list__item">Property type</li>
+				<li class="drop-list__item sort-list__item">Area</li>
+				<li class="drop-list__item sort-list__item">Created by</li>
+				<li class="drop-list__item sort-list__item">Sсhedule time</li>
+				<li class="drop-list__item sort-list__item">Service Resource</li>
+				<li class="sort-list__sort-settings sort-settings">
+					<label class="sort-list__sort-settings-item sort-list__sort-settings-item_descending">
+						<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"></rect>
+							<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"></rect>
+						</svg>
+						<input class="sort-list__sort-settings-checkbox" type="radio" checked="checked" name="radio">
+						<span class="sort-list__sort-settings-сheckmark" class="sort-list__sort-settings-сheckmark"></span>
+					</label>
+					<label class="sort-list__sort-settings-item sort-list__sort-settings-item_ascending">
+						<svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"></rect>
+							<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"></rect>
+						</svg>
+						<input class="sort-list__sort-settings-checkbox" type="radio" name="radio">
+						<span class="sort-list__sort-settings-сheckmark"></span>
+					</label>
+				</li>
+				<li class="sort-list__sort-btn-wrapper">
+					<button class="sort-list__sort-btn">
+						Sort
+					</button>
+				</li>
 			</ul>
 		</div>
 	</section>
@@ -290,7 +380,7 @@
 							<ul class="table__filter-list drop-list">
 								<li class="drop-list__item table__filter-item ">
 									<label class="filter-item">All
-										<input class="filter-item__checkbox" type="checkbox">
+										<input class="filter-item__checkbox filter-item__checkbox_all" type="checkbox">
 										<span class="filter-item__checkmark"></span>
 									</label>	 
 								</li>
