@@ -24,21 +24,40 @@ const
     rowsNumberDown = document.querySelector('#table-navigation__rows-amount_bottom');
     rowsArrowDown = document.querySelector('#table-navigation__rows-amount-btn_bottom');
 
-    tableFilterBtn = document.querySelector('.table__filter-btn')
-    tableFilterList = document.querySelector('.table__filter-list')
-
-     
     tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
     tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
     tableMobileSortItems = document.querySelectorAll('.sort-list__item')
     tableMobileSortText = document.querySelector('.table-navigation-mobile__sort-text')
 
+    const tableFilterBtns = document.querySelectorAll('.table__filter-btn');
+    const tableFilterLists = document.querySelectorAll('.table__filter-list');
+    const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-apply');
+    let tableFilterListIndexOpened
 
     //DATE VIEW HANDLERS 
     dateView.addEventListener('click', function() {
         if (!dateView.classList.contains('open')) {
             dateView.classList.add('open');
             dateViewList.classList.add('visible');
+             /* Conditions to close other control-item elements */
+            tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+            
+            if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+                datePeriod.classList.remove('open');
+                datePeriodList.classList.remove('visible');
+            }
+            if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+              rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+              rowsNumberList.classList.remove('visible');
+            }
+            if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+              rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+              rowsNumberListDown.classList.remove('visible');
+            }
+            if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+              tableMobileSort.classList.remove('open');
+              tableMobileSortList.classList.remove('visible');
+            }
           } else {
             dateView.classList.remove('open');
             dateViewList.classList.remove('visible');
@@ -61,12 +80,32 @@ const
     //DATE PERIOD HANDLERS
     datePeriod.addEventListener('click', function() {
         if (!datePeriod.classList.contains('open')) {
-            datePeriod.classList.add('open');
-            datePeriodList.classList.add('visible');
-          } else {
-            datePeriod.classList.remove('open');
-            datePeriodList.classList.remove('visible');
+          datePeriod.classList.add('open');
+          datePeriodList.classList.add('visible');
+
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+            
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
           }
+          if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+            rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberList.classList.remove('visible');
+          }
+          if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+            rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberListDown.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
+        } else {
+          datePeriod.classList.remove('open');
+          datePeriodList.classList.remove('visible');
+        }
     })
     for (let i = 0; i < datePeriodItems.length; i++) {
         datePeriodItems[i].addEventListener('click', function() {
@@ -84,11 +123,30 @@ const
 
     //ROWS NUMBER HANDLERS
     rowsNumber.addEventListener('click', function() {
-        if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('show')) {
+        if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('visible')) {
           rowsArrow.classList.add('table-navigation__rows-amount-btn_open');
           rowsNumberList.classList.add('visible');
-          rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
-          rowsNumberListDown.classList.remove('visible');
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+            rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberListDown.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
         } else {
           rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberList.classList.remove('visible');
@@ -99,8 +157,27 @@ const
         if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('visible')) {
           rowsArrow.classList.add('table-navigation__rows-amount-btn_open');
           rowsNumberList.classList.add('visible');
-          rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
-          rowsNumberListDown.classList.remove('visible');
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+            rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberListDown.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
         } else {
           rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberList.classList.remove('visible');
@@ -111,8 +188,27 @@ const
         if (!rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberListDown.classList.contains('visible')) {
           rowsArrowDown.classList.add('table-navigation__rows-amount-btn_open');
           rowsNumberListDown.classList.add('visible');
-          rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
-          rowsNumberList.classList.remove('visible');
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+            rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberList.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
         } else {
           rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberListDown.classList.remove('visible');
@@ -122,8 +218,27 @@ const
         if (!rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberListDown.classList.contains('visible')) {
           rowsArrowDown.classList.add('table-navigation__rows-amount-btn_open');
           rowsNumberListDown.classList.add('visible');
-          rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
-          rowsNumberList.classList.remove('visible');
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+            rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberList.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
         } else {
           rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberListDown.classList.remove('visible');
@@ -151,8 +266,30 @@ const
     //TABLE NAVIGATION MOBILE SORT
     tableMobileSort.addEventListener('click', function(e) {
         if (!tableMobileSort.classList.contains('open')) {
-            tableMobileSort.classList.add('open');
-            tableMobileSortList.classList.add('visible');
+          tableMobileSort.classList.add('open');
+          tableMobileSortList.classList.add('visible');
+          /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+            rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberList.classList.remove('visible');
+          }
+
+          if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+            rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberListDown.classList.remove('visible');
+          }
         } 
         if(e.target.classList.contains('sort-list__sort-btn')){
             tableMobileSort.classList.remove('open');
@@ -173,12 +310,57 @@ const
         });
       }
     //TABLE FILTER
-    tableFilterBtn.addEventListener('click', function(e) {
-        tableFilterList =  e.currentTarget.parentNode.querySelector('.table__filter-list')
-        if (!tableFilterList.classList.contains('visible')) {
-            tableFilterList.classList.add('visible');
+    
+    for (let i = 0; i<tableFilterBtns.length;i++){
+        tableFilterBtns[i].addEventListener('click', function(e) {
+            /* Conditions to close other control-item elements */
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+
+          if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+            datePeriod.classList.remove('open');
+            datePeriodList.classList.remove('visible');
+          }
+          
+          if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+            dateView.classList.remove('open');
+            dateViewList.classList.remove('visible');
+          }
+
+          if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+            rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberList.classList.remove('visible');
+          }
+
+          if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+            rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+            rowsNumberListDown.classList.remove('visible');
+          }
+          if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+            tableMobileSort.classList.remove('open');
+            tableMobileSortList.classList.remove('visible');
+          }
+          tableFilterListIndexOpened = i;
+          tableFilterList =  e.currentTarget.parentNode.querySelector('.table__filter-list')
+          if (!tableFilterList.classList.contains('visible')) {
+              tableFilterList.classList.add('visible');
           } else {
             tableFilterList.classList.remove('visible');
           }
-    })
+        })
+    }
+    for (let i = 0; i < tableFilterBtnsApply.length; i++) {
+      tableFilterBtnsApply[i].addEventListener('click', function(e) {
+          let tableFilterListCheckboxes = tableFilterLists[tableFilterListIndexOpened].querySelectorAll('.filter-item__checkbox')
+          tableFilterLists[tableFilterListIndexOpened].parentNode.querySelector('.table__filter-btn').classList.remove('table__filter-btn_filtered')
+          //Check checkboxes, add active class for filter-btn
+          for(let i=0; i<tableFilterListCheckboxes.length;i++){
+            if(tableFilterListCheckboxes[i].checked){
+              tableFilterLists[tableFilterListIndexOpened].parentNode.querySelector('.table__filter-btn').classList.add('table__filter-btn_filtered')
+              break
+            }
+          }
+          tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+        });
+    }
+
       

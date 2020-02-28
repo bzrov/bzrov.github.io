@@ -371,6 +371,7 @@ input {
           transform: rotate(180deg); }
 
 .controls__date-picker {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -417,7 +418,24 @@ input {
   font-size: 1.4em; }
 
 .calendar {
-  background-color: #ffffff; }
+  position: absolute;
+  top: 50px;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  z-index: 2; }
+
+.calendar-table__row-week {
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 0.1rem solid #D0D3DA; }
+
+.calendar-table__cell {
+  padding: 14px;
+  text-align: center;
+  font-size: 1.4em; }
 
 .controls-mobile__item {
   display: none;
@@ -575,7 +593,8 @@ input {
 .table__text_headline {
   margin-right: 8px;
   font-size: 1.8em;
-  color: #8391AD; }
+  color: #8391AD;
+  font-weight: 400; }
 
 .table__sort-btn {
   width: 1.5rem;
@@ -588,9 +607,12 @@ input {
   .table__filter-btn:hover {
     cursor: pointer; }
 
+.table__filter-btn_filtered path {
+  stroke: #6093DE; }
+
 .table__filter-list {
   top: 50px;
-  left: 0;
+  right: 0;
   width: auto;
   white-space: nowrap; }
 
@@ -649,6 +671,17 @@ input {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg); }
 
+.table__filter-btn-apply {
+  display: block;
+  padding: 2px 20px;
+  margin: 5px auto;
+  background-color: #ffffff;
+  border: 1px solid #6093DE;
+  border-radius: 6px;
+  font-size: 1.6em;
+  color: #6093DE;
+  cursor: pointer; }
+
 .table__text {
   font-size: 1.6em; }
 
@@ -667,7 +700,8 @@ input {
   color: #eb5757; }
 
 .table-mobile {
-  display: none; }
+  display: none;
+  padding-bottom: 70px; }
 
 .table-mobile__cell {
   padding: 8px 15px;
@@ -918,7 +952,7 @@ input {
   .table-navigation__rows-amount-select_bottom {
     display: none; }
   .table-navigation__wrapper-controls_bottom {
-    bottom: 10px;
+    bottom: 18px;
     top: initial; }
   .table-navigation__controls_bottom {
     -webkit-justify-content: space-around;
