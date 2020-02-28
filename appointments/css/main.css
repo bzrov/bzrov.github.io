@@ -320,7 +320,8 @@ input {
   min-height: 42px;
   padding: 5px 50px 5px 20px;
   border-radius: 20px;
-  border: 1px solid #D0D3DA; }
+  border: 1px solid #D0D3DA;
+  font-size: 1.4em; }
 
 .controls__search-btn {
   position: absolute;
@@ -418,6 +419,8 @@ input {
   font-size: 1.4em; }
 
 .calendar {
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   top: 50px;
   padding: 10px;
@@ -425,7 +428,39 @@ input {
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
-  z-index: 2; }
+  z-index: 2;
+  cursor: pointer; }
+
+.calendar__table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.calendar__controls-month {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 14px 0px;
+  width: 100%;
+  border-bottom: 1px solid #D0D3DA; }
+
+.calendar__control-month {
+  width: 1em; }
+  .calendar__control-month svg {
+    stroke: #000000; }
+
+.calendar__month {
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: 500; }
 
 .calendar-table__row-week {
   text-transform: uppercase;
@@ -436,6 +471,10 @@ input {
   padding: 14px;
   text-align: center;
   font-size: 1.4em; }
+
+.calendar-table__cell-day:hover {
+  background-color: rgba(142, 142, 147, 0.5);
+  border-radius: .6em; }
 
 .controls-mobile__item {
   display: none;
@@ -558,8 +597,14 @@ input {
   .table th, .table td {
     border-left: 1px solid #D0D3DA;
     border-bottom: 1px solid #D0D3DA; }
+  .table td {
+    cursor: pointer; }
   .table tr:nth-child(2n+1) {
     background-color: #ffffff; }
+  .table tr:first-child:hover {
+    background: #ffffff; }
+  .table tr:hover {
+    background-color: #d8ebf6; }
 
 .table__cell {
   padding: 6px 10px 6px 10px;
@@ -597,13 +642,14 @@ input {
   font-weight: 400; }
 
 .table__sort-btn {
+  margin-left: 8px;
   width: 1.5rem;
   stroke: #8391AD; }
   .table__sort-btn:hover {
     cursor: pointer; }
 
 .table__filter-btn {
-  margin-left: 8px; }
+  margin-right: 8px; }
   .table__filter-btn:hover {
     cursor: pointer; }
 

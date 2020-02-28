@@ -340,7 +340,8 @@ const
             tableMobileSortList.classList.remove('visible');
           }
           tableFilterListIndexOpened = i;
-          tableFilterList =  e.currentTarget.parentNode.querySelector('.table__filter-list')
+          console.log(e.currentTarget.parentNode)
+          tableFilterList =  e.currentTarget.parentNode.parentNode.querySelector('.table__filter-list')
           if (!tableFilterList.classList.contains('visible')) {
               tableFilterList.classList.add('visible');
           } else {
