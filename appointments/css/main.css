@@ -283,10 +283,6 @@ input {
   z-index: 2;
   pointer-events: none; }
 
-.visible {
-  opacity: 1;
-  pointer-events: auto; }
-
 .drop-list__item {
   position: relative;
   padding: 8px 20px;
@@ -474,7 +470,18 @@ input {
 
 .calendar-table__cell-day:hover {
   background-color: rgba(142, 142, 147, 0.5);
-  border-radius: .6em; }
+  border-radius: 6px; }
+
+.calendar-table__cell-day_selected-one {
+  background-color: #6093DE;
+  border-radius: 50%;
+  color: #ffffff; }
+
+.calendar-table__cell-day_selected-period-start, .calendar-table__cell-day_selected-period-end {
+  background-color: red; }
+
+.calendar-table__cell-day_selected-period {
+  background-color: gray; }
 
 .controls-mobile__item {
   display: none;
@@ -594,17 +601,16 @@ input {
   border-collapse: collapse;
   border-top: 1px solid #D0D3DA;
   border-right: 1px solid #D0D3DA; }
-  .table th, .table td {
-    border-left: 1px solid #D0D3DA;
-    border-bottom: 1px solid #D0D3DA; }
   .table td {
     cursor: pointer; }
   .table tr:nth-child(2n+1) {
     background-color: #ffffff; }
-  .table tr:first-child:hover {
-    background: #ffffff; }
-  .table tr:hover {
-    background-color: #d8ebf6; }
+  .table th, .table td {
+    border-left: 1px solid #D0D3DA;
+    border-bottom: 1px solid #D0D3DA; }
+
+.table__row-content:hover {
+  background-color: #d8ebf6; }
 
 .table__cell {
   padding: 6px 10px 6px 10px;
@@ -927,6 +933,10 @@ input {
   font-size: 1.6em;
   color: #6093DE;
   cursor: pointer; }
+
+.visible {
+  opacity: 1;
+  pointer-events: auto; }
 
 @media screen and (max-width: 1200px) {
   .table {

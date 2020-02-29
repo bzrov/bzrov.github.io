@@ -1,3 +1,7 @@
+// Get days in month function
+Date.prototype.daysInMonth = function() {
+  return 33 - new Date(this.getFullYear(), this.getMonth(), 33).getDate();
+};
 const 
     dateView=document.querySelector('.controls__date-view')
     dateViewList = document.querySelector('.controls__date-view-list')
@@ -340,7 +344,7 @@ const
             tableMobileSortList.classList.remove('visible');
           }
           tableFilterListIndexOpened = i;
-          console.log(e.currentTarget.parentNode)
+
           tableFilterList =  e.currentTarget.parentNode.parentNode.querySelector('.table__filter-list')
           if (!tableFilterList.classList.contains('visible')) {
               tableFilterList.classList.add('visible');
@@ -362,6 +366,111 @@ const
           }
           tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
         });
+    } 
+    
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let dateStart =  new Date(2020,01,15);
+    let dateEnd = new Date(2020,01,20);
+    let dayStart = dateStart.getDate()-1
+    let dayEnd = dateEnd.getDate()-1
+    let firstClick = true;
+    let daysOffset = 0
+    calendar = document.querySelector('.calendar')
+    calendarTableDays = document.querySelectorAll('.calendar-table__cell-day')
+    calendarMonthYear = document.querySelector('.calendar__month')
+    calendarBtnNext = document.querySelector('.calendar__controll_next')
+    calendarBtnPrev = document.querySelector('.calendar__controll_prev')
+    controlsDatePickerStart = document.querySelector('.controls__date-picker-item_start')
+    controlsDatePickerEnd = document.querySelector('.controls__date-picker-item_end')
+
+    let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+
+    const renderCalendar = (month,year)=>{
+      let daysInMonth = new Date(year,month+1,0).getDate()
+      daysOffset = new Date(year,month).getDay()
+     
+
+      //Clear all days
+      for(let i=0; i<calendarTableDays.length; i++){
+        calendarTableDays[i].textContent = ""
+      }
+
+      //Fill all days
+      for(let i=0; i<daysInMonth; i++){
+        //
+        if (i===dayStart&& dayStart === dayEnd){
+          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
+        } else if (dayStart === i && dayStart!==dayEnd){
+          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
+        } else if (dayEnd === i && dayEnd!==dayStart){
+          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
+        }
+        if(i>dayStart && i < dayEnd){
+          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period')
+        }
+        calendarTableDays[i+daysOffset].textContent = i+1
+      }
+      //Creating text fot month
+      let textMonth = monthList[month]
+      let textMonthYear = textMonth + ' ' + year
+      calendarMonthYear.textContent = textMonthYear;
     }
 
-      
+
+    calendarBtnNext.addEventListener('click', function(e) {
+      month+=1
+      if (month>11){
+        year+=1;
+        month=0;
+      }
+      renderCalendar(month,year)
+    })
+    
+    calendarBtnPrev.addEventListener('click', function(e) {
+      month-=1
+      if (month<0){
+        year-=1;
+        month=11;
+      }
+      renderCalendar(month,year)
+    })
+
+    controlsDatePickerStart.addEventListener('click', function(e) {
+      let monthStart = dateStart.getMonth()
+      let yearStart = dateStart.getFullYear()
+
+      renderCalendar(monthStart,yearStart)
+      if (!calendar.classList.contains('visible')) {;
+        calendar.classList.add('visible');
+      }
+    })
+
+    controlsDatePickerEnd.addEventListener('click', function(e) {
+      let monthEnd = dateEnd.getMonth()
+      let yearEnd = dateEnd.getFullYear()
+
+      renderCalendar(monthEnd,yearEnd)
+      if (!calendar.classList.contains('visible')) {;
+        calendar.classList.add('visible');
+      }
+    })
+
+    calendarTableDays.forEach((calendarTableDay,idx) => {
+      calendarTableDay.addEventListener('click', function() {
+        
+        if(firstClick){
+          dayStart= idx-daysOffset;
+          
+        } else {
+          dayEnd= idx-daysOffset;
+        }
+        console.log(dayStart)
+        firstClick=!firstClick
+        renderCalendar(month,year)
+      })
+    });
