@@ -372,8 +372,8 @@ const
     let day = date.getDate();
     let month = date.getMonth();
     let year = date.getFullYear();
-    let dateStart =  new Date(2020,01,15);
-    let dateEnd = new Date(2020,01,20);
+    let dateStart =  new Date(2020,02,15);
+    let dateEnd = new Date(2020,02,20);
     let dayStart = dateStart.getDate()-1
     let dayEnd = dateEnd.getDate()-1
     let firstClick = true;
@@ -385,6 +385,9 @@ const
     calendarBtnPrev = document.querySelector('.calendar__controll_prev')
     controlsDatePickerStart = document.querySelector('.controls__date-picker-item_start')
     controlsDatePickerEnd = document.querySelector('.controls__date-picker-item_end')
+    controlsDatePickerStartText = document.querySelector('.controls__date-picker-date_start')
+    controlsDatePickerEndText = document.querySelector('.controls__date-picker-date_end')
+    
 
     let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -393,47 +396,57 @@ const
     const renderCalendar = (month,year)=>{
       let daysInMonth = new Date(year,month+1,0).getDate()
       daysOffset = new Date(year,month).getDay()
-     
+      //If first click(pick start date) set date start, else date end
 
+
+
+     
+     
       //Clear all days
       for(let i=0; i<calendarTableDays.length; i++){
         calendarTableDays[i].textContent = ""
       }
-
+      console.log(dateStart,dateEnd)
       //Fill all days
       for(let i=0; i<daysInMonth; i++){
-        //
 
-
-        
           if (i===dayStart&& dayStart === dayEnd && dateStart.getMonth() === month){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
           } else if (dayStart === i && dayStart!==dayEnd && dateStart.getMonth() === month){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
           } else if (dayEnd === i && dayEnd!==dayStart && dateStart.getMonth() === month){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
           } else {
             calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
             calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-start')
             calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-end')
           }
+          
         
         if(i>dayStart && i < dayEnd && dateStart.getMonth() === month){
           calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period')
         } else {
           calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
         }
+       
+       
         calendarTableDays[i+daysOffset].textContent = i+1
       }
       //Creating text fot month
       let textMonth = monthList[month]
       let textMonthYear = textMonth + ' ' + year
       calendarMonthYear.textContent = textMonthYear;
+      //Creating text for controls text
+      controlsDatePickerStartText.textContent = textMonthYear;
+      
     }
 
 
     calendarBtnNext.addEventListener('click', function(e) {
       month+=1
+      //dateStart=
       if (month>11){
         year+=1;
         month=0;
@@ -472,25 +485,24 @@ const
 
     calendarTableDays.forEach((calendarTableDay,idx) => {
       calendarTableDay.addEventListener('click', function() {
-        
         if(firstClick){
-          if (idx-daysOffset > dayStart && idx-daysOffset>dayEnd){
-            dayStart = dayEnd
-            dayEnd= idx-daysOffset;
-          }else{
             dayStart= idx-daysOffset;
-          }
+            dayEnd= idx-daysOffset;
+            dateStart = new Date(year,month,dayStart+1)
+            dateEnd = new Date(year,month,dayEnd+1)
+            firstClick=false;
         } else {
-          if (idx-daysOffset < dayEnd && idx-daysOffset<dayStart){
-            dayEnd = dayStart;
+          if (idx-daysOffset<dayStart){
             dayStart= idx-daysOffset;
+            dateStart = new Date(year,month,dayStart+1)
+            dateEnd = new Date(year,month,dayEnd+1)
+            firstClick=false;
           }else{
             dayEnd= idx-daysOffset;
+            dateEnd = new Date(year,month,dayEnd+1)
+            firstClick=true;
           }
-          
-        }
-
-        firstClick=!firstClick
+        } 
         renderCalendar(month,year)
       })
     });
