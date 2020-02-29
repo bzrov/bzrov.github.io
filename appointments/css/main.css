@@ -776,8 +776,19 @@ input {
   .table-mobile__cell-row:first-child {
     margin-bottom: 10px; }
 
+.table-mobile__cell_name-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
 .table-mobile__cell_name {
   margin-bottom: 2px;
+  margin-right: 8px;
   font-size: 1.6em;
   font-weight: 500; }
 
