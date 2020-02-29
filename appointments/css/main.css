@@ -317,7 +317,10 @@ input {
   padding: 5px 50px 5px 20px;
   border-radius: 20px;
   border: 1px solid #D0D3DA;
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
 
 .controls__search-btn {
   position: absolute;

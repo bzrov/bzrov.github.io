@@ -405,7 +405,12 @@ const
       //Fill all days
       for(let i=0; i<daysInMonth; i++){
           let dateTemp = new Date(year,month,i+1)
-          console.log()
+          if(calendarTableDays[i].innerHTML==""){
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-start')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-end')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
+          }
           if(Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateTemp)==Date.parse(dateEnd) ){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
           }
