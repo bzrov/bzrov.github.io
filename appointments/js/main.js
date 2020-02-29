@@ -430,6 +430,7 @@ const
         } else {
           calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
         }
+
        
        
         calendarTableDays[i+daysOffset].textContent = i+1
@@ -485,24 +486,29 @@ const
 
     calendarTableDays.forEach((calendarTableDay,idx) => {
       calendarTableDay.addEventListener('click', function() {
-        if(firstClick){
-            dayStart= idx-daysOffset;
-            dayEnd= idx-daysOffset;
-            dateStart = new Date(year,month,dayStart+1)
-            dateEnd = new Date(year,month,dayEnd+1)
-            firstClick=false;
-        } else {
-          if (idx-daysOffset<dayStart){
-            dayStart= idx-daysOffset;
-            dateStart = new Date(year,month,dayStart+1)
-            dateEnd = new Date(year,month,dayEnd+1)
-            firstClick=false;
-          }else{
-            dayEnd= idx-daysOffset;
-            dateEnd = new Date(year,month,dayEnd+1)
-            firstClick=true;
-          }
-        } 
+        if (idx-daysOffset>=0) {        
+          if(firstClick){
+              dayStart= idx-daysOffset;
+              dayEnd= dayStart;
+              dateStart = new Date(year,month,dayStart+1)
+              dateEnd = new Date(year,month,dayEnd+1)
+              firstClick=false;
+          } else {
+              dayEndTemp = idx-daysOffset
+              dateEndTemp = new Date(year,month,dayEndTemp+1)
+            if (dateEndTemp<dateStart){
+              dayStart= idx-daysOffset;
+              dateStart = new Date(year,month,dayStart+1)
+              dateEnd = new Date(year,month,dayEnd+1)
+              firstClick=false;
+            }else{
+              dayEnd= idx-daysOffset;
+              dateEnd = new Date(year,month,dayEnd+1)
+              firstClick=true;
+            }
+          } 
         renderCalendar(month,year)
+        }
       })
     });
+  
