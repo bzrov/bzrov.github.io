@@ -403,15 +403,25 @@ const
       //Fill all days
       for(let i=0; i<daysInMonth; i++){
         //
-        if (i===dayStart&& dayStart === dayEnd){
-          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
-        } else if (dayStart === i && dayStart!==dayEnd){
-          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
-        } else if (dayEnd === i && dayEnd!==dayStart){
-          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
-        }
-        if(i>dayStart && i < dayEnd){
+
+
+        
+          if (i===dayStart&& dayStart === dayEnd && dateStart.getMonth() === month){
+            calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
+          } else if (dayStart === i && dayStart!==dayEnd && dateStart.getMonth() === month){
+            calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
+          } else if (dayEnd === i && dayEnd!==dayStart && dateStart.getMonth() === month){
+            calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
+          } else {
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-start')
+            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-end')
+          }
+        
+        if(i>dayStart && i < dayEnd && dateStart.getMonth() === month){
           calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period')
+        } else {
+          calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
         }
         calendarTableDays[i+daysOffset].textContent = i+1
       }
@@ -464,12 +474,22 @@ const
       calendarTableDay.addEventListener('click', function() {
         
         if(firstClick){
-          dayStart= idx-daysOffset;
-          
+          if (idx-daysOffset > dayStart && idx-daysOffset>dayEnd){
+            dayStart = dayEnd
+            dayEnd= idx-daysOffset;
+          }else{
+            dayStart= idx-daysOffset;
+          }
         } else {
-          dayEnd= idx-daysOffset;
+          if (idx-daysOffset < dayEnd && idx-daysOffset<dayStart){
+            dayEnd = dayStart;
+            dayStart= idx-daysOffset;
+          }else{
+            dayEnd= idx-daysOffset;
+          }
+          
         }
-        console.log(dayStart)
+
         firstClick=!firstClick
         renderCalendar(month,year)
       })
