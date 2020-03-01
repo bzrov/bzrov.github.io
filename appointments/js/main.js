@@ -18,6 +18,10 @@ const rowsArrow = document.querySelector('#table-navigation__rows-amount-btn_top
 const rowsNumberDown = document.querySelector('#table-navigation__rows-amount_bottom');
 const rowsArrowDown = document.querySelector('#table-navigation__rows-amount-btn_bottom');
 
+const tableMobileItems = document.querySelectorAll('.table-mobile__cell')
+const popupWindow = document.querySelector('.popup-window')
+const overlay = document.querySelector('.overlay')
+
 const tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
 const tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
 const tableMobileSortItems = document.querySelectorAll('.sort-list__item')
@@ -30,6 +34,19 @@ const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-appl
 let tableFilterListIndexOpened
 
 //DATE VIEW HANDLERS 
+for (let i = 0; i < tableMobileItems.length; i++) {
+  tableMobileItems[i].addEventListener('click', function() {
+    if(!popupWindow.classList.contains('popup-window_active')){
+      popupWindow.classList.add('popup-window_active')
+    }
+  });
+}
+overlay.addEventListener('click', function() {
+  if(popupWindow.classList.contains('popup-window_active')){
+    popupWindow.classList.remove('popup-window_active')
+  }
+});
+
 dateView.addEventListener('click', function() {
   if (!dateView.classList.contains('open')) {
     dateView.classList.add('open');
@@ -109,8 +126,63 @@ datePeriod.addEventListener('click', function() {
   }
 })
 for (let i = 0; i < datePeriodItems.length; i++) {
-  datePeriodItems[i].addEventListener('click', function() {
+  datePeriodItems[i].addEventListener('click', function(e) {
     if (!datePeriodItems[i].classList.contains('selected')) { datePeriodItems[i].classList.add('selected'); }
+    dateStart = new Date();
+    dateEnd = new Date();
+    if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow')){
+      dateStart.setDate(date.getDate()+1)
+      dateEnd.setDate(date.getDate()+1)
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow-next')){
+
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_today')){
+      dateStart.setDate(date.getDate())
+      dateEnd.setDate(date.getDate())
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_yesterday')){
+      dateStart.setDate(date.getDate()-1)
+      dateEnd.setDate(date.getDate()-1)
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_week-sun')){
+      dateStart.setDate(date.getDate()- date.getDay())
+      dateEnd.setDate(date.getDate())
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_week-mon')){
+      dateStart.setDate(date.getDate()- date.getDay()+1)
+      dateEnd.setDate(date.getDate())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-7-days')){
+      dateStart.setDate(date.getDate()- 7)
+      dateEnd.setDate(date.getDate())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-week-sun')){
+      dateStart.setDate(date.getDate()- date.getDay()-7)
+      dateEnd.setDate(date.getDate()- date.getDay()-1)
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-week-mon')){
+      dateStart.setDate(date.getDate()- date.getDay()-6)
+      dateEnd.setDate(date.getDate()- date.getDay())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-week-mon-fr')){
+      dateStart.setDate(date.getDate()- date.getDay()-6)
+      dateEnd.setDate(date.getDate()- date.getDay()-2)
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-14-days')){
+      dateStart.setDate(date.getDate()- 14)
+      dateEnd.setDate(date.getDate())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-30-days')){
+      dateStart.setDate(date.getDate()- 30)
+      dateEnd.setDate(date.getDate())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_month')){
+      dateStart.setDate(1)
+      dateEnd.setDate(new Date(dateStart.getFullYear(), dateStart.getMonth()+1,0).getDate())
+    }else if(datePeriodItems[i].classList.contains('date-period-list__item_last-month')){
+      dateStart.setDate(1-(new Date(dateStart.getFullYear(), dateStart.getMonth(),0).getDate()))
+      dateEnd.setDate(0)
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_all')){
+    }
+    
+    
+    
+    dateStart.setMinutes(0);
+    dateStart.setHours(0);
+    dateStart.setSeconds(0);
+    dateEnd.setMinutes(0);
+    dateEnd.setHours(0);
+    dateEnd.setSeconds(0);
+
     for (let j = i - 1; j >=0; j--) {
       if (datePeriodItems[j].classList.contains('selected')) { datePeriodItems[j].classList.remove('selected'); }
     }
@@ -119,6 +191,9 @@ for (let i = 0; i < datePeriodItems.length; i++) {
     }
     let itemText = datePeriodItems[i].textContent;
     datePeriodText.textContent = itemText;
+
+    controlsDatePickerStartText.textContent = `${monthShortList[dateStart.getMonth()]} ${dateStart.getDate()}, ${dateStart.getFullYear()}`;
+    controlsDatePickerEndText.textContent = `${monthShortList[dateEnd.getMonth()]} ${dateEnd.getDate()}, ${dateEnd.getFullYear()}`;
   });
 }
 
@@ -324,6 +399,7 @@ for (let i = 0; i < tableMobileSortItems.length; i++) {
     }
     let itemText = tableMobileSortItems[i].textContent;
     tableMobileSortText.textContent = itemText;
+
   });
 }
 //TABLE FILTER
@@ -388,8 +464,8 @@ let date = new Date();
 let day = date.getDate();
 let month = date.getMonth();
 let year = date.getFullYear();
-let dateStart =  date;
-let dateEnd = date;
+let dateStart =  new Date();
+let dateEnd = new Date();
 let dayStart = dateStart.getDate()-1
 let dayEnd = dateEnd.getDate()-1
 let firstClick = true;
@@ -429,12 +505,11 @@ const renderCalendar = (month,year)=>{
   //Fill all days
   for(let i=0; i<daysInMonth; i++){
     let dateTemp = new Date(year,month,i+1)
+
     if(Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateTemp)==Date.parse(dateEnd) ){
       calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
-
     } else if (Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateStart)!=Date.parse(dateEnd)){
       calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
-
     } else if (Date.parse(dateTemp)==Date.parse(dateEnd) && Date.parse(dateStart)!=Date.parse(dateEnd)){
       calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
     } 
@@ -471,7 +546,8 @@ calendarBtnPrev.addEventListener('click', function() {
 controlsDatePickerStart.addEventListener('click', function() {
   let monthStart = dateStart.getMonth()
   let yearStart = dateStart.getFullYear()
-
+  month = monthStart;
+  year = yearStart;
   renderCalendar(monthStart,yearStart)
   if (!calendar.classList.contains('visible')) {;
     calendar.classList.add('visible');
@@ -505,7 +581,8 @@ controlsDatePickerStart.addEventListener('click', function() {
 controlsDatePickerEnd.addEventListener('click', function() {
   let monthEnd = dateEnd.getMonth()
   let yearEnd = dateEnd.getFullYear()
-
+  month = monthEnd;
+  year = yearEnd;
   renderCalendar(monthEnd,yearEnd)
   if (!calendar.classList.contains('visible')) {;
     calendar.classList.add('visible');
@@ -549,7 +626,6 @@ calendarTableDays.forEach((calendarTableDay,idx) => {
           dayEndTemp = idx-daysOffset
           dateEndTemp = new Date(year,month,dayEndTemp+1)
         if (Date.parse(dateEndTemp)<Date.parse(dateStart)){
-          console.log('fuck')
           dayStart= idx-daysOffset;
           dayEnd= dayStart;
           dateStart = new Date(year,month,dayStart+1)
@@ -585,7 +661,47 @@ window.addEventListener('click', function(event) {
   let clickedControlsDatePickerEnd = target.closest('.controls__date-picker-item_end');
   let clickedTableFilerBtn = target.closest('.table__filter-btn');
   let clickedTableFilerList = target.closest('.table__filter-list');
-  
+
+  !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+  if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+    dateView.classList.remove('open');
+    dateViewList.classList.remove('visible');
+  }
+  if (!clickedDatePeriod && datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+      datePeriod.classList.remove('open');
+      datePeriodList.classList.remove('visible');
+  }
+  if (!clickedRowsArrow  && !clickedRowsNumber && rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+    rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+    rowsNumberList.classList.remove('visible');
+  }
+  if (!clickedRowsArrowDown && !clickedRowsNumberDown && rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+    rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+    rowsNumberListDown.classList.remove('visible');
+  }
+  if (!clickedTableMobileSort && tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+    tableMobileSort.classList.remove('open');
+    tableMobileSortList.classList.remove('visible');
+  }
+  if (!clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
+    calendar.classList.remove('visible');
+  }
+});
+window.addEventListener('touchstart', function(event) {
+  let target = event.target;
+  let clickedDateView= target.closest('.controls__date-view');
+  let clickedDatePeriod= target.closest('.controls__date-period');
+  let clickedRowsArrow = target.closest('#table-navigation__rows-amount-btn_top');
+  let clickedRowsNumber = target.closest('#table-navigation__rows-amount_top');
+  let clickedRowsNumberDown = target.closest('#table-navigation__rows-amount_bottom');
+  let clickedRowsArrowDown = target.closest('#table-navigation__rows-amount-btn_bottom');
+  let clickedTableMobileSort = target.closest('.table-navigation-mobile__sort');
+  let clickedCalendar = target.closest('.calendar');
+  let clickedControlsDatePickerStart = target.closest('.controls__date-picker-item_start');
+  let clickedControlsDatePickerEnd = target.closest('.controls__date-picker-item_end');
+  let clickedTableFilerBtn = target.closest('.table__filter-btn');
+  let clickedTableFilerList = target.closest('.table__filter-list');
+
   !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
   if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
     dateView.classList.remove('open');
