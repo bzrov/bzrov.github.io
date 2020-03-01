@@ -62,6 +62,9 @@ const
               tableMobileSort.classList.remove('open');
               tableMobileSortList.classList.remove('visible');
             }
+            if (calendar.classList.contains('visible')) {;
+              calendar.classList.remove('visible');
+            }
           } else {
             dateView.classList.remove('open');
             dateViewList.classList.remove('visible');
@@ -105,6 +108,9 @@ const
           if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
+          }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
           }
         } else {
           datePeriod.classList.remove('open');
@@ -151,6 +157,9 @@ const
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
           }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
+          }
         } else {
           rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberList.classList.remove('visible');
@@ -181,6 +190,9 @@ const
           if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
+          }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
           }
         } else {
           rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
@@ -213,6 +225,9 @@ const
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
           }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
+          }
         } else {
           rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
           rowsNumberListDown.classList.remove('visible');
@@ -242,6 +257,9 @@ const
           if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
+          }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
           }
         } else {
           rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
@@ -294,6 +312,9 @@ const
             rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
             rowsNumberListDown.classList.remove('visible');
           }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
+          }
         } 
         if(e.target.classList.contains('sort-list__sort-btn')){
             tableMobileSort.classList.remove('open');
@@ -343,6 +364,9 @@ const
             tableMobileSort.classList.remove('open');
             tableMobileSortList.classList.remove('visible');
           }
+          if (calendar.classList.contains('visible')) {;
+            calendar.classList.remove('visible');
+          }
           tableFilterListIndexOpened = i;
 
           tableFilterList =  e.currentTarget.parentNode.parentNode.querySelector('.table__filter-list')
@@ -372,8 +396,8 @@ const
     let day = date.getDate();
     let month = date.getMonth();
     let year = date.getFullYear();
-    let dateStart =  new Date(2020,02,15);
-    let dateEnd = new Date(2020,02,20);
+    let dateStart =  date;
+    let dateEnd = date;
     let dayStart = dateStart.getDate()-1
     let dayEnd = dateEnd.getDate()-1
     let firstClick = true;
@@ -392,60 +416,50 @@ const
 
     let weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthShortList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     
 
     const renderCalendar = (month,year)=>{
       daysInMonth = new Date(year,month+1,0).getDate()
       daysOffset = new Date(year,month).getDay()
+
       //Clear all days
       for(let i=0; i<calendarTableDays.length; i++){
         calendarTableDays[i].textContent = ""
+        if(calendarTableDays[i].textContent==""){
+          calendarTableDays[i].classList.remove('calendar-table__cell-day_selected-one')
+          calendarTableDays[i].classList.remove('calendar-table__cell-day_selected-period-start')
+          calendarTableDays[i].classList.remove('calendar-table__cell-day_selected-period-end')
+          calendarTableDays[i].classList.remove('calendar-table__cell-day_selected-period')
+        }
       }
 
       //Fill all days
       for(let i=0; i<daysInMonth; i++){
           let dateTemp = new Date(year,month,i+1)
-          if(calendarTableDays[i].innerHTML==""){
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-start')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-end')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
-          }
           if(Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateTemp)==Date.parse(dateEnd) ){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
-          }
-           else if (Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateStart)!=Date.parse(dateEnd)){
+
+          } else if (Date.parse(dateTemp)==Date.parse(dateStart) && Date.parse(dateStart)!=Date.parse(dateEnd)){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-start')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
+
           } else if (Date.parse(dateTemp)==Date.parse(dateEnd) && Date.parse(dateStart)!=Date.parse(dateEnd)){
             calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period-end')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
-          } else {
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-one')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-start')
-            calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period-end')
+          } 
+          if(Date.parse(dateTemp)>Date.parse(dateStart) && Date.parse(dateTemp) < Date.parse(dateEnd)){
+            calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period')
           }
-          
-        if(Date.parse(dateTemp)>Date.parse(dateStart) && Date.parse(dateTemp) < Date.parse(dateEnd)){
-          calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-period')
-        } else {
-          calendarTableDays[i+daysOffset].classList.remove('calendar-table__cell-day_selected-period')
-        }
-
         calendarTableDays[i+daysOffset].textContent = i+1
       }
+
       //Creating text fot month
       let textMonth = monthList[month]
       let textMonthYear = textMonth + ' ' + year
       calendarMonthYear.textContent = textMonthYear;
-      //Creating text for controls text
-      controlsDatePickerStartText.textContent = textMonthYear;
     }
-
 
     calendarBtnNext.addEventListener('click', function(e) {
       month+=1
-      //dateStart=
       if (month>11){
         year+=1;
         month=0;
@@ -470,6 +484,31 @@ const
       if (!calendar.classList.contains('visible')) {;
         calendar.classList.add('visible');
       }
+      /* Conditions to close other control-item elements */
+      tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+            
+      if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+        dateView.classList.remove('open');
+        dateViewList.classList.remove('visible');
+      }
+            
+      if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+          datePeriod.classList.remove('open');
+          datePeriodList.classList.remove('visible');
+      }
+      if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+        rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+        rowsNumberList.classList.remove('visible');
+      }
+      if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+        rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+        rowsNumberListDown.classList.remove('visible');
+      }
+      if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+        tableMobileSort.classList.remove('open');
+        tableMobileSortList.classList.remove('visible');
+      }
+
     })
 
     controlsDatePickerEnd.addEventListener('click', function(e) {
@@ -480,10 +519,36 @@ const
       if (!calendar.classList.contains('visible')) {;
         calendar.classList.add('visible');
       }
+      /* Conditions to close other control-item elements */
+      tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
+            
+      if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
+        dateView.classList.remove('open');
+        dateViewList.classList.remove('visible');
+      }
+            
+      if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+          datePeriod.classList.remove('open');
+          datePeriodList.classList.remove('visible');
+      }
+      if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+        rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
+        rowsNumberList.classList.remove('visible');
+      }
+      if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
+        rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
+        rowsNumberListDown.classList.remove('visible');
+      }
+      if (tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
+        tableMobileSort.classList.remove('open');
+        tableMobileSortList.classList.remove('visible');
+      }
+
     })
 
     calendarTableDays.forEach((calendarTableDay,idx) => {
       calendarTableDay.addEventListener('click', function() {
+
         if (idx-daysOffset>=0 && idx-daysOffset<daysInMonth) {        
           if(firstClick){
               dayStart= idx-daysOffset;
@@ -495,7 +560,9 @@ const
               dayEndTemp = idx-daysOffset
               dateEndTemp = new Date(year,month,dayEndTemp+1)
             if (Date.parse(dateEndTemp)<Date.parse(dateStart)){
+              console.log('fuck')
               dayStart= idx-daysOffset;
+              dayEnd= dayStart;
               dateStart = new Date(year,month,dayStart+1)
               dateEnd = new Date(year,month,dayEnd+1)
               firstClick=false;
@@ -505,6 +572,10 @@ const
               firstClick=true;
             }
           } 
+          //Creating text for controls text
+          let textMonthShort = monthShortList[month]
+          controlsDatePickerStartText.textContent = `${textMonthShort} ${dateStart.getDate()}, ${year}`;
+          controlsDatePickerEndText.textContent = `${textMonthShort} ${dateEnd.getDate()}, ${year}`;
         renderCalendar(month,year)
         }
       })

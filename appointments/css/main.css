@@ -325,8 +325,7 @@ input {
 .controls__search-btn {
   position: absolute;
   right: 0;
-  top: 0;
-  z-index: 2; }
+  top: 0; }
 
 .controls__search-btn, .controls__reload-btn {
   display: -webkit-box;
@@ -415,6 +414,7 @@ input {
   font-size: 1.8em; }
 
 .controls__date-picker-date {
+  width: 95px;
   padding-right: 10px;
   font-size: 1.4em; }
 
@@ -423,6 +423,10 @@ input {
   pointer-events: none;
   position: absolute;
   top: 50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   padding: 10px;
   border-radius: 20px;
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -482,10 +486,28 @@ input {
   color: #ffffff; }
 
 .calendar-table__cell-day_selected-period-start, .calendar-table__cell-day_selected-period-end {
-  background-color: red; }
+  position: relative;
+  background-color: #0080fe;
+  border-radius: 50%;
+  color: #ffffff; }
+  .calendar-table__cell-day_selected-period-start::after, .calendar-table__cell-day_selected-period-end::after {
+    content: "";
+    display: block;
+    background-color: #e8e9ed;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: -1; }
+
+.calendar-table__cell-day_selected-period-start::after {
+  right: 0; }
+
+.calendar-table__cell-day_selected-period-end::after {
+  left: 0; }
 
 .calendar-table__cell-day_selected-period {
-  background-color: gray; }
+  background-color: #e8e9ed; }
 
 .controls-mobile__item {
   display: none;
@@ -1077,5 +1099,6 @@ input {
   .controls__date-picker-text {
     margin: 0 8px; }
   .controls__date-picker-date {
+    width: 87px;
     padding-right: 8px;
-    font-size: 1.3em; } }
+    font-size: 1.2em; } }
