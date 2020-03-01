@@ -484,10 +484,12 @@ input {
   background-color: #6093DE;
   border-radius: 50%;
   color: #ffffff; }
+  .calendar-table__cell-day_selected-one:hover {
+    border-radius: 50%; }
 
 .calendar-table__cell-day_selected-period-start, .calendar-table__cell-day_selected-period-end {
   position: relative;
-  background-color: #0080fe;
+  background-color: #6093DE;
   border-radius: 50%;
   color: #ffffff; }
   .calendar-table__cell-day_selected-period-start::after, .calendar-table__cell-day_selected-period-end::after {
@@ -499,6 +501,9 @@ input {
     height: 100%;
     width: 50%;
     z-index: -1; }
+  .calendar-table__cell-day_selected-period-start:hover, .calendar-table__cell-day_selected-period-end:hover {
+    background-color: #8e8e93;
+    border-radius: 50%; }
 
 .calendar-table__cell-day_selected-period-start::after {
   right: 0; }
@@ -508,6 +513,8 @@ input {
 
 .calendar-table__cell-day_selected-period {
   background-color: #e8e9ed; }
+  .calendar-table__cell-day_selected-period:hover {
+    border-radius: 0px; }
 
 .controls-mobile__item {
   display: none;
@@ -626,23 +633,24 @@ input {
   border-collapse: collapse;
   border-top: 1px solid #D0D3DA;
   border-right: 1px solid #D0D3DA; }
-  .table td {
-    cursor: pointer; }
   .table tr:nth-child(2n+1) {
     background-color: #ffffff; }
   .table th, .table td {
     border-left: 1px solid #D0D3DA;
     border-bottom: 1px solid #D0D3DA; }
+  .table th {
+    position: relative; }
+  .table .table__row-content:hover {
+    background-color: #d8ebf6; }
 
-.table__row-content:hover {
-  background-color: #d8ebf6; }
+.table__cell_content {
+  cursor: pointer; }
 
 .table__cell {
   padding: 6px 10px 6px 10px;
   text-align: start; }
 
 .table__cell_headline {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -685,11 +693,12 @@ input {
     cursor: pointer; }
 
 .table__filter-btn_filtered path {
-  stroke: #6093DE; }
+  stroke: #6093DE;
+  fill: #6093DE; }
 
 .table__filter-list {
-  top: 50px;
-  right: 0;
+  top: 48px;
+  left: 0;
   width: auto;
   white-space: nowrap; }
 
@@ -762,11 +771,14 @@ input {
 .table__text {
   font-size: 1.6em; }
 
-.table__share-btn_active svg, .table__share-btn_active path {
+.table__cell_share_active svg, .table__cell_share_active path {
   stroke: #6093DE;
   fill: #6093DE; }
 
-.table__share-btn_inactive svg, .table__share-btn_inactive path {
+.table__cell_share_active:hover {
+  cursor: pointer; }
+
+.table__cell_share_inactive svg, .table__cell_share_inactive path {
   stroke: #D0D3DA;
   fill: #D0D3DA; }
 
@@ -784,6 +796,9 @@ input {
   padding: 8px 15px;
   background-color: #ffffff;
   margin-bottom: 8px; }
+  .table-mobile__cell:hover {
+    background-color: #d8ebf6;
+    cursor: pointer; }
 
 .table-mobile__cell-row {
   display: -webkit-box;
@@ -1049,7 +1064,16 @@ input {
   .table-navigation__controls_bottom {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
-            justify-content: space-around; } }
+            justify-content: space-around; }
+  .calendar-table__cell-day:hover {
+    background-color: initial;
+    border-radius: 0px; }
+  .calendar-table__cell-day_selected-one:hover {
+    background-color: #6093DE;
+    border-radius: 50%; }
+  .calendar-table__cell-day_selected-period-start:hover, .calendar-table__cell-day_selected-period-end:hover {
+    background-color: #6093DE;
+    border-radius: 50%; } }
 
 @media screen and (max-width: 671px) {
   .dashboard__item-number {
