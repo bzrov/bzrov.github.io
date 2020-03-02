@@ -366,9 +366,7 @@ rowsArrowDown.addEventListener('click', function() {
 });
   
 for (let i = 0; i < rowsNumberItems.length; i++) {
-  console.log(rowsNumberItems[i])
   rowsNumberItems[i].addEventListener('click', function() {
-
     if (!rowsNumberItems[i].classList.contains('selected')) { rowsNumberItems[i].classList.add('selected'); }
     for (let j = i - 1; j >=0; j--) {
       if (rowsNumberItems[j].classList.contains('selected')) { rowsNumberItems[j].classList.remove('selected'); }
