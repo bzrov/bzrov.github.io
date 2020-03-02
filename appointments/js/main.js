@@ -46,8 +46,10 @@ for (let i = 0; i < tableMobileItems.length; i++) {
       popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
       if(tableMobileItems[i].querySelector('.table__share-btn').classList.contains('table__share-btn_active')){
         popupTableItemBtn.classList.add('table__share-btn_active')
+        popupTableItemBtn.classList.remove('table__share-btn_inactive')
       } else {
         popupTableItemBtn.classList.add('table__share-btn_inactive')
+        popupTableItemBtn.classList.remove('table__share-btn_active')
       }
 
     }
