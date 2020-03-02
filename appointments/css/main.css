@@ -163,8 +163,7 @@ body {
   font-size: 10px;
   font-family: 'Roboto', sans-serif;
   line-height: 1;
-  background-color: #F6F7FB;
-  min-height: 100vh; }
+  background-color: #F6F7FB; }
 
 body, html {
   overflow-x: hidden;
