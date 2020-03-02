@@ -751,45 +751,4 @@ console.log(target)
     calendar.classList.remove('visible');
   }
 });
-window.addEventListener('touchstart', function(event) {
-  let target = event.target;
-  let clickedDateView= target.closest('.controls__date-view');
-  let clickedDatePeriod= target.closest('.controls__date-period');
-  let clickedRowsArrow = target.closest('#table-navigation__rows-amount-btn_top');
-  let clickedRowsNumber = target.closest('#table-navigation__rows-amount_top');
-  let clickedRowsNumberDown = target.closest('#table-navigation__rows-amount_bottom');
-  let clickedRowsArrowDown = target.closest('#table-navigation__rows-amount-btn_bottom');
-  let clickedTableMobileSort = target.closest('.table-navigation-mobile__sort');
-  let clickedCalendar = target.closest('.calendar');
-  let clickedControlsDatePickerStart = target.closest('.controls__date-picker-item_start');
-  let clickedControlsDatePickerEnd = target.closest('.controls__date-picker-item_end');
-  let clickedTableFilerBtn = target.closest('.table__filter-btn');
-  let clickedTableFilerList = target.closest('.table__filter-list');
 
-  !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
-  if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-    dateView.classList.remove('open');
-    dateViewList.classList.remove('visible');
-  }
-  if (!clickedDatePeriod && datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
-      datePeriod.classList.remove('open');
-      datePeriodList.classList.remove('visible');
-  }
-  console.log(target)
-  console.log(!clickedRowsArrow)
-  console.log(!clickedRowsNumber)
-  console.log(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open'))
-  console.log(rowsNumberList.classList.contains('visible'))
-  
-  if (!clickedRowsArrowDown && !clickedRowsNumberDown && rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
-    rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
-    rowsNumberListDown.classList.remove('visible');
-  }
-  if (!clickedTableMobileSort && tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible')) {
-    tableMobileSort.classList.remove('open');
-    tableMobileSortList.classList.remove('visible');
-  }
-  if (!clickedDatePeriod  && !clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
-    calendar.classList.remove('visible');
-  }
-});
