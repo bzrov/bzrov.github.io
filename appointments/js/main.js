@@ -38,7 +38,7 @@ const tableFilterLists = document.querySelectorAll('.table__filter-list');
 const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-apply');
 const tableFilterCheckboxes = document.querySelectorAll('.filter-item [type=checkbox]')
 
-const tableNavDownFixed = document.querySelectorAll('.table-navigation_bottom')
+const tableNavDownFixed = document.querySelector('.table-navigation_bottom')
 
 let tableFilterListIndexOpened
 
