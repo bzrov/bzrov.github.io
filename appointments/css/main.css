@@ -685,8 +685,8 @@ input {
 
 .table__sort-btn {
   margin-left: 8px;
-  width: 1.2rem;
-  min-width: 1.2rem;
+  width: 1rem;
+  min-width: 1rem;
   stroke: #8391AD; }
   .table__sort-btn:hover {
     cursor: pointer; }
