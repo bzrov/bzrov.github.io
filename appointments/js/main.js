@@ -47,7 +47,15 @@ let tableFilterListIndexOpened
 //DATE VIEW HANDLERS 
 for (let i = 0; i < tableMobileItems.length; i++) {
   tableMobileItems[i].addEventListener('click', function() {
-    if(!popupWindow.classList.contains('popup-window_active')){
+    if(
+      !popupWindow.classList.contains('popup-window_active') &&
+      !(datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) &&
+      !(dateView.classList.contains('open') && dateViewList.classList.contains('visible')) &&
+      !(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) &&
+      !(rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) &&
+      !((tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible'))) &&
+      !(calendar.classList.contains('visible')) 
+    ){
       popupWindow.classList.add('popup-window_active')
       popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
       if(tableMobileItems[i].querySelector('.table__share-btn').classList.contains('table__share-btn_active')){
