@@ -184,6 +184,9 @@ ul {
 input {
   outline: none; }
 
+.safari {
+  cursor: pointer; }
+
 .dashboard {
   display: -webkit-box;
   display: -webkit-flex;

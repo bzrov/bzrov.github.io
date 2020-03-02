@@ -724,7 +724,7 @@ window.addEventListener('click', function(event) {
   let clickedControlsDatePickerEnd = target.closest('.controls__date-picker-item_end');
   let clickedTableFilerBtn = target.closest('.table__filter-btn');
   let clickedTableFilerList = target.closest('.table__filter-list');
-console.log(target)
+
   !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
   if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
     dateView.classList.remove('open');
@@ -751,4 +751,7 @@ console.log(target)
     calendar.classList.remove('visible');
   }
 });
-
+const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+if(isSafari){
+  document.body.classList.add('safari')
+}
