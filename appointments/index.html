@@ -3,9 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 	<title>Appoint</title>
 	<meta name="msapplication-TileColor" content="#da532c">
+
 	<meta name="theme-color" content="#ffffff">
 	<link rel="stylesheet" href="css/libs.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
@@ -301,6 +303,11 @@
 			<p class="table-navigation-mobile__sort-label">
 				Sort:
 			</p>
+			<div class="table-navigation-mobile__sort-dir table__sort-dir_descending">
+				<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</div>
 			<p class="table-navigation-mobile__sort-text">
 				Date
 			</p>
@@ -326,7 +333,7 @@
 							<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"></rect>
 							<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"></rect>
 						</svg>
-						<input class="sort-list__sort-settings-checkbox" type="radio" checked="checked" name="radio">
+						<input class="sort-list__sort-settings-checkbox sort-list__sort-settings-checkbox_descending" type="radio" checked="checked" name="radio">
 						<span class="sort-list__sort-settings-сheckmark" class="sort-list__sort-settings-сheckmark"></span>
 					</label>
 					<label class="sort-list__sort-settings-item sort-list__sort-settings-item_ascending">
@@ -334,7 +341,7 @@
 							<rect width="10.9101" height="1.17367" rx="0.586834" transform="matrix(0.691321 0.722548 -0.497618 0.867396 0.584045 0.755127)" fill="#8391AD"></rect>
 							<rect width="10.9063" height="1.17402" rx="0.587009" transform="matrix(-0.692167 0.721737 -0.49674 -0.8679 15 1.76892)" fill="#8391AD"></rect>
 						</svg>
-						<input class="sort-list__sort-settings-checkbox" type="radio" name="radio">
+						<input class="sort-list__sort-settings-checkbox sort-list__sort-settings-checkbox_ascending" type="radio" name="radio">
 						<span class="sort-list__sort-settings-сheckmark"></span>
 					</label>
 				</li>
@@ -355,9 +362,9 @@
 							<p class="table__text table__text_headline">
 								Date
 							</p>
-							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+							<div class="table__sort-btn table__sort-dir_hide">
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 
@@ -369,8 +376,8 @@
 								Name
 							</p>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 						</div>
@@ -391,8 +398,8 @@
 								</p>
 							</div>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 							<ul class="table__filter-list drop-list">
@@ -420,7 +427,7 @@
 									</button>
 								</li>
 							</ul>
-						</div>
+
 					</th>
 					<th>
 						<div class="table__cell table__cell_headline">
@@ -438,8 +445,8 @@
 								</p>
 							</div>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 							<ul class="table__filter-list drop-list">
@@ -485,8 +492,8 @@
 								</p>
 							</div>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 							<ul class="table__filter-list drop-list">
@@ -531,9 +538,9 @@
 									Area
 								</p>
 							</div>
-							<div class="table__sort-btn table__sort-btn_top">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+							<div class="table__sort-btn table__sort-dir_ascending ">
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 							<ul class="table__filter-list drop-list">
@@ -579,9 +586,9 @@
 								</p>
 							</div>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
-								</svg>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>			
 							</div>
 							<ul class="table__filter-list drop-list">
 								<li class="drop-list__item table__filter-item ">
@@ -616,8 +623,8 @@
 								Schedule time
 							</p>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 						</div>
@@ -638,8 +645,8 @@
 								</p>
 							</div>
 							<div class="table__sort-btn">
-								<svg viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M1 1L6 5.28571L11 1" stroke-linecap="round" stroke-linejoin="round"></path>
+								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</div>
 							<ul class="table__filter-list drop-list">

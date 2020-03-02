@@ -29,6 +29,9 @@ const tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
 const tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
 const tableMobileSortItems = document.querySelectorAll('.sort-list__item')
 const tableMobileSortText = document.querySelector('.table-navigation-mobile__sort-text')
+const tableMobileSortArrowDir =document.querySelector('.table-navigation-mobile__sort-dir')
+const tableMobileSortCheckboxDescending =  document.querySelector('.sort-list__sort-settings-checkbox_descending')
+const tableMobileSortCheckboxAscending =  document.querySelector('.sort-list__sort-settings-checkbox_ascending')
 
 const tableFilterBtns = document.querySelectorAll('.table__filter-btn');
 const tableFilterLists = document.querySelectorAll('.table__filter-list');
@@ -408,6 +411,14 @@ tableMobileSort.addEventListener('click', function(e) {
     }
   } 
   if(e.target.classList.contains('sort-list__sort-btn')){
+      if(tableMobileSortCheckboxDescending.checked){
+        tableMobileSortArrowDir.classList.add('table__sort-dir_descending')
+        tableMobileSortArrowDir.classList.remove('table__sort-dir_ascending')
+      } else if(tableMobileSortCheckboxAscending.checked){
+        tableMobileSortArrowDir.classList.add('table__sort-dir_ascending')
+        tableMobileSortArrowDir.classList.remove('table__sort-dir_descending')
+      }
+
       tableMobileSort.classList.remove('open');
       tableMobileSortList.classList.remove('visible');
   }

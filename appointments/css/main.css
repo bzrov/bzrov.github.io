@@ -687,13 +687,8 @@ input {
   .table__sort-btn:hover {
     cursor: pointer; }
 
-.table__sort-btn_hide {
+.table__sort-dir_hide {
   display: none; }
-
-.table__sort-btn_top {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg); }
 
 .table__filter-btn {
   margin-right: 8px; }
@@ -961,9 +956,6 @@ input {
   -webkit-flex-basis: 40%;
       -ms-flex-preferred-size: 40%;
           flex-basis: 40%;
-  margin-right: 15px;
-  margin-bottom: 8px;
-  margin-top: 8px;
   font-size: 2.5em;
   text-align: center;
   padding: 8px 25px;
@@ -988,8 +980,6 @@ input {
       -ms-flex-preferred-size: 40%;
           flex-basis: 40%;
   padding: 8px 25px;
-  margin-bottom: 8px;
-  margin-top: 8px;
   border: 2px solid #6093DE;
   border-radius: 6px; }
   .table-mobile__popup_share-btn svg {
@@ -1029,6 +1019,16 @@ input {
 .table-navigation-mobile__sort-label {
   font-weight: 500;
   padding-right: 8px; }
+
+.table-navigation-mobile__sort-dir {
+  width: 2em;
+  margin-right: 8px;
+  stroke: #8391AD; }
+
+.table__sort-dir_ascending {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 .table-navigation-mobile__sort-text {
   margin-right: 25px; }
@@ -1255,7 +1255,16 @@ input {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex; }
+  .table-mobile__popup_name, .table-mobile__popup_share-btn {
+    -webkit-flex-basis: 45%;
+        -ms-flex-preferred-size: 45%;
+            flex-basis: 45%;
+    padding: 8px 15px; }
+  .table-mobile__popup_name, .table-mobile__share-text {
+    font-size: 1.8em; }
+  .table-mobile__popup_share-btn svg {
+    width: 1.7em; } }
 
 @media screen and (max-width: 390px) {
   .dashboard__item-number {
@@ -1269,4 +1278,10 @@ input {
   .controls__date-picker-date {
     width: 87px;
     padding-right: 8px;
-    font-size: 1.2em; } }
+    font-size: 1.2em; }
+  .table-mobile__popup_name, .table-mobile__popup_share-btn {
+    padding: 8px; }
+  .table-mobile__popup_name, .table-mobile__share-text {
+    font-size: 1.6em; }
+  .table-mobile__popup_share-btn svg {
+    width: 1.5em; } }
