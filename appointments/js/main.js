@@ -37,6 +37,9 @@ const tableFilterBtns = document.querySelectorAll('.table__filter-btn');
 const tableFilterLists = document.querySelectorAll('.table__filter-list');
 const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-apply');
 const tableFilterCheckboxes = document.querySelectorAll('.filter-item [type=checkbox]')
+
+const tableNavDownFixed = document.querySelectorAll('.table-navigation_bottom')
+
 let tableFilterListIndexOpened
 
 
@@ -702,6 +705,9 @@ calendarTableDays.forEach((calendarTableDay,idx) => {
   })
 });
   
+tableNavDownFixed.addEventListener('touchmove', function(e) {
+  e.preventDefault();
+}, false);
 
 /* Clicking outside of popup to close and deselect */
 window.addEventListener('click', function(event) {
