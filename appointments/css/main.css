@@ -799,8 +799,7 @@ input {
   color: #6093DE; }
 
 .table-mobile {
-  display: none;
-  padding-bottom: 70px; }
+  display: none; }
 
 .table-mobile__cell {
   padding: 8px 15px;
@@ -1205,6 +1204,8 @@ input {
     display: none; }
   .table-navigation__content_bottom {
     left: 0; }
+  .table-mobile {
+    padding-bottom: 70px; }
   .table-navigation_bottom {
     position: fixed;
     bottom: 0;
