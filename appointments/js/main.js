@@ -780,11 +780,7 @@ window.addEventListener('touchstart', function(event) {
   console.log(!clickedRowsNumber)
   console.log(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open'))
   console.log(rowsNumberList.classList.contains('visible'))
-  if (!clickedRowsArrow  && !clickedRowsNumber && rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
-    console.log('fuck')
-    rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
-    rowsNumberList.classList.remove('visible');
-  }
+  
   if (!clickedRowsArrowDown && !clickedRowsNumberDown && rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
     rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
     rowsNumberListDown.classList.remove('visible');
