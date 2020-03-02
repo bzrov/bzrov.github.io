@@ -226,6 +226,7 @@ for (let i = 0; i < datePeriodItems.length; i++) {
 
 //ROWS NUMBER HANDLERS
 rowsNumber.addEventListener('click', function() {
+  
   if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('visible')) {
     rowsArrow.classList.add('table-navigation__rows-amount-btn_open');
     rowsNumberList.classList.add('visible');
@@ -362,7 +363,9 @@ rowsArrowDown.addEventListener('click', function() {
 });
   
 for (let i = 0; i < rowsNumberItems.length; i++) {
+  console.log(rowsNumberItems[i])
   rowsNumberItems[i].addEventListener('click', function() {
+
     if (!rowsNumberItems[i].classList.contains('selected')) { rowsNumberItems[i].classList.add('selected'); }
     for (let j = i - 1; j >=0; j--) {
       if (rowsNumberItems[j].classList.contains('selected')) { rowsNumberItems[j].classList.remove('selected'); }
@@ -715,7 +718,7 @@ window.addEventListener('click', function(event) {
   let clickedControlsDatePickerEnd = target.closest('.controls__date-picker-item_end');
   let clickedTableFilerBtn = target.closest('.table__filter-btn');
   let clickedTableFilerList = target.closest('.table__filter-list');
-
+console.log(target)
   !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
   if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
     dateView.classList.remove('open');
@@ -725,6 +728,7 @@ window.addEventListener('click', function(event) {
       datePeriod.classList.remove('open');
       datePeriodList.classList.remove('visible');
   }
+
   if (!clickedRowsArrow  && !clickedRowsNumber && rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
     rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
     rowsNumberList.classList.remove('visible');
@@ -765,7 +769,13 @@ window.addEventListener('touchstart', function(event) {
       datePeriod.classList.remove('open');
       datePeriodList.classList.remove('visible');
   }
+  console.log(target)
+  console.log(!clickedRowsArrow)
+  console.log(!clickedRowsNumber)
+  console.log(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open'))
+  console.log(rowsNumberList.classList.contains('visible'))
   if (!clickedRowsArrow  && !clickedRowsNumber && rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
+    console.log('fuck')
     rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
     rowsNumberList.classList.remove('visible');
   }
