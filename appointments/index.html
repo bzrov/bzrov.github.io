@@ -92,7 +92,7 @@
 								
 					</div>
 					<ul class="controls__date-period-list date-period-list drop-list">
-						<li class="drop-list__item date-period-list__item selected">Custom</li>
+						<li class="drop-list__item date-period-list__item selected date-period-list__item_custom">Custom</li>
 						<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_tomorrow-next">Tomorrow & Next</li>
 						<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_tomorrow">Tomorrow</li>
 						<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_today">Today</li>
@@ -644,8 +644,8 @@
 							</div>
 							<ul class="table__filter-list drop-list">
 								<li class="drop-list__item table__filter-item ">
-									<label class="filter-item">All
-										<input class="filter-item__checkbox filter-item__checkbox_all" type="checkbox" checked>
+									<label for="" class="filter-item">All
+										<input  class="filter-item__checkbox filter-item__checkbox_all" type="checkbox" checked>
 										<span class="filter-item__checkmark"></span>
 									</label>	 
 								</li>
@@ -879,7 +879,7 @@
 					<div class="table-mobile__cell-title">
 						<div class="table-mobile__cell_name-wrapper">
 							<p class="table-mobile__cell_name">
-								2675NSM-A-01
+								2689HGM-B-02
 							</p>
 							<div class="table__share-btn table__share-btn_active">
 								<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1333,9 +1333,9 @@
 		</div>
 		<div class="table-mobile__popup">
 			<p class="table-mobile__popup_name">
-				2675NSM-A-01
+
 			</p>
-			<div class="table-mobile__popup_share-btn table__share-btn_active">
+			<div class="table-mobile__popup_share-btn ">
 				<p class="table-mobile__share-text">
 					Send
 				</p>	
@@ -1348,6 +1348,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+		const dateAllStart = new Date(2020,0,1);
+		const dateAllEnd= new Date(2020,2,31);
+	</script>
 	<script src="js/main.js"></script>
 </body>
 </html>

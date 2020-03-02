@@ -19,6 +19,9 @@ const rowsNumberDown = document.querySelector('#table-navigation__rows-amount_bo
 const rowsArrowDown = document.querySelector('#table-navigation__rows-amount-btn_bottom');
 
 const tableMobileItems = document.querySelectorAll('.table-mobile__cell')
+const popupTableItemName = document.querySelector('.table-mobile__popup_name')
+const popupTableItemBtn = document.querySelector('.table-mobile__popup_share-btn')
+
 const popupWindow = document.querySelector('.popup-window')
 const overlay = document.querySelector('.overlay')
 
@@ -30,14 +33,23 @@ const tableMobileSortText = document.querySelector('.table-navigation-mobile__so
 const tableFilterBtns = document.querySelectorAll('.table__filter-btn');
 const tableFilterLists = document.querySelectorAll('.table__filter-list');
 const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-apply');
-
+const tableFilterCheckboxes = document.querySelectorAll('.filter-item [type=checkbox]')
 let tableFilterListIndexOpened
+
+
 
 //DATE VIEW HANDLERS 
 for (let i = 0; i < tableMobileItems.length; i++) {
   tableMobileItems[i].addEventListener('click', function() {
     if(!popupWindow.classList.contains('popup-window_active')){
       popupWindow.classList.add('popup-window_active')
+      popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
+      if(tableMobileItems[i].querySelector('.table__share-btn').classList.contains('table__share-btn_active')){
+        popupTableItemBtn.classList.add('table__share-btn_active')
+      } else {
+        popupTableItemBtn.classList.add('table__share-btn_inactive')
+      }
+
     }
   });
 }
@@ -93,11 +105,15 @@ for (let i = 0; i < dateViewItems.length; i++) {
 }
 
 //DATE PERIOD HANDLERS
-datePeriod.addEventListener('click', function() {
-  if (!datePeriod.classList.contains('open')) {
+datePeriod.addEventListener('click', function(e) {
+  if(e.target.classList.contains('date-period-list__item_custom')){
+    datePeriod.classList.remove('open');
+    datePeriodList.classList.remove('visible');
+  }
+  else if (!datePeriod.classList.contains('open')) {
     datePeriod.classList.add('open');
     datePeriodList.classList.add('visible');
-
+    
     /* Conditions to close other control-item elements */
     tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
       
@@ -117,7 +133,7 @@ datePeriod.addEventListener('click', function() {
       tableMobileSort.classList.remove('open');
       tableMobileSortList.classList.remove('visible');
     }
-    if (calendar.classList.contains('visible')) {;
+    if (calendar.classList.contains('visible') ) {
       calendar.classList.remove('visible');
     }
   } else {
@@ -130,11 +146,17 @@ for (let i = 0; i < datePeriodItems.length; i++) {
     if (!datePeriodItems[i].classList.contains('selected')) { datePeriodItems[i].classList.add('selected'); }
     dateStart = new Date();
     dateEnd = new Date();
-    if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow')){
+    if(datePeriodItems[i].classList.contains('date-period-list__item_custom')){
+      renderCalendar(month,year)
+      if (!calendar.classList.contains('visible')) {;
+        calendar.classList.add('visible');
+      }
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow')){
       dateStart.setDate(date.getDate()+1)
       dateEnd.setDate(date.getDate()+1)
     }else if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow-next')){
-
+      dateStart.setDate(date.getDate()+1)
+      dateEnd = dateAllEnd
     }else if(datePeriodItems[i].classList.contains('date-period-list__item_today')){
       dateStart.setDate(date.getDate())
       dateEnd.setDate(date.getDate())
@@ -172,9 +194,9 @@ for (let i = 0; i < datePeriodItems.length; i++) {
       dateStart.setDate(1-(new Date(dateStart.getFullYear(), dateStart.getMonth(),0).getDate()))
       dateEnd.setDate(0)
     } else if(datePeriodItems[i].classList.contains('date-period-list__item_all')){
+      dateStart = dateAllStart
+      dateEnd = dateAllEnd
     }
-    
-    
     
     dateStart.setMinutes(0);
     dateStart.setHours(0);
@@ -437,7 +459,7 @@ for (let i = 0; i<tableFilterBtns.length;i++){
     }
     tableFilterListIndexOpened = i;
 
-    tableFilterList =  e.currentTarget.parentNode.parentNode.querySelector('.table__filter-list')
+    tableFilterList =  e.currentTarget.closest('.table__cell').querySelector('.table__filter-list')
     if (!tableFilterList.classList.contains('visible')) {
         tableFilterList.classList.add('visible');
     } else {
@@ -445,13 +467,32 @@ for (let i = 0; i<tableFilterBtns.length;i++){
     }
   })
 }
+for(let i =0; i< tableFilterCheckboxes.length; i++){
+  tableFilterCheckboxes[i].addEventListener('click',function(e){
+    
+    let tableFilterListCheckboxes = tableFilterCheckboxes[i].closest('.table__filter-list')
+
+    let tableFilterListCheckbox = tableFilterListCheckboxes.querySelectorAll('.filter-item__checkbox')
+    if(e.target.classList.contains('filter-item__checkbox_all')){
+      tableFilterListCheckbox.forEach((el)=>{
+        !el.classList.contains('filter-item__checkbox_all') && (el.checked=false)
+    })}else {
+      tableFilterListCheckboxes.querySelector('.filter-item__checkbox_all').checked=false
+    }
+  })
+}
 for (let i = 0; i < tableFilterBtnsApply.length; i++) {
   tableFilterBtnsApply[i].addEventListener('click', function(e) {
     let tableFilterListCheckboxes = tableFilterLists[tableFilterListIndexOpened].querySelectorAll('.filter-item__checkbox')
+
     tableFilterLists[tableFilterListIndexOpened].parentNode.querySelector('.table__filter-btn').classList.remove('table__filter-btn_filtered')
     //Check checkboxes, add active class for filter-btn
     for(let i=0; i<tableFilterListCheckboxes.length;i++){
-      if(tableFilterListCheckboxes[i].checked){
+      if(tableFilterListCheckboxes[i].classList.contains('filter-item__checkbox_all') && tableFilterListCheckboxes[i].checked){
+        tableFilterLists[tableFilterListIndexOpened].parentNode.querySelector('.table__filter-btn').classList.remove('table__filter-btn_filtered')
+        break
+      }
+      else if(tableFilterListCheckboxes[i].checked){
         tableFilterLists[tableFilterListIndexOpened].parentNode.querySelector('.table__filter-btn').classList.add('table__filter-btn_filtered')
         break
       }
@@ -683,7 +724,7 @@ window.addEventListener('click', function(event) {
     tableMobileSort.classList.remove('open');
     tableMobileSortList.classList.remove('visible');
   }
-  if (!clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
+  if (!clickedDatePeriod  && !clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
     calendar.classList.remove('visible');
   }
 });
@@ -723,7 +764,7 @@ window.addEventListener('touchstart', function(event) {
     tableMobileSort.classList.remove('open');
     tableMobileSortList.classList.remove('visible');
   }
-  if (!clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
+  if (!clickedDatePeriod  && !clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
     calendar.classList.remove('visible');
   }
 });
