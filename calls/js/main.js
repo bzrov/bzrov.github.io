@@ -43,17 +43,26 @@ const controlsFilterLists = document.querySelector('.controls__filter-lists')
 const controlsFilterBtnApply = document.querySelector('.controls__filter-btn-apply')
 const controlsFilterCheckboxes = document.querySelectorAll('.controls__filter-item [type=checkbox]')
 
+const controlsMobileFilterBtn = document.querySelector('.controls-mobile__filter-btn')
+const controlsMobileFilterLists = document.querySelector('.controls-mobile__filter-lists')
+const controlsMobileFilterBtnApply = document.querySelector('.controls-mobile__filter-btn-apply')
+const controlsMobileFilterCheckboxes = document.querySelectorAll('.controls-mobile__filter-item [type=checkbox]')
 
 const controlsTagsBtn = document.querySelector('.controls__tags-btn')
 const controlsTagsList = document.querySelector('.controls__tags-list')
 const controlsTagsBtnApply = document.querySelector('.controls__tags-btn-apply')
 const controlsTagsCheckboxes = document.querySelectorAll('.controls__tags-item [type=checkbox]')
 
+const controlsMobileTagsBtn = document.querySelector('.controls-mobile__tags-btn')
+const controlsMobileTagsList = document.querySelector('.controls-mobile__tags-list')
+const controlsMobileTagsBtnApply = document.querySelector('.controls-mobile__tags-btn-apply')
+const controlsMobileTagsCheckboxes = document.querySelectorAll('.controls-mobile__tags-item [type=checkbox]')
+
 const tableNavDownFixed = document.querySelector('.table-navigation_bottom')
 
 let tableFilterListIndexOpened
 
-//DATE VIEW HANDLERS 
+//Popup for table rows in mobile version
 for (let i = 0; i < tableMobileItems.length; i++) {
   tableMobileItems[i].addEventListener('click', function() {
     if(
@@ -63,7 +72,13 @@ for (let i = 0; i < tableMobileItems.length; i++) {
       !(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) &&
       !(rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) &&
       !((tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible'))) &&
-      !(calendar.classList.contains('visible')) 
+      !(calendar.classList.contains('visible'))&&
+      !(controlsFilterLists.classList.contains('open'))&&
+      !(controlsTagsList.classList.contains('open'))&& 
+      !(controlsMobileTagsList.classList.contains('open'))&&
+      !(controlsMobileFilterLists.classList.contains('open'))
+      
+      
     ){
       popupWindow.classList.add('popup-window_active')
       popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
@@ -83,7 +98,7 @@ overlay.addEventListener('click', function() {
     popupWindow.classList.remove('popup-window_active')
   }
 });
-
+//DATE VIEW HANDLERS 
 dateView.addEventListener('click', function() {
   if (!dateView.classList.contains('open')) {
     dateView.classList.add('open');
@@ -107,16 +122,24 @@ dateView.addEventListener('click', function() {
       tableMobileSort.classList.remove('open');
       tableMobileSortList.classList.remove('visible');
     }
+    if (calendar.classList.contains('visible')) {;
+      calendar.classList.remove('visible');
+    }
     if (controlsFilterLists.classList.contains('open')) {
       controlsFilterLists.classList.remove('open');
       controlsFilterLists.classList.remove('visible');
     }
-    if (calendar.classList.contains('visible')) {;
-      calendar.classList.remove('visible');
-    }
     if (controlsTagsList.classList.contains('open')) {
       controlsTagsList.classList.remove('open');
       controlsTagsList.classList.remove('visible');
+    }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
     }
   } else {
     dateView.classList.remove('open');
@@ -177,11 +200,20 @@ datePeriod.addEventListener('click', function(e) {
       controlsTagsList.classList.remove('open');
       controlsTagsList.classList.remove('visible');
     }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
+    }
   } else {
     datePeriod.classList.remove('open');
     datePeriodList.classList.remove('visible');
   }
 })
+//Select date from list
 for (let i = 0; i < datePeriodItems.length; i++) {
   datePeriodItems[i].addEventListener('click', function(e) {
     if (!datePeriodItems[i].classList.contains('selected')) { datePeriodItems[i].classList.add('selected'); }
@@ -292,12 +324,20 @@ rowsNumber.addEventListener('click', function() {
       controlsTagsList.classList.remove('open');
       controlsTagsList.classList.remove('visible');
     }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
+    }
   } else {
     rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
     rowsNumberList.classList.remove('visible');
   }
 });
-  
+ // Handlers for arrow at top table navigation row 
 rowsArrow.addEventListener('click', function() {
   if (!rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberList.classList.contains('visible')) {
     rowsArrow.classList.add('table-navigation__rows-amount-btn_open');
@@ -334,12 +374,20 @@ rowsArrow.addEventListener('click', function() {
       controlsTagsList.classList.remove('open');
       controlsTagsList.classList.remove('visible');
     }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
+    }
   } else {
     rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
     rowsNumberList.classList.remove('visible');
   }
 });
-  
+
 rowsNumberDown.addEventListener('click', function() {
   if (!rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && !rowsNumberListDown.classList.contains('visible')) {
     rowsArrowDown.classList.add('table-navigation__rows-amount-btn_open');
@@ -375,6 +423,14 @@ rowsNumberDown.addEventListener('click', function() {
     if (controlsTagsList.classList.contains('open')) {
       controlsTagsList.classList.remove('open');
       controlsTagsList.classList.remove('visible');
+    }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
     }
   } else {
     rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
@@ -417,6 +473,14 @@ rowsArrowDown.addEventListener('click', function() {
     }
     if (calendar.classList.contains('visible')) {;
       calendar.classList.remove('visible');
+    }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
     }
   } else {
     rowsArrowDown.classList.remove('table-navigation__rows-amount-btn_open');
@@ -476,6 +540,14 @@ tableMobileSort.addEventListener('click', function(e) {
     }
     if (calendar.classList.contains('visible')) {;
       calendar.classList.remove('visible');
+    }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
     }
   } 
   if(e.target.classList.contains('sort-list__sort-btn')){
@@ -546,6 +618,14 @@ for (let i = 0; i<tableFilterBtns.length;i++){
     if (calendar.classList.contains('visible')) {;
       calendar.classList.remove('visible');
     }
+    if (controlsMobileTagsList.classList.contains('open')) {
+      controlsMobileTagsList.classList.remove('open');
+      controlsMobileTagsList.classList.remove('visible');
+    }
+    if (controlsMobileFilterLists.classList.contains('open')) {
+      controlsMobileFilterLists.classList.remove('open');
+      controlsMobileFilterLists.classList.remove('visible');
+    }
     tableFilterListIndexOpened = i;
 
     tableFilterList =  e.currentTarget.closest('.table__cell').querySelector('.table__filter-list')
@@ -589,7 +669,7 @@ for (let i = 0; i < tableFilterBtnsApply.length; i++) {
     tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
   });
 } 
-
+//Controlls filter 
 controlsFilterBtn.addEventListener('click', function() {
   if (!controlsFilterLists.classList.contains('open')) {
     controlsFilterLists.classList.add('open');
@@ -626,9 +706,46 @@ for(let i =0; i< controlsFilterCheckboxes.length; i++){
     }
   })
 }
+//Controlls mobile filter
+controlsMobileFilterBtn.addEventListener('click', function() {
+  if (!controlsFilterLists.classList.contains('open')) {
+    controlsMobileFilterLists.classList.add('open');
+    controlsMobileFilterLists.classList.add('visible');
+  }
+})
+controlsMobileFilterBtnApply.addEventListener('click', function() {
+  if (controlsMobileFilterLists.classList.contains('open')) {
+    for(let i=0; i<controlsMobileFilterCheckboxes.length;i++){
+      if(controlsMobileFilterCheckboxes[i].classList.contains('filter-item__checkbox_all') && controlsMobileFilterCheckboxes[i].checked){
+        controlsMobileFilterBtn.classList.remove('controls__filter-btn_filtered')
+      }
+      else if(controlsMobileFilterCheckboxes[i].checked){
+        controlsMobileFilterBtn.classList.add('controls__filter-btn_filtered')
+        break
+      }
+    }
+    controlsMobileFilterLists.classList.remove('open');
+    controlsMobileFilterLists.classList.remove('visible');
+  }
+})
 
+for(let i =0; i< controlsMobileFilterCheckboxes.length; i++){
+  controlsMobileFilterCheckboxes[i].addEventListener('click',function(e){
+    
+    let controlsMobileFilterListCheckboxes = controlsMobileFilterCheckboxes[i].closest('.controls__filter-list')
+
+    let controlsMobileFilterListCheckbox = controlsFilterListCheckboxes.querySelectorAll('.filter-item__checkbox')
+    if(e.target.classList.contains('filter-item__checkbox_all')){
+      controlsMobileFilterListCheckbox.forEach((el)=>{
+        !el.classList.contains('filter-item__checkbox_all') && (el.checked=false)
+    })}else {
+      controlsMobileFilterListCheckboxes.querySelector('.filter-item__checkbox_all').checked=false
+    }
+  })
+}
+
+//Controlls tags
 controlsTagsBtn.addEventListener('click', function() {
-
   if (!controlsTagsList.classList.contains('open')) {
     controlsTagsList.classList.add('open');
     controlsTagsList.classList.add('visible');
@@ -658,6 +775,41 @@ for(let i =0; i< controlsTagsCheckboxes.length; i++){
         !el.classList.contains('tags-item__checkbox_all') && (el.checked=false)
     })}else {
       controlsTagsListCheckboxes.querySelector('.tags-item__checkbox_all').checked=false
+    }
+  })
+}
+
+//Controlls mobile tags
+controlsMobileTagsBtn.addEventListener('click', function() {
+  if (!controlsMobileTagsList.classList.contains('open')) {
+    controlsMobileTagsList.classList.add('open');
+    controlsMobileTagsList.classList.add('visible');
+  }
+})
+controlsMobileTagsBtnApply.addEventListener('click', function() {
+  if (controlsMobileTagsList.classList.contains('open')) {
+    for(let i=0; i<controlsMobileTagsCheckboxes.length;i++){
+      if(controlsMobileTagsCheckboxes[i].classList.contains('tags-item__checkbox_all') && controlsMobileTagsCheckboxes[i].checked){
+        controlsMobileTagsBtn.classList.remove('controls__tags-btn_selected')
+      }
+      else if(controlsMobileTagsCheckboxes[i].checked){
+        controlsMobileTagsBtn.classList.add('controls__tags-btn_selected')
+        break
+      }
+    }
+    controlsMobileTagsList.classList.remove('open');
+    controlsMobileTagsList.classList.remove('visible');
+  }
+})
+for(let i =0; i< controlsMobileTagsCheckboxes.length; i++){
+  controlsMobileTagsCheckboxes[i].addEventListener('click',function(e){
+    let controlsMobileTagsListCheckboxes = controlsMobileTagsCheckboxes[i].closest('.controls__tags-list')
+    let controlsMobileTagsListCheckbox = controlsMobileTagsListCheckboxes.querySelectorAll('.tags-item__checkbox')
+    if(e.target.classList.contains('tags-item__checkbox_all')){
+      controlsMobileTagsListCheckbox.forEach((el)=>{
+        !el.classList.contains('tags-item__checkbox_all') && (el.checked=false)
+    })}else {
+      controlsMobileTagsListCheckboxes.querySelector('.tags-item__checkbox_all').checked=false
     }
   })
 }
@@ -787,6 +939,14 @@ controlsDatePickerStart.addEventListener('click', function() {
     controlsTagsList.classList.remove('open');
     controlsTagsList.classList.remove('visible');
   }
+  if (controlsMobileTagsList.classList.contains('open')) {
+    controlsMobileTagsList.classList.remove('open');
+    controlsMobileTagsList.classList.remove('visible');
+  }
+  if (controlsMobileFilterLists.classList.contains('open')) {
+    controlsMobileFilterLists.classList.remove('open');
+    controlsMobileFilterLists.classList.remove('visible');
+  }
 })
 
 controlsDatePickerEnd.addEventListener('click', function() {
@@ -829,6 +989,14 @@ controlsDatePickerEnd.addEventListener('click', function() {
   if (controlsTagsList.classList.contains('open')) {
     controlsTagsList.classList.remove('open');
     controlsTagsList.classList.remove('visible');
+  }
+  if (controlsMobileTagsList.classList.contains('open')) {
+    controlsMobileTagsList.classList.remove('open');
+    controlsMobileTagsList.classList.remove('visible');
+  }
+  if (controlsMobileFilterLists.classList.contains('open')) {
+    controlsMobileFilterLists.classList.remove('open');
+    controlsMobileFilterLists.classList.remove('visible');
   }
 })
 
@@ -887,7 +1055,12 @@ window.addEventListener('click', function(event) {
   let clickedControlsFilterBtn = target.closest('.controls__filter-btn')
   let clickedControlsTagsBtn = target.closest('.controls__tags-btn')
   let clickedControlsTagsList = target.closest('.controls__tags-list')
+  let clickedControlsMobileFilterBtn = target.closest('.controls-mobile__filter-btn')
+  let clickedControlsMobileFilterLists = target.closest('.controls-mobile__filter-lists')
+  let clickedControlsMobileTagsBtn = target.closest('.controls-mobile__tags-btn')
+  let clickedControlsMobileTagsList = target.closest('.controls-mobile__tags-list')
 
+  const controlsMobileTagsList = document.querySelector('.controls-mobile__tags-list')  
   !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
   if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
     dateView.classList.remove('open');
@@ -914,12 +1087,20 @@ window.addEventListener('click', function(event) {
     controlsFilterLists.classList.remove('open');
     controlsFilterLists.classList.remove('visible');
   }
-  console.log(controlsFilterLists.classList.contains('open') )
+
   if (!clickedControlsTagsList &&!clickedControlsTagsBtn &&controlsTagsList.classList.contains('open')&&controlsTagsList.classList.contains('visible')) {
     controlsTagsList.classList.remove('open');
     controlsTagsList.classList.remove('visible');
   }
   if (!clickedDatePeriod  && !clickedControlsDatePickerStart && !clickedControlsDatePickerEnd && !clickedCalendar && calendar.classList.contains('visible')) {;
     calendar.classList.remove('visible');
+  }
+  if (!clickedControlsMobileTagsBtn && !clickedControlsMobileTagsList && controlsMobileTagsList.classList.contains('open') && controlsMobileTagsList.classList.contains('open')) {
+    controlsMobileTagsList.classList.remove('open');
+    controlsMobileTagsList.classList.remove('visible');
+  }
+  if (!clickedControlsMobileFilterBtn && !clickedControlsMobileFilterLists && controlsMobileFilterLists.classList.contains('open') && controlsMobileFilterLists.classList.contains('open')) {
+    controlsMobileFilterLists.classList.remove('open');
+    controlsMobileFilterLists.classList.remove('visible');
   }
 });

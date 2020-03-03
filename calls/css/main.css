@@ -343,6 +343,7 @@ input {
 
 .controls__filter-lists, .controls__tags-list {
   top: 50px;
+  left: 0;
   white-space: nowrap; }
 
 .controls__search-btn, .controls__reload-btn {
@@ -382,7 +383,7 @@ input {
       -ms-user-select: none;
           user-select: none; }
 
-.controls__filter-btn {
+.controls__filter-btn, .controls__tags-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -402,44 +403,18 @@ input {
   margin-left: 8px;
   border-radius: 50%;
   border: 1px solid #D0D3DA;
-    border-cursor: pointer; }
+  cursor: pointer; }
 
-.controls__filter-btn_filtered {
+.controls__tags-btn svg {
+  width: 1.5em; }
+
+.controls__tags-btn path {
+  stroke: #8391AD;
+  fill: #8391AD; }
+
+.controls__filter-btn_filtered, .controls__tags-btn_selected {
   border-color: #6093DE; }
-  .controls__filter-btn_filtered path {
-    stroke: #6093DE;
-    fill: #6093DE; }
-
-.controls__tags-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 4.2em;
-  width: 4.2em;
-  min-width: 4.2em;
-  min-height: 4.2em;
-  margin-left: 8px;
-  border-radius: 50%;
-  border: 1px solid #D0D3DA;
-    border-cursor: pointer; }
-  .controls__tags-btn svg {
-    width: 1.5em; }
-  .controls__tags-btn path {
-    stroke: #8391AD;
-    fill: #8391AD; }
-
-.controls__tags-btn_selected {
-  border-color: #6093DE; }
-  .controls__tags-btn_selected path {
+  .controls__filter-btn_filtered path, .controls__tags-btn_selected path {
     stroke: #6093DE;
     fill: #6093DE; }
 
@@ -1340,7 +1315,10 @@ input {
             flex-direction: column; }
   .controls__item_left {
     width: 100%;
-    margin-bottom: 25px; } }
+    margin-bottom: 25px; }
+  .controls__filter-lists, .controls__tags-list {
+    right: 0;
+    left: initial; } }
 
 @media screen and (max-width: 768px) {
   .dashboard {
