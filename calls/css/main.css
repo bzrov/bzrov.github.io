@@ -1417,9 +1417,6 @@ input {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
-  .controls__filter-btn, .controls__tags-btn {
-    margin-left: 0;
-    margin-right: 8px; }
   .table-navigation {
     min-height: 35px; }
   .table-navigation__content_top {
