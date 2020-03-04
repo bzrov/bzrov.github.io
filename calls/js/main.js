@@ -17,13 +17,6 @@ const rowsArrow = document.querySelector('#table-navigation__rows-amount-btn_top
 const rowsNumberDown = document.querySelector('#table-navigation__rows-amount_bottom');
 const rowsArrowDown = document.querySelector('#table-navigation__rows-amount-btn_bottom');
 
-const tableMobileItems = document.querySelectorAll('.table-mobile__cell')
-const popupTableItemName = document.querySelector('.table-mobile__popup_name')
-const popupTableItemBtn = document.querySelector('.table-mobile__popup_share-btn')
-
-const popupWindow = document.querySelector('.popup-window')
-const overlay = document.querySelector('.overlay')
-
 const tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
 const tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
 const tableMobileSortItems = document.querySelectorAll('.sort-list__item')
@@ -62,42 +55,6 @@ const tableNavDownFixed = document.querySelector('.table-navigation_bottom')
 
 let tableFilterListIndexOpened
 
-//Popup for table rows in mobile version
-for (let i = 0; i < tableMobileItems.length; i++) {
-  tableMobileItems[i].addEventListener('click', function() {
-    if(
-      !popupWindow.classList.contains('popup-window_active') &&
-      !(datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) &&
-      !(dateView.classList.contains('open') && dateViewList.classList.contains('visible')) &&
-      !(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) &&
-      !(rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) &&
-      !((tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible'))) &&
-      !(calendar.classList.contains('visible'))&&
-      !(controlsFilterLists.classList.contains('open'))&&
-      !(controlsTagsList.classList.contains('open'))&& 
-      !(controlsMobileTagsList.classList.contains('open'))&&
-      !(controlsMobileFilterLists.classList.contains('open'))
-      
-      
-    ){
-      popupWindow.classList.add('popup-window_active')
-      popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
-      if(tableMobileItems[i].querySelector('.table__share-btn').classList.contains('table__share-btn_active')){
-        popupTableItemBtn.classList.add('table__share-btn_active')
-        popupTableItemBtn.classList.remove('table__share-btn_inactive')
-      } else {
-        popupTableItemBtn.classList.add('table__share-btn_inactive')
-        popupTableItemBtn.classList.remove('table__share-btn_active')
-      }
-
-    }
-  });
-}
-overlay.addEventListener('click', function() {
-  if(popupWindow.classList.contains('popup-window_active')){
-    popupWindow.classList.remove('popup-window_active')
-  }
-});
 //DATE VIEW HANDLERS 
 dateView.addEventListener('click', function() {
   if (!dateView.classList.contains('open')) {

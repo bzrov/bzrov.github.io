@@ -780,8 +780,10 @@ input {
     background-color: #d8ebf6; }
 
 .table__type-icon {
-  width: 2em;
+  text-align: center;
   margin: 0 auto; }
+  .table__type-icon svg {
+    width: 2.5em; }
 
 .table__type-icon_incoming svg {
   stroke: #219653; }
@@ -793,11 +795,11 @@ input {
   stroke: #eb5757; }
 
 .table__play-icon {
-  width: 2em;
+  width: 1.5em;
   margin: 0 auto; }
 
 .table__accepted-icon {
-  width: 2.5em;
+  width: 2em;
   margin: 0 auto; }
 
 .table__cell_content {
@@ -862,6 +864,15 @@ input {
   left: 0;
   width: auto;
   white-space: nowrap; }
+
+.table__text {
+  font-size: 1.6em; }
+
+.table__cell_type_completed {
+  color: #219653; }
+
+.table__cell_type_uncompleted {
+  color: #eb5757; }
 
 .filter-item {
   display: block;
@@ -929,11 +940,11 @@ input {
   color: #6093DE;
   cursor: pointer; }
 
-.table__text {
-  font-size: 1.6em; }
-
 .table-mobile {
   display: none; }
+
+.table-mobile_area .table-mobile__cell-title-wrapper, .table-mobile_source .table-mobile__cell-title-wrapper {
+  margin-bottom: 10px; }
 
 .table-mobile__cell {
   padding: 8px 15px;
@@ -955,11 +966,18 @@ input {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
-  .table-mobile__cell-row:first-child {
-    margin-bottom: 10px; }
+          justify-content: space-between;
+  margin-bottom: 10px; }
+  .table-mobile__cell-row:last-child {
+    margin-bottom: 0px; }
 
-.table-mobile__cell_name-wrapper {
+.table-mobile__cell-row_end {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
+.table-mobile__cell-title {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -969,31 +987,22 @@ input {
       -ms-flex-align: center;
           align-items: center; }
 
-.table-mobile__cell_name {
+.table-mobile__cell_friendly-name_title, .table-mobile__cell_caller-name_title, .table-mobile__cell_area_title, .table-mobile__cell_source_title {
   margin-bottom: 2px;
   margin-right: 8px;
   font-size: 1.6em;
   font-weight: 500; }
 
-.table-mobile__cell_shedule-time, .table-mobile__cell_property-type, .table-mobile__cell_type, .table-mobile__cell_status {
-  font-size: 1.4em; }
-
-.table-mobile__cell-description {
-  text-align: end; }
-
-.table-mobile__cell_type {
-  margin-bottom: 2px; }
-
-.table-mobile__cell_property-type {
-  margin-bottom: 2px; }
-
-.table-mobile__cell_status {
+.table-mobile__cell_number_title {
+  margin-bottom: 2px;
+  margin-right: 8px;
+  font-size: 2em;
   font-weight: 500; }
 
-.table-mobile__cell-fields, .table-mobile__cell-title {
-  margin-right: 8px; }
+.table-mobile__type-icon {
+  margin: 0 8px 0 0; }
 
-.table-mobile__cell_area, .table-mobile__cell_service-resource, .table-mobile__cell_created-by {
+.table-mobile__cell-field {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1002,34 +1011,88 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  margin-bottom: 2px; }
+  margin-bottom: 4px; }
+  .table-mobile__cell-field:last-child {
+    margin-bottom: 0px; }
 
-.table-mobile__cell_area-label, .table-mobile__cell_service-resource-label {
+.table-mobile__cell-field-label {
   padding-right: 8px;
-  font-size: 1.4em;
+  font-size: 1.6em;
+  font-weight: 500;
   color: #8391AD; }
 
-.table-mobile__cell_area-content, .table-mobile__cell_service-resource-content {
-  font-size: 1.2em; }
+.table-mobile__cell-field-content {
+  font-size: 1.4em; }
 
-.table-mobile__cell-info {
-  text-align: end;
-  font-size: 1.2em; }
+.table-mobile__cell_type {
+  font-size: 1.6em; }
 
-.table-mobile__cell_date {
-  margin-bottom: 2px; }
+.table-mobile__cell_duration {
+  font-size: 1.2em;
+  padding-right: 5px; }
 
-.table-mobile__cell_created-by {
+.table-mobile__cell-duration-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
-.table-mobile__cell_created-by-content {
-  padding-left: 8px; }
+.table-mobile__cell-description {
+  text-align: end; }
+
+.table-mobile__cell_date {
+  font-size: 1.2em; }
+
+.table-mobile__cell_dispatcher {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-size: 1.2em; }
+
+.table-mobile__cell_dispatcher-label {
+  padding-right: 5px; }
+
+.table-mobile__cell_dispatcher-content {
+  font-weight: 500; }
+
+.table-mobile__cell_date {
+  margin-bottom: 2px; }
+
+.table-mobile__cell_unanswered, .table-mobile__cell_completed, .table-mobile__cell_total-calls {
+  font-size: 1.4em; }
+
+.table-mobile__cell-total-calls_number, .table-mobile__cell-unanswered_number, .table-mobile__cell-completed_number {
+  font-weight: 500;
+  margin-left: 5px; }
+
+.table-mobile__cell-unanswered_number {
+  color: #eb5757; }
+
+.table-mobile__cell-completed_number {
+  color: #219653; }
+
+.table-mobile__cell_source, .table-mobile__cell_area {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
 
 .popup-window {
   width: 100vw;
@@ -1099,32 +1162,6 @@ input {
   border: 2px solid #6093DE;
   border-radius: 6px;
   white-space: nowrap; }
-
-.table-mobile__popup_share-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-basis: 40%;
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%;
-  padding: 8px 25px;
-  border: 2px solid #6093DE;
-  border-radius: 6px; }
-  .table-mobile__popup_share-btn svg {
-    width: 2.4em; }
-
-.table-mobile__share-text {
-  font-size: 2em;
-  margin-right: 10px; }
 
 .table-navigation-mobile__sort {
   display: none;
@@ -1277,6 +1314,8 @@ input {
     display: none; }
   .table-mobile {
     display: block; }
+  .table__play-icon {
+    margin: initial; }
   .table-navigation-mobile__sort {
     display: -webkit-box;
     display: -webkit-flex;

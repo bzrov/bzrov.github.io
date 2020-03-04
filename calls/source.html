@@ -503,15 +503,12 @@
 						</svg>
 					</div>
 					<ul class="table-navigation-mobile__sort-list sort-list drop-list">
-						<li class="drop-list__item sort-list__item selected">Date</li>
-						<li class="drop-list__item sort-list__item">Name</li>
-						<li class="drop-list__item sort-list__item">Type</li>
-						<li class="drop-list__item sort-list__item">Status</li>
-						<li class="drop-list__item sort-list__item">Property type</li>
-						<li class="drop-list__item sort-list__item">Area</li>
-						<li class="drop-list__item sort-list__item">Created by</li>
-						<li class="drop-list__item sort-list__item">Sсhedule time</li>
-						<li class="drop-list__item sort-list__item">Service Resource</li>
+						<li class="drop-list__item sort-list__item selected">Area </li>
+						<li class="drop-list__item sort-list__item">Total calls</li>
+						<li class="drop-list__item sort-list__item">Completed</li>
+						<li class="drop-list__item sort-list__item">Unanswered</li>
+						<li class="drop-list__item sort-list__item">Avg Duration</li>
+						<li class="drop-list__item sort-list__item">Total Appointments</li>
 						<li class="sort-list__sort-settings sort-settings">
 							<label class="sort-list__sort-settings-item sort-list__sort-settings-item_descending">
 								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -546,12 +543,11 @@
 								<p class="table__text table__text_headline">
 									Source
 								</p>
-								<div class="table__sort-btn table__sort-dir_hide">
-									<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
-									</svg>
-								</div>
-
+                                <div class="table__sort-btn table__sort-dir_hide">
+                                    <svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
 							</div>
 						</th>
 						<th>
@@ -659,83 +655,49 @@
 				</tbody>
 			</table>
 
-			<div class="table-mobile">
+			<div class="table-mobile table-mobile_source">
 				<div class="table-mobile__cell">
 					<div class="table-mobile__cell-row">
-						<div class="table-mobile__cell-title-wrapper">
-							<div class="table-mobile__cell-title">
-								<p class="table-mobile__cell_friendly-name">
-									TexasGA
-								</p>
-								<div class="table__type-icon table__type-icon_missed table__share-btn_active">
-									<svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M1 4.5 L11 4.5 L8 1 M11 4.5L8 8" stroke-linecap="round" stroke-linejoin="round"></path>
-									</svg>
+						<div class="table-mobile__cell-col">
+							<div class="table-mobile__cell-title-wrapper">
+								<div class="table-mobile__cell-title">
+									<p class="table-mobile__cell_source table-mobile__cell_source_title">
+										Google Ads
+									</p>
 								</div>
 							</div>
-							<p class="table-mobile__cell_caller-name">
-								HEINER BRITANI
-							</p>
+							<div class="table-mobile__cell-fields">
+								<div class="table-mobile__cell_from table-mobile__cell-field">
+									<p class="table-mobile__cell_avg-duration-label table-mobile__cell-field-label">
+										Avg Duration:
+									</p>
+									<p class="table-mobile__cell_avg-duration-content table-mobile__cell-field-content">
+										2:34
+									</p>
+								</div>
+								<div class="table-mobile__cell_to table-mobile__cell-field">
+									<p class="table-mobile__cell_total-appointments-label table-mobile__cell-field-label">
+										Total Appointments:
+									</p>
+									<p class="table-mobile__cell_total-appointments-content table-mobile__cell-field-content">
+										15
+									</p>
+								</div>
+							</div>
 						</div>
 						<div class="table-mobile__cell-description">
-							<p class="table-mobile__cell_type table__cell_type_completed">
-								Completed
+							<p class="table-mobile__cell_total-calls table__cell_total-calls">
+								Total calls: <span class="table-mobile__cell-total-calls_number">58</span>
 							</p>
-							<div class="table-mobile__cell-duration-wrapper">
-								<p class="table-mobile__cell_duration">
-									Residental
-								</p>
-								<div class="table-mobile__cell_play table__play-icon">
-									<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<polygon points="1,1 1,9 9,4.8 1,1" fill="black" stroke="black" />
-									</svg>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="table-mobile__cell-row">
-						<div class="table-mobile__cell-fields">
-							<div class="table-mobile__cell_from">
-								<p class="table-mobile__cell_from-label">
-									From
-								</p>
-								<p class="table-mobile__cell_from-content">
-									+19087478626
-								</p>
-							</div>
-							<div class="table-mobile__cell_to">
-								<p class="table-mobile__cell_to-label">
-									To
-								</p>
-								<p class="table-mobile__cell_to-content">
-									+14066024559
-								</p>
-							</div>
-							<div class="table-mobile__cell_extension">
-								<p class="table-mobile__cell_to-label">
-									Extension
-								</p>
-								<p class="table-mobile__cell_to-content">
-									08990
-								</p>
-							</div>
-						</div>
-						<div class="table-mobile__cell-info">
-							<p class="table-mobile__cell_date">
-								06/25/2019 2:12 pm
+							<p class="table-mobile__cell_completed table__cell_completed">
+								Completed: <span class="table-mobile__cell-completed_number">34</span>
 							</p>
-							<div class="table-mobile__cell_dispatcher">
-								<p class="table-mobile__cell_dispatcher-label">
-									Dispatcher
-								</p>
-								<p class="table-mobile__cell_dispatcher-content">
-									Mike
-								</p>
-							</div>
+							<p class="table-mobile__cell_unanswered table__cell_unanswered">
+								Unanswered : <span class="table-mobile__cell-unanswered_number">24</span>
+							</p>
 						</div>
 					</div>
 				</div>
-				
 			</div>	
 		</section>
 		<section class="table-navigation table-navigation_bottom">
@@ -793,27 +755,6 @@
 				</p>
 			</div>
 		</section>
-		<div class="popup-window popup">
-			<div class="overlay">
-
-			</div>
-			<div class="table-mobile__popup">
-				<p class="table-mobile__popup_name">
-
-				</p>
-				<div class="table-mobile__popup_share-btn ">
-					<p class="table-mobile__share-text">
-						Send
-					</p>	
-					<svg  viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<g clip-path="url(#clip0)">
-						<path d="M13.6666 13.6041V2.9654C13.6666 2.70445 13.98 2.57732 14.16 2.75798L19.46 8.07732C19.5733 8.19107 19.5733 8.37841 19.46 8.49216L14.16 13.8115C13.98 13.9922 13.6666 13.865 13.6666 13.6041Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
-						<path d="M13.6666 10.4259C13.5599 10.5195 13.5133 10.5597 13.4066 10.6534C8.47995 10.1248 6.73995 10.6667 5.66661 11.7641C4.05995 13.3967 3.74661 16.2604 3.67995 17.351C3.67328 17.4246 3.57328 17.4313 3.55328 17.3644L2.74661 14.2866C2.49995 13.3364 2.39328 12.3462 2.53995 11.376C2.65995 10.553 2.92661 9.75676 3.35328 9.04082C4.04661 7.87659 5.01995 7.00676 6.27995 6.41795C7.30661 5.94289 8.43995 5.74886 9.57328 5.74886H13.6666V10.4259Z" fill="#8391AD" stroke="#8391AD" stroke-miterlimit="10"/>
-						</g>
-					</svg>
-				</div>
-			</div>
-		</div>
 	</div>
 	<script>
 		const dateAllStart = new Date(2020,0,1);
