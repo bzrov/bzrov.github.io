@@ -1011,6 +1011,9 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   margin-bottom: 4px; }
   .table-mobile__cell-field:last-child {
     margin-bottom: 0px; }
@@ -1066,6 +1069,9 @@ input {
           justify-content: flex-end;
   font-size: 1.2em; }
 
+.table-mobile__cell-info {
+  text-align: end; }
+
 .table-mobile__cell_dispatcher-label {
   padding-right: 5px; }
 
@@ -1093,75 +1099,6 @@ input {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-
-.popup-window {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 5;
-  opacity: 0;
-  pointer-events: none; }
-
-.popup-window_active {
-  opacity: 1;
-  pointer-events: auto; }
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #6093DE;
-  opacity: .25;
-  z-index: -1; }
-
-.table-mobile__popup {
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  padding: 25px;
-  margin: 0 10px;
-  width: 100%;
-  border-radius: 6px; }
-
-.table-mobile__popup_name {
-  -webkit-flex-basis: 40%;
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%;
-  font-size: 2.5em;
-  text-align: center;
-  padding: 8px 25px;
-  border: 2px solid #6093DE;
-  border-radius: 6px;
-  white-space: nowrap; }
 
 .table-navigation-mobile__sort {
   display: none;
