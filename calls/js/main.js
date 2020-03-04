@@ -1,7 +1,7 @@
-const dateView=document.querySelector('.controls__date-view')
-const dateViewList = document.querySelector('.controls__date-view-list')
-const dateViewItems = document.querySelectorAll('.date-view-list__item')
-const dateViewText = document.querySelector('.controls__date-view-text')
+const tableSelect=document.querySelector('.controls__table-select')
+const tableSelectList = document.querySelector('.controls__table-select-list')
+const tableSelectItems = document.querySelectorAll('.table-select-list__item')
+const tableSelectText = document.querySelector('.controls__table-select-text')
 
 const datePeriod=document.querySelector('.controls__date-period')
 const datePeriodList = document.querySelector('.controls__date-period-list')
@@ -30,7 +30,6 @@ const tableFilterLists = document.querySelectorAll('.table__filter-list');
 const tableFilterBtnsApply =  document.querySelectorAll('.table__filter-btn-apply');
 const tableFilterCheckboxes = document.querySelectorAll('.filter-item [type=checkbox]')
 
-
 const controlsFilterBtn = document.querySelector('.controls__filter-btn')
 const controlsFilterLists = document.querySelector('.controls__filter-lists')
 const controlsFilterBtnApply = document.querySelector('.controls__filter-btn-apply')
@@ -53,13 +52,33 @@ const controlsMobileTagsCheckboxes = document.querySelectorAll('.controls-mobile
 
 const tableNavDownFixed = document.querySelector('.table-navigation_bottom')
 
+const popupWindow = document.querySelector('.popup-window')
+const overlay = document.querySelector('.overlay')
+const tablePlayBtn = document.querySelectorAll('.table__play-btn')
+
 let tableFilterListIndexOpened
 
+
+
 //DATE VIEW HANDLERS 
-dateView.addEventListener('click', function() {
-  if (!dateView.classList.contains('open')) {
-    dateView.classList.add('open');
-    dateViewList.classList.add('visible');
+if(popupWindow){
+  for (let i = 0; i < tablePlayBtn.length; i++) {
+    tablePlayBtn[i].addEventListener('click', function() {
+        popupWindow.classList.add('popup-window_active')
+    });
+  }
+  overlay.addEventListener('click', function() {
+    if(popupWindow.classList.contains('popup-window_active')){
+      popupWindow.classList.remove('popup-window_active')
+    }
+  });
+}
+
+
+tableSelect.addEventListener('click', function() {
+  if (!tableSelect.classList.contains('open')) {
+    tableSelect.classList.add('open');
+    tableSelectList.classList.add('visible');
       /* Conditions to close other control-item elements */
     tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
     
@@ -99,21 +118,21 @@ dateView.addEventListener('click', function() {
       controlsMobileFilterLists.classList.remove('visible');
     }
   } else {
-    dateView.classList.remove('open');
-    dateViewList.classList.remove('visible');
+    tableSelect.classList.remove('open');
+    tableSelectList.classList.remove('visible');
   }
 })
-for (let i = 0; i < dateViewItems.length; i++) {
-  dateViewItems[i].addEventListener('click', function() {
-    if (!dateViewItems[i].classList.contains('selected')) { dateViewItems[i].classList.add('selected'); }
+for (let i = 0; i < tableSelectItems.length; i++) {
+  tableSelectItems[i].addEventListener('click', function() {
+    if (!tableSelectItems[i].classList.contains('selected')) { tableSelectItems[i].classList.add('selected'); }
     for (let j = i - 1; j >=0; j--) {
-      if (dateViewItems[j].classList.contains('selected')) { dateViewItems[j].classList.remove('selected'); }
+      if (tableSelectItems[j].classList.contains('selected')) { tableSelectItems[j].classList.remove('selected'); }
     }
-    for (let k = i + 1; k < dateViewItems.length; k++) {
-      if (dateViewItems[k].classList.contains('selected')) { dateViewItems[k].classList.remove('selected'); }
+    for (let k = i + 1; k < tableSelectItems.length; k++) {
+      if (tableSelectItems[k].classList.contains('selected')) { tableSelectItems[k].classList.remove('selected'); }
     }
-    let itemText = dateViewItems[i].textContent;
-    dateViewText.textContent = itemText;
+    let itemText = tableSelectItems[i].textContent;
+    tableSelectText.textContent = itemText;
   });
 }
 
@@ -130,9 +149,9 @@ datePeriod.addEventListener('click', function(e) {
     /* Conditions to close other control-item elements */
     tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
       
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
     if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
       rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
@@ -257,9 +276,9 @@ rowsNumber.addEventListener('click', function() {
       datePeriodList.classList.remove('visible');
     }
     
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
 
     if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
@@ -307,9 +326,9 @@ rowsArrow.addEventListener('click', function() {
       datePeriodList.classList.remove('visible');
     }
     
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
 
     if (rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) {
@@ -357,9 +376,9 @@ rowsNumberDown.addEventListener('click', function() {
       datePeriodList.classList.remove('visible');
     }
     
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
 
     if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
@@ -407,9 +426,9 @@ rowsArrowDown.addEventListener('click', function() {
       datePeriodList.classList.remove('visible');
     }
     
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
 
     if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
@@ -475,9 +494,9 @@ tableMobileSort.addEventListener('click', function(e) {
       datePeriod.classList.remove('open');
       datePeriodList.classList.remove('visible');
     }
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
     if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
       rowsArrow.classList.remove('table-navigation__rows-amount-btn_open');
@@ -546,9 +565,9 @@ for (let i = 0; i<tableFilterBtns.length;i++){
       datePeriodList.classList.remove('visible');
     }
     
-    if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-      dateView.classList.remove('open');
-      dateViewList.classList.remove('visible');
+    if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+      tableSelect.classList.remove('open');
+      tableSelectList.classList.remove('visible');
     }
 
     if (rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) {
@@ -867,9 +886,9 @@ controlsDatePickerStart.addEventListener('click', function() {
   /* Conditions to close other control-item elements */
   tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
         
-  if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-    dateView.classList.remove('open');
-    dateViewList.classList.remove('visible');
+  if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+    tableSelect.classList.remove('open');
+    tableSelectList.classList.remove('visible');
   }
         
   if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
@@ -918,9 +937,9 @@ controlsDatePickerEnd.addEventListener('click', function() {
   /* Conditions to close other control-item elements */
   tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
         
-  if (dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-    dateView.classList.remove('open');
-    dateViewList.classList.remove('visible');
+  if (tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+    tableSelect.classList.remove('open');
+    tableSelectList.classList.remove('visible');
   }
         
   if (datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
@@ -996,7 +1015,7 @@ tableNavDownFixed.addEventListener('touchmove', function(e) {
 /* Clicking outside of popup to close and deselect */
 window.addEventListener('click', function(event) {
   let target = event.target;
-  let clickedDateView= target.closest('.controls__date-view');
+  let clickedtableSelect= target.closest('.controls__table-select');
   let clickedDatePeriod= target.closest('.controls__date-period');
   let clickedRowsArrow = target.closest('#table-navigation__rows-amount-btn_top');
   let clickedRowsNumber = target.closest('#table-navigation__rows-amount_top');
@@ -1019,9 +1038,9 @@ window.addEventListener('click', function(event) {
 
   const controlsMobileTagsList = document.querySelector('.controls-mobile__tags-list')  
   !clickedTableFilerList && !clickedTableFilerBtn && tableFilterListIndexOpened!==undefined && tableFilterListIndexOpened!==null && tableFilterLists[tableFilterListIndexOpened].classList.remove('visible')
-  if (clickedDateView !==dateView && dateView.classList.contains('open') && dateViewList.classList.contains('visible')) {
-    dateView.classList.remove('open');
-    dateViewList.classList.remove('visible');
+  if (clickedtableSelect !==tableSelect && tableSelect.classList.contains('open') && tableSelectList.classList.contains('visible')) {
+    tableSelect.classList.remove('open');
+    tableSelectList.classList.remove('visible');
   }
   if (!clickedDatePeriod && datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
       datePeriod.classList.remove('open');
