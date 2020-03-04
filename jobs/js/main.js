@@ -14,11 +14,6 @@ const rowsNumberDown = document.querySelector('#table-navigation__rows-amount_bo
 const rowsArrowDown = document.querySelector('#table-navigation__rows-amount-btn_bottom');
 
 const tableMobileItems = document.querySelectorAll('.table-mobile__cell')
-const popupTableItemName = document.querySelector('.table-mobile__popup_name')
-const popupTableItemBtn = document.querySelector('.table-mobile__popup_share-btn')
-
-const popupWindow = document.querySelector('.popup-window')
-const overlay = document.querySelector('.overlay')
 
 const tableMobileSort = document.querySelector('.table-navigation-mobile__sort')
 const tableMobileSortList = document.querySelector('.table-navigation-mobile__sort-list')
@@ -39,35 +34,7 @@ let tableFilterListIndexOpened
 
 
 
-//DATE VIEW HANDLERS 
-for (let i = 0; i < tableMobileItems.length; i++) {
-  tableMobileItems[i].addEventListener('click', function() {
-    if(
-      !popupWindow.classList.contains('popup-window_active') &&
-      !(datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) &&
-      !(rowsArrow.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberList.classList.contains('visible')) &&
-      !(rowsArrowDown.classList.contains('table-navigation__rows-amount-btn_open') && rowsNumberListDown.classList.contains('visible')) &&
-      !((tableMobileSort.classList.contains('open') && tableMobileSortList.classList.contains('visible'))) &&
-      !(calendar.classList.contains('visible')) 
-    ){
-      popupWindow.classList.add('popup-window_active')
-      popupTableItemName.textContent = tableMobileItems[i].querySelector('.table-mobile__cell_name').textContent
-      if(tableMobileItems[i].querySelector('.table__share-btn').classList.contains('table__share-btn_active')){
-        popupTableItemBtn.classList.add('table__share-btn_active')
-        popupTableItemBtn.classList.remove('table__share-btn_inactive')
-      } else {
-        popupTableItemBtn.classList.add('table__share-btn_inactive')
-        popupTableItemBtn.classList.remove('table__share-btn_active')
-      }
 
-    }
-  });
-}
-overlay.addEventListener('click', function() {
-  if(popupWindow.classList.contains('popup-window_active')){
-    popupWindow.classList.remove('popup-window_active')
-  }
-});
 
 
 //DATE PERIOD HANDLERS
@@ -113,13 +80,7 @@ for (let i = 0; i < datePeriodItems.length; i++) {
       if (!calendar.classList.contains('visible')) {;
         calendar.classList.add('visible');
       }
-    } else if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow')){
-      dateStart.setDate(date.getDate()+1)
-      dateEnd.setDate(date.getDate()+1)
-    }else if(datePeriodItems[i].classList.contains('date-period-list__item_tomorrow-next')){
-      dateStart.setDate(date.getDate()+1)
-      dateEnd = dateAllEnd
-    }else if(datePeriodItems[i].classList.contains('date-period-list__item_today')){
+    } else if(datePeriodItems[i].classList.contains('date-period-list__item_today')){
       dateStart.setDate(date.getDate())
       dateEnd.setDate(date.getDate())
     } else if(datePeriodItems[i].classList.contains('date-period-list__item_yesterday')){
