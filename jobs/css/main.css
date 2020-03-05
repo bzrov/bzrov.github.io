@@ -722,6 +722,10 @@ input {
   -ms-user-select: none;
   user-select: none; }
 
+.table__filter-items {
+  max-height: 223px;
+  overflow-y: auto; }
+
 .filter-item__checkbox {
   position: absolute;
   opacity: 0;
