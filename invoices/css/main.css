@@ -1024,7 +1024,7 @@ input {
   opacity: 1;
   pointer-events: auto; }
 
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 998px) {
   .table {
     display: none; }
   .table-mobile {
@@ -1039,9 +1039,7 @@ input {
         -ms-flex-align: center;
             align-items: center; }
   .table-navigation__content {
-    left: 15px; } }
-
-@media screen and (max-width: 998px) {
+    left: 15px; }
   .dashboard__item-number {
     font-size: 3.5em; }
   .dashboard__item-title {
