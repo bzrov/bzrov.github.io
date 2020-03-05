@@ -996,7 +996,7 @@ input {
   opacity: 1;
   pointer-events: auto; }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 998px) {
   .table {
     display: none; }
   .table-mobile {
@@ -1011,9 +1011,7 @@ input {
         -ms-flex-align: center;
             align-items: center; }
   .table-navigation__content {
-    left: 15px; } }
-
-@media screen and (max-width: 998px) {
+    left: 15px; }
   .controls {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
