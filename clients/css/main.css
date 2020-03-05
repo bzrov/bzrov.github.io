@@ -241,10 +241,10 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 20px 25px;
   margin-bottom: 40px;
   border-bottom: 1px solid #D0D3DA; }
@@ -315,7 +315,7 @@ input {
   right: 0;
   top: 0; }
 
-.controls__search-btn, .controls__reload-btn {
+.controls__search-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
