@@ -761,41 +761,16 @@ input {
   .table-mobile__cell-row:first-child {
     margin-bottom: 10px; }
 
-.table-mobile__cell_name-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
-.table-mobile__cell_name {
-  margin-bottom: 2px;
-  margin-right: 8px;
-  font-size: 1.6em;
-  font-weight: 500; }
-
-.table-mobile__cell_schedule-time, .table-mobile__cell_property-type, .table-mobile__cell_type, .table-mobile__cell_status {
-  font-size: 1.4em; }
+.table-mobile__cell-title {
+  font-size: 1.2em; }
 
 .table-mobile__cell-description {
   text-align: end; }
 
-.table-mobile__cell_type {
-  margin-bottom: 2px; }
-
-.table-mobile__cell_property-type {
-  margin-bottom: 2px; }
-
-.table-mobile__cell_status {
-  font-weight: 500; }
-
 .table-mobile__cell-fields, .table-mobile__cell-title {
   margin-right: 8px; }
 
-.table-mobile__cell_area, .table-mobile__cell_service-resource, .table-mobile__cell_created-by {
+.table-mobile__cell-field, .table-mobile__cell_created-by {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -809,15 +784,16 @@ input {
           flex-wrap: wrap;
   margin-bottom: 2px; }
 
-.table-mobile__cell_area-label, .table-mobile__cell_service-resource-label {
+.table-mobile__cell-field-label {
   padding-right: 8px;
   font-size: 1.4em;
   color: #8391AD; }
 
-.table-mobile__cell_area-content, .table-mobile__cell_service-resource-content {
+.table-mobile__cell-field-content {
   font-size: 1.2em; }
 
 .table-mobile__cell-info {
+  margin-left: auto;
   text-align: end;
   font-size: 1.2em; }
 
@@ -833,96 +809,14 @@ input {
 .table-mobile__cell_created-by-content {
   padding-left: 8px; }
 
-.popup-window {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 5;
-  opacity: 0;
-  pointer-events: none; }
+.table-mobile__cell_absence-start {
+  margin-bottom: 2px; }
 
-.popup-window_active {
-  opacity: 1;
-  pointer-events: auto; }
+.table-mobile__cell_absence-start, .table-mobile__cell_absence-end {
+  font-size: 1.4em; }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #6093DE;
-  opacity: .25;
-  z-index: -1; }
-
-.table-mobile__popup {
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  padding: 25px;
-  margin: 0 10px;
-  width: 100%;
-  border-radius: 6px; }
-
-.table-mobile__popup_name {
-  -webkit-flex-basis: 40%;
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%;
-  font-size: 2.5em;
-  text-align: center;
-  padding: 8px 25px;
-  border: 2px solid #6093DE;
-  border-radius: 6px;
-  white-space: nowrap; }
-
-.table-mobile__popup_share-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-basis: 40%;
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%;
-  padding: 8px 25px;
-  border: 2px solid #6093DE;
-  border-radius: 6px; }
-  .table-mobile__popup_share-btn svg {
-    width: 2.4em; }
+.table-mobile__cell_absence-start-time, .table-mobile__cell_absence-end-time {
+  font-weight: 500; }
 
 .table-mobile__share-text {
   font-size: 2em;
