@@ -241,10 +241,10 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   padding: 20px 25px;
   margin-bottom: 40px;
   border-bottom: 1px solid #D0D3DA; }
@@ -258,22 +258,6 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
-
-.controls__date-settings {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
-.controls__date-period-list {
-  top: 35px;
-  right: 0;
-  width: auto;
-  white-space: nowrap; }
 
 .drop-list {
   opacity: 0;
@@ -304,9 +288,10 @@ input {
     background-color: #6093DE; }
 
 .controls__item_search {
-  width: 25%;
+  width: 50%;
   min-width: 250px;
-  max-width: 620px; }
+  max-width: 620px;
+  margin-right: 8px; }
 
 .controls__search {
   position: relative;
@@ -350,187 +335,6 @@ input {
   border-radius: 50%;
   border: 1px solid #D0D3DA;
   cursor: pointer; }
-
-.controls__date-period {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 15px;
-  font-size: 1.4em;
-  cursor: pointer; }
-
-.controls__date-period-text {
-  margin-right: 8px; }
-
-.controls__item .open .controls__date-period-arrow {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg); }
-
-.controls__date-picker {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 25px; }
-
-.controls__date-picker-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  padding: 1.2em 1.5em 1.4em 1.5em;
-  background-color: #E7E9EC;
-  border: 1px solid #D0D3DA;
-  border-radius: 6px;
-  overflow: hidden;
-  cursor: pointer; }
-  .controls__date-picker-item:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    display: block;
-    height: 100%;
-    width: 5px;
-    background-color: #6093DE; }
-
-.controls__date-picker-text {
-  margin: 0 25px;
-  color: #8391AD;
-  font-size: 1.8em; }
-
-.controls__date-picker-date {
-  width: 95px;
-  padding-right: 10px;
-  font-size: 1.4em; }
-
-.calendar {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  top: 50px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  padding: 10px;
-  border-radius: 20px;
-  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
-  z-index: 2;
-  cursor: pointer; }
-
-.calendar__table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-.calendar__controls-month {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 14px 0px;
-  width: 100%;
-  border-bottom: 1px solid #D0D3DA; }
-
-.calendar__control-month {
-  width: 1em; }
-  .calendar__control-month svg {
-    stroke: #000000; }
-
-.calendar__month {
-  text-align: center;
-  font-size: 1.6em;
-  font-weight: 500; }
-
-.calendar-table__row-week {
-  text-transform: uppercase;
-  font-weight: 500;
-  border-bottom: 0.1rem solid #D0D3DA; }
-
-.calendar-table__cell {
-  padding: 14px;
-  text-align: center;
-  font-size: 1.4em; }
-
-.calendar-table__cell-day:hover {
-  background-color: rgba(142, 142, 147, 0.5);
-  border-radius: 6px; }
-
-.calendar-table__cell-day_selected-one {
-  background-color: #6093DE;
-  border-radius: 50%;
-  color: #ffffff; }
-  .calendar-table__cell-day_selected-one:hover {
-    border-radius: 50%; }
-
-.calendar-table__cell-day_selected-period-start, .calendar-table__cell-day_selected-period-end {
-  position: relative;
-  background-color: #6093DE;
-  border-radius: 50%;
-  color: #ffffff; }
-  .calendar-table__cell-day_selected-period-start::after, .calendar-table__cell-day_selected-period-end::after {
-    content: "";
-    display: block;
-    background-color: #e8e9ed;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 50%;
-    z-index: -1; }
-  .calendar-table__cell-day_selected-period-start:hover, .calendar-table__cell-day_selected-period-end:hover {
-    background-color: #8e8e93;
-    border-radius: 50%; }
-
-.calendar-table__cell-day_selected-period-start::after {
-  right: 0; }
-
-.calendar-table__cell-day_selected-period-end::after {
-  left: 0; }
-
-.calendar-table__cell-day_selected-period {
-  background-color: #e8e9ed; }
-  .calendar-table__cell-day_selected-period:hover {
-    border-radius: 0px; }
-
-.controls-mobile__item {
-  display: none;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  padding: 20px 15px;
-  border-top: 1px solid #D0D3DA; }
-
-.controls-mobile__search {
-  margin-right: 20px; }
 
 .table-navigation {
   position: relative;
@@ -667,16 +471,6 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.table__wrapper-text {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
 .table__text_headline {
   margin-right: 8px;
   font-size: 1.8em;
@@ -693,6 +487,16 @@ input {
 
 .table__sort-dir_hide {
   display: none; }
+
+.table__wrapper-text {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 .table__filter-btn {
   margin-right: 8px; }
@@ -815,16 +619,6 @@ input {
       -ms-flex-align: end;
           align-items: flex-end; }
 
-.table-mobile__cell_name-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
 .table-mobile__cell-field {
   display: -webkit-box;
   display: -webkit-flex;
@@ -856,57 +650,26 @@ input {
   font-size: 1.6em;
   font-weight: 500; }
 
-.table-mobile__cell_appointments {
+.table-mobile__cell_phone_title {
   font-size: 1.4em; }
-
-.table-mobile__cell_appointments-number {
-  font-weight: 500; }
 
 .table-mobile__cell-description {
   text-align: end; }
 
-.table-mobile__cell_paid, .table-mobile__cell_total {
+.table-mobile__cell_paid, .table-mobile__cell_unpaid, .table-mobile__cell_total {
   margin-bottom: 2px;
   font-size: 1.2em; }
 
-.table-mobile__cell_paid-number, .table-mobile__cell_total-number {
+.table-mobile__cell_paid-number, .table-mobile__cell_unpaid-number, .table-mobile__cell_total-number {
   margin-left: 5px;
-  font-weight: 500; }
-
-.table-mobile__cell_property-type {
-  margin-bottom: 2px;
-  font-size: 1.4em; }
-
-.table-mobile__cell_status {
-  font-size: 1.4em;
   font-weight: 500; }
 
 .table-mobile__cell-info {
   text-align: end;
   font-size: 1.2em; }
 
-.table-mobile__cell_date {
-  margin-bottom: 2px; }
-
-.table-mobile__cell_created-by {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-
-.table-mobile__cell_created-by-content {
-  padding-left: 8px; }
+.table-mobile__cell_source {
+  font-size: 1.4em; }
 
 .table-navigation-mobile__sort {
   display: none;
@@ -1054,7 +817,7 @@ input {
   opacity: 1;
   pointer-events: auto; }
 
-@media screen and (max-width: 1330px) {
+@media screen and (max-width: 998px) {
   .table {
     display: none; }
   .table-mobile {
@@ -1069,22 +832,13 @@ input {
         -ms-flex-align: center;
             align-items: center; }
   .table-navigation__content {
-    left: 15px; } }
-
-@media screen and (max-width: 998px) {
+    left: 15px; }
   .dashboard__item-number {
     font-size: 3.5em; }
   .dashboard__item-title {
     font-size: 2em; }
-  .controls {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
   .controls__item_search {
-    width: 100%;
-    margin-bottom: 25px; } }
+    width: 100%; } }
 
 @media screen and (max-width: 768px) {
   .dashboard {
@@ -1155,34 +909,8 @@ input {
   .dashboard__item-title {
     font-size: 1.6em; }
   .controls {
-    padding: 0;
-    margin-bottom: 0; }
-    .controls .controls__item_search, .controls .controls__reload {
-      display: none; }
-    .controls .controls__date-period {
-      margin-right: 0; }
-    .controls .controls__item {
-      padding: 20px 15px; }
-  .controls__date-settings {
-    margin-bottom: 15px; }
-  .controls__date-picker {
-    margin-right: 0; }
-  .controls__item {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100%;
-    -webkit-box-align: end;
-    -webkit-align-items: flex-end;
-        -ms-flex-align: end;
-            align-items: flex-end; }
-  .controls-mobile__item {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
+    padding-left: 10px;
+    padding-right: 10px; }
   .table-navigation {
     min-height: 35px; }
   .table-navigation__content_top {
@@ -1207,12 +935,6 @@ input {
     padding: 8px; }
   .dashboard__item-title {
     font-size: 1.4em; }
-  .controls__date-picker-text {
-    margin: 0 8px; }
-  .controls__date-picker-date {
-    width: 87px;
-    padding-right: 8px;
-    font-size: 1.2em; }
   .table-navigation-mobile__sort-wrapper {
     margin-top: 2px; }
   .table-navigation-mobile__sort {
