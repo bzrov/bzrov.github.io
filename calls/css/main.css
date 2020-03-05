@@ -1391,7 +1391,7 @@ input {
   opacity: 1;
   pointer-events: auto; }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .table {
     display: none; }
   .table-mobile {
