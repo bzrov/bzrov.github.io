@@ -288,7 +288,7 @@ input {
     background-color: #6093DE; }
 
 .controls__item_search {
-  width: 50%;
+  width: 25%;
   min-width: 250px;
   max-width: 620px;
   margin-right: 8px; }
@@ -836,9 +836,7 @@ input {
   .dashboard__item-number {
     font-size: 3.5em; }
   .dashboard__item-title {
-    font-size: 2em; }
-  .controls__item_search {
-    width: 100%; } }
+    font-size: 2em; } }
 
 @media screen and (max-width: 768px) {
   .dashboard {
@@ -911,6 +909,8 @@ input {
   .controls {
     padding-left: 10px;
     padding-right: 10px; }
+  .controls__item_search {
+    width: 100%; }
   .table-navigation {
     min-height: 35px; }
   .table-navigation__content_top {
