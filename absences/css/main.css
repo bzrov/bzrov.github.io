@@ -761,39 +761,53 @@ input {
   .table-mobile__cell-row:first-child {
     margin-bottom: 10px; }
 
-.table-mobile__cell-title {
-  font-size: 1.2em; }
-
-.table-mobile__cell-description {
-  text-align: end; }
-
-.table-mobile__cell-fields, .table-mobile__cell-title {
-  margin-right: 8px; }
-
 .table-mobile__cell-field, .table-mobile__cell_created-by {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin-bottom: 2px; }
+
+.table-mobile__cell-fields {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  font-size: 1.2em; }
+
+.table-mobile__cell_service-resource {
+  margin-right: 8px; }
 
 .table-mobile__cell-field-label {
   padding-right: 8px;
   font-size: 1.4em;
   color: #8391AD; }
 
+.table-mobile__cell_area {
+  text-align: end; }
+
+.table-mobile__cell_area-label {
+  padding-right: 0px; }
+
+.table-mobile__cell_area-content {
+  padding-left: 8px; }
+
 .table-mobile__cell-field-content {
   font-size: 1.2em; }
 
 .table-mobile__cell-info {
-  margin-left: auto;
   text-align: end;
   font-size: 1.2em; }
 
