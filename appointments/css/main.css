@@ -709,6 +709,10 @@ input {
   width: auto;
   white-space: nowrap; }
 
+.table__filter-items {
+  max-height: 223px;
+  overflow-y: auto; }
+
 .filter-item {
   display: block;
   position: relative;
