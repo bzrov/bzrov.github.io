@@ -776,8 +776,31 @@ input {
   color: #6093DE;
   cursor: pointer; }
 
+.table-mobile__cell-title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2px;
+  margin-right: 8px;
+  font-size: 1.6em; }
+
+.table-mobile__cell_service_title {
+  font-weight: 500;
+  padding-right: 5px; }
+
 .table__text {
   font-size: 1.6em; }
+
+.table-mobile__cell_status {
+  margin-bottom: 2px; }
+
+.table-mobile__cell_type {
+  font-size: 1.2em; }
 
 .table-mobile {
   display: none; }
@@ -822,7 +845,32 @@ input {
       -ms-flex-align: center;
           align-items: center; }
 
-.table-mobile__cell_stripe_title {
+.table-mobile__cell-field {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-bottom: 4px; }
+  .table-mobile__cell-field:last-child {
+    margin-bottom: 0px; }
+
+.table-mobile__cell-field-label {
+  padding-right: 8px;
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #8391AD; }
+
+.table-mobile__cell-field-content {
+  font-size: 1.4em; }
+
+.table-mobile__cell_name_title {
   margin-bottom: 2px;
   margin-right: 8px;
   font-size: 1.6em;
@@ -839,16 +887,11 @@ input {
   margin-left: 5px;
   font-weight: 500; }
 
-.table-mobile__cell_type {
-  font-size: 1.2em; }
-
 .table-mobile__cell_status {
-  margin-bottom: 2px;
   font-size: 1.4em;
   font-weight: 500; }
 
 .table-mobile__cell-info {
-  margin-left: auto;
   text-align: end;
   font-size: 1.2em; }
 

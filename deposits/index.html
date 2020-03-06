@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-	<title>Payments</title>
+	<title>Deposits</title>
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 
@@ -17,7 +17,7 @@
 			<div class="dashboard__item">
 				<div class="dashboard__item-content">
 					<p class="dashboard__item-number">
-						29
+						290
 					</p>
 					<p class="dashboard__item-title">
 						All Payments
@@ -27,7 +27,7 @@
 			<div class="dashboard__item">
 				<div class="dashboard__item-content">
 					<p class="dashboard__item-number">
-						$6.702
+						$60.702
 					</p>
 					<p class="dashboard__item-title">
 						Total Amount
@@ -37,7 +37,7 @@
 			<div class="dashboard__item">
 				<div class="dashboard__item-content">
 					<p class="dashboard__item-number">
-						$3.04%
+						30.04%
 					</p>
 					<p class="dashboard__item-title">
 						Fee(%)
@@ -47,10 +47,10 @@
 			<div class="dashboard__item">
 				<div class="dashboard__item-content">
 					<p class="dashboard__item-number">
-						$245.55
+						$2450.55
 					</p>
 					<p class="dashboard__item-title">
-						Fee(Amount)
+						Fee (Amount) 
 					</p>
 				</div>
 			</div>
@@ -302,12 +302,13 @@
 					</div>
 					<ul class="table-navigation-mobile__sort-list sort-list drop-list">
 						<li class="drop-list__item sort-list__item selected">Date</li>
-						<li class="drop-list__item sort-list__item">Type</li>
-						<li class="drop-list__item sort-list__item">Service</li>
+						<li class="drop-list__item sort-list__item">Name</li>
 						<li class="drop-list__item sort-list__item">Status</li>
-						<li class="drop-list__item sort-list__item">Net</li>
+						<li class="drop-list__item sort-list__item">Service Resource</li>
+						<li class="drop-list__item sort-list__item">Area</li>
 						<li class="drop-list__item sort-list__item">Total</li>
-						<li class="drop-list__item sort-list__item">Fee</li>
+						<li class="drop-list__item sort-list__item">Paid</li>
+						<li class="drop-list__item sort-list__item">Unpaid</li>
 						<li class="sort-list__sort-settings sort-settings">
 							<label class="sort-list__sort-settings-item sort-list__sort-settings-item_descending">
 								<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -348,6 +349,53 @@
 									</svg>
 								</div>
 
+							</div>
+						</th>
+						<th>
+							<div class="table__cell table__cell_headline">
+								<div class="table__wrapper-text">
+									<div class="table__filter-btn">
+										<svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0)">
+											<path d="M8.164 8.274H4.836C4.771 8.274 4.71467 8.232 4.67133 8.166L0.485334 1.074C0.372668 0.887998 0.472334 0.599998 0.650001 0.599998H12.3587C12.5363 0.599998 12.6317 0.887998 12.5233 1.074L8.333 8.166C8.28967 8.232 8.229 8.274 8.164 8.274Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+											<path d="M8.164 14.418L5.11767 17.316C4.95734 17.466 4.73634 17.316 4.73634 17.052V8.59201C4.73634 8.41201 4.84467 8.26801 4.979 8.26801H8.02533C8.15967 8.26801 8.268 8.41201 8.268 8.59201V14.154C8.26367 14.256 8.229 14.358 8.164 14.418Z" fill="white" stroke="#8391AD" stroke-width="1.4" stroke-miterlimit="10"/>
+											</g>
+										</svg>		
+									</div>
+									<p class="table__text table__text_headline">
+										Bank Date
+									</p>
+								</div>
+								<div class="table__sort-btn table__sort-dir_ascending ">
+									<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+								<div class="table__filter-list drop-list">
+									<ul class="table__filter-items">
+										<li class="drop-list__item table__filter-item ">
+											<label class="filter-item">All
+												<input class="filter-item__checkbox filter-item__checkbox_all" type="checkbox" checked>
+												<span class="filter-item__checkmark"></span>
+											</label>	 
+										</li>
+										<li class="drop-list__item table__filter-item">
+											<label class="filter-item">Service call
+												<input class="filter-item__checkbox" type="checkbox">
+												<span class="filter-item__checkmark"></span>
+											</label> 
+										</li>
+										<li class="drop-list__item table__filter-item">
+											<label class="filter-item">Recall
+												<input class="filter-item__checkbox" type="checkbox">
+												<span class="filter-item__checkmark"></span>
+											</label>
+										</li>
+									</ul>
+									<button class="table__filter-btn-apply">
+										Filter
+									</button>
+								</div>
 							</div>
 						</th>
 						<th>
@@ -494,6 +542,18 @@
 						<th>
 							<div class="table__cell table__cell_headline">
 								<p class="table__text table__text_headline">
+									Payments
+								</p>
+								<div class="table__sort-btn">
+									<svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 5 L6 10.28571 V10 1 M6 10.28571 L11 5" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</div>
+							</div>
+						</th>
+						<th>
+							<div class="table__cell table__cell_headline">
+								<p class="table__text table__text_headline">
 									Net
 								</p>
 								<div class="table__sort-btn">
@@ -532,23 +592,29 @@
 						<td class="table__cell table__cell_date table__cell_content">
 							<p class="table__text">06/25/2019 2:12 pm</p>
 						</td>
+						<td class="table__cell table__cell_bank-date table__cell_content">
+							<p class="table__text">06/25/2019</p>
+						</td>
 						<td class="table__cell table__cell_type table__cell_content">
-							<p class="table__text">Card</p>
+							<p class="table__text">Checks, Cash</p>
 						</td>
 						<td class="table__cell table__cell_service table__cell_content">
-							<p class="table__text">Stripe</p>
+							<p class="table__text">Chase</p>
 						</td>
 						<td class="table__cell table__cell_status table__cell_content">
 							<p class="table__text">Done</p>
 						</td>
+						<td class="table__cell table__cell_payments table__cell_content">
+							<p class="table__text">10</p>
+						</td>
 						<td class="table__cell table__cell_net table__cell_content">
-							<p class="table__text">$257.00</p>
+							<p class="table__text">$2560.80</p>
 						</td>
 						<td class="table__cell table__cell_total table__cell_content">
-							<p class="table__text">$456.00</p>
+							<p class="table__text">$2560.80</p>
 						</td>
 						<td class="table__cell table__cell_fee table__cell_content">
-							<p class="table__text">$6.10</p>
+							<p class="table__text">$0.00</p>
 						</td>
 					</tr>
 				</tbody>
@@ -558,22 +624,25 @@
 					<div class="table-mobile__cell-row">
 						<div class="table-mobile__cell-title-wrapper">
 							<div class="table-mobile__cell-title">
-								<p class="table-mobile__cell_stripe table-mobile__cell_stripe_title">
-									Stripe
+								<p class="table-mobile__cell_service table-mobile__cell_service_title">
+									Chase
+								</p>
+								<p class="table-mobile__cell_bank-date ">
+									(06/25/2019)
 								</p>
 							</div>
-							<p class="table-mobile__cell_status">
+							<p class="table-mobile__cell_status ">
 								Done
 							</p>
-							<p class="table-mobile__cell_type">
-								Card
+							<p class="table-mobile__cell_type ">
+								Checks, Cash
 							</p>
 						</div>
 						<div class="table-mobile__cell-description">
 							<p class="table-mobile__cell_total ">
 								Total: <span class="table-mobile__cell_total-number">$859.98</span>
 							</p>
-							<p class="table-mobile__cell_fee">
+							<p class="table-mobile__cell_fee ">
 								Fee: <span class="table-mobile__cell_fee-number">$859.98</span>
 							</p>
 							<p class="table-mobile__cell_net ">
@@ -582,6 +651,16 @@
 						</div>
 					</div>
 					<div class="table-mobile__cell-row table-mobile__cell-row_end">
+						<div class="table-mobile__cell-fields">
+							<div class="table-mobile__cell_area table-mobile__cell-field">
+								<p class="table-mobile__cell_area-label table-mobile__cell-field-label">
+									Payments: 
+								</p>
+								<p class="table-mobile__cell_area-content table-mobile__cell-field-content">
+									10
+								</p>
+							</div>
+						</div>
 						<div class="table-mobile__cell-info">
 							<p class="table-mobile__cell_date">
 								06/25/2019 2:12 pm
