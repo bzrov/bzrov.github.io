@@ -822,11 +822,9 @@ input {
       -ms-flex-align: center;
           align-items: center; }
 
-.table-mobile__cell_stripe_title {
+.table-mobile__cell_service {
   margin-bottom: 2px;
-  margin-right: 8px;
-  font-size: 1.6em;
-  font-weight: 500; }
+  font-size: 1.2em; }
 
 .table-mobile__cell-description {
   text-align: end; }
@@ -839,9 +837,23 @@ input {
   margin-left: 5px;
   font-weight: 500; }
 
-.table-mobile__cell_type {
+.table-mobile__cell-title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 2px;
-  font-size: 1.2em; }
+  font-size: 1.6em; }
+
+.table-mobile__cell_type_title {
+  padding-right: 5px; }
+
+.table-mobile__cell_type_title, .table-mobile__cell_number_title {
+  font-weight: 500; }
 
 .table-mobile__cell_status {
   font-size: 1.4em;
