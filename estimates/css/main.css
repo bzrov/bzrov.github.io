@@ -757,9 +757,10 @@ input {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
-          justify-content: space-between; }
-  .table-mobile__cell-row:first-child {
-    margin-bottom: 10px; }
+          justify-content: space-between;
+  margin: 5px 0; }
+  .table-mobile__cell-row:last-child {
+    margin: 0px; }
 
 .table-mobile__cell-row_end {
   -webkit-box-align: end;
@@ -829,6 +830,10 @@ input {
 
 .table-mobile__cell_date {
   margin-bottom: 2px; }
+
+.table-mobile__cell_comment {
+  color: #9d9c9d;
+  font-size: 1.2em; }
 
 .table-navigation-mobile__sort {
   display: none;
