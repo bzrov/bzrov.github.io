@@ -796,10 +796,8 @@ input {
 .table__text {
   font-size: 1.6em; }
 
-.table-mobile__cell_status {
-  margin-bottom: 2px; }
-
 .table-mobile__cell_type {
+  margin-bottom: 2px;
   font-size: 1.2em; }
 
 .table-mobile {
