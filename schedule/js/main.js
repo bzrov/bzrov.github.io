@@ -281,12 +281,13 @@ for (let i = 0; i < daysAmountItems.length; i++) {
 }
 
 const renderBoard = (daysAmountValue,timelineStep) =>{
+  //init variables
   let timelineTime;
   let halfDayPast = 0;
   let timlineTimeWidth=100/(24*daysAmountValue/timelineStep)
-
+  //Board timeline clear
   boardsTimeline.innerHTML = "";
-
+  //Board timeline fill
   for(let i=0; i<=24*daysAmountValue; i++){
     timelineTime = i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2))-(halfDayPast%2==0?0:12)
     let postfix = halfDayPast%2==0?"am":"pm"
@@ -306,7 +307,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     </div>`)
   }
 
-
+  //Board dates(1day,2days,3days)
   boardsDates.innerHTML="";
   if(daysAmountValue==1){
     let boardsDateText = `${weekShortDays[datePicked.getDay()]}, ${monthShortList[datePicked.getMonth()]} ${datePicked.getDate()} ${datePicked.getFullYear()}`;
@@ -355,6 +356,18 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     </div>
     `)
   }
+  //Board fill cells
+  const boardHourStart = 0 // 6am
+  const boardHourEnd = 24 // 9pm
 
+  const timegridRows = document.querySelectorAll('.timegrid__row')
+  
+  for(let i=0; i< timegridRows.length; i++){
+    timegridRows[i].innerHTML = "";
+    for(let j=0; j< (boardHourEnd-boardHourStart)*daysAmountValue*2; j++){
+      const timeGridCell = `<td class="timegrid__cell" style="width: ${100/((boardHourEnd-boardHourStart)*daysAmountValue*2)}%"> </td>`
+      timegridRows[i].innerHTML += timeGridCell
+    }
+  }
 }
 
