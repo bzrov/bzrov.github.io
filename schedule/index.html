@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<title>Deposits</title>
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+    </script>
+</head>
+<body>
+	<div class="frame-content" onclick="void(0);">
+		<section class="controls">
+			<div class="controls__item controls__item_search">
+				<div class="controls__search search">
+					<input class="search-field" type="text">
+					<div class="controls__search-btn">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
+						</svg>		
+					</div>
+				</div>
+			</div>
+			<div class="controls__item">
+				<div class="controls__days-amount days-amount ">
+					<p class="controls__days-amount-text">1 Day</p>
+					<div class="controls__date-period-arrow">
+						<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+							<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+						</svg>
+								
+					</div>
+					<ul class="controls__days-amount-list date-period-list drop-list">
+						<li class="drop-list__item days-amount-list__item selected days-amount-list__item_1">1 Day</li>
+						<li class="drop-list__item days-amount-list__item drop-list__item days-amount-list__item_2">2 Days</li>
+						<li class="drop-list__item days-amount-list__item drop-list__item days-amount-list__item_3">3 Days</li>
+					</ul>
+				</div>
+				<div class="controls__date-settings">
+					<div class="controls__date-period date-period ">
+						<p class="controls__date-period-text">Custom</p>
+						<div class="controls__date-period-arrow">
+							<svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect x="0.612244" y="0.0039978" width="10" height="1" rx="0.5" transform="rotate(37.7521 0.612244 0.0039978)" fill="black"/>
+								<rect x="15.7245" y="0.791351" width="10" height="1" rx="0.5" transform="rotate(142.313 15.7245 0.791351)" fill="black"/>
+							</svg>
+									
+						</div>
+						<ul class="controls__date-period-list date-period-list drop-list">
+							<li class="drop-list__item date-period-list__item selected date-period-list__item_custom">Custom</li>
+							<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_yesterday">Yesterday</li>
+							<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_today">Today</li>
+							<li class="drop-list__item date-period-list__item drop-list__item date-period-list__item_tomorrow">Tomorrow</li>
+						</ul>
+					</div>
+				</div>
+				<div class="controls__date-picker">
+					<div class="controls__date-picker-item ">
+						<p class="controls__date-picker-date">
+							Mar 01, 2020
+						</p>
+						<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M3.08046 2.22566V0H4.73441V2.22566H8.38961V0H10.0436V2.22566H13V16H0V2.22566H3.08046ZM11.7595 14.6857H1.24046V5.00332H11.7595V14.6857Z" fill="#8391AD"/>
+							<path d="M5.54069 5.9978H2.46436V9.25739H5.54069V5.9978Z" fill="#8391AD"/>
+						</svg>
+					</div>
+
+					<div class="controls__date-picker-calendar calendar">
+						<div class="calendar__controls-month">
+							<div class="calendar__control-month calendar__controll_prev">
+								<svg viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M6.22396 1L1.22742 6.07275L6.22396 11.1455" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+							<p class="calendar__month">
+							
+							</p>
+							<div class="calendar__control-month calendar__controll_next">
+								<svg viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0.868389 11.1455L5.86493 6.07276L0.868388 1.00002" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</div>
+						</div>
+						<table class="calendar__table">
+							<tr class="calendar-table__row-week">
+								<td class="calendar-table__cell">s</td>
+								<td class="calendar-table__cell">m</td>
+								<td class="calendar-table__cell">t</td>
+								<td class="calendar-table__cell">w</td>
+								<td class="calendar-table__cell">t</td>
+								<td class="calendar-table__cell">f</td>
+								<td class="calendar-table__cell">s</td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"0></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+							<tr class="calendar-table__row-days">
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"0></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+								<td class="calendar-table__cell calendar-table__cell-day"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="controls__date-select">
+					<div class="controls__date-select-prev">
+						prev
+					</div>
+					<div class="controls__date-select-next">
+						next
+					</div>
+				</div>
+			</div>
+			<div class="controls-mobile__item controls-mobile__item_row">
+				<div class="controls-mobile__search controls__search search ">
+					<input class="search-field" type="text">
+					<div class="controls__search-btn">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
+						</svg>		
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="boards">
+			<div class="boards__dates">
+				<div class="boards__dates-item">
+						<p class="boards__dates-item-time">
+							Sun, Mar 8 2020
+						</p>
+				</div>
+			</div>
+			<div class="boards__timeline">
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">12pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">1am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">2am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">3am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">4am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">5am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">6am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">7am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">8am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">9am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">10am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">11am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">12am</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">1pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">2pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">3pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">4pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">5pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">6pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">7pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">8pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">9pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">10pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">11pm</p>
+				</div>
+				<div class="timeline__item" style="width: 4.166666666666667%">
+					<p class="timeline__item-time">12pm</p>
+				</div>		
+			</div>
+			<div class="boards__item">
+				<div class="boards__item-area">
+					<div class="boards__item-area_left">
+						<div class="boards__item-area-btn-hide">
+							<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7 12L1.04907e-06 -1.22392e-06L14 0L7 12Z" fill="black"/>
+							</svg>	
+						</div>
+						<p class="boards__item-area-town">
+							Miami, FL
+						</p>
+					</div>
+					<div class="boards__item-area_right">
+						<p class="boards__item-area-time">
+							Friday, March 06, 2020 9:30
+						</p>
+					</div>
+				</div>
+				<div class="boards__board board"> 
+					<div class="board__row">
+						<div class="board__aside">
+							<div class="board__worker">
+
+							</div>
+						</div>
+						<div class="board__main">
+							<table class="board__timegrid timegrid">
+								<tbody>
+									<tr>
+										<td class="timegrid__cell">
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<script>
+	</script>
+	<script src="js/main.js"></script>
+</body>
+</html>
