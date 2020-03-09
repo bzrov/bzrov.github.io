@@ -290,7 +290,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   let timelineTime;
   let halfDayPast = 0;
   let postfix;
-  let boardCellWidth = 100/((boardHourEnd-boardHourStart+0.5)*daysAmountValue*2)
+  let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
   //Timline offset 
  // boardsTimeline.style.width = `${85+boardCellWidth}%`;
  // boardsDates.style.width = `${85+boardCellWidth}%`;
@@ -298,8 +298,9 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   boardsTimeline.innerHTML = "";
   //Board timeline fill
   for(let i=0; i<24*daysAmountValue; i++){
+    const timelineTime =  i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2))
+    let timelineTimeConverted = timelineTime-(halfDayPast%2==0?0:12)
     
-    timelineTime = i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2))-(halfDayPast%2==0?0:12)
     if( i==0 ){
       boardsTimeline.innerHTML+=`
       <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
@@ -315,24 +316,23 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
         <p class="timeline__item-time"></p>
       </div>
-      <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
-        <p class="timeline__item-time"></p>
-      </div>`
+      `
       i=i+timelineStep-1
       halfDayPast+=1;
       continue
     }
     if(i%12===0 && i!==0){
-      timelineTime = 12
+      timelineTimeConverted = 12
       halfDayPast+=1;
     }
     postfix = halfDayPast%2==0?"am":"pm"
     i=i+timelineStep-1
 
-    if((i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2)))>=boardHourStart&&(i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2)))<=boardHourEnd){
+    //console.log(i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2)),boardHourEnd-1)
+    if(timelineTime>=boardHourStart&&timelineTime<boardHourEnd){
       boardsTimeline.innerHTML +=`
       <div class="timeline__item" style="width: ${ boardCellWidth*(timelineStep*2)}%">
-        <p class="timeline__item-time">${timelineTime + postfix}</p>
+        <p class="timeline__item-time">${timelineTimeConverted + postfix}</p>
       </div>`
     }
     
@@ -396,9 +396,9 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   for(let i=0; i< timegridRows.length; i++){
     timegridRows[i].innerHTML = "";
 
-    for(let j=0; j< (boardHourEnd-boardHourStart+0.5)*daysAmountValue*2; j++){
+    for(let j=0; j< (boardHourEnd-boardHourStart)*daysAmountValue*2; j++){
 
-      if (j%((boardHourEnd-boardHourStart+0.5)*2)===0 && j!==0){
+      if (j%((boardHourEnd-boardHourStart)*2)===0 && j!==0){
         timeGridCell = `<div class="timegrid__cell timegrid__cell_end" style="width: ${boardCellWidth}%"> </div>`
       } else{
         timeGridCell = `<div class="timegrid__cell" style="width: ${boardCellWidth}%"> </div>`
