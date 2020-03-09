@@ -548,7 +548,14 @@ input {
   border-spacing: 0;
   border-collapse: collapse; }
 
+.board__row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 .board__aside {
+  width: 15%;
   background-color: #ffffff;
   border-left: 1px solid #D0D3DA;
   border-bottom: 1px solid #D0D3DA; }
