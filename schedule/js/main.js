@@ -283,7 +283,7 @@ for (let i = 0; i < daysAmountItems.length; i++) {
 
   });
 }
-const boardHourStart = 0// 6am
+const boardHourStart = 0 // 6am
 const boardHourEnd = 9// 9pm
 const renderBoard = (daysAmountValue,timelineStep) =>{
   //init variables
@@ -300,7 +300,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   for(let i=0; i<24*daysAmountValue; i++){
     const timelineTime =  i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2))
     let timelineTimeConverted = timelineTime-(halfDayPast%2==0?0:12)
-    
+    console.log(timelineTime)
     if( i==0 ){
       boardsTimeline.innerHTML+=`
       <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
@@ -308,12 +308,20 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       </div>`
       i=i+timelineStep-1
       continue
-    } else if(i==24*daysAmountValue-1){
-      
-      break
-    }else if( i%24==0 ){
+    } 
+    else if( i%24==0 ){
+      if(
+        timelineTime>boardHourStart&&(
+          (timelineTime<=boardHourEnd && daysAmountValue>1)|| (timelineTime<boardHourEnd && daysAmountValue<=1)
+          )
+        ){
+        boardsTimeline.innerHTML +=`
+        <div class="timeline__item" style="width: ${ boardCellWidth*(timelineStep*2)}%">
+          <p class="timeline__item-time">${timelineTimeConverted + postfix}</p>
+        </div>`
+      }
       boardsTimeline.innerHTML+=`
-      <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
+      <div class="timeline__item timeline__item_end" style="width: ${boardCellWidth*timelineStep}%">
         <p class="timeline__item-time"></p>
       </div>
       `
@@ -328,8 +336,13 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     postfix = halfDayPast%2==0?"am":"pm"
     i=i+timelineStep-1
 
+    
     //console.log(i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2)),boardHourEnd-1)
-    if(timelineTime>=boardHourStart&&timelineTime<boardHourEnd){
+    if(
+      timelineTime>boardHourStart&&(
+        (timelineTime<=boardHourEnd && daysAmountValue>1)|| (timelineTime<boardHourEnd && daysAmountValue<=1)
+        )
+      ){
       boardsTimeline.innerHTML +=`
       <div class="timeline__item" style="width: ${ boardCellWidth*(timelineStep*2)}%">
         <p class="timeline__item-time">${timelineTimeConverted + postfix}</p>
@@ -381,7 +394,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     <div class="boards__dates-item" style="width:33.3333333333%">
       <p class="boards__dates-item-time">${boardsDateText}</p>
     </div>
-    <div class="boards__dates-item" style="width:33.3333333333%">
+    <div class="boards__dates-item" style="width:33.2222222222%">
       <p class="boards__dates-item-time">${boardsDateNextText}</p>
     </div>
     <div class="boards__dates-item" style="width:33.3333333333%">

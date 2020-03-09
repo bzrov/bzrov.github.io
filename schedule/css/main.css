@@ -479,11 +479,13 @@ input {
   padding: 5px 0;
   text-align: center;
   background-color: #ffffff;
-  border-left: 1px solid #D0D3DA;
+  border-left: 3px solid #D0D3DA;
   border-top: 1px solid #D0D3DA;
   border-bottom: 1px solid #D0D3DA; }
   .boards__dates-item:last-child {
     border-right: 1px solid #D0D3DA; }
+  .boards__dates-item:first-child {
+    border-width: 1px; }
 
 .boards__dates-item-time {
   font-size: 1.2em;
@@ -618,7 +620,10 @@ input {
   background-color: #ffffff; }
 
 .timegrid__cell_end {
-  border-width: 2px; }
+  border-left: 3px solid #D0D3DA; }
+
+.timeline__item_end {
+  border-left: 3px solid #D0D3DA; }
 
 .visible {
   opacity: 1;
