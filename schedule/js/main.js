@@ -391,18 +391,18 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     let boardsDateNextNextText = `${weekShortDays[dateNextPickedTemp.getDay()]}, ${monthShortList[dateNextPickedTemp.getMonth()]} ${dateNextPickedTemp.getDate()} ${dateNextPickedTemp.getFullYear()}`;
     
     boardsDates.insertAdjacentHTML('beforeend',`
-    <div class="boards__dates-item" style="width:33.3333333333%">
+    <div class="boards__dates-item" style="width:33.333333333333336%">
       <p class="boards__dates-item-time">${boardsDateText}</p>
     </div>
-    <div class="boards__dates-item" style="width:33.2222222222%">
+    <div class="boards__dates-item" style="width:33.333333333333333%">
       <p class="boards__dates-item-time">${boardsDateNextText}</p>
     </div>
-    <div class="boards__dates-item" style="width:33.3333333333%">
+    <div class="boards__dates-item" style="width:33.333333333333336%">
       <p class="boards__dates-item-time">${boardsDateNextNextText}</p>
     </div>
     `)
   }
-
+  console.log(100/3)
 
 
   //Board fill cells
