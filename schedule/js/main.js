@@ -120,6 +120,9 @@ const renderCalendar = (month,year)=>{
     if(Date.parse(dateTemp)==Date.parse(datePicked) ){
       calendarTableDays[i+daysOffset].classList.add('calendar-table__cell-day_selected-one')
       renderBoard(daysAmountValue,timelineStep)
+      if (calendar.classList.contains('visible')) {;
+        calendar.classList.remove('visible');
+      }
     }
 
     calendarTableDays[i+daysOffset].textContent = i+1
@@ -234,7 +237,9 @@ const boardsDates = document.querySelector('.boards__dates')
 const boardTimegrid = document.querySelector('.board__timegrid') 
 const timegridRows = document.querySelectorAll('.timegrid__row')
 
-console.log(boardTimegrid.offsetWidth)
+const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
+const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
+
 let daysAmountValue = 1;
 let timelineStep = 1;
 daysAmount.addEventListener('click', function(e) {
@@ -287,13 +292,10 @@ const boardHourStart = 0 // 6am
 const boardHourEnd = 9// 9pm
 const renderBoard = (daysAmountValue,timelineStep) =>{
   //init variables
-  let timelineTime;
   let halfDayPast = 0;
   let postfix;
   let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
-  //Timline offset 
- // boardsTimeline.style.width = `${85+boardCellWidth}%`;
- // boardsDates.style.width = `${85+boardCellWidth}%`;
+
   //Board timeline clear
   boardsTimeline.innerHTML = "";
   //Board timeline fill
@@ -337,7 +339,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     i=i+timelineStep-1
 
     
-    //console.log(i - (halfDayPast>1?24:12)*(Math.floor(halfDayPast/2)),boardHourEnd-1)
+
     if(
       timelineTime>boardHourStart&&(
         (timelineTime<=boardHourEnd && daysAmountValue>1)|| (timelineTime<boardHourEnd && daysAmountValue<=1)
@@ -403,7 +405,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     </div>
     `)
   }
-  console.log(100/3)
+
 
 
   //Board fill cells
@@ -421,7 +423,71 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     }
 
   }
+
+  //Board livetime line
+  //Board area hide buttons
+  for(let i=0; i< boardsAreaBtnHide.length; i++){
+    boardsAreaBtnHide[i].addEventListener('click',function(e){
+      const target = e.target;
+      
+      const board = target.closest('.boards__item').querySelector('.boards__board')
+      if(board.classList.contains('boards__board_hide')){
+        board.classList.remove('boards__board_hide')
+        boardsAreaBtnHide[i].classList.remove('boards__item-area-btn-hide_active')
+      }else {
+        board.classList.add('boards__board_hide')
+        boardsAreaBtnHide[i].classList.add('boards__item-area-btn-hide_active')
+      }
+     
+    })
+  }
+  
 }
 
 //init
 renderBoard(daysAmountValue,timelineStep)
+
+const json = {
+  "areas": [
+    {
+      "area_id": "test",
+      "area_name": "test",
+      "area_timezone": "",
+      "service_resources": [
+        {
+          "service_resource_id": "test",
+          "service_resource_nickname": "test",
+          "service_resource_name_surname": "test",
+          "service_resource_post": "test",
+        },
+        {
+          "service_resource_id": "test",
+          "service_resource_nickname": "test",
+          "service_resource_name_surname": "test",
+          "service_resource_post": "test",
+        }
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "appointment_id":"test",
+      "appointment_type": "test",
+      "appointment_job_number": "test",
+      "appointment_zip": "test",
+      "appointment_service_resource_id": "test",
+      "appointment_date_start": "test",
+      "appointment_date_end": "test",
+    }
+  ],
+  "absences": [
+    {
+      "absences_id":"test",
+      "absences_service_resource_id": "test",
+      "absences_date_start": "test",
+      "absences_date_end": "test",
+    }
+  ]
+    
+  
+}

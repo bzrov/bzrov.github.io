@@ -548,6 +548,14 @@ input {
 .boards__item:first-child {
   border-top: 1px solid #D0D3DA; }
 
+.boards__board_hide {
+  display: none; }
+
+.boards__item-area-btn-hide_active {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
 .boards__item-area {
   display: -webkit-box;
   display: -webkit-flex;
@@ -620,6 +628,10 @@ input {
   border-radius: 50%;
   background-color: #D0D3DA;
   margin-right: 8px; }
+  .board__worker-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
 
 .board__worker-nickname {
   margin-bottom: 2px;
@@ -633,7 +645,7 @@ input {
 
 .board__worker-post {
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 300;
   color: #8391AD; }
 
 .board__main {
@@ -647,12 +659,23 @@ input {
   border-spacing: 0;
   border-collapse: collapse; }
 
+.board__table {
+  position: relative; }
+
 .timegrid__row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   height: 70px; }
+
+.timegrid__realtime-line {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  height: 100%;
+  width: 2px;
+  background-color: #EB5757; }
 
 .timegrid__cell {
   border-left: 1px solid #D0D3DA;
