@@ -455,6 +455,13 @@ input {
   width: 96%;
   margin: 0 auto; }
 
+.boards__dates-wrapper, .boards__timeline-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
 .boards__dates {
   display: -webkit-box;
   display: -webkit-flex;
@@ -463,7 +470,9 @@ input {
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  width: 85%;
+  margin-left: auto; }
 
 .boards__dates-item {
   width: 100%;
@@ -485,6 +494,8 @@ input {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 85%;
+  margin-left: auto;
   background-color: #ffffff;
   border-left: 1px solid #D0D3DA;
   border-right: 1px solid #D0D3DA; }
@@ -533,6 +544,7 @@ input {
   font-weight: 500; }
 
 .board__table {
+  width: 100%;
   border-spacing: 0;
   border-collapse: collapse; }
 
@@ -577,7 +589,7 @@ input {
   color: #8391AD; }
 
 .board__main {
-  width: 100%;
+  width: 85%;
   height: 1px;
   padding: 0px;
   border-bottom: 1px solid #D0D3DA; }
@@ -591,6 +603,9 @@ input {
 .timegrid__cell {
   border-left: 1px solid #D0D3DA;
   background-color: #ffffff; }
+
+.timegrid__cell_end {
+  border-width: 2px; }
 
 .visible {
   opacity: 1;
