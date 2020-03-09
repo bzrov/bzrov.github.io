@@ -545,6 +545,9 @@ input {
   font-size: 1.4em;
   text-transform: uppercase; }
 
+.boards__item:first-child {
+  border-top: 1px solid #D0D3DA; }
+
 .boards__item-area {
   display: -webkit-box;
   display: -webkit-flex;
@@ -560,7 +563,9 @@ input {
           justify-content: space-between;
   padding: 16px 10px;
   background-color: #ffffff;
-  border: 1px solid #D0D3DA; }
+  border-bottom: 1px solid #D0D3DA;
+  border-left: 1px solid #D0D3DA;
+  border-right: 1px solid #D0D3DA; }
 
 .boards__item-area_left {
   display: -webkit-box;

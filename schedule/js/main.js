@@ -355,6 +355,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
 
   //Board dates(1day,2days,3days)
   boardsDates.innerHTML="";
+
   if(daysAmountValue==1){
     let boardsDateText = `${weekShortDays[datePicked.getDay()]}, ${monthShortList[datePicked.getMonth()]} ${datePicked.getDate()} ${datePicked.getFullYear()}`;
     
@@ -422,3 +423,5 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   }
 }
 
+//init
+renderBoard(daysAmountValue,timelineStep)
