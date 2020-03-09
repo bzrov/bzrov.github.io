@@ -590,7 +590,6 @@ input {
 
 .board__main {
   width: 85%;
-  height: 1px;
   padding: 0px;
   border-bottom: 1px solid #D0D3DA; }
 
@@ -599,6 +598,13 @@ input {
   height: 100%;
   border-spacing: 0;
   border-collapse: collapse; }
+
+.timegrid__row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70px; }
 
 .timegrid__cell {
   border-left: 1px solid #D0D3DA;

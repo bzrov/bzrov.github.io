@@ -283,8 +283,8 @@ for (let i = 0; i < daysAmountItems.length; i++) {
 
   });
 }
-const boardHourStart = 6// 6am
-const boardHourEnd = 21// 9pm
+const boardHourStart = 10// 6am
+const boardHourEnd = 24// 9pm
 const renderBoard = (daysAmountValue,timelineStep) =>{
   //init variables
   let timelineTime;
@@ -292,8 +292,8 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   let postfix;
   let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
   //Timline offset 
-  boardsTimeline.style.width = `${85+boardCellWidth}%`;
-  boardsDates.style.width = `${85+boardCellWidth}%`;
+ // boardsTimeline.style.width = `${85+boardCellWidth}%`;
+ // boardsDates.style.width = `${85+boardCellWidth}%`;
   //Board timeline clear
   boardsTimeline.innerHTML = "";
   //Board timeline fill
@@ -387,9 +387,9 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       let timeGridCell;
 
       if (j%((boardHourEnd-boardHourStart)*2)===0 && j!==0){
-        timeGridCell = `<td class="timegrid__cell timegrid__cell_end" style="width: ${boardCellWidth}%"> </td>`
+        timeGridCell = `<div class="timegrid__cell timegrid__cell_end" style="width: ${boardCellWidth}%"> </div>`
       } else{
-        timeGridCell = `<td class="timegrid__cell" style="width: ${boardCellWidth}%"> </td>`
+        timeGridCell = `<div class="timegrid__cell" style="width: ${boardCellWidth}%"> </div>`
       }
       timegridRows[i].innerHTML += timeGridCell
     }
