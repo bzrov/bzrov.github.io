@@ -322,6 +322,11 @@ input {
 .controls__board-hour-select-main {
   font-size: 1.4em;
   margin-bottom: 15px; }
+  .controls__board-hour-select-main span {
+    padding-right: 5px; }
+
+#controls__board-hour-select-start {
+  margin-right: 3px; }
 
 .controls__board-hour-select-btn-apply {
   display: inline-block;
@@ -685,6 +690,7 @@ input {
   border-bottom: 1px solid #D0D3DA; }
 
 .board__timegrid {
+  position: relative;
   width: 100%;
   height: 100%;
   border-spacing: 0;
@@ -723,6 +729,22 @@ input {
 
 .timeline__item_end {
   border-left: 3px solid #9B9FA7; }
+
+.appointment {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  background-color: red; }
+
+.appointment_follow {
+  background-color: #6093DE; }
+
+.appointment_service {
+  background-color: #01B41F; }
+
+.appointment_recall {
+  background-color: #FF0000; }
 
 .visible {
   opacity: 1;

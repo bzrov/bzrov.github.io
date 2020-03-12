@@ -11,17 +11,50 @@ const daysAmountText = document.querySelector('.controls__days-amount-text')
 
 const boardItems = document.querySelector('.board__items')
 
-let daysAmountValue = 2;
-let timelineStep = 2;
-let boardHourStart = 2// 6am
-let boardHourEnd = 6// 9pm
+const boardHourSelectList=document.querySelector('.controls__board-hour-select-list')
+const boardHourSelectBtn = document.querySelector('.controls__board-hour-select-btn') 
+const boardHourSelectListStart=document.getElementById('controls__board-hour-select-start')
+const boardHourSelectListEnd=document.getElementById('controls__board-hour-select-end')
+const boardHourSelectBtnApply = document.querySelector('.controls__board-hour-select-btn-apply') 
 
-let json = '{"areas":[{"area_id":"t.est","area_name":"test","area_timezone":"","service_resources":[{"service_resource_id":"test","service_resource_img":"test","service_resource_nickname":"test","service_resource_name_surname":"test","service_resource_post":"test"},{"service_resource_id":"test","service_resource_img":"test","service_resource_nickname":"test","service_resource_name_surname":"test","service_resource_post":"test"}]}],"appointments":[{"appointment_id":"test","appointment_type":"test","appointment_job_number":"test","appointment_zip":"test","appointment_service_resource_id":"test","appointment_date_start":"test","appointment_date_end":"test"}],"absences":[{"absences_id":"test","absences_service_resource_id":"test","absences_date_start":"test","absences_date_end":"test"}]}'
+let date = new Date();
+let day = date.getDate();
+let month = date.getMonth();
+let year = date.getFullYear();
+let datePicked =  new Date();
+let dayPicked = datePicked.getDate()-1
+let daysOffset = 0;
+let daysInMonth;
+const calendar = document.querySelector('.calendar')
+const calendarTableDays = document.querySelectorAll('.calendar-table__cell-day')
+const calendarMonthYear = document.querySelector('.calendar__month')
+const calendarBtnNext = document.querySelector('.calendar__controll_next')
+const calendarBtnPrev = document.querySelector('.calendar__controll_prev')
+const controlsDatePicker = document.querySelector('.controls__date-picker-item')
+
+const controlsDatePickerText = document.querySelector('.controls__date-picker-date')
+const controlsDateSelectPrev = document.querySelector('.controls__date-select-prev')
+const controlsDateSelectNext = document.querySelector('.controls__date-select-next')
+
+
+const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const weekShortDays = ['Sun','Mon','Tue',"Wed",'Thu','Fri','Sat']
+const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthShortList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+
+let daysAmountValue;
+let timelineStep;
+
+let boardHourStart = boardHourSelectListStart.value// 6am
+let boardHourEnd = boardHourSelectListEnd.value// 9pm
+
+let json = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_post":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_post":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]}],"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_zip":"33067","appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 13, 2020 11:00:00","appointment_date_end":"March 13, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_zip":"33045","appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 12, 2020 17:00:00","appointment_date_end":"March 12, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_zip":"77007","appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 13, 2020 8:00:00","appointment_date_end":"March 13, 2020 10:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 13, 2020 8:00:00","absences_date_end":"March 14, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 13, 2020 12:00:00","absences_date_end":"March 13, 2020 14:00:00"}]}'
 
 const crEl = (tagName, className, text, parent, attributes = {}, ) => {
   const el = document.createElement(tagName);
-  Object.assign(el, attributes);
-  el.className = className;
+  attributes&& Object.assign(el, attributes);
+  className && (el.className = className);
   if (text) { el.appendChild(document.createTextNode(text)); }
 
   return el;
@@ -31,6 +64,7 @@ const crEl = (tagName, className, text, parent, attributes = {}, ) => {
 const drawBoard =(json)=>{
   const boardData = JSON.parse(json)
   console.log(boardData)
+  let appointmentsHash = new Map();
   //***********************************Draw areas**************************************//
   const areas = boardData.areas;
   for(let i =0;i<areas.length;i++){
@@ -40,6 +74,8 @@ const drawBoard =(json)=>{
     const area_timezone = area.area_timezone;
     const area_service_resources = area.service_resources;
     const area_time = new Date()
+    area_time.setHours(area_time.getHours()+ +area_timezone)
+    const area_time_text = `${weekDays[area_time.getDay()]}, ${monthList[area_time.getMonth()]} ${area_time.getDate()}, ${area_time.getFullYear()} ${area_time.getHours()}:${area_time.getMinutes()}`
 
     const boardsItem = crEl("div","boards__item") // create boards item
     const boardsItemArea = crEl("div","boards__item-area") // create area 
@@ -58,37 +94,41 @@ const drawBoard =(json)=>{
     //********************************************************//
 
     const boardsItemAreaTown = crEl("p","boards__item-area-town",area_name) //create area town 
-    const boardsItemAreaTime = crEl("p","boards__item-area-time",area_time) //create area time
+    const boardsItemAreaTime = crEl("p","boards__item-area-time",area_time_text) //create area time
 
     const timegridRealtimeLine = crEl("div","timegrid__realtime-line") //create timegrid realtime line
 
     const boardsBoard = crEl("div","boards__board board") //create board
     const boardTable = crEl("div","board__table") // create board table
 
-
+    
     for(let j=0; j<area_service_resources.length; j++){
      const area_service_resource = area_service_resources[j];
      const serviceResourceId  = area_service_resource.service_resource_id;
-     const serviceResourceImg  = area_service_resource.service_resource_img;
+     const serviceResourceImg  = area_service_resource.service_resource_image;
      const serviceResourceNickname  = area_service_resource.service_resource_nickname;
      const serviceResourceNameSurname  = area_service_resource.service_resource_name_surname;
-     const serviceResourcePost  = area_service_resource.service_resource_post;
+     const serviceResourceFunction  = area_service_resource.service_resource_function;
 
 
      const boardRow = crEl("div","board__row"); // create board row
+
      const boardRowAside = crEl("div","board__aside"); // create board aside
      const boardRowWorker = crEl("div","board__worker"); //create worker
      const boardRowWorkerImg = crEl("div","board__worker-img"); // create worker img wrapper
-     const boardRowWorkerImgContent = crEl("img","","",null,{src:serviceResourceImg}); // create worker img
+     const boardRowWorkerImgContent = crEl("img",null,null,null,{src:serviceResourceImg}); // create worker img
      const boardRowWorkerInfo= crEl("div","board__worker-info"); // create worker info
      const boardRowNickname = crEl("p","board__worker-nickname",serviceResourceNickname); // create worker nickname
      const boardRowNameSurname = crEl("p","board__worker-name-surname",serviceResourceNameSurname); // create worker name and surname
-     const boardRowWorkerPost = crEl("p","board__worker-post",serviceResourcePost); // create worker post
+     const boardRowWorkerPost = crEl("p","board__worker-post",serviceResourceFunction); // create worker post
      const boardRowMain =crEl("div","board__main"); // create board main
      const boardRowTimegrid =crEl("div","board__timegrid timegrid"); // create timegrid
      const boardRowTimegridRow =crEl("div","timegrid__row"); // create timegrid row
-     boardRowTimegridRow.setAttribute('data-service-resource', serviceResourceId);
+     
+     const appointmentsItems = crEl("div","appointments");
+     appointmentsItems.setAttribute('data-service-resource', serviceResourceId);
 
+     appointmentsHash.set(serviceResourceId,appointmentsItems)
 
      boardRowWorkerInfo.appendChild(boardRowNickname)
      boardRowWorkerInfo.appendChild(boardRowNameSurname)
@@ -98,11 +138,12 @@ const drawBoard =(json)=>{
      boardRowWorker.appendChild(boardRowWorkerInfo)
      boardRowAside.appendChild(boardRowWorker)
      boardRowTimegrid.appendChild(boardRowTimegridRow)
+     boardRowTimegrid.appendChild(appointmentsItems)
      boardRowMain.appendChild(boardRowTimegrid)
      boardRow.appendChild(boardRowAside)
      boardRow.appendChild(boardRowMain)
      boardTable.appendChild(boardRow)
-      
+     
     }
 
     iconHide.appendChild(iconHidePath);
@@ -118,23 +159,59 @@ const drawBoard =(json)=>{
     boardsItem.appendChild(boardsBoard)
     boardItems.appendChild(boardsItem)
   }
+  
   //**********************************************************************************//
+
+  const appointments = boardData.appointments;
+  for(let i = 0; i<appointments.length;i++){
+    const appointment = appointments[i];
+    const appointmentId  = appointment.appointment_id;
+    const appointmentType  = appointment.appointment_type;
+    const appointmentJobNumber  = appointment.appointment_job_number;
+    const appointmentZip  = appointment.appointment_zip;
+    const appointmentServiceResourceId  = appointment.appointment_service_resource_id;
+    const appointmentDateStart  = new Date(appointment.appointment_date_start);
+    const appointmentDateEnd  = new Date(appointment.appointment_date_end);
+    
+    // create appointment wrapper
+    const appointmentsItem = crEl("div","appointment"); // create appointment
+    if(appointmentType=="FU"){
+      appointmentsItem.classList.add("appointment_follow")
+    } else if(appointmentType=="SC"){
+      appointmentsItem.classList.add("appointment_service")
+    } else if(appointmentType=="RC"){
+      appointmentsItem.classList.add("appointment_recall")
+    }
+
+    for (let j=0; j<daysAmountValue; j++){
+      const boardDateStart = new Date()
+      boardDateStart.setHours(boardHourStart);
+      boardDateStart.setDate(datePicked.getDate())
+      boardDateStart.setFullYear(datePicked.getFullYear())
+      boardDateStart.setMinutes(0);
+      boardDateStart.setSeconds(0);
+      const boardDateEnd = new Date()
+      boardDateEnd.setHours(boardHourEnd);
+      boardDateEnd.setDate(datePicked.getDate())
+      boardDateEnd.setFullYear(datePicked.getFullYear())
+      boardDateEnd.setMinutes(0);
+      boardDateEnd.setSeconds(0);
+      if (appointmentDateStart >=boardDateStart && appointmentDateEnd <=boardDateEnd){
+        let appointmentWidth = (appointmentDateEnd.getHours()-appointmentDateStart.getHours()) / (boardHourEnd-boardHourStart) * 100
+        let appointmentOffset = (appointmentDateStart.getHours()-boardHourStart)/(boardHourEnd-boardHourStart)*100
+        appointmentsItem.style.width = `${appointmentWidth}%`
+        appointmentsItem.style.left = `${appointmentOffset}%`
+      }
+
+    }
+
+    const appointmentsItems =  appointmentsHash.get(appointmentServiceResourceId)
+    appointmentsItems.appendChild(appointmentsItem)
+
+
+  }
 }
-drawBoard(json)
 
-const boardHourSelectList=document.querySelector('.controls__board-hour-select-list')
-const boardHourSelectBtn = document.querySelector('.controls__board-hour-select-btn') 
-const boardHourSelectListStart=document.getElementById('controls__board-hour-select-start')
-const boardHourSelectListEnd=document.getElementById('controls__board-hour-select-end')
-const boardHourSelectBtnApply = document.querySelector('.controls__board-hour-select-btn-apply') 
-
-const boardsTimeline = document.querySelector('.boards__timeline')
-const boardsDates = document.querySelector('.boards__dates')
-const boardTimegrid = document.querySelector('.board__timegrid') 
-const timegridRows = document.querySelectorAll('.timegrid__row')
-
-const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
-const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
 
 
 
@@ -234,14 +311,32 @@ daysAmount.addEventListener('click', function(e) {
     daysAmountList.classList.remove('visible');
   }
 })
+
 for (let i = 0; i < daysAmountItems.length; i++) {
+  daysAmountItems[i].classList.remove('selected')
+  if(daysAmountItems[i].classList.contains('days-amount-list__item_1') && +daysAmountText.textContent.replace(/\D+/g,"")==1){
+    daysAmountValue = 1
+    timelineStep = 1
+    daysAmountItems[i].classList.add('selected');
+  } else if(daysAmountItems[i].classList.contains('days-amount-list__item_2') && +daysAmountText.textContent.replace(/\D+/g,"")==2){
+    daysAmountValue = 2
+    timelineStep = 2
+    daysAmountItems[i].classList.add('selected');
+
+  } else if(daysAmountItems[i].classList.contains('days-amount-list__item_3') && +daysAmountText.textContent.replace(/\D+/g,"")==3){
+    daysAmountValue = 3
+    timelineStep = 2
+    daysAmountItems[i].classList.add('selected');
+
+  }
+  
+  
   daysAmountItems[i].addEventListener('click', function(e) {
     if (!daysAmountItems[i].classList.contains('selected')) { daysAmountItems[i].classList.add('selected'); }
 
     if(daysAmountItems[i].classList.contains('days-amount-list__item_1')){
       daysAmountValue = 1
       timelineStep = 1
-
     } else if(daysAmountItems[i].classList.contains('days-amount-list__item_2')){
       daysAmountValue = 2
       timelineStep = 2
@@ -268,30 +363,7 @@ for (let i = 0; i < daysAmountItems.length; i++) {
 //ROWS NUMBER HANDLERS
 
 // Calendar 
-let date = new Date();
-let day = date.getDate();
-let month = date.getMonth();
-let year = date.getFullYear();
-let datePicked =  new Date();
-let dayPicked = datePicked.getDate()-1
-let daysOffset = 0;
-let daysInMonth;
-const calendar = document.querySelector('.calendar')
-const calendarTableDays = document.querySelectorAll('.calendar-table__cell-day')
-const calendarMonthYear = document.querySelector('.calendar__month')
-const calendarBtnNext = document.querySelector('.calendar__controll_next')
-const calendarBtnPrev = document.querySelector('.calendar__controll_prev')
-const controlsDatePicker = document.querySelector('.controls__date-picker-item')
 
-const controlsDatePickerText = document.querySelector('.controls__date-picker-date')
-const controlsDateSelectPrev = document.querySelector('.controls__date-select-prev')
-const controlsDateSelectNext = document.querySelector('.controls__date-select-next')
-
-
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const weekShortDays = ['Sun','Mon','Tue',"Wed",'Thu','Fri','Sat']
-const monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const monthShortList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 
 const renderCalendar = (month,year)=>{
@@ -393,7 +465,16 @@ controlsDateSelectNext.addEventListener('click', function() {
 
 
 
+drawBoard(json)
 
+
+const boardsTimeline = document.querySelector('.boards__timeline')
+const boardsDates = document.querySelector('.boards__dates')
+const boardTimegrid = document.querySelector('.board__timegrid') 
+const timegridRows = document.querySelectorAll('.timegrid__row')
+
+const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
+const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
 
 
 
@@ -421,7 +502,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     if(i%12===0 && i!==0){
       timelineTimeConverted = 12
       halfDayPast+=1;
-    } else if((i+1)%12==0 && i!==1){
+    } else if((i-1)%12==0 && i!==1 && daysAmountValue!=1){
       halfDayPast+=1;
     }
     postfix = halfDayPast%2==0?"am":"pm"
@@ -433,7 +514,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
         <p class="timeline__item-time"></p>
       </div>`
     } else if(timelineTime>boardHourStart&&((timelineTime<=boardHourEnd && daysAmountValue>1) || (timelineTime<boardHourEnd && daysAmountValue<=1))){
-      if (halfDayPast!==0 && timelineTime==+boardHourStart+1){
+      if (halfDayPast!==0 && halfDayPast!==1 && timelineTime==+boardHourStart+1){
         boardsTimeline.innerHTML +=`
         <div class="timeline__item timeline__item_end" style="width: ${ boardCellWidth*(timelineStep*2)}%">
           <p class="timeline__item-time">${timelineTimeConverted + postfix}</p>
