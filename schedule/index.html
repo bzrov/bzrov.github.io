@@ -14,17 +14,86 @@
 <body>
 	<div class="frame-content" onclick="void(0);">
 		<section class="controls">
-			<div class="controls__item controls__item_search">
+			<div class="controls__item controls__item_left">
 				<div class="controls__search search">
 					<input class="search-field" type="text">
 					<div class="controls__search-btn">
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z" fill="#8391AD"/>
+							<path d="M19.1186 17.2581L15.1033 13.2428C15.9666 12.0397 16.4813 10.6217 16.5907 9.14499C16.7002 7.66823 16.4002 6.18991 15.7238 4.87264C15.0473 3.55537 14.0206 2.45021 12.7567 1.67875C11.4927 0.907283 10.0404 0.49941 8.5596 0.500001C6.42392 0.501027 4.376 1.34988 2.86584 2.86004C1.35568 4.3702 0.506832 6.41812 0.505806 8.5538C0.503824 10.0352 0.910842 11.4883 1.68201 12.7532C2.45317 14.018 3.55855 15.0453 4.87633 15.722C6.1941 16.3988 7.67312 16.6985 9.15039 16.5883C10.6277 16.4781 12.0458 15.9622 13.2486 15.0975L17.2639 19.1167C17.5104 19.3631 17.8447 19.5016 18.1932 19.5016C18.5418 19.5016 18.876 19.3631 19.1225 19.1167C19.369 18.8702 19.5074 18.5359 19.5074 18.1874C19.5074 17.8388 19.369 17.5046 19.1225 17.2581H19.1186ZM4.72243 12.3948C3.83664 11.5074 3.28591 10.3402 3.16404 9.09228C3.04218 7.84431 3.35671 6.5927 4.05407 5.55061C4.75142 4.50852 5.78848 3.74041 6.98859 3.37711C8.1887 3.01381 9.47765 3.07779 10.6359 3.55815C11.7941 4.0385 12.75 4.90553 13.3408 6.01156C13.9315 7.11758 14.1205 8.39419 13.8757 9.62395C13.6308 10.8537 12.9672 11.9606 11.9979 12.756C11.0286 13.5514 9.81351 13.9862 8.5596 13.9862C7.84657 13.9878 7.1403 13.8479 6.48167 13.5748C5.82303 13.3016 5.22509 12.9006 4.72243 12.3948Z"/>
 						</svg>		
 					</div>
 				</div>
+				<div class="controls__board-hour-select board-hour-select">
+					<div class="controls__board-hour-select-btn">
+						<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<path d="M17.4613 9.99994C17.4625 9.48611 17.4107 8.97353 17.3066 8.47035C17.2822 8.32974 17.3022 8.18504 17.3638 8.05631C17.4254 7.92759 17.5255 7.82122 17.6503 7.75196L18.8396 7.0645C18.9972 6.97323 19.1121 6.82315 19.1592 6.64722C19.2062 6.47128 19.1815 6.28388 19.0905 6.12613L17.9047 4.06376C17.8592 3.98556 17.7987 3.9171 17.7267 3.86232C17.6547 3.80754 17.5726 3.7675 17.4851 3.74451C17.3976 3.72152 17.3065 3.71602 17.2168 3.72834C17.1272 3.74065 17.0409 3.77054 16.9628 3.81627L15.7735 4.50373C15.6498 4.57525 15.5068 4.6064 15.3645 4.59284C15.2221 4.57929 15.0876 4.52171 14.9795 4.42811C14.2122 3.74115 13.3111 3.22037 12.3328 2.89852C12.1961 2.85395 12.0768 2.76763 11.9917 2.65171C11.9066 2.53579 11.86 2.3961 11.8585 2.25231V0.877398C11.8585 0.695073 11.7861 0.520216 11.6571 0.391293C11.5282 0.26237 11.3534 0.189941 11.171 0.189941L8.80274 0.189941C8.62041 0.189941 8.44556 0.26237 8.31663 0.391293C8.18771 0.520216 8.11528 0.695073 8.11528 0.877398V2.25231C8.11472 2.39442 8.07012 2.53286 7.98764 2.64858C7.90516 2.76431 7.78884 2.85162 7.65469 2.89852C6.67639 3.22037 5.77527 3.74115 5.00798 4.42811C4.89992 4.52171 4.76538 4.57929 4.62306 4.59284C4.48075 4.6064 4.33775 4.57525 4.21397 4.50373L3.02467 3.81627C2.86692 3.72528 2.67951 3.70059 2.50358 3.74763C2.32765 3.79468 2.17757 3.90961 2.08629 4.06719L0.900431 6.12956C0.810519 6.287 0.786439 6.47358 0.833434 6.64869C0.880429 6.82379 0.994694 6.97324 1.15135 7.0645L2.34065 7.75196C2.46669 7.82162 2.56767 7.92909 2.62934 8.05922C2.69102 8.18936 2.71027 8.33557 2.68438 8.47723C2.4736 9.4849 2.4736 10.5253 2.68438 11.533C2.71027 11.6746 2.69102 11.8208 2.62934 11.951C2.56767 12.0811 2.46669 12.1886 2.34065 12.2582L1.15135 12.9388C0.993766 13.0301 0.878836 13.1802 0.831791 13.3561C0.784747 13.532 0.809434 13.7194 0.900431 13.8772L2.08629 15.9396C2.17757 16.0972 2.32765 16.2121 2.50358 16.2591C2.67951 16.3062 2.86692 16.2815 3.02467 16.1905L4.21397 15.503C4.33775 15.4315 4.48075 15.4004 4.62306 15.4139C4.76538 15.4275 4.89992 15.4851 5.00798 15.5786C5.77527 16.2656 6.67639 16.7864 7.65469 17.1082C7.78884 17.1551 7.90516 17.2425 7.98764 17.3582C8.07012 17.4739 8.11472 17.6123 8.11528 17.7544V19.1294C8.11528 19.3117 8.18771 19.4865 8.31663 19.6155C8.44556 19.7444 8.62041 19.8168 8.80274 19.8168H11.171C11.2613 19.8168 11.3507 19.799 11.4341 19.7645C11.5175 19.7299 11.5933 19.6793 11.6571 19.6155C11.721 19.5516 11.7716 19.4758 11.8062 19.3924C11.8407 19.309 11.8585 19.2196 11.8585 19.1294V17.7544C11.8579 17.6107 11.9023 17.4705 11.9855 17.3533C12.0688 17.2362 12.1866 17.1481 12.3225 17.1014C13.3008 16.7795 14.2019 16.2587 14.9692 15.5718C15.0773 15.4782 15.2118 15.4206 15.3541 15.407C15.4965 15.3935 15.6395 15.4246 15.7632 15.4962L16.9525 16.1836C17.1103 16.2746 17.2977 16.2993 17.4736 16.2523C17.6496 16.2052 17.7996 16.0903 17.8909 15.9327L19.0768 13.8703C19.1678 13.7126 19.1925 13.5252 19.1454 13.3492C19.0984 13.1733 18.9834 13.0232 18.8258 12.9319L17.6366 12.2445C17.5156 12.1737 17.4191 12.0676 17.3601 11.9404C17.3012 11.8132 17.2825 11.6711 17.3066 11.533C17.4109 11.0287 17.4628 10.5149 17.4613 9.99994V9.99994ZM10.5867 13.0454C9.93612 13.1729 9.26178 13.0881 8.66305 12.8035C8.06433 12.5188 7.57289 12.0493 7.26117 11.4642C6.94945 10.8791 6.83394 10.2093 6.93166 9.55363C7.02938 8.89792 7.33516 8.29094 7.80394 7.82216C8.27273 7.35338 8.8797 7.04759 9.53542 6.94987C10.1911 6.85215 10.8609 6.96766 11.446 7.27938C12.0311 7.5911 12.5006 8.08254 12.7853 8.68127C13.0699 9.28 13.1547 9.95434 13.0272 10.6049C12.9096 11.2067 12.6158 11.7601 12.1831 12.1946C11.7504 12.6291 11.1983 12.9253 10.597 13.0454H10.5867Z"></path>
+						</svg>	
+					</div>
+					<div class="controls__board-hour-select-list drop-list">
+						<div class="controls__board-hour-select-main">
+							<span>On time: </span>	
+							<select name="" id="controls__board-hour-select-start">
+								<option value="0">12am</option>
+								<option value="1">1am</option>
+								<option value="2">2am</option>
+								<option value="3">3am</option>
+								<option value="4">4am</option>
+								<option value="5">5am</option>
+								<option value="6">6am</option>
+								<option value="7">7am</option>
+								<option value="8">8am</option>
+								<option value="9">9am</option>
+								<option value="10">10am</option>
+								<option value="11">11am</option>
+								<option value="12">12pm</option>
+								<option value="13">1pm</option>
+								<option value="14">2pm</option>
+								<option value="15">3pm</option>
+								<option value="16">4pm</option>
+								<option value="17">5pm</option>
+								<option value="18">6pm</option>
+								<option value="19">7pm</option>
+								<option value="20">8pm</option>
+								<option value="21">9pm</option>
+								<option value="22">10pm</option>
+								<option value="23">11pm</option>
+								<option value="24">12pm</option>
+							</select>
+							<select name="" id="controls__board-hour-select-end">
+								<option value="0">12am</option>
+								<option value="1">1am</option>
+								<option value="2">2am</option>
+								<option value="3">3am</option>
+								<option value="4">4am</option>
+								<option value="5">5am</option>
+								<option value="6">6am</option>
+								<option value="7">7am</option>
+								<option value="8">8am</option>
+								<option value="9">9am</option>
+								<option value="10">10am</option>
+								<option value="11">11am</option>
+								<option value="12">12pm</option>
+								<option value="13">1pm</option>
+								<option value="14">2pm</option>
+								<option value="15">3pm</option>
+								<option value="16">4pm</option>
+								<option value="17">5pm</option>
+								<option value="18">6pm</option>
+								<option value="19">7pm</option>
+								<option value="20">8pm</option>
+								<option value="21">9pm</option>
+								<option value="22">10pm</option>
+								<option value="23">11pm</option>
+								<option value="24">12pm</option>
+							</select>
+						</div>
+						<div class="controls__board-hour-select-btn-apply">
+							<span>Apply</span>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="controls__item">
+			<div class="controls__item controls__item_right">
 				<div class="controls__days-amount days-amount ">
 					<p class="controls__days-amount-text">1 Day</p>
 					<div class="controls__date-period-arrow">
@@ -34,7 +103,7 @@
 						</svg>
 								
 					</div>
-					<ul class="controls__days-amount-list date-period-list drop-list">
+					<ul class="controls__days-amount-list drop-list">
 						<li class="drop-list__item days-amount-list__item selected days-amount-list__item_1">1 Day</li>
 						<li class="drop-list__item days-amount-list__item drop-list__item days-amount-list__item_2">2 Days</li>
 						<li class="drop-list__item days-amount-list__item drop-list__item days-amount-list__item_3">3 Days</li>
@@ -267,83 +336,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="boards__item">
-					<div class="boards__item-area">
-						<div class="boards__item-area_left">
-							<div class="boards__item-area-btn-hide">
-								<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7 12L1.04907e-06 -1.22392e-06L14 0L7 12Z" fill="black"/>
-								</svg>	
-							</div>
-							<p class="boards__item-area-town">
-									Houston, TX
-							</p>
-						</div>
-						<div class="boards__item-area_right">
-							<p class="boards__item-area-time">
-								Friday, March 06, 2020 8:30
-							</p>
-						</div>
-					</div>
-					<div class="boards__board board"> 
-						<div class="board__table">
-							<div class="board__row">
-								<div class="board__aside">
-									<div class="board__worker ">
-										<div class="board__worker-img">
-											<img src="./images/profile_bg.jpg" alt="">
-										</div>
-										<div class="board__worker-info">
-											<p class="board__worker-nickname">
-												Gray
-											</p>
-											<p class="board__worker-name-surname">
-												Mary Gray
-											</p>
-											<p class="board__worker-post">
-												Appliance Technician
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="board__main">
-									<div class="board__timegrid timegrid">
-										<div class="timegrid__row">
-	
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="board__row">
-								<div class="board__aside">
-									<div class="board__worker ">
-										<div class="board__worker-img">
-											<img src="./images/profile_bg.jpg" alt="">
-										</div>
-										<div class="board__worker-info">
-											<p class="board__worker-nickname">
-												Nasty
-											</p>
-											<p class="board__worker-name-surname">
-												Nasty Nelson
-											</p>
-											<p class="board__worker-post">
-												Appliance Technician
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="board__main">
-									<div class="board__timegrid timegrid">
-										<div class="timegrid__row">
-	
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</section>
 	</div>

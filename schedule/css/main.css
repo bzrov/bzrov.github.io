@@ -254,7 +254,7 @@ input {
   padding: 8px 20px;
   cursor: pointer; }
 
-.controls__item_search {
+.controls__item_left {
   width: 25%;
   min-width: 250px;
   max-width: 620px; }
@@ -281,7 +281,7 @@ input {
   right: 0;
   top: 0; }
 
-.controls__search-btn {
+.controls__search-btn, .controls__board-hour-select-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -300,6 +300,37 @@ input {
   min-height: 4.2em;
   border-radius: 50%;
   border: 1px solid #D0D3DA;
+  cursor: pointer; }
+  .controls__search-btn svg, .controls__board-hour-select-btn svg {
+    fill: #8391AD; }
+
+.controls__board-hour-select {
+  position: relative;
+  text-align: center; }
+
+.controls__board-hour-select-btn {
+  margin-left: 8px; }
+
+.controls__board-hour-select-list {
+  position: absolute;
+  top: 50px;
+  padding: 20px;
+  width: auto;
+  white-space: nowrap;
+  right: 0; }
+
+.controls__board-hour-select-main {
+  font-size: 1.4em;
+  margin-bottom: 15px; }
+
+.controls__board-hour-select-btn-apply {
+  display: inline-block;
+  padding: 4px 25px;
+  background-color: #ffffff;
+  border: 1px solid #6093DE;
+  border-radius: 6px;
+  font-size: 1.6em;
+  color: #6093DE;
   cursor: pointer; }
 
 .controls__days-amount {
@@ -670,12 +701,16 @@ input {
   height: 70px; }
 
 .timegrid__realtime-line {
+  display: none;
   position: absolute;
   top: 0;
   left: 15%;
   height: 100%;
   width: 2px;
   background-color: #EB5757; }
+
+.timegrid__realtime-line_active {
+  display: block; }
 
 .timegrid__cell {
   border-left: 1px solid #D0D3DA;
@@ -700,7 +735,7 @@ input {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column; }
-  .controls__item_search {
+  .controls__item_left {
     width: 100%;
     margin-bottom: 25px; } }
 
@@ -716,7 +751,7 @@ input {
   .controls {
     padding: 0;
     margin-bottom: 0; }
-    .controls .controls__item_search {
+    .controls .controls__item_left {
       display: none; }
     .controls .controls__date-period {
       margin-right: 0; }
