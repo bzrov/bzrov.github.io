@@ -319,6 +319,13 @@ input {
   white-space: nowrap;
   right: 0; }
 
+.controls__board-hour-select-select {
+  background-color: #ffffff; }
+
+.controls__board-hour-option {
+  background-color: #ffffff;
+  border-top: 1px solid #D0D3DA; }
+
 .controls__board-hour-select-main {
   font-size: 1.4em;
   margin-bottom: 15px; }
@@ -730,12 +737,60 @@ input {
 .timeline__item_end {
   border-left: 3px solid #9B9FA7; }
 
-.appointment {
+.appointments {
   position: absolute;
   top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
-  width: 100px;
-  background-color: red; }
+  width: 100%;
+  overflow: hidden; }
+
+.appointment {
+  position: absolute;
+  height: 70%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px 8px;
+  border-radius: 6px; }
+
+.appointment__job-number {
+  margin-bottom: 2px;
+  font-size: 1.4em;
+  color: #ffffff; }
+
+.appointment__zip {
+  font-size: 1em;
+  color: #ffffff; }
+
+.appointment_hide {
+  display: none; }
+
+.appointments__day-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 .appointment_follow {
   background-color: #6093DE; }
