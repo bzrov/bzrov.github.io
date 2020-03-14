@@ -546,7 +546,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     
     const timezoneOffset = timegridRealtimeLines[i].getAttribute('data-realtime-line-timezone');
     let timeNow = new Date();
-    timeNow.setHours(timezoneOffset)
+    timeNow.setHours(timeNow.getHours()+ +timezoneOffset)
 
     if(Date.parse(timeNow)>=Date.parse(boardHourPickedStart) && Date.parse(timeNow)<=Date.parse(boardHourPickedEnd)  ){
       const offset =(100-15) * ((timeNow.getHours()-boardHourStart)*60*60+timeNow.getMinutes()*60+timeNow.getSeconds()) / ((boardHourEnd - boardHourStart)*60*60)*100/100
