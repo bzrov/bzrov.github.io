@@ -565,11 +565,12 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       timeNow.setMonth(timeNow.getUTCMonth())
       timeNow.setDate(timeNow.getUTCDate())
       timeNow.setHours(timeNow.getUTCHours()+ +timezoneOffset)
+      console.log(timeNow,boardHourPickedStart,boardHourPickedEnd)
       console.log(((timeNow.getHours()-boardHourStart)*60*60+timeNow.getMinutes()*60+timeNow.getSeconds())  / ((boardHourEnd - boardHourStart)*60*60))
       if(Date.parse(timeNow)>=Date.parse(boardHourPickedStart) && Date.parse(timeNow)<=Date.parse(boardHourPickedEnd)  ){
-        const offset =85 * (((timeNow.getHours()-boardHourStart)*60*60+timeNow.getMinutes()*60+timeNow.getSeconds())  / ((boardHourEnd - boardHourStart)*60*60)*100) / 100 
-  
-        timegridRealtimeLines[j].style.left=`${offset*daysAmountValue+15}%`
+        const offset =85 * (((timeNow.getHours()+(boardHourEnd-boardHourStart)*i-boardHourStart))*60*60+timeNow.getMinutes()*60+timeNow.getSeconds())  / ((boardHourEnd - boardHourStart)*60*60*daysAmountValue*100)* 100 
+        console.log(offset)
+        timegridRealtimeLines[j].style.left=`${offset+15}%`
         timegridRealtimeLines[j].classList.add("timegrid__realtime-line_active")
   
         timegridRealtimeLineCreated = true;
