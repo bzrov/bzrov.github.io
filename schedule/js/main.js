@@ -429,6 +429,7 @@ const timegridRows = document.querySelectorAll('.timegrid__row')
 const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
 const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
 const appointmentsItems = document.querySelectorAll('.appointments')
+let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
 
 const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)=>{
   let appointmentDay;
@@ -443,15 +444,15 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
     const boardDateEndTemp = new Date(boardDateEnd.getTime())
     boardDateEndTemp.setDate(boardDateEnd.getDate()+j)
 
-    let appointmentWidth = (appointmentDateEnd.getHours()-appointmentDateStart.getHours()) / (boardHourEnd-boardHourStart) * 100;
+    let appointmentWidth = (appointmentDateEnd.getHours()-appointmentDateStart.getHours())*2*boardCellWidth;
     if ((Date.parse(appointmentDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateEnd) <=Date.parse(boardDateEndTemp)) || 
         (Date.parse(appointmentDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateStart) <=Date.parse(boardDateEndTemp)) ||
         (Date.parse(appointmentDateEnd) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateEnd) <=Date.parse(boardDateEndTemp))
     ){
-      let appointmentOffset = (appointmentDateStart.getHours()-boardHourStart)/(boardHourEnd-boardHourStart)*100
-      appointmentsItem.style.left = `${appointmentOffset+0.585}%`
+      let appointmentOffset = (appointmentDateStart.getHours()-boardHourStart)*2*boardCellWidth;
+      appointmentsItem.style.left = `${appointmentOffset+boardCellWidth*0.10}%`
       appointmentsItem.classList.remove("appointment_hide")
-      appointmentsItem.style.width = `${appointmentWidth-1}%`
+      appointmentsItem.style.width = `${appointmentWidth-0.20*boardCellWidth}%`
       appointmentDay = j+1
       j = daysAmountValue;
     }else{
@@ -476,7 +477,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   let halfDayPast = 0;
   let timegridRealtimeLineCreated = false;
   let postfix;
-  let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
+  
   
   //*******************************Board timeline fill*******************************//  
   boardsTimeline.innerHTML = ""; //Board timeline clear
@@ -512,14 +513,17 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     }
     postfix = halfDayPast%2==0?"am":"pm"
     i=i+timelineStep-1
-    
+    console.log(i)
+    console.log(halfDayPast)
+    console.log(timelineTime>boardHourStart&&((timelineTime<=boardHourEnd && daysAmountValue>1) || (timelineTime<boardHourEnd && daysAmountValue<=1)))
     if(timelineTime>boardHourStart && timelineTime==boardHourEnd ){
       boardsTimeline.innerHTML+=`
       <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
         <p class="timeline__item-time"></p>
       </div>`
     } else if(timelineTime>boardHourStart&&((timelineTime<=boardHourEnd && daysAmountValue>1) || (timelineTime<boardHourEnd && daysAmountValue<=1))){
-      if (halfDayPast!==0 && halfDayPast%2==0 && (timelineTime==+boardHourStart+1)){
+      
+      if (halfDayPast!==0 && halfDayPast!==1 && (timelineTime==+boardHourStart+1)){
         boardsTimeline.innerHTML +=`
         <div class="timeline__item timeline__item_end" style="width: ${ boardCellWidth*(timelineStep*2)}%">
           <p class="timeline__item-time">${timelineTimeConverted + postfix}</p>
