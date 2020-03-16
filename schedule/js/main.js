@@ -54,7 +54,31 @@ const boardData = JSON.parse(json)
 const appointmentsHash = new Map();
 
 
-
+var result_json;
+var xhr = getXmlHttp();
+xhr.open('GET', 'https://bzrov.github.io/schedule/getjson.php', false);
+xhr.send();
+if (xhr.status != 200) {
+    //alert(xhr.status + ': ' + xhr.statusText);
+} else {
+    result_json = xhr.responseText;
+}
+function getXmlHttp(){
+    var xmlhttp;
+    try {
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (E) {
+            xmlhttp = false;
+        }
+    }
+    if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
 
 
 const crEl = (tagName, className, text, parent, attributes = {}, ) => {
