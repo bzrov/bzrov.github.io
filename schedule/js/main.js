@@ -1,4 +1,4 @@
-let json = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_post":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_post":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 14, 2020 11:00:00","appointment_date_end":"March 14, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 14, 2020 17:00:00","appointment_date_end":"March 14, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 14, 2020 8:00:00","appointment_date_end":"March 14, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 15, 2020 11:00:00","appointment_date_end":"March 15, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 15, 2020 10:00:00","appointment_date_end":"March 15, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 15, 2020 14:00:00","appointment_date_end":"March 15, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 13, 2020 8:00:00","absences_date_end":"March 14, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 13, 2020 12:00:00","absences_date_end":"March 13, 2020 14:00:00"}]}'
+let json = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 14, 2020 11:00:00","appointment_date_end":"March 14, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 14, 2020 17:00:00","appointment_date_end":"March 14, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 14, 2020 8:00:00","appointment_date_end":"March 14, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 15, 2020 11:00:00","appointment_date_end":"March 15, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 15, 2020 10:00:00","appointment_date_end":"March 15, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 15, 2020 14:00:00","appointment_date_end":"March 15, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 13, 2020 8:00:00","absences_date_end":"March 14, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 13, 2020 12:00:00","absences_date_end":"March 13, 2020 14:00:00"}]}'
 
 const datePeriod=document.querySelector('.controls__date-period')
 const datePeriodList = document.querySelector('.controls__date-period-list')
@@ -17,6 +17,14 @@ const boardHourSelectBtn = document.querySelector('.controls__board-hour-select-
 const boardHourSelectListStart=document.getElementById('controls__board-hour-select-start')
 const boardHourSelectListEnd=document.getElementById('controls__board-hour-select-end')
 const boardHourSelectBtnApply = document.querySelector('.controls__board-hour-select-btn-apply') 
+const boardHourSelectStart = document.getElementById('controls__board-hour-select-start')
+const boardHourSelectEnd = document.getElementById('controls__board-hour-select-end')
+const boardHourSelectItemsStart = document.querySelector('.controls__board-hour-select-select_start')
+const boardHourSelectItemsEnd = document.querySelector('.controls__board-hour-select-select_end')
+const boardHourSelectOptionItemsStart = document.querySelectorAll('.controls__board-hour-option_start')
+const boardHourSelectOptionItemsEnd = document.querySelectorAll('.controls__board-hour-option_end')
+const boardHourSelectTextStart = document.querySelector('.controls__board-hour-select-text_start')
+const boardHourSelectTextEnd = document.querySelector('.controls__board-hour-select-text_end')
 
 const calendar = document.querySelector('.calendar')
 const calendarTableDays = document.querySelectorAll('.calendar-table__cell-day')
@@ -47,38 +55,14 @@ const monthShortList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 
 let daysAmountValue;
 let timelineStep;
 
-let boardHourStart = boardHourSelectListStart.value// 6am
-let boardHourEnd = boardHourSelectListEnd.value// 9pm
+let boardHourStartTemp;
+let boardHourEndTemp;
+
+let boardHourStart;
+let boardHourEnd;
 
 const boardData = JSON.parse(json)
 const appointmentsHash = new Map();
-
-
-var result_json;
-var xhr = getXmlHttp();
-xhr.open('GET', 'https://bzrov.github.io/schedule/getjson.php', false);
-xhr.send();
-if (xhr.status != 200) {
-    //alert(xhr.status + ': ' + xhr.statusText);
-} else {
-    result_json = xhr.responseText;
-}
-function getXmlHttp(){
-    var xmlhttp;
-    try {
-        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-    } catch (e) {
-        try {
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        } catch (E) {
-            xmlhttp = false;
-        }
-    }
-    if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
-        xmlhttp = new XMLHttpRequest();
-    }
-    return xmlhttp;
-}
 
 
 const crEl = (tagName, className, text, parent, attributes = {}, ) => {
@@ -92,7 +76,6 @@ const crEl = (tagName, className, text, parent, attributes = {}, ) => {
 
 const drawBoard =(boardData)=>{
   console.log(boardData)
-  
   //***********************************Draw areas**************************************//
   const areas = boardData.areas;
   for(let i =0;i<areas.length;i++){
@@ -132,7 +115,6 @@ const drawBoard =(boardData)=>{
     const boardsBoard = crEl("div","boards__board board") //create board
     const boardTable = crEl("div","board__table") // create board table
 
-    
     for(let j=0; j<areaServiceResources.length; j++){
      const areaServiceResource = areaServiceResources[j];
      const serviceResourceId  = areaServiceResource.service_resource_id;
@@ -140,7 +122,6 @@ const drawBoard =(boardData)=>{
      const serviceResourceNickname  = areaServiceResource.service_resource_nickname;
      const serviceResourceNameSurname  = areaServiceResource.service_resource_name_surname;
      const serviceResourceFunction  = areaServiceResource.service_resource_function;
-
 
      const boardRow = crEl("div","board__row"); // create board row
 
@@ -156,10 +137,10 @@ const drawBoard =(boardData)=>{
      const boardRowTimegrid =crEl("div","board__timegrid timegrid"); // create timegrid
      const boardRowTimegridRow =crEl("div","timegrid__row"); // create timegrid row
      
-     const appointmentsItems = crEl("div","appointments");
-     appointmentsItems.setAttribute('data-service-resource', serviceResourceId);
+     const scheduleItems = crEl("div","schedule-items");
+     scheduleItems.setAttribute('data-service-resource', serviceResourceId);
 
-     appointmentsHash.set(serviceResourceId,appointmentsItems)
+     appointmentsHash.set(serviceResourceId,scheduleItems)
 
      boardRowWorkerInfo.appendChild(boardRowNickname)
      boardRowWorkerInfo.appendChild(boardRowNameSurname)
@@ -169,14 +150,12 @@ const drawBoard =(boardData)=>{
      boardRowWorker.appendChild(boardRowWorkerInfo)
      boardRowAside.appendChild(boardRowWorker)
      boardRowTimegrid.appendChild(boardRowTimegridRow)
-     boardRowTimegrid.appendChild(appointmentsItems)
+     boardRowTimegrid.appendChild(scheduleItems)
      boardRowMain.appendChild(boardRowTimegrid)
      boardRow.appendChild(boardRowAside)
      boardRow.appendChild(boardRowMain)
      boardTable.appendChild(boardRow)
-     
     }
-
     iconHide.appendChild(iconHidePath);
     boardsItemArea.appendChild(boardsItemAreaLeft)
     boardsItemArea.appendChild(boardsItemAreaRight)
@@ -193,9 +172,6 @@ const drawBoard =(boardData)=>{
   
   //**********************************************************************************//
 }
-
-
-
 
 //DATE PERIOD HANDLERS
 datePeriod.addEventListener('click', function(e) {
@@ -217,6 +193,7 @@ datePeriod.addEventListener('click', function(e) {
     datePeriodList.classList.remove('visible');
   }
 })
+
 for (let i = 0; i < datePeriodItems.length; i++) {
   datePeriodItems[i].addEventListener('click', function(e) {
     if (!datePeriodItems[i].classList.contains('selected')) { datePeriodItems[i].classList.add('selected'); }
@@ -253,6 +230,7 @@ for (let i = 0; i < datePeriodItems.length; i++) {
   });
 }
 
+
 boardHourSelectBtn.addEventListener('click', function(e) {
   if(!boardHourSelectList.classList.contains('open')){
     boardHourSelectList.classList.add('open');
@@ -267,13 +245,72 @@ boardHourSelectBtn.addEventListener('click', function(e) {
     boardHourSelectList.classList.remove('visible');
   }
 })
+boardHourSelectTextStart.addEventListener('click', function(e) {
+  if(!boardHourSelectItemsStart.classList.contains('open')){
+    boardHourSelectItemsStart.classList.add('open');
+    boardHourSelectItemsStart.classList.add('visible');
+    boardHourSelectItemsEnd.classList.remove('open');
+    boardHourSelectItemsEnd.classList.remove('visible');
+  /* Conditions to close other control-item elements */
+  } else {
+    boardHourSelectItemsStart.classList.remove('open');
+    boardHourSelectItemsStart.classList.remove('visible');
+  }
+})
+boardHourSelectTextEnd.addEventListener('click', function(e) {
+  if(!boardHourSelectItemsEnd.classList.contains('open')){
+    boardHourSelectItemsEnd.classList.add('open');
+    boardHourSelectItemsEnd.classList.add('visible');
+    boardHourSelectItemsStart.classList.remove('open');
+    boardHourSelectItemsStart.classList.remove('visible');
+  /* Conditions to close other control-item elements */
+  } else {
+    boardHourSelectItemsEnd.classList.remove('open');
+    boardHourSelectItemsEnd.classList.remove('visible');
+  }
+})
+for (let i = 0; i < boardHourSelectOptionItemsStart.length; i++) {
+  if(boardHourSelectOptionItemsStart[i].classList.contains('controls__board-hour-option_selected')){
+    boardHourStartTemp = +boardHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
+    boardHourStart = boardHourStartTemp
+    boardHourSelectTextStart.textContent = boardHourSelectOptionItemsStart[i].textContent
+  }
+  boardHourSelectOptionItemsStart[i].addEventListener('click', function(e) {
+    boardHourSelectItemsStart.classList.remove('open');
+    boardHourSelectItemsStart.classList.remove('visible');
+    for (let j = 0; j < boardHourSelectOptionItemsStart.length; j++) {
+      boardHourSelectOptionItemsStart[j].classList.remove('controls__board-hour-option_selected')
+    }
+    boardHourSelectOptionItemsStart[i].classList.add('controls__board-hour-option_selected')
+    boardHourSelectTextStart.textContent = boardHourSelectOptionItemsStart[i].textContent
+    boardHourStartTemp = +boardHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
+  })
+}
+
+for (let i = 0; i < boardHourSelectOptionItemsEnd.length; i++) {
+  if(boardHourSelectOptionItemsEnd[i].classList.contains('controls__board-hour-option_selected')){
+    boardHourEndTemp = +boardHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
+    boardHourEnd = boardHourEndTemp
+    boardHourSelectTextEnd.textContent = boardHourSelectOptionItemsEnd[i].textContent
+  }
+  boardHourSelectOptionItemsEnd[i].addEventListener('click', function(e) {
+    boardHourSelectItemsEnd.classList.remove('open');
+    boardHourSelectItemsEnd.classList.remove('visible');
+    for (let j = 0; j < boardHourSelectOptionItemsEnd.length; j++) {
+      boardHourSelectOptionItemsEnd[j].classList.remove('controls__board-hour-option_selected')
+    }
+    boardHourSelectOptionItemsEnd[i].classList.add('controls__board-hour-option_selected')
+    boardHourSelectTextEnd.textContent = boardHourSelectOptionItemsEnd[i].textContent
+    boardHourEndTemp = +boardHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
+  })
+}
+
 boardHourSelectBtnApply.addEventListener('click', function(e) {
   if(boardHourSelectList.classList.contains('open')){
     boardHourSelectList.classList.remove('open');
     boardHourSelectList.classList.remove('visible');
-
-    boardHourStart = boardHourSelectListStart.value
-    boardHourEnd = boardHourSelectListEnd.value
+    boardHourStart = boardHourStartTemp
+    boardHourEnd = boardHourEndTemp
     renderBoard(daysAmountValue,timelineStep)
   }
 })
@@ -304,14 +341,11 @@ for (let i = 0; i < daysAmountItems.length; i++) {
     daysAmountValue = 2
     timelineStep = 2
     daysAmountItems[i].classList.add('selected');
-
   } else if(daysAmountItems[i].classList.contains('days-amount-list__item_3') && +daysAmountText.textContent.replace(/\D+/g,"")==3){
     daysAmountValue = 3
     timelineStep = 2
     daysAmountItems[i].classList.add('selected');
-
   }
-  
   
   daysAmountItems[i].addEventListener('click', function(e) {
     if (!daysAmountItems[i].classList.contains('selected')) { daysAmountItems[i].classList.add('selected'); }
@@ -452,11 +486,12 @@ const boardTimegrid = document.querySelectorAll('.board__timegrid')
 const timegridRows = document.querySelectorAll('.timegrid__row')
 const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
 const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
-const appointmentsItems = document.querySelectorAll('.appointments')
-let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
+const scheduleItems = document.querySelectorAll('.schedule-items')
+
 
 const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)=>{
-  let appointmentDay;
+  let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
+  let scheduleDay;
   for (let j=0; j<daysAmountValue; j++){
     const boardDateStart = new Date(datePicked.getFullYear(),datePicked.getMonth(),datePicked.getDate(),boardHourStart,0,0,0 )
 
@@ -477,32 +512,76 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
       appointmentsItem.style.left = `${appointmentOffset+boardCellWidth*0.10}%`
       appointmentsItem.classList.remove("appointment_hide")
       appointmentsItem.style.width = `${appointmentWidth-0.20*boardCellWidth}%`
-      appointmentDay = j+1
+      scheduleDay = j+1
       j = daysAmountValue;
     }else{
       appointmentsItem.classList.add("appointment_hide")
     }
-    const appointmentsItems =  appointmentsHash.get(appointmentServiceResourceId)
-    if (appointmentDay == 1){
-      const appointmentsItemsDay = appointmentsItems.querySelector('.appointments__day-wrapper_1')
-      appointmentsItemsDay&& appointmentsItemsDay.appendChild(appointmentsItem)
-    }else if (appointmentDay == 2){
-      const appointmentsItemsDay = appointmentsItems.querySelector('.appointments__day-wrapper_2')
-      appointmentsItemsDay&& appointmentsItemsDay.appendChild(appointmentsItem)
-    }else if (appointmentDay == 3){
-      const appointmentsItemsDay = appointmentsItems.querySelector('.appointments__day-wrapper_3')
-      appointmentsItemsDay&& appointmentsItemsDay.appendChild(appointmentsItem)
+    const scheduleItems =  appointmentsHash.get(appointmentServiceResourceId)
+    if (scheduleDay == 1){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_1')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(appointmentsItem)
+    }else if (scheduleDay == 2){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_2')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(appointmentsItem)
+    }else if (scheduleDay == 3){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_3')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(appointmentsItem)
+    }
+  }
+}
+
+const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)=>{
+  let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
+  let scheduleDay;
+  console.log('fuck')
+  for (let j=0; j<daysAmountValue; j++){
+    const boardDateStart = new Date(datePicked.getFullYear(),datePicked.getMonth(),datePicked.getDate(),boardHourStart,0,0,0 )
+
+    const boardDateEnd = new Date(datePicked.getFullYear(),datePicked.getMonth(),datePicked.getDate(),boardHourEnd,0,0,0)
+
+    const boardDateStartTemp = new Date(boardDateStart.getTime())
+    boardDateStartTemp.setDate(boardDateStart.getDate()+j)
+
+    const boardDateEndTemp = new Date(boardDateEnd.getTime())
+    boardDateEndTemp.setDate(boardDateEnd.getDate()+j)
+    console.log(boardDateStartTemp,boardDateEndTemp)
+    console.log(absenceDateStart,absenceDateEnd)
+    let absenceWidth = absenceDateEnd.getDate()-absenceDateStart.getDate()-j<1?(absenceDateEnd.getHours()-absenceDateStart.getHours())*2*boardCellWidth:100
+    if ((Date.parse(absenceDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(absenceDateEnd) <=Date.parse(boardDateEndTemp)) || 
+        (Date.parse(absenceDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(absenceDateStart) <=Date.parse(boardDateEndTemp)) ||
+        (Date.parse(absenceDateEnd) >=Date.parse(boardDateStartTemp) && Date.parse(absenceDateEnd) <=Date.parse(boardDateEndTemp))
+    ){
+      console.log(absenceDateStart,absenceDateEnd)
+      let absenceOffset = (absenceDateStart.getHours()-boardHourStart)*2*boardCellWidth;
+      absencesItem.style.left = `${absenceOffset+boardCellWidth*0.10}%`
+      absencesItem.classList.remove("appointment_hide")
+      absencesItem.style.width = `${absenceWidth-0.20*boardCellWidth}%`
+      scheduleDay = j+1
+
+    }else{
+      absencesItem.classList.add("appointment_hide")
+    }
+    const scheduleItems =  appointmentsHash.get(absenceServiceResourceId)
+    if (scheduleDay == 1){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_1')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(absencesItem)
+    }else if (scheduleDay == 2){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_2')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(absencesItem)
+    }else if (scheduleDay == 3){
+      const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_3')
+      scheduleItemsDay&& scheduleItemsDay.appendChild(absencesItem)
     }
   }
 }
 
 const renderBoard = (daysAmountValue,timelineStep) =>{
   //init variables
+  let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
   let halfDayPast = 0;
   let timegridRealtimeLineCreated = false;
   let postfix;
-  
-  
   //*******************************Board timeline fill*******************************//  
   boardsTimeline.innerHTML = ""; //Board timeline clear
 
@@ -537,9 +616,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
     }
     postfix = halfDayPast%2==0?"am":"pm"
     i=i+timelineStep-1
-    console.log(i)
-    console.log(halfDayPast)
-    console.log(timelineTime>boardHourStart&&((timelineTime<=boardHourEnd && daysAmountValue>1) || (timelineTime<boardHourEnd && daysAmountValue<=1)))
+    
     if(timelineTime>boardHourStart && timelineTime==boardHourEnd ){
       boardsTimeline.innerHTML+=`
       <div class="timeline__item" style="width: ${boardCellWidth*timelineStep}%">
@@ -594,10 +671,10 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       timeNow.setDate(timeNow.getUTCDate())
       timeNow.setHours(timeNow.getUTCHours()+ +timezoneOffset)
       console.log(timeNow,boardHourPickedStart,boardHourPickedEnd)
-      console.log(((timeNow.getHours()-boardHourStart)*60*60+timeNow.getMinutes()*60+timeNow.getSeconds())  / ((boardHourEnd - boardHourStart)*60*60))
+
       if(Date.parse(timeNow)>=Date.parse(boardHourPickedStart) && Date.parse(timeNow)<=Date.parse(boardHourPickedEnd)  ){
         const offset =85 * (((timeNow.getHours()+(boardHourEnd-boardHourStart)*i-boardHourStart))*60*60+timeNow.getMinutes()*60+timeNow.getSeconds())  / ((boardHourEnd - boardHourStart)*60*60*daysAmountValue*100)* 100 
-        console.log(offset)
+
         timegridRealtimeLines[j].style.left=`${offset+15}%`
         timegridRealtimeLines[j].classList.add("timegrid__realtime-line_active")
   
@@ -626,10 +703,10 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       }
       timegridRows[i].innerHTML += timeGridCell
     }
-    appointmentsItems[i].innerHTML=""
+    scheduleItems[i].innerHTML=""
     for(let k=0; k<daysAmountValue; k++){
-      const appointmentsWrapper = `<div class="appointments__day-wrapper appointments__day-wrapper_${k+1}" style="width: ${100/(daysAmountValue)}%;"></div>`; 
-      appointmentsItems[i].innerHTML += appointmentsWrapper
+      const appointmentsWrapper = `<div class="schedule-items__day-wrapper schedule-items__day-wrapper_${k+1}" style="width: ${100/(daysAmountValue)}%;"></div>`; 
+      scheduleItems[i].innerHTML += appointmentsWrapper
     }
   }
 //**********************************************************************************//
@@ -688,7 +765,26 @@ const appointments = boardData.appointments;
 
     renderAppointment(appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)
   }
+
+  const absences = boardData.absences;
+  for(let i = 0; i<absences.length;i++){
+    const absence = absences[i];
+    const absenceId  = absence.absences_id;
+    const absenceServiceResourceId  = absence.absences_service_resource_id;
+    const absenceDateStart  = new Date(absence.absences_date_start);
+    const absenceDateEnd  = new Date(absence.absences_date_end);
+    
+    // create appointment wrapper
+    const absencesItem = crEl("div","absence"); // create appointment
+
+
+
+
+    renderAbsence(absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)
+  }
 }
+
+
 
 
 

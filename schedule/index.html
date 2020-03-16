@@ -32,60 +32,72 @@
 					<div class="controls__board-hour-select-list drop-list">
 						<div class="controls__board-hour-select-main">
 							<span>On time: </span>	
-							<select name="" class="controls__board-hour-select-select" id="controls__board-hour-select-start">
-								<option class="controls__board-hour-option" value="0">12am</option>
-								<option class="controls__board-hour-option" value="1">1am</option>
-								<option class="controls__board-hour-option" value="2">2am</option>
-								<option class="controls__board-hour-option" value="3">3am</option>
-								<option class="controls__board-hour-option" value="4">4am</option>
-								<option class="controls__board-hour-option" value="5">5am</option>
-								<option class="controls__board-hour-option" value="6">6am</option>
-								<option class="controls__board-hour-option" value="7">7am</option>
-								<option class="controls__board-hour-option" value="8">8am</option>
-								<option class="controls__board-hour-option" value="9" selected>9am</option>
-								<option class="controls__board-hour-option" value="10">10am</option>
-								<option class="controls__board-hour-option" value="11">11am</option>
-								<option class="controls__board-hour-option" value="12">12pm</option>
-								<option class="controls__board-hour-option" value="13">1pm</option>
-								<option class="controls__board-hour-option" value="14">2pm</option>
-								<option class="controls__board-hour-option" value="15">3pm</option>
-								<option class="controls__board-hour-option" value="16">4pm</option>
-								<option class="controls__board-hour-option" value="17">5pm</option>
-								<option class="controls__board-hour-option" value="18">6pm</option>
-								<option class="controls__board-hour-option" value="19">7pm</option>
-								<option class="controls__board-hour-option" value="20">8pm</option>
-								<option class="controls__board-hour-option" value="21">9pm</option>
-								<option class="controls__board-hour-option"value="22">10pm</option>
-								<option class="controls__board-hour-option" value="23">11pm</option>
-								<option class="controls__board-hour-option" value="24">12pm</option>
-							</select>
-							<select name="" class="controls__board-hour-select-select" id="controls__board-hour-select-end">
-								<option class="controls__board-hour-option"  value="0">12am</option>
-								<option class="controls__board-hour-option"  value="1">1am</option>
-								<option class="controls__board-hour-option"  value="2">2am</option>
-								<option class="controls__board-hour-option"  value="3">3am</option>
-								<option class="controls__board-hour-option"  value="4">4am</option>
-								<option class="controls__board-hour-option"  value="5">5am</option>
-								<option class="controls__board-hour-option"  value="6">6am</option>
-								<option class="controls__board-hour-option"  value="7">7am</option>
-								<option class="controls__board-hour-option"  value="8">8am</option>
-								<option class="controls__board-hour-option"  value="9">9am</option>
-								<option class="controls__board-hour-option"  value="10">10am</option>
-								<option class="controls__board-hour-option"  value="11">11am</option>
-								<option class="controls__board-hour-option"  value="12">12pm</option>
-								<option class="controls__board-hour-option"  value="13">1pm</option>
-								<option class="controls__board-hour-option"  value="14">2pm</option>
-								<option class="controls__board-hour-option"  value="15">3pm</option>
-								<option class="controls__board-hour-option"  value="16">4pm</option>
-								<option class="controls__board-hour-option"  value="17">5pm</option>
-								<option class="controls__board-hour-option"  value="18" selected>6pm</option>
-								<option class="controls__board-hour-option"  value="19">7pm</option>
-								<option class="controls__board-hour-option"  value="20">8pm</option>
-								<option class="controls__board-hour-option"  value="21">9pm</option>
-								<option class="controls__board-hour-option"  value="22">10pm</option>
-								<option class="controls__board-hour-option"  value="23">11pm</option>
-								<option class="controls__board-hour-option"  value="24">12pm</option>
-							</select>
+
+							<div  class="controls__board-hour-select-wrapper" id="controls__board-hour-select-start">
+								<div  class="controls__board-hour-select-field controls__board-hour-select-field_start">
+									<p class="controls__board-hour-select-text controls__board-hour-select-text_start"></p>
+								</div>
+								<div  class="controls__board-hour-select-select controls__board-hour-select-select_start drop-list" >
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="0">12am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="1">1am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="2">2am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="3">3am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="4">4am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="5">5am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="6">6am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="7">7am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start controls__board-hour-option_selected" data-board-hour-value="8">8am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="9" selected>9am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="10">10am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="11">11am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="12">12pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="13">1pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="14">2pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="15">3pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="16">4pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="17">5pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="18">6pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="19">7pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="20">8pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="21">9pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="22">10pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="23">11pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_start" data-board-hour-value="24">12am</div>
+								</div>
+							</div>
+							<span>-</span>
+							<div class="controls__board-hour-select-wrapper" id="controls__board-hour-select-end">
+								<div  class="controls__board-hour-select-field controls__board-hour-select-field_end">
+									<p class="controls__board-hour-select-text controls__board-hour-select-text_end"></p>
+								</div>
+								<div class="controls__board-hour-select-select controls__board-hour-select-select_end drop-list" >
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="0">12am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="1">1am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="2">2am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="3">3am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="4">4am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="5">5am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="6">6am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="7">7am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="8">8am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="9">9am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="10">10am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="11">11am</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="12">12pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="13">1pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="14">2pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="15">3pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="16">4pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="17">5pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="18" selected>6pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="19">7pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="20">8pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end controls__board-hour-option_selected"  data-board-hour-value="21">9pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="22">10pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="23">11pm</div>
+									<div class="controls__board-hour-option controls__board-hour-option_end"  data-board-hour-value="24">12am</div>
+								</div>
+							</div>
 						</div>
 						<div class="controls__board-hour-select-btn-apply">
 							<span>Apply</span>
