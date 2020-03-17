@@ -258,6 +258,14 @@ boardHourSelectBtn.addEventListener('click', function(e) {
       daysAmount.classList.remove('open');
       daysAmountList.classList.remove('visible');
     }
+    if(boardHourSelectItemsStart.classList.contains('open') && boardHourSelectItemsStart.classList.contains('visible')){
+      boardHourSelectItemsStart.classList.remove('open');
+      boardHourSelectItemsStart.classList.remove('visible');
+    }
+    if(boardHourSelectItemsEnd.classList.contains('open') && boardHourSelectItemsEnd.classList.contains('visible')){
+      boardHourSelectItemsEnd.classList.remove('open');
+      boardHourSelectItemsEnd.classList.remove('visible');
+    }
   } else {
     boardHourSelectList.classList.remove('open');
     boardHourSelectList.classList.remove('visible');
