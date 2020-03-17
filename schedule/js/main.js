@@ -900,7 +900,7 @@ renderBoard(daysAmountValue,timelineStep)
 
 
 const moveAppointment = ()=>{
-  console.log('fuck')
+
 }
 
 //for(let i=0; i<appointments.length;i++){
