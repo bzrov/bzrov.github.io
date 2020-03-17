@@ -593,7 +593,9 @@ input {
       -ms-flex-align: center;
           align-items: center;
   width: 85%;
-  margin-left: auto; }
+  margin-left: auto;
+  border-right: 1px solid #D0D3DA;
+  border-left: 1px solid #D0D3DA; }
 
 .boards__dates-item {
   width: 100%;
