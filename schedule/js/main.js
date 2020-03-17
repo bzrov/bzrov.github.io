@@ -579,7 +579,8 @@ function start_drag_and_drop_appointments() {
           previous_element = cells_element;
           previous_background = cells_element.style.background;
           cells_element.style.background = '#ff0000';
-
+          appointment_for_drag[z].style.left = fixer_x + 'px';
+          appointment_for_drag[z].style.top = fixer_y + 'px';
           const cellsElementDate = +cells_element.getAttribute('data-cell-date')
           const appointappointmentForDragDuration = +appointment_for_drag[z].getAttribute('data-appointment-duration')
           const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
