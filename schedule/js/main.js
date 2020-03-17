@@ -548,39 +548,34 @@ for(let i=0; i< boardsAreaBtnHide.length; i++){
 function start_drag_and_drop_appointments() {
   const rows_of_cells = document.querySelectorAll('.timegrid__row');
   var rows_element;
-  var fixer_y;
+
   var cells_element;
-  var fixer_x;
-  var previous_element;
-  var previous_background;
+
+
+
   const appointment_for_drag = document.querySelectorAll('.appointment');
   for (let z = 0; z < appointment_for_drag.length; z++) {
+   
       appointment_for_drag[z].addEventListener("drag", function (event) {
-          if (previous_element !== undefined) {
-              previous_element.style.background = previous_background;
-          }
           var min_y = 10000;
-          for (let w = 0; w < rows_of_cells.length; w++) {
-              if ((Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y)) < min_y) {
-                  min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y);
-                  rows_element = rows_of_cells[w];
-                  fixer_y = rows_element.getBoundingClientRect().top;
-              }
+          if (event.y != 0 && event.x != 0) {
+            for (let w = 0; w < rows_of_cells.length; w++) {
+                if ((Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y)) < min_y) {
+                    min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y);
+                    rows_element = rows_of_cells[w];
+                    fixer_y = rows_element.getBoundingClientRect().top;
+                }
+            }
+            const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
+            var min_x = 10000;
+            for (let y = 0; y < cells_of_rows.length; y++) {
+                if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x)) < min_x) {
+                    min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x);
+                    cells_element = cells_of_rows[y];
+                    fixer_x = cells_element.getBoundingClientRect().left;
+                }
+            }
           }
-          const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
-          var min_x = 10000;
-          for (let y = 0; y < cells_of_rows.length; y++) {
-              if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x)) < min_x) {
-                  min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x);
-                  cells_element = cells_of_rows[y];
-                  fixer_x = cells_element.getBoundingClientRect().left;
-              }
-          }
-          previous_element = cells_element;
-          previous_background = cells_element.style.background;
-          cells_element.style.background = '#ff0000';
-          //appointment_for_drag[z].style.left = fixer_x + 'px';
-          //appointment_for_drag[z].style.top = fixer_y + 'px';
           const cellsElementDate = +cells_element.getAttribute('data-cell-date')
           const appointappointmentForDragDuration = +appointment_for_drag[z].getAttribute('data-appointment-duration')
           const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
@@ -595,6 +590,70 @@ function start_drag_and_drop_appointments() {
 const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)=>{
   let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
   let scheduleDay;
+  appointmentsItem.setAttribute('data-appointment-date-start',appointmentDateStart.getTime())
+  const scheduleItems =  appointmentsHash.get(appointmentServiceResourceId)
+    const appointments =document.querySelectorAll('.appointment');
+    const scheduleItemsAppointemnts = scheduleItems.querySelectorAll('.appointment')
+    
+    /*for(let y =0;y<timegridRows.length;y++){
+      const scheduleItemsAppointemnts = timegridRows[y].closest('.board__timegrid').querySelectorAll('.appointment')
+      timegridRows[y].classList.remove('timegrid__row_increased')
+      for(let z =0;z<scheduleItemsAppointemnts.length;z++){
+        if(scheduleItemsAppointemnts[z].getAttribute('data-appointment-id') ===appointmentsItem.getAttribute('data-appointment-id')){break}
+
+        const appointemntDuration =  +scheduleItemsAppointemnts[z].getAttribute('data-appointment-duration')
+        const appointemntDateStartTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start'))
+        const appointemntDateEndTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start')+appointemntDuration)
+        if(Date.parse(appointemntDateStartTemp) <=Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >=Date.parse(appointmentDateEnd) ||
+        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateStart) ||
+        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateEnd) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateEnd) ||
+        Date.parse(appointmentDateStart) <=Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >=Date.parse(appointemntDateEndTemp) ||
+        Date.parse(appointmentDateStart) <Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateStartTemp) ||
+        Date.parse(appointmentDateStart) <Date.parse(appointemntDateEndTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateEndTemp)
+      ){
+        timegridRows[y].classList.add('timegrid__row_increased')
+        scheduleItemsAppointemnts[z].style.top='8px'
+        scheduleItemsAppointemnts[z].style.bottom='initial'
+        appointmentsItem.style.bottom= '8px'
+        appointmentsItem.style.top= 'initial'
+      } else{
+        timegridRows[y].classList.remove('timegrid__row_increased')
+         scheduleItemsAppointemnts[z].style.top='initial'
+         appointmentsItem.style.bottom= 'initial'
+         scheduleItemsAppointemnts[z].style.bottom='initial'
+         appointmentsItem.style.top= 'initial'
+      }
+      }
+
+
+    }*/
+
+    for(let z =0;z<scheduleItemsAppointemnts.length;z++){
+      if(scheduleItemsAppointemnts[z].getAttribute('data-appointment-id') ===appointmentsItem.getAttribute('data-appointment-id')){break}
+
+      const appointemntDuration =  +scheduleItemsAppointemnts[z].getAttribute('data-appointment-duration')
+      const appointemntDateStartTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start'))
+      const appointemntDateEndTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start')+appointemntDuration)
+      if(Date.parse(appointemntDateStartTemp) <=Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >=Date.parse(appointmentDateEnd) ||
+        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateStart) ||
+        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateEnd) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateEnd) ||
+        Date.parse(appointmentDateStart) <=Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >=Date.parse(appointemntDateEndTemp) ||
+        Date.parse(appointmentDateStart) <Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateStartTemp) ||
+        Date.parse(appointmentDateStart) <Date.parse(appointemntDateEndTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateEndTemp)
+      ){
+        scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.add('timegrid__row_increased')
+        scheduleItemsAppointemnts[z].style.top='8px'
+        scheduleItemsAppointemnts[z].style.bottom='initial'
+        appointmentsItem.style.bottom= '8px'
+        appointmentsItem.style.top= 'initial'
+      } else{
+         scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.remove('timegrid__row_increased')
+         scheduleItemsAppointemnts[z].style.top='initial'
+         appointmentsItem.style.bottom= 'initial'
+         scheduleItemsAppointemnts[z].style.bottom='initial'
+         appointmentsItem.style.top= 'initial'
+      }
+    }
   for (let j=0; j<daysAmountValue; j++){
     const boardDateStart = new Date(datePicked.getFullYear(),datePicked.getMonth(),datePicked.getDate(),boardHourStart,0,0,0 )
 
@@ -620,9 +679,10 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
     }else{
       appointmentsItem.classList.add("appointment_hide")
     }
-    const scheduleItems =  appointmentsHash.get(appointmentServiceResourceId)
+    
     if (scheduleDay == 1){
       const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_1')
+
       scheduleItemsDay&& scheduleItemsDay.appendChild(appointmentsItem)
     }else if (scheduleDay == 2){
       const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_2')
@@ -818,7 +878,6 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
       } else{
         timeGridCell = `<div data-cell-date="${datePickedTemp.getTime()}" class="timegrid__cell" style="width: ${boardCellWidth}%"> </div>`
       }
-      console.log(datePickedTemp)
       timegridRows[i].innerHTML += timeGridCell
     }
     scheduleItems[i].innerHTML=""
@@ -850,6 +909,9 @@ const appointments = boardData.appointments;
     // create appointment wrapper
     const appointmentsItem = crEl("div","appointment",null,null,{draggable:true}); // create appointment
     appointmentsItem.setAttribute('data-appointment-duration',appointmentDuration)
+    appointmentsItem.setAttribute('data-appointment-id',appointmentId)
+    
+   
     if(appointmentType=="FU"){
       appointmentsItem.classList.add("appointment_follow")
     } else if(appointmentType=="SC"){
