@@ -545,45 +545,69 @@ for(let i=0; i< boardsAreaBtnHide.length; i++){
   })
 }
 
-function start_drag_and_drop_appointments() {
-  const rows_of_cells = document.querySelectorAll('.timegrid__row');
-  var rows_element;
-
-  var cells_element;
 
 
-
-  const appointment_for_drag = document.querySelectorAll('.appointment');
-  for (let z = 0; z < appointment_for_drag.length; z++) {
-   
-      appointment_for_drag[z].addEventListener("drag", function (event) {
-          var min_y = 10000;
-          if (event.y != 0 && event.x != 0) {
-            for (let w = 0; w < rows_of_cells.length; w++) {
-                if ((Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y)) < min_y) {
-                    min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y);
-                    rows_element = rows_of_cells[w];
-                }
-            }
-            const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
-            var min_x = 10000;
-            for (let y = 0; y < cells_of_rows.length; y++) {
-                if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x)) < min_x) {
-                    min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x);
-                    cells_element = cells_of_rows[y];
-                }
-            }
-          }
-          const cellsElementDate = +cells_element.getAttribute('data-cell-date')
-          const appointappointmentForDragDuration = +appointment_for_drag[z].getAttribute('data-appointment-duration')
-          const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
-          const newAppointmentDateStart = new Date(+cellsElementDate)
-          const newAppointmentDateEnd = new Date(+cellsElementDate+appointappointmentForDragDuration)
-          console.log(newAppointmentDateStart,newAppointmentDateEnd)
-          renderAppointment(appointment_for_drag[z],newAppointmentDateStart,newAppointmentDateEnd,newAppointmentServiceResourceId)
-      });
-  }
+var appontment_for_drag;
+var is_drag = 0;
+function start_dragable_appointments() {
+    const appointments_for_drag = document.querySelectorAll('.appointment');
+    console.log('colvo app' + appointments_for_drag.length)
+    for (let h = 0; h < appointments_for_drag.length; h++) {
+        appointments_for_drag[h].addEventListener("mousedown", function (event) {
+            appontment_for_drag = appointments_for_drag[h];
+            console.log('down')
+            is_drag = 1;
+        });
+        appointments_for_drag[h].addEventListener("mouseup", function (event) {
+            is_drag = 0;
+        });
+    }
 }
+var glob_mouse_X;
+var glob_mouse_Y;
+document.addEventListener("mousemove", function (event) {
+    glob_mouse_X = event.x;
+    glob_mouse_Y = event.y;
+    if (is_drag == 1) {
+        start_drag_and_drop_appointments(glob_mouse_X, glob_mouse_Y)
+    }
+    console.log('onmousex onmousey ' + glob_mouse_X + ' - ' + glob_mouse_Y)
+});
+function start_drag_and_drop_appointments() {  
+  const rows_of_cells = document.querySelectorAll('.timegrid__row');
+    var rows_element;
+    var previous_element;
+    var previous_background;
+    var cells_element;
+    var min_y = 10000;
+    if (glob_mouse_X != 0 && glob_mouse_Y != 0) {
+        for (let w = 0; w < rows_of_cells.length; w++) {
+            if ((Math.abs(rows_of_cells[w].getBoundingClientRect().top - glob_mouse_Y)) < min_y) {
+                min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - glob_mouse_Y);
+                rows_element = rows_of_cells[w];                  }
+        }
+        const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
+        var min_x = 10000;
+        for (let y = 0; y < cells_of_rows.length; y++) {
+            if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X)) < min_x) {
+                min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X);
+                cells_element = cells_of_rows[y];                  }
+        }          }
+    console.log('onmousex onmousey ' + glob_mouse_X + ' - ' + glob_mouse_Y)
+    console.log('eventx eventy ' + event.x + ' - ' + event.y)
+    console.log('minx miny ' + min_x + ' - ' + min_y)
+    previous_element = cells_element;
+    previous_background = cells_element.style.background;
+    cells_element.style.background = '#ff0000';
+    //appointment_for_drag[z].style.left = fixer_x + 'px';
+    //appointment_for_drag[z].style.top = fixer_y + 'px';
+    const cellsElementDate = +cells_element.getAttribute('data-cell-date')
+    const appointappointmentForDragDuration = +appontment_for_drag.getAttribute('data-appointment-duration')
+    const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
+    const newAppointmentDateStart = new Date(+cellsElementDate)
+    const newAppointmentDateEnd = new Date(+cellsElementDate+appointappointmentForDragDuration)
+    console.log(newAppointmentDateStart,newAppointmentDateEnd)
+    renderAppointment(appontment_for_drag,newAppointmentDateStart,newAppointmentDateEnd,newAppointmentServiceResourceId)  }
 
 const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)=>{
   let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
@@ -672,6 +696,7 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
       scheduleItemsDay&& scheduleItemsDay.appendChild(appointmentsItem)
     }
   }
+  
 }
 
 const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)=>{
@@ -732,7 +757,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   let halfDayPast = 0;
   let timegridRealtimeLineCreated = false;
   let postfix;
-
+  
 
   //*******************************Board timeline fill*******************************//  
   boardsTimeline.innerHTML = ""; //Board timeline clear
@@ -874,6 +899,7 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
 
 const appointments = boardData.appointments;
   for(let i = 0; i<appointments.length;i++){
+    
     const appointment = appointments[i];
     const appointmentId  = appointment.appointment_id;
     const appointmentType  = appointment.appointment_type;
@@ -887,7 +913,7 @@ const appointments = boardData.appointments;
     const appointmentDuration = appointmentDateEnd-appointmentDateStart
 
     // create appointment wrapper
-    const appointmentsItem = crEl("div","appointment",null,null,{draggable:true}); // create appointment
+    const appointmentsItem = crEl("div","appointment"); // create appointment
     appointmentsItem.setAttribute('data-appointment-duration',appointmentDuration)
     appointmentsItem.setAttribute('data-appointment-id',appointmentId)
     
@@ -923,6 +949,7 @@ const appointments = boardData.appointments;
     const absencesItem = crEl("div","absence"); // create absence
     renderAbsence(absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)
   }
+  start_dragable_appointments();
   start_drag_and_drop_appointments();
 }
 
