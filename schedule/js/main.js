@@ -626,7 +626,7 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
         appointmentsItem.style.bottom= '8px'
 
       } else{
-          //scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.remove('timegrid__row_increased')
+          scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.remove('timegrid__row_increased')
        // scheduleItemsAppointemnts[z].style.bottom='initial'
       //  scheduleItemsAppointemnts[z].style.top='8px'
 
