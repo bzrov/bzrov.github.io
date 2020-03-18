@@ -811,6 +811,7 @@ input {
 
 .appointment {
   position: absolute;
+  top: 8px;
   height: 70%;
   max-height: 60px;
   display: -webkit-box;

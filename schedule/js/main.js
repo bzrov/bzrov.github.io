@@ -524,7 +524,7 @@ drawBoard(boardData)
 
 const boardsTimeline = document.querySelector('.boards__timeline')
 const boardsDates = document.querySelector('.boards__dates')
-const boardTimegrid = document.querySelectorAll('.board__timegrid') 
+const boardTimegrids = document.querySelectorAll('.board__timegrid') 
 const timegridRows = document.querySelectorAll('.timegrid__row')
 const timegridRealtimeLines =document.querySelectorAll('.timegrid__realtime-line')
 const boardsAreaBtnHide =document.querySelectorAll('.boards__item-area-btn-hide')
@@ -593,37 +593,16 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
     const appointments =document.querySelectorAll('.appointment');
     const scheduleItemsAppointemnts = scheduleItems.querySelectorAll('.appointment')
     
-    /*for(let y =0;y<timegridRows.length;y++){
-      const scheduleItemsAppointemnts = timegridRows[y].closest('.board__timegrid').querySelectorAll('.appointment')
-      timegridRows[y].classList.remove('timegrid__row_increased')
-      for(let z =0;z<scheduleItemsAppointemnts.length;z++){
-        if(scheduleItemsAppointemnts[z].getAttribute('data-appointment-id') ===appointmentsItem.getAttribute('data-appointment-id')){break}
+   /* for(let y =0;y<boardTimegrids.length;y++){
+      const boardTimegrid = boardTimegrids[y]
+      const scheduleItemsAppointemnts = boardTimegrid.querySelectorAll('.appointment');
+      const boardTimegridRow = boardTimegrid.querySelector('.timegrid__row');
+      for(let x=0; x<scheduleItemsAppointemnts.length;x++){
+        
 
-        const appointemntDuration =  +scheduleItemsAppointemnts[z].getAttribute('data-appointment-duration')
-        const appointemntDateStartTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start'))
-        const appointemntDateEndTemp =  new Date(+scheduleItemsAppointemnts[z].getAttribute('data-appointment-date-start')+appointemntDuration)
-        if(Date.parse(appointemntDateStartTemp) <=Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >=Date.parse(appointmentDateEnd) ||
-        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateStart) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateStart) ||
-        Date.parse(appointemntDateStartTemp) <Date.parse(appointmentDateEnd) && Date.parse(appointemntDateEndTemp) >Date.parse(appointmentDateEnd) ||
-        Date.parse(appointmentDateStart) <=Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >=Date.parse(appointemntDateEndTemp) ||
-        Date.parse(appointmentDateStart) <Date.parse(appointemntDateStartTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateStartTemp) ||
-        Date.parse(appointmentDateStart) <Date.parse(appointemntDateEndTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateEndTemp)
-      ){
-        timegridRows[y].classList.add('timegrid__row_increased')
-        scheduleItemsAppointemnts[z].style.top='8px'
-        scheduleItemsAppointemnts[z].style.bottom='initial'
-        appointmentsItem.style.bottom= '8px'
-        appointmentsItem.style.top= 'initial'
-      } else{
-        timegridRows[y].classList.remove('timegrid__row_increased')
-         scheduleItemsAppointemnts[z].style.top='initial'
-         appointmentsItem.style.bottom= 'initial'
-         scheduleItemsAppointemnts[z].style.bottom='initial'
-         appointmentsItem.style.top= 'initial'
+          console.log(scheduleItemsAppointemnts[x])
+
       }
-      }
-
-
     }*/
 
     for(let z =0;z<scheduleItemsAppointemnts.length;z++){
@@ -640,16 +619,19 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
         Date.parse(appointmentDateStart) <Date.parse(appointemntDateEndTemp) && Date.parse(appointmentDateEnd) >Date.parse(appointemntDateEndTemp)
       ){
         scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.add('timegrid__row_increased')
-        scheduleItemsAppointemnts[z].style.top='8px'
+       
         scheduleItemsAppointemnts[z].style.bottom='initial'
-        appointmentsItem.style.bottom= '8px'
+        scheduleItemsAppointemnts[z].style.top='8px'
         appointmentsItem.style.top= 'initial'
+        appointmentsItem.style.bottom= '8px'
+
       } else{
-         scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.remove('timegrid__row_increased')
-         scheduleItemsAppointemnts[z].style.top='initial'
-         appointmentsItem.style.bottom= 'initial'
-         scheduleItemsAppointemnts[z].style.bottom='initial'
-         appointmentsItem.style.top= 'initial'
+          //scheduleItems.closest('.timegrid').querySelector('.timegrid__row').classList.remove('timegrid__row_increased')
+       // scheduleItemsAppointemnts[z].style.bottom='initial'
+      //  scheduleItemsAppointemnts[z].style.top='8px'
+
+        appointmentsItem.style.top= '8px'
+        appointmentsItem.style.bottom= 'initial'
       }
     }
   for (let j=0; j<daysAmountValue; j++){
@@ -662,13 +644,13 @@ const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDate
 
     const boardDateEndTemp = new Date(boardDateEnd.getTime())
     boardDateEndTemp.setDate(boardDateEnd.getDate()+j)
-
+    console.log(appointmentDateStart.getHours())
     let appointmentWidth = (appointmentDateEnd.getHours()-appointmentDateStart.getHours())*2*boardCellWidth*daysAmountValue;
     if ((Date.parse(appointmentDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateEnd) <=Date.parse(boardDateEndTemp)) || 
         (Date.parse(appointmentDateStart) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateStart) <=Date.parse(boardDateEndTemp)) ||
         (Date.parse(appointmentDateEnd) >=Date.parse(boardDateStartTemp) && Date.parse(appointmentDateEnd) <=Date.parse(boardDateEndTemp))
     ){
-      let appointmentOffset = (appointmentDateStart.getHours()-boardHourStart)*2*boardCellWidth*daysAmountValue;
+      let appointmentOffset = (appointmentDateStart.getHours()+appointmentDateStart.getMinutes()/60-boardHourStart)*2*boardCellWidth*daysAmountValue;
       appointmentsItem.style.left = `${appointmentOffset+boardCellWidth*0.10}%`
       appointmentsItem.classList.remove("appointment_hide")
       appointmentsItem.style.width = `${appointmentWidth-0.20*boardCellWidth}%`
