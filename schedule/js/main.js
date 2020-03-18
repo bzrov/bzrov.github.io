@@ -547,22 +547,7 @@ for(let i=0; i< boardsAreaBtnHide.length; i++){
 
 
 
-var appontment_for_drag;
-var is_drag = 0;
-function start_dragable_appointments() {
-    const appointments_for_drag = document.querySelectorAll('.appointment');
-    console.log('colvo app' + appointments_for_drag.length)
-    for (let h = 0; h < appointments_for_drag.length; h++) {
-        appointments_for_drag[h].addEventListener("mousedown", function (event) {
-            appontment_for_drag = appointments_for_drag[h];
-            console.log('down')
-            is_drag = 1;
-        });
-        appointments_for_drag[h].addEventListener("mouseup", function (event) {
-            is_drag = 0;
-        });
-    }
-}
+
 
 var appontment_for_drag;
 var is_drag = 0;
