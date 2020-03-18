@@ -75,8 +75,32 @@ const crEl = (tagName, className, text, parent, attributes = {}, ) => {
   return el;
 };
 
-
-
+/* Clicking outside of popup to close and deselect */
+window.addEventListener('click', function(event) {
+  let target = event.target;
+  let clickedDatePeriod= target.closest('.controls__date-period');
+  let clickedCalendar = target.closest('.calendar');
+  let clickedControlsDatePicker = target.closest('.controls__date-picker-item');
+  let clickedDaysAmount= target.closest('.controls__days-amount');
+  let clickedBoardHourSelectList = target.closest('.controls__board-hour-select-list');
+  let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
+  if (!clickedDaysAmount && daysAmount.classList.contains('open') && daysAmountList.classList.contains('visible')) {
+    daysAmount.classList.remove('open');
+    daysAmountList.classList.remove('visible');
+  }
+  if(!clickedBoardHourSelectList && !clickedBoardHourSelectBtn && boardHourSelectList.classList.contains('open') && boardHourSelectList.classList.contains('visible')){
+    boardHourSelectList.classList.remove('open');
+    boardHourSelectList.classList.remove('visible');
+  }
+  if (!clickedDatePeriod && datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
+      datePeriod.classList.remove('open');
+      datePeriodList.classList.remove('visible');
+  }
+ 
+  if (!clickedDatePeriod  && !clickedControlsDatePicker  && !clickedCalendar && calendar.classList.contains('visible')) {;
+    calendar.classList.remove('visible');
+  }
+});
 const drawBoard =(boardData)=>{
   console.log(boardData)
   //***********************************Draw areas**************************************//
@@ -176,32 +200,6 @@ const drawBoard =(boardData)=>{
   
   //**********************************************************************************//
 }
-/* Clicking outside of popup to close and deselect */
-window.addEventListener('click', function(event) {
-  let target = event.target;
-  let clickedDatePeriod= target.closest('.controls__date-period');
-  let clickedCalendar = target.closest('.calendar');
-  let clickedControlsDatePicker = target.closest('.controls__date-picker-item');
-  let clickedDaysAmount= target.closest('.controls__days-amount');
-  let clickedBoardHourSelectList = target.closest('.controls__board-hour-select-list');
-  let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
-  if (!clickedDaysAmount && daysAmount.classList.contains('open') && daysAmountList.classList.contains('visible')) {
-    daysAmount.classList.remove('open');
-    daysAmountList.classList.remove('visible');
-  }
-  if(!clickedBoardHourSelectList && !clickedBoardHourSelectBtn && boardHourSelectList.classList.contains('open') && boardHourSelectList.classList.contains('visible')){
-    boardHourSelectList.classList.remove('open');
-    boardHourSelectList.classList.remove('visible');
-  }
-  if (!clickedDatePeriod && datePeriod.classList.contains('open') && datePeriodList.classList.contains('visible')) {
-      datePeriod.classList.remove('open');
-      datePeriodList.classList.remove('visible');
-  }
- 
-  if (!clickedDatePeriod  && !clickedControlsDatePicker  && !clickedCalendar && calendar.classList.contains('visible')) {;
-    calendar.classList.remove('visible');
-  }
-});
 
 //DATE PERIOD HANDLERS
 datePeriod.addEventListener('click', function(e) {
@@ -612,22 +610,26 @@ function start_drag_and_drop_appointments() {
               min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - glob_mouse_Y);
               rows_element = rows_of_cells[w];                  }
       }
-      const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
-      var min_x = 10000;
-      for (let y = 0; y < cells_of_rows.length; y++) {
+      if(rows_element!==undefined){
+        const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
+        var min_x = 10000;
+        for (let y = 0; y < cells_of_rows.length; y++) {
           if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X)) < min_x) {
               min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X);
               cells_element = cells_of_rows[y];                  }
-      }          
-  
+        } 
+      }        
     }
-  const cellsElementDate = +cells_element.getAttribute('data-cell-date')
-  const appointappointmentForDragDuration = +appontment_for_drag.getAttribute('data-appointment-duration')
-  const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
-  const newAppointmentDateStart = new Date(+cellsElementDate)
-  const newAppointmentDateEnd = new Date(+cellsElementDate+appointappointmentForDragDuration)
-  console.log(newAppointmentDateStart,newAppointmentDateEnd)
-  renderAppointment(appontment_for_drag,newAppointmentDateStart,newAppointmentDateEnd,newAppointmentServiceResourceId)  
+
+  if(cells_element!==undefined && rows_element!==undefined && appontment_for_drag!==undefined){
+    const cellsElementDate = +cells_element.getAttribute('data-cell-date')
+    const appointappointmentForDragDuration = +appontment_for_drag.getAttribute('data-appointment-duration')
+    const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
+    const newAppointmentDateStart = new Date(+cellsElementDate)
+    const newAppointmentDateEnd = new Date(+cellsElementDate+appointappointmentForDragDuration)
+    console.log(newAppointmentDateStart,newAppointmentDateEnd)
+    renderAppointment(appontment_for_drag,newAppointmentDateStart,newAppointmentDateEnd,newAppointmentServiceResourceId)  
+  }
 }
 
 
@@ -744,8 +746,9 @@ const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServi
 
     ){
       let absenceOffset;
-      if(absenceDateStart<boardDateStart){
-        absenceOffset =((absenceDateStart-boardDateStart)/1000/60/60) *2*boardCellWidth*daysAmountValue
+      console.log(boardDateStartTemp)
+      if(absenceDateStart<boardDateStartTemp){
+        absenceOffset =((absenceDateStart-boardDateStartTemp)/1000/60/60) *2*boardCellWidth*daysAmountValue
       } else{
         absenceOffset = (absenceDateStart.getHours()-boardHourStart)*2*boardCellWidth*daysAmountValue;
       }
@@ -754,8 +757,8 @@ const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServi
       absencesItem.classList.remove("appointment_hide")
       absencesItem.style.width = `${absenceWidth-0.20*boardCellWidth}%`
       scheduleDay = j+1
-      j=daysAmountValue
-      console.log(scheduleDay)
+      //j=daysAmountValue
+     // console.log(scheduleDay)
     }else{
       absencesItem.classList.add("appointment_hide")
     }
@@ -770,6 +773,7 @@ const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServi
       const scheduleItemsDay = scheduleItems.querySelector('.schedule-items__day-wrapper_3')
       scheduleItemsDay&& scheduleItemsDay.appendChild(absencesItem)
     }
+    absencesItem = crEl("div","absence");
   }
 }
 
