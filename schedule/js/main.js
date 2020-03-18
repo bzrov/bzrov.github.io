@@ -553,16 +553,12 @@ var appontment_for_drag;
 var is_drag = 0;
 function start_dragable_appointments() {
     const appointments_for_drag = document.querySelectorAll('.appointment');
-    console.log('colvo app' + appointments_for_drag.length)
     for (let h = 0; h < appointments_for_drag.length; h++) {
         appointments_for_drag[h].addEventListener("mousedown", function (event) {
             appontment_for_drag = appointments_for_drag[h];
-            console.log('down')
             is_drag = 1;
         });
-        appointments_for_drag[h].addEventListener("mouseup", function (event) {
-            is_drag = 0;
-        });
+       
     }
 }
 var glob_mouse_X;
@@ -573,12 +569,12 @@ document.addEventListener("mousemove", function (event) {
     if (is_drag == 1) {
         start_drag_and_drop_appointments(glob_mouse_X, glob_mouse_Y)
     }
-    console.log('onmousex onmousey ' + glob_mouse_X + ' - ' + glob_mouse_Y)
+});
+document.addEventListener("mouseup", function (event) {
+  is_drag = 0;
 });
 function start_drag_and_drop_appointments() {  const rows_of_cells = document.querySelectorAll('.timegrid__row');
     var rows_element;
-    var previous_element;
-    var previous_background;
     var cells_element;
     var min_y = 10000;
     if (glob_mouse_X != 0 && glob_mouse_Y != 0) {
@@ -593,15 +589,8 @@ function start_drag_and_drop_appointments() {  const rows_of_cells = document.qu
             if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X)) < min_x) {
                 min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - glob_mouse_X);
                 cells_element = cells_of_rows[y];                  }
-        }          }
-    console.log('onmousex onmousey ' + glob_mouse_X + ' - ' + glob_mouse_Y)
-    console.log('eventx eventy ' + event.x + ' - ' + event.y)
-    console.log('minx miny ' + min_x + ' - ' + min_y)
-    previous_element = cells_element;
-    previous_background = cells_element.style.background;
-    cells_element.style.background = '#ff0000';
-    //appointment_for_drag[z].style.left = fixer_x + 'px';
-    //appointment_for_drag[z].style.top = fixer_y + 'px';
+        }          
+    }
     const cellsElementDate = +cells_element.getAttribute('data-cell-date')
     const appointappointmentForDragDuration = +appontment_for_drag.getAttribute('data-appointment-duration')
     const newAppointmentServiceResourceId = rows_element.getAttribute('data-service-resource')
@@ -994,3 +983,6 @@ window.addEventListener('click', function(event) {
     calendar.classList.remove('visible');
   }
 });
+
+
+
