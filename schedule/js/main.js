@@ -563,7 +563,6 @@ function start_drag_and_drop_appointments() {
                 if ((Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y)) < min_y) {
                     min_y = Math.abs(rows_of_cells[w].getBoundingClientRect().top - event.y);
                     rows_element = rows_of_cells[w];
-                    fixer_y = rows_element.getBoundingClientRect().top;
                 }
             }
             const cells_of_rows = rows_element.querySelectorAll('.timegrid__cell');
@@ -572,7 +571,6 @@ function start_drag_and_drop_appointments() {
                 if ((Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x)) < min_x) {
                     min_x = Math.abs(cells_of_rows[y].getBoundingClientRect().left - event.x);
                     cells_element = cells_of_rows[y];
-                    fixer_x = cells_element.getBoundingClientRect().left;
                 }
             }
           }
