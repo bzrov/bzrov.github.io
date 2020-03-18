@@ -949,7 +949,7 @@ const appointments = boardData.appointments;
     const absencesItem = crEl("div","absence"); // create absence
     renderAbsence(absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)
   }
-  start_dragable_appointments();
+
   start_drag_and_drop_appointments();
 }
 
