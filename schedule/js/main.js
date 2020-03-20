@@ -751,6 +751,7 @@ document.addEventListener("mouseup", function (event) {
   
 });
 function start_drag_and_drop_appointments() {  
+
   const rows_of_cells = document.querySelectorAll('.timegrid__row');
   
   var min_y = 10000;
@@ -771,7 +772,10 @@ function start_drag_and_drop_appointments() {
         } 
       }        
     }
-
+    if (appointmentHover.classList.contains('open')) {
+      appointmentHover.classList.remove('open');
+      appointmentHover.classList.remove('visible');
+    }
 
    if(rows_element!==undefined && cells_element!==undefined && appontment_for_drag!==undefined){
     const cellsElementDate = +cells_element.getAttribute('data-cell-date')
@@ -961,10 +965,6 @@ const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServi
       scheduleItemsDay&& scheduleItemsDay.appendChild(absencesItem)
     }
     absencesItem = crEl("div","absence");
-
-      
-
-
   }
 }
 
@@ -974,7 +974,6 @@ const renderBoard = (daysAmountValue,timelineStep) =>{
   let halfDayPast = 0;
   let timegridRealtimeLineCreated = false;
   let postfix;
-  
 
   //*******************************Board timeline fill*******************************//  
   boardsTimeline.innerHTML = ""; //Board timeline clear
@@ -1166,14 +1165,6 @@ const appointments = boardData.appointments;
     const absenceDateEnd  = new Date(absence.absences_date_end);
 
     const absencesItem = crEl("div","absence"); // create absence
-
-    
-
-
- 
-
-
-
     renderAbsence(absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)
   }
   start_dragable_appointments()
@@ -1183,11 +1174,10 @@ const appointments = boardData.appointments;
   for(let i=0; i<appointmentsForEvents.length; i++){
     appointment= appointmentsForEvents[i]
     appointment.addEventListener('mouseover', function(event){
-      if (!appointmentHover.classList.contains('open')) {
+    if (!appointmentHover.classList.contains('open')) {
         appointmentHover.classList.add('open');
         appointmentHover.classList.add('visible');
       }
-      //appointmentHover.getBoundingClientRect() 
       appointmentX = event.currentTarget.getBoundingClientRect().x
       appointmentY = event.currentTarget.getBoundingClientRect().y
       appointmentHoverJobNumber.textContent =  event.currentTarget.querySelector('.appointment__job-number').textContent
@@ -1216,8 +1206,6 @@ const appointments = boardData.appointments;
         }
     })
   }
-  
-
 }
 
 
