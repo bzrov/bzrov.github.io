@@ -1172,6 +1172,8 @@ input {
   padding: 6px;
   border-radius: 6px;
   cursor: pointer; }
+  .appointment-drop-list__item:last-child {
+    margin-bottom: 0px; }
 
 .btn_disabled {
   pointer-events: none;
