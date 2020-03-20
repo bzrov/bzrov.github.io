@@ -639,18 +639,7 @@ function start_dragable_appointments() {
             appointmentDropList.classList.remove('open');
           appointmentDropList.classList.remove('visible');
           }
-        } else if(event.which===3){
-          event.preventDefault()
-          if (!appointmentDropList.classList.contains('open')) {
-            appointmentDropList.classList.add('open');
-            appointmentDropList.classList.add('visible');
-      
-            appointmentX = event.currentTarget.getBoundingClientRect().x
-            appointmentY = event.currentTarget.getBoundingClientRect().y
-            appointmentDropList.style.left= appointmentX +"px"
-            appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
-          }
-        }
+        } 
       });
     } 
 }
@@ -1183,13 +1172,18 @@ const appointments = boardData.appointments;
         appointmentHover.classList.remove('visible');
       }
     })
-    /*appointment.addEventListener('contextmenu', function(event){
-      //event.preventDefault();
-      console.log('test')
-      
-      
-      
-    })*/
+    appointment.addEventListener('contextmenu', function(event){
+        event.preventDefault()
+        if (!appointmentDropList.classList.contains('open')) {
+          appointmentDropList.classList.add('open');
+          appointmentDropList.classList.add('visible');
+    
+          appointmentX = event.currentTarget.getBoundingClientRect().x
+          appointmentY = event.currentTarget.getBoundingClientRect().y
+          appointmentDropList.style.left= appointmentX +"px"
+          appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
+        }
+    })
   }
   
 
