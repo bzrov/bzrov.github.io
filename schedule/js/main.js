@@ -642,6 +642,8 @@ function start_dragable_appointments() {
           appointmentDateEndTemp = new Date(+appontment_for_drag.getAttribute('data-appointment-date-end'))
           appointmentServiceResourceIdTemp = appontment_for_drag.getAttribute('data-appointment-service-resource-id')
           appointmentServiceResourceTemp = appontment_for_drag.closest('.board__row').querySelector('.board__worker-nickname').textContent
+          newAppointmentDateStart = new Date(appointmentDateStartTemp)
+          newAppointmentDateEnd = new Date(appointmentDateEndTemp)
           is_drag = 1;
           if(appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible') ){
             appointmentDropList.classList.remove('open');
@@ -750,7 +752,7 @@ document.addEventListener("mouseup", function (event) {
 });
 function start_drag_and_drop_appointments() {  
   const rows_of_cells = document.querySelectorAll('.timegrid__row');
-
+  
   var min_y = 10000;
   if (glob_mouse_X != 0 && glob_mouse_Y != 0) {
       for (let w = 0; w < rows_of_cells.length; w++) {
@@ -1175,7 +1177,7 @@ const appointments = boardData.appointments;
     renderAbsence(absencesItem,absenceDateStart,absenceDateEnd,absenceServiceResourceId)
   }
   start_dragable_appointments()
-  start_drag_and_drop_appointments();
+
   const appointmentsForEvents = document.querySelectorAll('.appointment')
 
   for(let i=0; i<appointmentsForEvents.length; i++){
