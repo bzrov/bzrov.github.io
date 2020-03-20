@@ -39,13 +39,13 @@ const controlsDateSelectNext = document.querySelector('.controls__date-select-ne
 
 const popupWindow =  document.querySelector('.popup-window')
 const popupOverlay = document.querySelector('.popup-window__overlay')
+
 const dragAndDropConfirmationPopup = document.querySelector('.drag-and-drop-confirmation-popup')
-const dragAndDropConfirmationBtnConfirm = document.querySelector('.drag-and-drop-confirmation-popup__confirm-btn')
-const dragAndDropConfirmationBtnDeny = document.querySelector('.drag-and-drop-confirmation-popup__deny-btn')
+const dragAndDropConfirmationBtnConfirm = document.querySelector('.drag-and-drop-confirmation__confirm-btn')
+const dragAndDropConfirmationBtnDeny = document.querySelector('.drag-and-drop-confirmation__deny-btn')
 const dragAndDropConfirmationQuestionServiceResourceNotification = document.querySelector('.drag-and-drop-confirmation__questions-item_service-resource-notification')
 const dragAndDropConfirmationQuestionClientInformed = document.querySelector('.drag-and-drop-confirmation__questions-item_client-informed [type=checkbox]')
 const dragAndDropConfirmationQuestionServiceResourceInformed = document.querySelector('.drag-and-drop-confirmation__questions-item_service-resource-informed [type=checkbox]')
-
 const dragAndDropConfirmationJobNumber = document.querySelector('.drag-and-drop-confirmation__job-number') 
 const dragAndDropConfirmationServiceResourceNicknameOld = document.querySelector('.drag-and-drop-confirmation__service-resource-nickname-old')
 const dragAndDropConfirmationServiceResourceNicknameNew = document.querySelector('.drag-and-drop-confirmation__service-resource-nickname-new')
@@ -53,12 +53,32 @@ const dragAndDropConfirmationDateOld = document.querySelector('.drag-and-drop-co
 const dragAndDropConfirmationDateNew = document.querySelector('.drag-and-drop-confirmation__date-new') 
 const dragAndDropConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
 
+const appointmentSendNotificationConfirmationPopup = document.querySelector('.appointment-send-notification-confirmation-popup')
+const appointmentSendNotificationConfirmationDenyBtn = document.querySelector('.appointment-send-notification-confirmation__deny-btn')
+const appointmentSendNotificationConfirmationConfirmBtn = document.querySelector('.appointment-send-notification-confirmation__confirm-btn')
+
+const appointmentRescheduleConfirmationPopup = document.querySelector('.appointment-reschedule-confirmation-popup')
+const appointmentRescheduleConfirmationBtnConfirm = document.querySelector('.appointment-reschedule-confirmation__confirm-btn')
+const appointmentRescheduleConfirmationBtnDeny = document.querySelector('.appointment-reschedule-confirmation__deny-btn')
+const appointmentRescheduleConfirmationQuestionServiceResourceNotification = document.querySelector('.appointment-reschedule-confirmation__questions-item_service-resource-notification')
+const appointmentRescheduleConfirmationQuestionClientInformed = document.querySelector('.appointment-reschedule-confirmation__questions-item_client-informed [type=checkbox]')
+const appointmentRescheduleConfirmationQuestionServiceResourceInformed = document.querySelector('.appointment-reschedule-confirmation__questions-item_service-resource-informed [type=checkbox]')
+const appointmentRescheduleConfirmationJobNumber = document.querySelector('.appointment-reschedule-confirmation__job-number') 
+const appointmentRescheduleConfirmationServiceResourceNicknameOld = document.querySelector('.appointment-reschedule-confirmation__service-resource-nickname-old')
+const appointmentRescheduleConfirmationServiceResourceNicknameNew = document.querySelector('.appointment-reschedule-confirmation__service-resource-nickname-new')
+const appointmentRescheduleConfirmationDateOld = document.querySelector('.appointment-reschedule-confirmation__date-old') 
+const appointmentRescheduleConfirmationDateNew = document.querySelector('.appointment-reschedule-confirmation__date-new') 
+const appointmentRescheduleConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
+
 const appointmentHover = document.querySelector('.appointment-hover')
 const appointmentHoverJobNumber = document.querySelector('.appointment-hover__job-number')
 const appointmentHoverJobInfo = document.querySelector('.appointment-hover__job-info')
 const appointmentHoverZip = document.querySelector('.appointment-hover__zip')
 
 const appointmentDropList = document.querySelector('.appointment-drop-list')
+const appointmentDropListItemSendNotification = document.querySelector('.appointment-drop-list__item-send-notification')
+const appointmentDropListItemReschedule = document.querySelector('.appointment-drop-list__item-reschedule')
+
 
 let date = new Date();
 let day = date.getDate();
@@ -585,6 +605,114 @@ controlsDateSelectNext.addEventListener('click', function() {
    renderBoard(daysAmountValue,timelineStep)
 })
 
+appointmentDropList.addEventListener('click',function(){
+  if(appointmentDropList.classList.contains('open')){
+      appointmentDropList.classList.remove('open');
+      appointmentDropList.classList.remove('visible');
+
+  }
+})
+
+appointmentDropListItemSendNotification.addEventListener('click',function(){
+  if(!popupWindow.classList.contains('open')){
+    popupWindow.classList.add('open');
+    popupWindow.classList.add('visible');
+
+  }else{
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(!appointmentSendNotificationConfirmationPopup.classList.contains('open')){
+    appointmentSendNotificationConfirmationPopup.classList.add('open');
+    appointmentSendNotificationConfirmationPopup.classList.add('visible');
+
+  }else{
+    appointmentSendNotificationConfirmationPopup.classList.remove('open');
+    appointmentSendNotificationConfirmationPopup.classList.remove('visible');
+  }
+})
+appointmentSendNotificationConfirmationConfirmBtn.addEventListener('click',function(){
+  if(popupWindow.classList.contains('open')){
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentSendNotificationConfirmationPopup.classList.contains('open')){
+    appointmentSendNotificationConfirmationPopup.classList.remove('open');
+    appointmentSendNotificationConfirmationPopup.classList.remove('visible');
+  }
+})
+appointmentSendNotificationConfirmationDenyBtn.addEventListener('click',function(){
+  if(popupWindow.classList.contains('open')){
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentSendNotificationConfirmationPopup.classList.contains('open')){
+    appointmentSendNotificationConfirmationPopup.classList.remove('open');
+    appointmentSendNotificationConfirmationPopup.classList.remove('visible');
+  }
+})
+
+
+appointmentDropListItemReschedule.addEventListener('click',function(){
+  if(!popupWindow.classList.contains('open')){
+    popupWindow.classList.add('open');
+    popupWindow.classList.add('visible');
+
+  }else{
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(!appointmentRescheduleConfirmationPopup.classList.contains('open')){
+    appointmentRescheduleConfirmationPopup.classList.add('open');
+    appointmentRescheduleConfirmationPopup.classList.add('visible');
+    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+      for(let i=0; i<appointmentRescheduleConfirmationQuestionsItemsCheckbox.length; i++){
+        appointmentRescheduleConfirmationQuestionsItemsCheckbox[i].checked=false
+      }
+  }else{
+    appointmentRescheduleConfirmationPopup.classList.remove('open');
+    appointmentRescheduleConfirmationPopup.classList.remove('visible');
+  }
+  
+})
+appointmentRescheduleConfirmationBtnConfirm.addEventListener('click',function(){
+  if (popupWindow.classList.contains('open')) {
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentRescheduleConfirmationPopup.classList.contains('open')){
+    appointmentRescheduleConfirmationPopup.classList.remove('open');
+    appointmentRescheduleConfirmationPopup.classList.remove('visible');
+  } 
+
+})
+appointmentRescheduleConfirmationBtnDeny.addEventListener('click',function(){
+  if (popupWindow.classList.contains('open')) {
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentRescheduleConfirmationPopup.classList.contains('open')){
+    appointmentRescheduleConfirmationPopup.classList.remove('open');
+    appointmentRescheduleConfirmationPopup.classList.remove('visible');
+  } 
+
+})
+appointmentRescheduleConfirmationQuestionClientInformed.addEventListener('click',function(){
+  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true){
+    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+appointmentRescheduleConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
+  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true){
+    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+
+
 
 getJson(datePicked,daysAmountValue)
 const boardData = JSON.parse(json)
@@ -644,6 +772,7 @@ function start_dragable_appointments() {
           appointmentServiceResourceTemp = appontment_for_drag.closest('.board__row').querySelector('.board__worker-nickname').textContent
           newAppointmentDateStart = new Date(appointmentDateStartTemp)
           newAppointmentDateEnd = new Date(appointmentDateEndTemp)
+          newAppointmentServiceResourceId = appointmentServiceResourceIdTemp;
           is_drag = 1;
           if(appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible') ){
             appointmentDropList.classList.remove('open');
@@ -667,13 +796,30 @@ popupOverlay.addEventListener('click',function(){
     popupWindow.classList.remove('open');
     popupWindow.classList.remove('visible');
   } 
-  renderAppointment(appontment_for_drag,appointmentDateStartTemp,appointmentDateEndTemp,appointmentServiceResourceIdTemp)
+  if(dragAndDropConfirmationPopup.classList.contains('open')){
+    dragAndDropConfirmationPopup.classList.remove('open');
+    dragAndDropConfirmationPopup.classList.remove('visible');
+    renderAppointment(appontment_for_drag,appointmentDateStartTemp,appointmentDateEndTemp,appointmentServiceResourceIdTemp)
+  } 
+  if(appointmentSendNotificationConfirmationPopup.classList.contains('open')){
+    appointmentSendNotificationConfirmationPopup.classList.remove('open');
+    appointmentSendNotificationConfirmationPopup.classList.remove('visible');
+  }
+  if(appointmentRescheduleConfirmationPopup.classList.contains('open')){
+    appointmentRescheduleConfirmationPopup.classList.remove('open');
+    appointmentRescheduleConfirmationPopup.classList.remove('visible');
+  }
+  
 })
 dragAndDropConfirmationBtnConfirm.addEventListener('click',function(){
   if (popupWindow.classList.contains('open')) {
     popupWindow.classList.remove('open');
     popupWindow.classList.remove('visible');
   }
+  if(dragAndDropConfirmationPopup.classList.contains('open')){
+    dragAndDropConfirmationPopup.classList.remove('open');
+    dragAndDropConfirmationPopup.classList.remove('visible');
+  } 
 
 })
 dragAndDropConfirmationBtnDeny.addEventListener('click',function(){
@@ -681,6 +827,10 @@ dragAndDropConfirmationBtnDeny.addEventListener('click',function(){
     popupWindow.classList.remove('open');
     popupWindow.classList.remove('visible');
   }
+  if(dragAndDropConfirmationPopup.classList.contains('open')){
+    dragAndDropConfirmationPopup.classList.remove('open');
+    dragAndDropConfirmationPopup.classList.remove('visible');
+  } 
   renderAppointment(appontment_for_drag,appointmentDateStartTemp,appointmentDateEndTemp,appointmentServiceResourceIdTemp)
 })
 dragAndDropConfirmationQuestionClientInformed.addEventListener('click',function(){
@@ -699,17 +849,20 @@ dragAndDropConfirmationQuestionServiceResourceInformed.addEventListener('click',
 })
  
 document.addEventListener("mouseup", function (event) {
-  console.log(rows_element,cells_element)
-  console.log(newAppointmentDateStart)
+
+  console.log(Date.parse(newAppointmentDateStart) !== Date.parse(appointmentDateStartTemp))
+  console.log(Date.parse(newAppointmentDateEnd) !== Date.parse(appointmentDateEndTemp))
+  console.log(newAppointmentServiceResourceId !==appointmentServiceResourceIdTemp)
   if(
     is_drag===1 && 
-    rows_element!==undefined && cells_element!==undefined && newAppointmentDateStart!==undefined && newAppointmentDateEnd!==undefined && newAppointmentServiceResourceId!==undefined&&
-    Date.parse(newAppointmentDateStart) !== Date.parse(appointmentDateStartTemp) &&Date.parse(newAppointmentDateEnd) !== Date.parse(appointmentDateEndTemp) && newAppointmentServiceResourceId !==appointmentServiceResourceTemp
+    rows_element!==undefined && cells_element!==undefined && newAppointmentDateStart!==undefined && newAppointmentDateEnd!==undefined && newAppointmentServiceResourceId!==undefined&&(
+    (Date.parse(newAppointmentDateStart) !== Date.parse(appointmentDateStartTemp) &&Date.parse(newAppointmentDateEnd) !== Date.parse(appointmentDateEndTemp) )|| newAppointmentServiceResourceId !==appointmentServiceResourceIdTemp)
 
     ){
     if(!popupWindow.classList.contains('open')){
       popupWindow.classList.add('open');
       popupWindow.classList.add('visible');
+      
       dragAndDropConfirmationBtnConfirm.classList.add('btn_disabled')
       for(let i=0; i<dragAndDropConfirmationQuestionsItemsCheckbox.length; i++){
         dragAndDropConfirmationQuestionsItemsCheckbox[i].checked=false
@@ -718,6 +871,14 @@ document.addEventListener("mouseup", function (event) {
       popupWindow.classList.remove('open');
       popupWindow.classList.remove('visible');
     }
+    if(!dragAndDropConfirmationPopup.classList.contains('open')){
+      dragAndDropConfirmationPopup.classList.add('open');
+      dragAndDropConfirmationPopup.classList.add('visible');
+    } else {
+      dragAndDropConfirmationPopup.classList.remove('open');
+      dragAndDropConfirmationPopup.classList.remove('visible');
+    }
+    
    
     if(appontment_for_drag.getAttribute('data-appointment-notification') ==='true'){
       dragAndDropConfirmationQuestionServiceResourceNotification.style.display = 'block'
@@ -1198,12 +1359,12 @@ const appointments = boardData.appointments;
         if (!appointmentDropList.classList.contains('open')) {
           appointmentDropList.classList.add('open');
           appointmentDropList.classList.add('visible');
-    
-          appointmentX = event.currentTarget.getBoundingClientRect().x
-          appointmentY = event.currentTarget.getBoundingClientRect().y
-          appointmentDropList.style.left= appointmentX +"px"
-          appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
         }
+        //appointmentDropList.setAttribute('')
+        appointmentX = event.currentTarget.getBoundingClientRect().x
+        appointmentY = event.currentTarget.getBoundingClientRect().y
+        appointmentDropList.style.left= appointmentX +"px"
+        appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
     })
   }
 }
