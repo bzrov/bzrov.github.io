@@ -49,6 +49,13 @@ const dragAndDropConfirmationServiceResourceNicknameNew = document.querySelector
 const dragAndDropConfirmationDateOld = document.querySelector('.drag-and-drop-confirmation__date-old') 
 const dragAndDropConfirmationDateNew = document.querySelector('.drag-and-drop-confirmation__date-new') 
 
+const appointmentHover = document.querySelector('.appointment-hover')
+const appointmentHoverJobNumber = document.querySelector('.appointment-hover__job-number')
+const appointmentHoverJobInfo = document.querySelector('.appointment-hover__job-info')
+const appointmentHoverZip = document.querySelector('.appointment-hover__zip')
+
+const appointmentDropList = document.querySelector('.appointment-drop-list')
+
 let date = new Date();
 let day = date.getDate();
 let month = date.getMonth();
@@ -104,6 +111,8 @@ window.addEventListener('click', function(event) {
   let clickedDaysAmount= target.closest('.controls__days-amount');
   let clickedBoardHourSelectList = target.closest('.controls__board-hour-select-list');
   let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
+  let clickedAppointmentDropList = target.closest('.appointment-drop-list');
+  console.log(target)
   if (!clickedDaysAmount && daysAmount.classList.contains('open') && daysAmountList.classList.contains('visible')) {
     daysAmount.classList.remove('open');
     daysAmountList.classList.remove('visible');
@@ -116,6 +125,10 @@ window.addEventListener('click', function(event) {
       datePeriod.classList.remove('open');
       datePeriodList.classList.remove('visible');
   }
+  if (!clickedAppointmentDropList && appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible')) {
+    appointmentDropList.classList.remove('open');
+    appointmentDropList.classList.remove('visible');
+}
  
   if (!clickedDatePeriod  && !clickedControlsDatePicker  && !clickedCalendar && calendar.classList.contains('visible')) {;
     calendar.classList.remove('visible');
@@ -614,14 +627,31 @@ function start_dragable_appointments() {
   const appointments_for_drag = document.querySelectorAll('.appointment');
   for (let h = 0; h < appointments_for_drag.length; h++) {
       appointments_for_drag[h].addEventListener("mousedown", function (event) {
+        console.log(event.which)
+        if(event.which===1){
           appontment_for_drag = appointments_for_drag[h];
           appointmentDateStartTemp= new Date(+appontment_for_drag.getAttribute('data-appointment-date-start'))
           appointmentDateEndTemp = new Date(+appontment_for_drag.getAttribute('data-appointment-date-end'))
           appointmentServiceResourceIdTemp = appontment_for_drag.getAttribute('data-appointment-service-resource-id')
           appointmentServiceResourceTemp = appontment_for_drag.closest('.board__row').querySelector('.board__worker-nickname').textContent
           is_drag = 1;
-      });
+          if(appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible') ){
+            appointmentDropList.classList.remove('open');
+          appointmentDropList.classList.remove('visible');
+          }
+        } else if(event.which===3){
+          event.preventDefault()
+          if (!appointmentDropList.classList.contains('open')) {
+            appointmentDropList.classList.add('open');
+            appointmentDropList.classList.add('visible');
       
+            appointmentX = event.currentTarget.getBoundingClientRect().x
+            appointmentY = event.currentTarget.getBoundingClientRect().y
+            appointmentDropList.style.left= appointmentX +"px"
+            appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
+          }
+        }
+      });
     } 
 }
 var glob_mouse_X;
@@ -1128,6 +1158,41 @@ const appointments = boardData.appointments;
   }
   start_dragable_appointments()
   start_drag_and_drop_appointments();
+  const appointmentsForEvents = document.querySelectorAll('.appointment')
+
+  for(let i=0; i<appointmentsForEvents.length; i++){
+    appointment= appointmentsForEvents[i]
+    appointment.addEventListener('mouseover', function(event){
+      if (!appointmentHover.classList.contains('open')) {
+        appointmentHover.classList.add('open');
+        appointmentHover.classList.add('visible');
+      }
+      //appointmentHover.getBoundingClientRect() 
+      appointmentX = event.currentTarget.getBoundingClientRect().x
+      appointmentY = event.currentTarget.getBoundingClientRect().y
+      appointmentHoverJobNumber.textContent =  event.currentTarget.querySelector('.appointment__job-number').textContent
+      appointmentHoverJobInfo.textContent =  event.currentTarget.querySelector('.appointment__job-info').textContent
+      appointmentHoverZip.textContent =  event.currentTarget.querySelector('.appointment__zip').textContent
+      appointmentHover.style.left= appointmentX +"px"
+      appointmentHover.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
+      
+    })
+    appointment.addEventListener('mouseout', function(event){
+      if (appointmentHover.classList.contains('open')) {
+        appointmentHover.classList.remove('open');
+        appointmentHover.classList.remove('visible');
+      }
+    })
+    /*appointment.addEventListener('contextmenu', function(event){
+      //event.preventDefault();
+      console.log('test')
+      
+      
+      
+    })*/
+  }
+  
+
 }
 
 
