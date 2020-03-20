@@ -869,6 +869,7 @@ input {
 
 .appointment__job {
   display: inline;
+  overflow: hidden;
   color: #ffffff;
   white-space: nowrap; }
 
