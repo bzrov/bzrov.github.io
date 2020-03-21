@@ -117,6 +117,17 @@ const crEl = (tagName, className, text, parent, attributes = {}, ) => {
   return el;
 };
 
+const converTime = (dateToConvert) =>{ // gives the value in 12 hours format
+  const date = new Date(dateToConvert)
+  let hours = date.getHours() 
+  let AmOrPm = hours >= 12 ? 'pm' : 'am';
+  hours = (hours % 12) || 12;
+  let minutes = date.getMinutes() ;
+
+  let finalTime =  hours +":"+ (minutes>0?minutes:"00") + AmOrPm;
+  return finalTime
+}
+
 const getJson = (datePicked,daysAmountValue) =>{
   //Server request//
   //getting new json//
@@ -653,6 +664,11 @@ appointmentSendNotificationConfirmationDenyBtn.addEventListener('click',function
 })
 
 
+let rescheduleAppointmentServiceResourceTemp;
+let rescheduleAppointmentDateStartTemp;
+let rescheduleAppointmentDateEndTemp;
+let rescheduleAppointmentJobNumber;
+
 appointmentDropListItemReschedule.addEventListener('click',function(){
   if(!popupWindow.classList.contains('open')){
     popupWindow.classList.add('open');
@@ -673,7 +689,12 @@ appointmentDropListItemReschedule.addEventListener('click',function(){
     appointmentRescheduleConfirmationPopup.classList.remove('open');
     appointmentRescheduleConfirmationPopup.classList.remove('visible');
   }
+  appointmentRescheduleConfirmationDateOld.textContent = converTime(rescheduleAppointmentDateStartTemp) + "-" + converTime(rescheduleAppointmentDateEndTemp) + " "+ rescheduleAppointmentDateStartTemp.getDate() + " " + monthShortList[rescheduleAppointmentDateStartTemp.getMonth()] 
+ //dragAndDropConfirmationDateNew.textContent = converTime(newAppointmentDateStart) + "-" + converTime(newAppointmentDateEnd) + " "+ newAppointmentDateStart.getDate() + " " + monthShortList[newAppointmentDateStart.getMonth()] 
+  appointmentRescheduleConfirmationJobNumber.textContent=rescheduleAppointmentJobNumber
   
+ // dragAndDropConfirmationServiceResourceNicknameNew.textContent = "(" +appontment_for_drag.closest('.board__row').querySelector('.board__worker-nickname').textContent + ")"
+  appointmentRescheduleConfirmationServiceResourceNicknameOld.textContent = "(" +rescheduleAppointmentServiceResourceTemp + ")"
 })
 appointmentRescheduleConfirmationBtnConfirm.addEventListener('click',function(){
   if (popupWindow.classList.contains('open')) {
@@ -774,11 +795,16 @@ function start_dragable_appointments() {
           newAppointmentDateEnd = new Date(appointmentDateEndTemp)
           newAppointmentServiceResourceId = appointmentServiceResourceIdTemp;
           is_drag = 1;
+          if (appointmentHover.classList.contains('open')) {
+            appointmentHover.classList.remove('open');
+            appointmentHover.classList.remove('visible');
+          }
           if(appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible') ){
             appointmentDropList.classList.remove('open');
-          appointmentDropList.classList.remove('visible');
+            appointmentDropList.classList.remove('visible');
           }
         } 
+
       });
     } 
 }
@@ -849,20 +875,14 @@ dragAndDropConfirmationQuestionServiceResourceInformed.addEventListener('click',
 })
  
 document.addEventListener("mouseup", function (event) {
-
-  console.log(Date.parse(newAppointmentDateStart) !== Date.parse(appointmentDateStartTemp))
-  console.log(Date.parse(newAppointmentDateEnd) !== Date.parse(appointmentDateEndTemp))
-  console.log(newAppointmentServiceResourceId !==appointmentServiceResourceIdTemp)
   if(
     is_drag===1 && 
     rows_element!==undefined && cells_element!==undefined && newAppointmentDateStart!==undefined && newAppointmentDateEnd!==undefined && newAppointmentServiceResourceId!==undefined&&(
     (Date.parse(newAppointmentDateStart) !== Date.parse(appointmentDateStartTemp) &&Date.parse(newAppointmentDateEnd) !== Date.parse(appointmentDateEndTemp) )|| newAppointmentServiceResourceId !==appointmentServiceResourceIdTemp)
-
     ){
     if(!popupWindow.classList.contains('open')){
       popupWindow.classList.add('open');
       popupWindow.classList.add('visible');
-      
       dragAndDropConfirmationBtnConfirm.classList.add('btn_disabled')
       for(let i=0; i<dragAndDropConfirmationQuestionsItemsCheckbox.length; i++){
         dragAndDropConfirmationQuestionsItemsCheckbox[i].checked=false
@@ -879,28 +899,12 @@ document.addEventListener("mouseup", function (event) {
       dragAndDropConfirmationPopup.classList.remove('visible');
     }
     
-   
     if(appontment_for_drag.getAttribute('data-appointment-notification') ==='true'){
       dragAndDropConfirmationQuestionServiceResourceNotification.style.display = 'block'
     } else {
       dragAndDropConfirmationQuestionServiceResourceNotification.style.display = 'none'
     }
-    ; // gives the value in 24 hours format
-
-    const converTime = (dateToConvert) =>{
-      const date = new Date(dateToConvert)
-      let hours = date.getHours() 
-      let AmOrPm = hours >= 12 ? 'pm' : 'am';
-      hours = (hours % 12) || 12;
-      let minutes = date.getMinutes() ;
-
-      let finalTime =  hours +":"+ (minutes>0?minutes:"00") + AmOrPm;
-      return finalTime
-    }
-
-
     
-    const appointmentDateStart = new Date(+appontment_for_drag.getAttribute('data-appointment-date-start'))
     dragAndDropConfirmationDateOld.textContent = converTime(appointmentDateStartTemp) + "-" + converTime(appointmentDateEndTemp) + " "+ appointmentDateStartTemp.getDate() + " " + monthShortList[appointmentDateStartTemp.getMonth()] 
     dragAndDropConfirmationDateNew.textContent = converTime(newAppointmentDateStart) + "-" + converTime(newAppointmentDateEnd) + " "+ newAppointmentDateStart.getDate() + " " + monthShortList[newAppointmentDateStart.getMonth()] 
     dragAndDropConfirmationJobNumber.textContent=appontment_for_drag.querySelector('.appointment__job-number').textContent
@@ -936,6 +940,10 @@ function start_drag_and_drop_appointments() {
     if (appointmentHover.classList.contains('open')) {
       appointmentHover.classList.remove('open');
       appointmentHover.classList.remove('visible');
+    }
+    if(appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible') ){
+      appointmentDropList.classList.remove('open');
+      appointmentDropList.classList.remove('visible');
     }
 
    if(rows_element!==undefined && cells_element!==undefined && appontment_for_drag!==undefined){
@@ -1360,7 +1368,12 @@ const appointments = boardData.appointments;
           appointmentDropList.classList.add('open');
           appointmentDropList.classList.add('visible');
         }
-        //appointmentDropList.setAttribute('')
+
+        rescheduleAppointmentServiceResourceTemp = event.currentTarget.closest('.board__row').querySelector('.board__worker-nickname').textContent
+        rescheduleAppointmentDateStartTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-start'))
+        rescheduleAppointmentDateEndTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-end'))
+        rescheduleAppointmentJobNumber = event.currentTarget.querySelector('.appointment__job-number').textContent
+        
         appointmentX = event.currentTarget.getBoundingClientRect().x
         appointmentY = event.currentTarget.getBoundingClientRect().y
         appointmentDropList.style.left= appointmentX +"px"

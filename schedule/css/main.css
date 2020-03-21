@@ -1032,7 +1032,7 @@ input {
   display: -ms-flexbox;
   display: flex; }
 
-.drag-and-drop-confirmation-popup__confirm-btn, .drag-and-drop-confirmation-popup__deny-btn {
+.drag-and-drop-confirmation__confirm-btn, .drag-and-drop-confirmation__deny-btn {
   border-radius: 6px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1051,7 +1051,8 @@ input {
           flex-basis: 40%;
   padding: 8px 25px;
   font-size: 1.2em;
-  border-radius: 6px; }
+  border-radius: 6px;
+  cursor: pointer; }
 
 .drag-and-drop-confirmation__deny-btn {
   margin-right: 20px;
@@ -1310,7 +1311,7 @@ input {
   display: -ms-flexbox;
   display: flex; }
 
-.appointment-reschedule-confirmation__deny-btn {
+.appointment-reschedule-confirmation__deny-btn, .appointment-reschedule-confirmation__confirm-btn {
   border-radius: 6px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1329,7 +1330,8 @@ input {
           flex-basis: 40%;
   padding: 8px 25px;
   font-size: 1.2em;
-  border-radius: 6px; }
+  border-radius: 6px;
+  cursor: pointer; }
 
 .appointment-reschedule-confirmation__deny-btn {
   margin-right: 20px;
