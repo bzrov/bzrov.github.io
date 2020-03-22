@@ -1508,11 +1508,11 @@ const serviceResourcesTimeSlots = boardData.time_slots
       if(serviceResourceTimeSlots!==undefined){
         for(let x=0;x<serviceResourceTimeSlots.length;x++){
           let serviceResourceTimeSlot=serviceResourceTimeSlots[x]
-          if(serviceResourceTimeSlot["time_slot_type"]==="regular" && Date.parse(datePickedTemp)>=Date.parse(serviceResourceTimeSlot["time_slot_start"]) && Date.parse(datePickedTemp)<=Date.parse(serviceResourceTimeSlot["time_slot_end"])){
+          if(serviceResourceTimeSlot["time_slot_type"]==="regular" && Date.parse(datePickedTemp)>=Date.parse(serviceResourceTimeSlot["time_slot_start"]) && Date.parse(datePickedTemp)<Date.parse(serviceResourceTimeSlot["time_slot_end"])){
             timeGridCell.classList.add('timegrid__cell_regular')
             timeGridCell.classList.remove('timegrid__cell_temporary')
             break;
-          }else if(serviceResourceTimeSlot["time_slot_type"]==="temporary" && Date.parse(datePickedTemp)>=Date.parse(serviceResourceTimeSlot["time_slot_start"]) && Date.parse(datePickedTemp)<=Date.parse(serviceResourceTimeSlot["time_slot_end"])){
+          }else if(serviceResourceTimeSlot["time_slot_type"]==="temporary" && Date.parse(datePickedTemp)>=Date.parse(serviceResourceTimeSlot["time_slot_start"]) && Date.parse(datePickedTemp)<Date.parse(serviceResourceTimeSlot["time_slot_end"])){
             timeGridCell.classList.add('timegrid__cell_temporary')
           }
         }
@@ -1630,17 +1630,6 @@ const appointments = boardData.appointments;
         appointmentDropList.style.left= appointmentX +"px"
         appointmentDropList.style.top= (appointmentY+event.currentTarget.offsetHeight+5)+"px"
     })
-  }
-  let areas = boardData.areas
-  for (let i=0; i<areas.length;i++){
-    let area = areas[i]
-    let areaServiceResources =  area.service_resources
-    for(let j=0; j<areaServiceResources.length; j++){
-      let areaServiceResource =  areaServiceResources[j]
-      const serviceResourceRow = document.querySelector(`[data-data-service-resource=${areaServiceResource.service_resource_id}]`)
-      console.log(serviceResourceRow)
-     
-    }
   }
 
   start_dragable_appointments()
