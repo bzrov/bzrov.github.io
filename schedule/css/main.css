@@ -1515,6 +1515,13 @@ input {
   display: -ms-flexbox;
   display: flex; }
 
+.appointment-cancel-confirmation__questions-item_cancel-reason {
+  font-size: 1.2em;
+  margin-bottom: 5px; }
+
+.appointment-cancel-confirmation__questions-item_cancel-reason-textarea {
+  resize: none; }
+
 .appointment-cancel-confirmation__confirm-btn, .appointment-cancel-confirmation__deny-btn {
   border-radius: 6px;
   display: -webkit-box;
