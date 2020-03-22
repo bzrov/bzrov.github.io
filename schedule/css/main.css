@@ -166,7 +166,7 @@ body {
 
 body, html {
   overflow-x: hidden;
-  height: 100%; }
+  height: auto; }
 
 * {
   -webkit-box-sizing: border-box;
