@@ -86,6 +86,19 @@ const appointmentRescheduleConfirmationCalendarBtnPrev = document.querySelector(
 const appointmentRescheduleConfirmationDatePicker = document.querySelector('.appointment-reschedule-confirmation-controls__date-picker-item')
 const appointmentRescheduleConfirmationDatePickerText = document.querySelector('.appointment-reschedule-confirmation-controls__date-picker-date')
 
+const appointmentCancelConfirmationPopup = document.querySelector('.appointment-cancel-confirmation-popup')
+const appointmentCancelConfirmationBtnConfirm = document.querySelector('.appointment-cancel-confirmation__confirm-btn')
+const appointmentCancelConfirmationBtnDeny = document.querySelector('.appointment-cancel-confirmation__deny-btn')
+const appointmentCancelConfirmationQuestionServiceResourceNotification = document.querySelector('.appointment-cancel-confirmation__questions-item_service-resource-notification')
+const appointmentCancelConfirmationQuestionClientInformed = document.querySelector('.appointment-cancel-confirmation__questions-item_client-informed [type=checkbox]')
+const appointmentCancelConfirmationQuestionServiceResourceInformed = document.querySelector('.appointment-cancel-confirmation__questions-item_service-resource-informed [type=checkbox]')
+const appointmentCancelConfirmationJobNumber = document.querySelector('.appointment-cancel-confirmation__job-number') 
+const appointmentCancelConfirmationServiceResourceNickname = document.querySelector('.appointment-cancel-confirmation__service-resource-nickname')
+const appointmentCancelConfirmationDate = document.querySelector('.appointment-cancel-confirmation__date') 
+const appointmentCancelConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
+const appointmentCancelConfirmationQuestionsItemCancelConfirm = document.querySelector('.appointment-cancel-confirmation__questions-item_cancel-confirm [type=checkbox]')
+const appointmentCancelConfirmationQuestionsItemCancelReasonTextarea = document.querySelector('.appointment-cancel-confirmation__questions-item_cancel-reason-textarea')
+
 const appointmentHover = document.querySelector('.appointment-hover')
 const appointmentHoverJobNumber = document.querySelector('.appointment-hover__job-number')
 const appointmentHoverJobInfo = document.querySelector('.appointment-hover__job-info')
@@ -94,7 +107,7 @@ const appointmentHoverZip = document.querySelector('.appointment-hover__zip')
 const appointmentDropList = document.querySelector('.appointment-drop-list')
 const appointmentDropListItemSendNotification = document.querySelector('.appointment-drop-list__item-send-notification')
 const appointmentDropListItemReschedule = document.querySelector('.appointment-drop-list__item-reschedule')
-
+const appointmentDropListItemCancel = document.querySelector('.appointment-drop-list__item-cancel')
 
 let date = new Date();
 let day = date.getDate();
@@ -114,8 +127,7 @@ let appointmentRescheduleConfirmationYear = appointmentRescheduleConfirmationDat
 let appointmentRescheduleConfirmationDaysOffset = 0;
 let appointmentRescheduleConfirmationDaysInMonth;
 
-let appointmentRescheduleConfirmationDatePicked =  new Date();
-let appointmentRescheduleConfirmationDayPicked = appointmentRescheduleConfirmationDatePicked.getDate()-1
+
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const weekShortDays = ['Sun','Mon','Tue',"Wed",'Thu','Fri','Sat']
@@ -131,6 +143,8 @@ let appointmentRescheduleConfirmationHourEnd;
 
 let appointmentRescheduleConfirmationHourStartTemp;
 let appointmentRescheduleConfirmationHourEndTemp;
+let appointmentRescheduleConfirmationMinsStartTemp; 
+let appointmentRescheduleConfirmationMinsEndTemp; 
 
 let boardHourStartTemp;
 let boardHourEndTemp;
@@ -165,7 +179,7 @@ const getJson = (datePicked,daysAmountValue) =>{
   //Server request//
   //getting new json//
   //тк нет запроса за новый json буду брать исходную json строку//
-  let newJson = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"time_slots":{"e4t8f010shd5jtt673":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 11:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 10:00:00","time_slot_end":"March 21, 2020 20:00:00"}],"e4t8f010sh8fu78hy4":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 15:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"}],"e4t8f010sh8fuiyht9":[{"time_slot_type":"regular","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 14:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"}]},"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 11:00:00","appointment_date_end":"March 21, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 17:00:00","appointment_date_end":"March 21, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 21, 2020 8:00:00","appointment_date_end":"March 21, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 11:00:00","appointment_date_end":"March 20, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 10:00:00","appointment_date_end":"March 20, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 21, 2020 14:00:00","appointment_date_end":"March 21, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 19, 2020 8:00:00","absences_date_end":"March 22, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 21, 2020 12:00:00","absences_date_end":"March 21, 2020 14:00:00"}]}'
+  let newJson = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt573","service_resource_nickname":"Serge","service_resource_name_surname":"Alan Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jt4473","service_resource_nickname":"Dilon","service_resource_name_surname":"Dilon Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt663","service_resource_nickname":"Alex","service_resource_name_surname":"Alex Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtttt3","service_resource_nickname":"Bob","service_resource_name_surname":"Bob Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jt4473","service_resource_nickname":"Stephen","service_resource_name_surname":"Stephen Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"time_slots":{"e4t8f010shd5jtt673":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 11:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 10:00:00","time_slot_end":"March 21, 2020 20:00:00"}],"e4t8f010sh8fu78hy4":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 15:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"}],"e4t8f010sh8fuiyht9":[{"time_slot_type":"regular","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 14:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}],"e4t8f010shd5jtttt3":[{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 9:00:00","time_slot_end":"March 22, 2020 14:00:00"},{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 11:00:00","time_slot_end":"March 22, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 13:00:00","time_slot_end":"March 22, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 19:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}]},"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 11:00:00","appointment_date_end":"March 21, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 17:00:00","appointment_date_end":"March 21, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 21, 2020 8:00:00","appointment_date_end":"March 21, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 11:00:00","appointment_date_end":"March 20, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 10:00:00","appointment_date_end":"March 20, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 21, 2020 14:00:00","appointment_date_end":"March 21, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 19, 2020 8:00:00","absences_date_end":"March 22, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 21, 2020 12:00:00","absences_date_end":"March 21, 2020 14:00:00"}]}'
   json = newJson
   return json
 }
@@ -719,12 +733,16 @@ appointmentSendNotificationConfirmationDenyBtn.addEventListener('click',function
   }
 })
 
+let contextAppointment;
+let contextAppointmentServiceResourceTemp;
+let contextAppointmentServiceResourceIdTemp;
+let contextAppointmentDateStartTemp;
+let contextAppointmentDateEndTemp;
 
-let rescheduleAppointmentServiceResourceTemp;
-let rescheduleAppointmentDateStartTemp;
-let rescheduleAppointmentDateEndTemp;
-let rescheduleAppointmentJobNumber;
+let contextAppointmentJobNumber;
 
+let appointmentRescheduleConfirmationDatePicked;
+let appointmentRescheduleConfirmationDayPicked ;
 appointmentDropListItemReschedule.addEventListener('click',function(){
   if(!popupWindow.classList.contains('open')){
     popupWindow.classList.add('open');
@@ -736,19 +754,40 @@ appointmentDropListItemReschedule.addEventListener('click',function(){
     popupWindow.classList.remove('open');
     popupWindow.classList.remove('visible');
   }
+
   if(!appointmentRescheduleConfirmationPopup.classList.contains('open')){
     appointmentRescheduleConfirmationPopup.classList.add('open');
     appointmentRescheduleConfirmationPopup.classList.add('visible');
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     appointmentRescheduleConfirmationServiceResources.classList.remove('open');
     appointmentRescheduleConfirmationServiceResources.classList.remove('visible');
-      for(let i=0; i<appointmentRescheduleConfirmationQuestionsItemsCheckbox.length; i++){
-        appointmentRescheduleConfirmationQuestionsItemsCheckbox[i].checked=false
-      }
+    if(contextAppointment.getAttribute('data-appointment-notification') ==='true'){
+      appointmentRescheduleConfirmationQuestionServiceResourceNotification.style.display = 'block'
+    } else {
+      appointmentRescheduleConfirmationQuestionServiceResourceNotification.style.display = 'none'
+    }
   }else{
     appointmentRescheduleConfirmationPopup.classList.remove('open');
     appointmentRescheduleConfirmationPopup.classList.remove('visible');
   }
+  for(let i=0; i<appointmentRescheduleConfirmationQuestionsItemsCheckbox.length; i++){
+    appointmentRescheduleConfirmationQuestionsItemsCheckbox[i].checked=false
+  }
+  appointmentRescheduleConfirmationHourSelectTextStart.textContent=  converTime(contextAppointmentDateStartTemp) 
+  appointmentRescheduleConfirmationHourSelectTextEnd.textContent=  converTime(contextAppointmentDateEndTemp) 
+  appointmentRescheduleConfirmationServiceResourcesText.textContent=contextAppointmentServiceResourceTemp
+  
+  appointmentRescheduleConfirmationDatePicked =  new Date(contextAppointmentDateStartTemp);
+  appointmentRescheduleConfirmationDayPicked = appointmentRescheduleConfirmationDatePicked.getDate()-1
+ // boardHourStartTemp = contextAppointmentDateStartTemp.getHours();
+ // boardHourStartTemp = contextAppointmentDateStartTemp.getHours();
+  appointmentRescheduleConfirmationHourStartTemp = contextAppointmentDateStartTemp.getHours()
+  appointmentRescheduleConfirmationHourEndTemp = contextAppointmentDateEndTemp.getHours()
+  appointmentRescheduleConfirmationMinsStartTemp =contextAppointmentDateStartTemp.getMinutes()
+  appointmentRescheduleConfirmationMinsEndTemp =contextAppointmentDateEndTemp.getMinutes()
+ 
+  appointmentRescheduleConfirmationDatePickerText.textContent = `${monthShortList[appointmentRescheduleConfirmationDatePicked.getMonth()]} ${appointmentRescheduleConfirmationDatePicked.getDate()}, ${appointmentRescheduleConfirmationDatePicked.getFullYear()}`;
+
   //let service_resources = 
   while (appointmentRescheduleConfirmationServiceResources.firstChild) {
     appointmentRescheduleConfirmationServiceResources.removeChild(appointmentRescheduleConfirmationServiceResources.firstChild);
@@ -765,15 +804,16 @@ appointmentDropListItemReschedule.addEventListener('click',function(){
       appointmentRescheduleConfirmationServiceResourcesItem.setAttribute('data-service-resource-id',areaServiceResource.service_resource_id)
       appointmentRescheduleConfirmationServiceResources.appendChild(appointmentRescheduleConfirmationServiceResourcesItem)
 
-      appointmentRescheduleConfirmationServiceResourcesItem.addEventListener('click',function(){
+      appointmentRescheduleConfirmationServiceResourcesItem.addEventListener('click',function(event){
+        contextAppointmentServiceResourceIdTemp = event.currentTarget.getAttribute('data-service-resource-id')
         appointmentRescheduleConfirmationServiceResourcesText.textContent = appointmentRescheduleConfirmationServiceResourcesItem.textContent
       })
     }
   }
   
-  appointmentRescheduleConfirmationDateOld.textContent = converTime(rescheduleAppointmentDateStartTemp) + "-" + converTime(rescheduleAppointmentDateEndTemp) + " "+ rescheduleAppointmentDateStartTemp.getDate() + " " + monthShortList[rescheduleAppointmentDateStartTemp.getMonth()] 
-  appointmentRescheduleConfirmationJobNumber.textContent=rescheduleAppointmentJobNumber
-  appointmentRescheduleConfirmationServiceResourceNicknameOld.textContent = "(" +rescheduleAppointmentServiceResourceTemp + ")"
+  appointmentRescheduleConfirmationDateOld.textContent = converTime(contextAppointmentDateStartTemp) + "-" + converTime(contextAppointmentDateEndTemp) + " "+ contextAppointmentDateStartTemp.getDate() + " " + monthShortList[contextAppointmentDateStartTemp.getMonth()] 
+  appointmentRescheduleConfirmationJobNumber.textContent=contextAppointmentJobNumber
+  appointmentRescheduleConfirmationServiceResourceNicknameOld.textContent = "(" +contextAppointmentServiceResourceTemp + ")"
 })
 appointmentRescheduleConfirmationServiceResourcesBtn.addEventListener('click',function(){
   if(!appointmentRescheduleConfirmationServiceResources.classList.contains('open')){
@@ -794,6 +834,16 @@ appointmentRescheduleConfirmationBtnConfirm.addEventListener('click',function(){
   if(appointmentRescheduleConfirmationPopup.classList.contains('open')){
     appointmentRescheduleConfirmationPopup.classList.remove('open');
     appointmentRescheduleConfirmationPopup.classList.remove('visible');
+
+    let appointmentRescheduleConfirmationDateStartTemp = new Date(appointmentRescheduleConfirmationDatePicked)
+    appointmentRescheduleConfirmationDateStartTemp.setHours(appointmentRescheduleConfirmationHourStartTemp)
+    appointmentRescheduleConfirmationDateStartTemp.setMinutes(appointmentRescheduleConfirmationMinsStartTemp)
+    
+    let appointmentRescheduleConfirmationDateEndTemp = new Date(appointmentRescheduleConfirmationDatePicked)
+    appointmentRescheduleConfirmationDateEndTemp.setHours(appointmentRescheduleConfirmationHourEndTemp)
+    appointmentRescheduleConfirmationDateEndTemp.setMinutes(appointmentRescheduleConfirmationMinsEndTemp)
+
+    renderAppointment(contextAppointment,appointmentRescheduleConfirmationDateStartTemp,appointmentRescheduleConfirmationDateEndTemp,contextAppointmentServiceResourceIdTemp)
   } 
 
 })
@@ -823,7 +873,6 @@ appointmentRescheduleConfirmationQuestionServiceResourceInformed.addEventListene
   }
 })
 
-appointmentRescheduleConfirmationDatePickerText.textContent = `${monthShortList[appointmentRescheduleConfirmationDatePicked.getMonth()]} ${appointmentRescheduleConfirmationDatePicked.getDate()}, ${appointmentRescheduleConfirmationDatePicked.getFullYear()}`;
 const renderAppointmentRescheduleConfirmationCalendar = (month,year)=>{
   appointmentRescheduleConfirmationDaysInMonth = new Date(year,month+1,0).getDate()
   appointmentRescheduleConfirmationDaysOffset = new Date(year,month).getDay()
@@ -925,11 +974,7 @@ appointmentRescheduleConfirmationHourSelectTextEnd.addEventListener('click', fun
   }
 })
 for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsStart.length; i++) {
-  if(appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].classList.contains('controls__board-hour-option_selected')){
-    boardHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
-    appointmentRescheduleConfirmationHourStart = boardHourStartTemp
-    appointmentRescheduleConfirmationHourSelectTextStart.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].textContent
-  }
+  
   appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].addEventListener('click', function(e) {
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('open');
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('visible');
@@ -938,16 +983,14 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsStart.
     }
     appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].classList.add('controls__board-hour-option_selected')
     appointmentRescheduleConfirmationHourSelectTextStart.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].textContent
-    boardHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
+    appointmentRescheduleConfirmationHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
+    appointmentRescheduleConfirmationMinsStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
+
   })
 }
 
 for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsEnd.length; i++) {
-  if(appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].classList.contains('controls__board-hour-option_selected')){
-    appointmentRescheduleConfirmationHourEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
-    appointmentRescheduleConfirmationHourEnd =  appointmentRescheduleConfirmationHourEndTemp
-    appointmentRescheduleConfirmationHourSelectTextEnd.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].textContent
-  }
+  
   appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].addEventListener('click', function(e) {
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('open');
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('visible');
@@ -957,8 +1000,108 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsEnd.le
     appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].classList.add('controls__board-hour-option_selected')
     appointmentRescheduleConfirmationHourSelectTextEnd.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].textContent
     appointmentRescheduleConfirmationHourEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
+    appointmentRescheduleConfirmationMinsEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
   })
 }
+
+
+
+
+
+appointmentDropListItemCancel.addEventListener('click',function(){
+  if(!popupWindow.classList.contains('open')){
+    popupWindow.classList.add('open');
+    popupWindow.classList.add('visible');
+    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+    for(let i=0; i<appointmentCancelConfirmationQuestionsItemsCheckbox.length; i++){
+      appointmentCancelConfirmationQuestionsItemsCheckbox[i].checked=false
+    }
+  }else{
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(!appointmentCancelConfirmationPopup.classList.contains('open')){
+    appointmentCancelConfirmationPopup.classList.add('open');
+    appointmentCancelConfirmationPopup.classList.add('visible');
+  } else {
+    appointmentCancelConfirmationPopup.classList.remove('open');
+    appointmentCancelConfirmationPopup.classList.remove('visible');
+  }
+  if(contextAppointment.getAttribute('data-appointment-notification') ==='true'){
+    appointmentCancelConfirmationQuestionServiceResourceNotification.style.display = 'block'
+  } else {
+    appointmentCancelConfirmationQuestionServiceResourceNotification.style.display = 'none'
+  }
+
+  appointmentCancelConfirmationDate.textContent = converTime(contextAppointmentDateStartTemp) + "-" + converTime(contextAppointmentDateEndTemp) + " "+ contextAppointmentDateStartTemp.getDate() + " " + monthShortList[contextAppointmentDateStartTemp.getMonth()] 
+
+  appointmentCancelConfirmationJobNumber.textContent=contextAppointment.querySelector('.appointment__job-number').textContent
+
+  appointmentCancelConfirmationServiceResourceNickname.textContent = "(" +contextAppointmentServiceResourceTemp + ")"
+
+})
+
+
+
+
+
+
+
+appointmentCancelConfirmationBtnConfirm.addEventListener('click',function(){
+  if (popupWindow.classList.contains('open')) {
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentCancelConfirmationPopup.classList.contains('open')){
+    appointmentCancelConfirmationPopup.classList.remove('open');
+    appointmentCancelConfirmationPopup.classList.remove('visible');
+  } 
+
+})
+appointmentCancelConfirmationBtnDeny.addEventListener('click',function(){
+  if (popupWindow.classList.contains('open')) {
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(appointmentCancelConfirmationPopup.classList.contains('open')){
+    appointmentCancelConfirmationPopup.classList.remove('open');
+    appointmentCancelConfirmationPopup.classList.remove('visible');
+  } 
+
+})
+appointmentCancelConfirmationQuestionClientInformed.addEventListener('click',function(){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+    appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+appointmentCancelConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+    appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+appointmentCancelConfirmationQuestionsItemCancelConfirm.addEventListener('click',function(){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+    appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.addEventListener('keyup', function(){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+    appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+
+
+
+
+
 
 
 getJson(datePicked,daysAmountValue)
@@ -1060,6 +1203,10 @@ popupOverlay.addEventListener('click',function(){
   if(appointmentRescheduleConfirmationPopup.classList.contains('open')){
     appointmentRescheduleConfirmationPopup.classList.remove('open');
     appointmentRescheduleConfirmationPopup.classList.remove('visible');
+  }
+  if(appointmentCancelConfirmationPopup.classList.contains('open')){
+    appointmentCancelConfirmationPopup.classList.remove('open');
+    appointmentCancelConfirmationPopup.classList.remove('visible');
   }
   
 })
@@ -1188,10 +1335,12 @@ function start_drag_and_drop_appointments() {
 
 
 const renderAppointment = (appointmentsItem,appointmentDateStart,appointmentDateEnd,appointmentServiceResourceId)=>{
+  console.log(appointmentDateEnd)
   let boardCellWidth = 100/((boardHourEnd-boardHourStart)*daysAmountValue*2)
   let scheduleDay;
   appointmentsItem.setAttribute('data-appointment-date-start',appointmentDateStart.getTime())
   appointmentsItem.setAttribute('data-appointment-date-end',appointmentDateEnd.getTime())
+  appointmentsItem.setAttribute('data-appointment-duration',(appointmentDateEnd.getTime()-appointmentDateStart.getTime()))
   appointmentsItem.setAttribute('data-appointment-service-resource-id',appointmentServiceResourceId)
   const scheduleItems =  appointmentsHash.get(appointmentServiceResourceId)
     const appointments =document.querySelectorAll('.appointment');
@@ -1620,10 +1769,12 @@ const appointments = boardData.appointments;
           appointmentDropList.classList.add('visible');
         }
 
-        rescheduleAppointmentServiceResourceTemp = event.currentTarget.closest('.board__row').querySelector('.board__worker-nickname').textContent
-        rescheduleAppointmentDateStartTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-start'))
-        rescheduleAppointmentDateEndTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-end'))
-        rescheduleAppointmentJobNumber = event.currentTarget.querySelector('.appointment__job-number').textContent
+        contextAppointment = event.currentTarget
+        contextAppointmentServiceResourceTemp = event.currentTarget.closest('.board__row').querySelector('.board__worker-nickname').textContent
+        contextAppointmentServiceResourceIdTemp = event.currentTarget.getAttribute('data-appointment-service-resource-id')
+        contextAppointmentDateStartTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-start'))
+        contextAppointmentDateEndTemp=new Date(+event.currentTarget.getAttribute('data-appointment-date-end'))
+        contextAppointmentJobNumber = event.currentTarget.querySelector('.appointment__job-number').textContent
         
         appointmentX = event.currentTarget.getBoundingClientRect().x
         appointmentY = event.currentTarget.getBoundingClientRect().y

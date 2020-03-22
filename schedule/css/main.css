@@ -849,6 +849,8 @@ input {
     opacity: 1; }
 
 .appointment__job-number {
+  display: inline;
+  padding-right: 2px;
   margin-bottom: 2px;
   font-size: 1.4em;
   color: #ffffff;
@@ -878,10 +880,6 @@ input {
   overflow: hidden;
   color: #ffffff;
   white-space: nowrap; }
-
-.appointment__job-number {
-  padding-right: 2px;
-  display: inline; }
 
 .appointment__job-info {
   display: inline;
@@ -1376,13 +1374,16 @@ input {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
 
 .appointment-reschedule-confirmation__service-resources-label {
   font-size: 1.6em; }
+
+.appointment-reschedule-confirmation__service-resources-label-prefix {
+  color: #8391AD; }
 
 .appointment-reschedule-confirmation__date-label {
   font-size: 1.6em;
@@ -1436,6 +1437,114 @@ input {
           transform: rotate(90deg);
   position: absolute;
   right: 0; }
+
+.appointment-cancel-confirmation-popup {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 25px;
+  margin: 0 10px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none; }
+
+.appointment-cancel-confirmation__job-number {
+  font-size: 2em;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  margin-bottom: 15px;
+  text-align: center; }
+
+.appointment-cancel-confirmation__appointment-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.appointment-cancel-confirmation__date {
+  font-size: 1.4em; }
+
+.appointment-cancel-confirmation__service-resource-nickname {
+  padding-left: 5px;
+  font-size: 1.4em; }
+
+.appointment-cancel-confirmation__header {
+  margin-bottom: 15px; }
+
+.appointment-cancel-confirmation__questions-item_cancel-confirm {
+  font-size: 1.4em; }
+  .appointment-cancel-confirmation__questions-item_cancel-confirm .questions-item__checkmark {
+    width: 25px;
+    height: 25px; }
+    .appointment-cancel-confirmation__questions-item_cancel-confirm .questions-item__checkmark::after {
+      width: 8px;
+      height: 12px;
+      left: 7px; }
+
+.appointment-cancel-confirmation__questions-item {
+  margin-bottom: 5px; }
+
+.appointment-cancel-confirmation__questions {
+  margin-bottom: 15px; }
+
+.appointment-cancel-confirmation__btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.appointment-cancel-confirmation__confirm-btn, .appointment-cancel-confirmation__deny-btn {
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-basis: 40%;
+      -ms-flex-preferred-size: 40%;
+          flex-basis: 40%;
+  padding: 8px 25px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer; }
+
+.appointment-cancel-confirmation__deny-btn {
+  margin-right: 20px;
+  border: 2px solid #FF0000;
+  color: #FF0000; }
+
+.appointment-cancel-confirmation__confirm-btn {
+  border: 2px solid #01B41F;
+  color: #01B41F; }
 
 .btn_disabled {
   pointer-events: none;
