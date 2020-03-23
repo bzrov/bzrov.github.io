@@ -1367,6 +1367,9 @@ input {
   .appointemnt-reschedule-confirmation__board-hour-option:hover {
     background-color: #F6F7FB; }
 
+.appointment-reschedule-confirmation-controls__date-picker-item {
+  margin-right: 5px; }
+
 .appointment-reschedule-confirmation__questions-wrapper {
   margin-bottom: 20px;
   -webkit-align-self: flex-start;
@@ -1442,15 +1445,10 @@ input {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
@@ -1471,8 +1469,7 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.4em;
-  margin-bottom: 5px; }
+  font-size: 1.4em; }
   .appointment-reschedule-confirmation__hour-select-main span {
     padding-right: 5px; }
 
@@ -1499,9 +1496,12 @@ input {
   padding: 6px;
   font-size: 1.4em;
   border-bottom: 1px solid #D0D3DA;
-  cursor: pointer; }
+  cursor: pointer;
+  min-width: 100px; }
   .appointment-reschedule-confirmation__service-resources-item:last-child {
     border-bottom: none; }
+  .appointment-reschedule-confirmation__service-resources-item:hover {
+    background-color: #F6F7FB; }
 
 .appointment-reschedule-confirmation__service-resources-btn {
   width: 1.5em;
