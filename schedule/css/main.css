@@ -324,6 +324,9 @@ input {
   padding: 2.5px 5px;
   cursor: pointer; }
 
+.controls__board-hour-select-field_failed {
+  border-color: #FF0000; }
+
 .controls__board-hour-select-wrapper {
   position: relative; }
 
@@ -1040,11 +1043,6 @@ input {
 .drag-and-drop-confirmation__appointment-info {
   padding: 0 25px; }
 
-.drag-and-drop-confirmation__appointment-info-text {
-  font-size: 1.8em;
-  margin-bottom: 8px;
-  color: #6093DE; }
-
 .drag-and-drop-confirmation__appointment-info-item {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1335,11 +1333,6 @@ input {
 .appointment-reschedule-confirmation__appointment-info {
   padding: 0 25px; }
 
-.appointment-reschedule-confirmation__appointment-info-text {
-  font-size: 1.8em;
-  margin-bottom: 8px;
-  color: #6093DE; }
-
 .appointment-reschedule-confirmation__appointment-info-item {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1355,6 +1348,20 @@ input {
 
 .appointment-reschedule-confirmation__date-new {
   padding-right: 5px; }
+
+.appointment-reschedule-confirmation__board-hour-select-field {
+  border: 1px solid #D0D3DA;
+  border-radius: 6px;
+  padding: 2.5px 5px;
+  cursor: pointer; }
+
+.appointment-reschedule-confirmation__board-hour-select-field_failed {
+  border-color: #FF0000; }
+
+.appointemnt-reschedule-confirmation__board-hour-select-text {
+  height: 14px;
+  width: 50px;
+  text-transform: uppercase; }
 
 .appointemnt-reschedule-confirmation__board-hour-option {
   padding: 5px 4px;
@@ -1423,22 +1430,16 @@ input {
 .appointment-reschedule-confirmation__date-old {
   padding-right: 5px; }
 
-.appointment-reschedule-confirmation__service-resources-select {
+.appointment-reschedule-confirmation__select-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  margin-top: 15px; }
+
+.appointment-reschedule-confirmation__service-resources-select {
   position: relative;
-  -webkit-align-self: flex-start;
-      -ms-flex-item-align: start;
-          align-self: flex-start;
-  width: 100%;
-  padding: 0 25px;
-  margin-bottom: 15px; }
+  padding: 0 25px 0 5px; }
 
 .appointment-reschedule-confirmation__date-select {
   display: -webkit-box;
@@ -1452,13 +1453,7 @@ input {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
           align-self: flex-end;
-  padding: 0 25px; }
-
-.appointment-reschedule-confirmation__service-resources-label {
-  font-size: 1.6em; }
-
-.appointment-reschedule-confirmation__service-resources-label-prefix {
-  color: #8391AD; }
+  padding: 0 5px 0 25px; }
 
 .appointment-reschedule-confirmation__hour-select-main {
   display: -webkit-box;
@@ -1469,6 +1464,10 @@ input {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 1.4em; }
   .appointment-reschedule-confirmation__hour-select-main span {
     padding-right: 5px; }
@@ -1480,11 +1479,38 @@ input {
   left: 0;
   right: initial; }
 
+.appointment-reschedule-confirmation__service-resources-text-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 140px;
+  border-radius: 6px;
+  border: 1px solid #000000;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.2em 1.5em 1.4em 1.5em;
+  border: 1px solid #D0D3DA;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer; }
+
+.appointment-reschedule-confirmation__service-resources-text {
+  font-size: 1.4em; }
+
 .appointment-reschedule-confirmation__service-resources {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  right: 40px;
+  top: 50px;
+  right: 26px;
+  width: 140px;
   max-height: 150px;
   overflow-y: auto;
   border: 2px solid #8391AD;
@@ -1507,9 +1533,11 @@ input {
   width: 1.5em;
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
-  position: absolute;
-  right: 25px; }
+          transform: rotate(90deg); }
+
+.appointment-reschedule-confirmation__hour-select-list {
+  padding: 0 25px;
+  margin-top: 15px; }
 
 .appointment-cancel-confirmation-popup {
   position: absolute;
@@ -1598,6 +1626,7 @@ input {
 
 .appointment-cancel-confirmation__questions-item_cancel-reason-textarea {
   width: 100%;
+  padding: 8px;
   resize: none;
   border: 2px solid #6093DE;
   border-radius: 6px;

@@ -21,6 +21,7 @@ const boardHourSelectOptionItemsStart = document.querySelectorAll('.controls__bo
 const boardHourSelectOptionItemsEnd = document.querySelectorAll('.controls__board-hour-option_end')
 const boardHourSelectTextStart = document.querySelector('.controls__board-hour-select-text_start')
 const boardHourSelectTextEnd = document.querySelector('.controls__board-hour-select-text_end')
+const boardHourSelectFieldEnd = document.querySelector('.controls__board-hour-select-field_end')
 
 const calendar = document.querySelector('.calendar')
 const calendarTableDays = document.querySelectorAll('.calendar-table__cell-day')
@@ -29,11 +30,11 @@ const calendarBtnNext = document.querySelector('.calendar__controll_next')
 const calendarBtnPrev = document.querySelector('.calendar__controll_prev')
 const controlsDatePicker = document.querySelector('.controls__date-picker-item')
 
-
-
 const controlsDatePickerText = document.querySelector('.controls__date-picker-date')
 const controlsDateSelectPrev = document.querySelector('.controls__date-select-prev')
 const controlsDateSelectNext = document.querySelector('.controls__date-select-next')
+
+const controlsReloadBtn = document.querySelector('.controls__reload-btn')
 
 const popupWindow =  document.querySelector('.popup-window')
 const popupOverlay = document.querySelector('.popup-window__overlay')
@@ -77,6 +78,7 @@ const appointmentRescheduleConfirmationHourSelectOptionItemsStart = document.que
 const appointmentRescheduleConfirmationHourSelectOptionItemsEnd = document.querySelectorAll('.appointment-reschedule-confirmation__hour-option_end')
 const appointmentRescheduleConfirmationHourSelectTextStart = document.querySelector('.appointment-reschedule-confirmation__hour-select-text_start')
 const appointmentRescheduleConfirmationHourSelectTextEnd = document.querySelector('.appointment-reschedule-confirmation__hour-select-text_end')
+const appointmentRescheduleConfirmationBoardHourSelectFieldEnd = document.querySelector('.appointment-reschedule-confirmation__board-hour-select-field_end')
 
 const appointmentRescheduleConfirmationCalendar = document.querySelector('.appointment-reschedule-confirmation-calendar')
 const appointmentRescheduleConfirmationCalendarTableDays = document.querySelectorAll('.appointment-reschedule-confirmation-calendar-table__cell-day')
@@ -191,6 +193,7 @@ window.addEventListener('click', function(event) {
   let clickedControlsDatePicker = target.closest('.controls__date-picker-item');
   let clickedDaysAmount= target.closest('.controls__days-amount');
   let clickedBoardHourSelectList = target.closest('.controls__board-hour-select-list');
+  let clickedBoardHourSelectBtnApply = target.closest('.controls__board-hour-select-btn-apply')
   let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
   let clickedAppointmentDropList = target.closest('.appointment-drop-list');
   let clickedAppointmentRescheduleConfirmationHourSelectTextStart = target.closest('.appointment-reschedule-confirmation__hour-select-text_start')
@@ -203,7 +206,7 @@ window.addEventListener('click', function(event) {
     daysAmount.classList.remove('open');
     daysAmountList.classList.remove('visible');
   }
-  if(!clickedBoardHourSelectList && !clickedBoardHourSelectBtn && boardHourSelectList.classList.contains('open') && boardHourSelectList.classList.contains('visible')){
+  if(!clickedBoardHourSelectList && !clickedBoardHourSelectBtnApply && !clickedBoardHourSelectBtn && boardHourSelectList.classList.contains('open') && boardHourSelectList.classList.contains('visible')){
     boardHourSelectList.classList.remove('open');
     boardHourSelectList.classList.remove('visible');
   }
@@ -471,6 +474,7 @@ for (let i = 0; i < boardHourSelectOptionItemsStart.length; i++) {
       boardHourSelectOptionItemsStart[j].classList.remove('controls__board-hour-option_selected')
     }
     boardHourSelectOptionItemsStart[i].classList.add('controls__board-hour-option_selected')
+    boardHourSelectFieldEnd.classList.remove('controls__board-hour-select-field_failed')
     boardHourSelectTextStart.textContent = boardHourSelectOptionItemsStart[i].textContent
     boardHourStartTemp = +boardHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
   })
@@ -489,6 +493,7 @@ for (let i = 0; i < boardHourSelectOptionItemsEnd.length; i++) {
       boardHourSelectOptionItemsEnd[j].classList.remove('controls__board-hour-option_selected')
     }
     boardHourSelectOptionItemsEnd[i].classList.add('controls__board-hour-option_selected')
+    boardHourSelectFieldEnd.classList.remove('controls__board-hour-select-field_failed')
     boardHourSelectTextEnd.textContent = boardHourSelectOptionItemsEnd[i].textContent
     boardHourEndTemp = +boardHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
   })
@@ -496,11 +501,16 @@ for (let i = 0; i < boardHourSelectOptionItemsEnd.length; i++) {
 
 boardHourSelectBtnApply.addEventListener('click', function(e) {
   if(boardHourSelectList.classList.contains('open')){
-    boardHourSelectList.classList.remove('open');
-    boardHourSelectList.classList.remove('visible');
-    boardHourStart = boardHourStartTemp
-    boardHourEnd = boardHourEndTemp
-    renderBoard(daysAmountValue,timelineStep)
+    if ((boardHourEndTemp - boardHourStartTemp) < 1){
+      boardHourSelectFieldEnd.classList.add('controls__board-hour-select-field_failed')
+    } else {
+      boardHourSelectList.classList.remove('open');
+      boardHourSelectList.classList.remove('visible');
+      boardHourStart = boardHourStartTemp
+      boardHourEnd = boardHourEndTemp
+      renderBoard(daysAmountValue,timelineStep)
+    }
+    
   }
 })
 
@@ -685,6 +695,13 @@ controlsDateSelectNext.addEventListener('click', function() {
    renderBoard(daysAmountValue,timelineStep)
 })
 
+controlsReloadBtn.addEventListener('click', function(){
+  let newJson = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt573","service_resource_nickname":"Serge","service_resource_name_surname":"Alan Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jt4473","service_resource_nickname":"Dilon","service_resource_name_surname":"Dilon Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt663","service_resource_nickname":"Alex","service_resource_name_surname":"Alex Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtttt3","service_resource_nickname":"Bob","service_resource_name_surname":"Bob Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtrr73","service_resource_nickname":"Stephen","service_resource_name_surname":"Stephen Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"time_slots":{"e4t8f010shd5jtt673":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 11:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 10:00:00","time_slot_end":"March 21, 2020 20:00:00"}],"e4t8f010sh8fu78hy4":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 15:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"}],"e4t8f010sh8fuiyht9":[{"time_slot_type":"regular","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 14:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}],"e4t8f010shd5jtttt3":[{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 9:00:00","time_slot_end":"March 22, 2020 14:00:00"},{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 11:00:00","time_slot_end":"March 22, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 13:00:00","time_slot_end":"March 22, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 19:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}]},"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 11:00:00","appointment_date_end":"March 21, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 17:00:00","appointment_date_end":"March 21, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 21, 2020 8:00:00","appointment_date_end":"March 21, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 11:00:00","appointment_date_end":"March 20, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 10:00:00","appointment_date_end":"March 20, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 21, 2020 14:00:00","appointment_date_end":"March 21, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 19, 2020 8:00:00","absences_date_end":"March 22, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 21, 2020 12:00:00","absences_date_end":"March 21, 2020 14:00:00"}]}'
+  //newJSon = server request 
+  json = newJson
+  renderBoard(daysAmountValue,timelineStep)
+})
+
 appointmentDropList.addEventListener('click',function(){
   if(appointmentDropList.classList.contains('open')){
       appointmentDropList.classList.remove('open');
@@ -760,6 +777,8 @@ appointmentDropListItemReschedule.addEventListener('click',function(){
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     appointmentRescheduleConfirmationServiceResources.classList.remove('open');
     appointmentRescheduleConfirmationServiceResources.classList.remove('visible');
+    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
+
     if(contextAppointment.getAttribute('data-appointment-notification') ==='true'){
       appointmentRescheduleConfirmationQuestionServiceResourceNotification.style.display = 'block'
     } else {
@@ -863,12 +882,26 @@ appointmentRescheduleConfirmationQuestionClientInformed.addEventListener('click'
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }
+  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <=60){
+    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
+    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+  }else{
+    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
+    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+  }
 })
 appointmentRescheduleConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
   if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true){
     appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <=60){
+    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
+    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+  }else{
+    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
+    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
   }
 })
 
@@ -984,7 +1017,13 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsStart.
     appointmentRescheduleConfirmationHourSelectTextStart.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].textContent
     appointmentRescheduleConfirmationHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
     appointmentRescheduleConfirmationMinsStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
-
+    if(((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) <=60){
+      appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
+      appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+    }else{
+      appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
+      appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+    }
   })
 }
 
@@ -1000,6 +1039,13 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsEnd.le
     appointmentRescheduleConfirmationHourSelectTextEnd.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].textContent
     appointmentRescheduleConfirmationHourEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
     appointmentRescheduleConfirmationMinsEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
+    if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <=60){
+      appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
+      appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
+    }else{
+      appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
+      appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+    }
   })
 }
 
@@ -1012,6 +1058,7 @@ appointmentDropListItemCancel.addEventListener('click',function(){
     popupWindow.classList.add('open');
     popupWindow.classList.add('visible');
     appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
+    appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value=""
     for(let i=0; i<appointmentCancelConfirmationQuestionsItemsCheckbox.length; i++){
       appointmentCancelConfirmationQuestionsItemsCheckbox[i].checked=false
     }
