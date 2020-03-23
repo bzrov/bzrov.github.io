@@ -877,32 +877,20 @@ appointmentRescheduleConfirmationBtnDeny.addEventListener('click',function(){
 
 })
 appointmentRescheduleConfirmationQuestionClientInformed.addEventListener('click',function(){
-  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true){
+  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true && (((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) >=30)){
     appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }
-  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <30){
-    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
-    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
-  }else{
-    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
-  }
+  
 })
 appointmentRescheduleConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
-  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true){
+  if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true && (((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) >=30)){
     appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }
-  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <30){
-    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
-    appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
-  }else{
-    appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-    appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
-  }
+ 
 })
 
 const renderAppointmentRescheduleConfirmationCalendar = (month,year)=>{
@@ -1017,12 +1005,15 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsStart.
     appointmentRescheduleConfirmationHourSelectTextStart.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].textContent
     appointmentRescheduleConfirmationHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
     appointmentRescheduleConfirmationMinsStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
+
     if(((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) <30){
       appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
       appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     }else{
       appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+      if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true && (((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) >=30)){
+        appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+      }
     }
   })
 }
@@ -1044,7 +1035,9 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsEnd.le
       appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     }else{
       appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+      if(appointmentRescheduleConfirmationQuestionClientInformed.checked==true &&appointmentRescheduleConfirmationQuestionServiceResourceInformed.checked==true && (((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) >=30)){
+        appointmentRescheduleConfirmationBtnConfirm.classList.remove('btn_disabled')
+      }
     }
   })
 }
