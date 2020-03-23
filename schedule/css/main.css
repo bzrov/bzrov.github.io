@@ -367,9 +367,12 @@ input {
   background-color: #ffffff;
   border-top: 1px solid #D0D3DA;
   font-size: 1em;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  cursor: pointer; }
   .controls__board-hour-option:first-child {
     border-top: none; }
+  .controls__board-hour-option:hover {
+    background-color: #F6F7FB; }
 
 .controls__board-hour-option_selected {
   background-color: #F6F7FB; }
@@ -546,6 +549,9 @@ input {
   .calendar-table__cell-day_selected-one:hover {
     border-radius: 50%; }
 
+.controls__date-select {
+  margin-right: 15px; }
+
 .controls__date-select-prev, .controls__date-select-next {
   width: 2em;
   cursor: pointer; }
@@ -556,6 +562,27 @@ input {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg); }
+
+.controls__reload-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 4.2em;
+  width: 4.2em;
+  min-width: 4.2em;
+  min-height: 4.2em;
+  border-radius: 50%;
+  border: 1px solid #D0D3DA;
+  cursor: pointer; }
 
 .controls-mobile__item {
   display: none;
@@ -947,50 +974,6 @@ input {
   opacity: .25;
   z-index: -1; }
 
-.drag-and-drop-confirmation__header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  margin-bottom: 20px; }
-
-.drag-and-drop-confirmation__job-number {
-  font-size: 2em;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
-  margin-bottom: 15px; }
-
-.drag-and-drop-confirmation__appointment-info-text {
-  font-size: 1.6em;
-  margin-bottom: 5px; }
-
-.drag-and-drop-confirmation__appointment-info-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 5px;
-  font-size: 1.6em;
-  white-space: nowrap;
-  overflow: hidden; }
-  .drag-and-drop-confirmation__appointment-info-item span {
-    padding-right: 8px;
-    color: #8391AD; }
-
-.drag-and-drop-confirmation__date-old, .drag-and-drop-confirmation__date-new {
-  padding-right: 5px; }
-
 .drag-and-drop-confirmation-popup {
   position: absolute;
   display: -webkit-box;
@@ -1013,7 +996,7 @@ input {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding: 25px;
+  padding: 25px 0;
   margin: 0 10px;
   min-width: 320px;
   max-width: 420px;
@@ -1022,11 +1005,68 @@ input {
   opacity: 0;
   pointer-events: none; }
 
+.drag-and-drop-confirmation__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px; }
+
+.drag-and-drop-confiramtion__header-text {
+  background-color: #6093DE;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px 0;
+  margin-bottom: 15px; }
+
+.drag-and-drop-confirmation__job-number {
+  font-size: 2em;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  margin-bottom: 15px; }
+
+.drag-and-drop-confirmation__appointment-info {
+  padding: 0 25px; }
+
+.drag-and-drop-confirmation__appointment-info-text {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+  color: #6093DE; }
+
+.drag-and-drop-confirmation__appointment-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 1.6em;
+  white-space: nowrap;
+  overflow: hidden; }
+  .drag-and-drop-confirmation__appointment-info-item span {
+    padding-right: 8px;
+    color: #8391AD; }
+
+.drag-and-drop-confirmation__date-old, .drag-and-drop-confirmation__date-new {
+  padding-right: 5px; }
+
 .drag-and-drop-confirmation__questions-wrapper {
   margin-bottom: 20px;
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
-          align-self: flex-start; }
+          align-self: flex-start;
+  padding: 0 25px; }
 
 .drag-and-drop-confirmation__btns {
   display: -webkit-box;
@@ -1180,6 +1220,9 @@ input {
     margin-bottom: 0px; }
   .appointment-drop-list__item:first-child {
     border-top: 1px solid #D0D3DA; }
+  .appointment-drop-list__item:hover {
+    color: #6093DE;
+    background-color: #F6F7FB; }
 
 .appointment-send-notification-confirmation-popup {
   position: absolute;
@@ -1226,50 +1269,6 @@ input {
   border: 2px solid #01B41F;
   color: #01B41F; }
 
-.appointment-reschedule-confirmation__header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  margin-bottom: 20px; }
-
-.appointment-reschedule-confirmation__job-number {
-  font-size: 2em;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
-  margin-bottom: 15px; }
-
-.appointment-reschedule-confirmation__appointment-info-text {
-  font-size: 1.6em;
-  margin-bottom: 5px; }
-
-.appointment-reschedule-confirmation__appointment-info-item {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 5px;
-  font-size: 1.6em;
-  white-space: nowrap;
-  overflow: hidden; }
-  .appointment-reschedule-confirmation__appointment-info-item span {
-    padding-right: 8px;
-    color: #8391AD; }
-
-.appointment-reschedule-confirmation__date-new {
-  padding-right: 5px; }
-
 .appointment-reschedule-confirmation-popup {
   position: absolute;
   display: -webkit-box;
@@ -1292,7 +1291,7 @@ input {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding: 25px;
+  padding: 25px 0;
   margin: 0 10px;
   min-width: 320px;
   max-width: 420px;
@@ -1301,11 +1300,79 @@ input {
   opacity: 0;
   pointer-events: none; }
 
+.appointment-reschedule-confirmation__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px; }
+
+.appointment-reschedule-confiramtion__header-text {
+  background-color: #6093DE;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px 0;
+  margin-bottom: 15px; }
+
+.appointment-reschedule-confirmation__job-number {
+  font-size: 2em;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  margin-bottom: 15px; }
+
+.appointment-reschedule-confirmation__appointment-info {
+  padding: 0 25px; }
+
+.appointment-reschedule-confirmation__appointment-info-text {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+  color: #6093DE; }
+
+.appointment-reschedule-confirmation__appointment-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+  font-size: 1.6em;
+  white-space: nowrap;
+  overflow: hidden; }
+  .appointment-reschedule-confirmation__appointment-info-item span {
+    padding-right: 8px;
+    color: #8391AD; }
+
+.appointment-reschedule-confirmation__date-new {
+  padding-right: 5px; }
+
+.appointemnt-reschedule-confirmation__board-hour-option {
+  padding: 5px 4px;
+  background-color: #ffffff;
+  border-top: 1px solid #D0D3DA;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-align: end;
+  cursor: pointer; }
+  .appointemnt-reschedule-confirmation__board-hour-option:hover {
+    background-color: #F6F7FB; }
+
 .appointment-reschedule-confirmation__questions-wrapper {
   margin-bottom: 20px;
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
-          align-self: flex-start; }
+          align-self: flex-start;
+  padding: 0 25px; }
 
 .appointment-reschedule-confirmation__btns {
   display: -webkit-box;
@@ -1367,6 +1434,7 @@ input {
       -ms-flex-item-align: start;
           align-self: flex-start;
   width: 100%;
+  padding: 0 25px;
   margin-bottom: 15px; }
 
 .appointment-reschedule-confirmation__date-select {
@@ -1374,20 +1442,25 @@ input {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start; }
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+  padding: 0 25px; }
 
 .appointment-reschedule-confirmation__service-resources-label {
   font-size: 1.6em; }
 
 .appointment-reschedule-confirmation__service-resources-label-prefix {
   color: #8391AD; }
-
-.appointment-reschedule-confirmation__date-label {
-  font-size: 1.6em;
-  padding-right: 5px; }
 
 .appointment-reschedule-confirmation__hour-select-main {
   display: -webkit-box;
@@ -1399,7 +1472,7 @@ input {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1.4em;
-  margin-right: 5px; }
+  margin-bottom: 5px; }
   .appointment-reschedule-confirmation__hour-select-main span {
     padding-right: 5px; }
 
@@ -1414,7 +1487,7 @@ input {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  right: 1.5em;
+  right: 40px;
   max-height: 150px;
   overflow-y: auto;
   border: 2px solid #8391AD;
@@ -1436,7 +1509,7 @@ input {
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
   position: absolute;
-  right: 0; }
+  right: 25px; }
 
 .appointment-cancel-confirmation-popup {
   position: absolute;
@@ -1460,7 +1533,7 @@ input {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding: 25px;
+  padding: 25px 0;
   margin: 0 10px;
   min-width: 320px;
   max-width: 420px;
@@ -1468,6 +1541,18 @@ input {
   background-color: #ffffff;
   opacity: 0;
   pointer-events: none; }
+
+.appointment-cancel-confirmation__header {
+  margin-bottom: 15px;
+  width: 100%; }
+
+.appointment-cancel-confiramtion__header-text {
+  background-color: #FF0000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px 0;
+  margin-bottom: 15px; }
 
 .appointment-cancel-confirmation__job-number {
   font-size: 2em;
@@ -1481,27 +1566,19 @@ input {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px; }
 
 .appointment-cancel-confirmation__date {
-  font-size: 1.4em; }
+  font-size: 1.6em; }
 
 .appointment-cancel-confirmation__service-resource-nickname {
   padding-left: 5px;
-  font-size: 1.4em; }
-
-.appointment-cancel-confirmation__header {
-  margin-bottom: 15px; }
-
-.appointment-cancel-confirmation__questions-item_cancel-confirm {
-  font-size: 1.4em; }
-  .appointment-cancel-confirmation__questions-item_cancel-confirm .questions-item__checkmark {
-    width: 25px;
-    height: 25px; }
-    .appointment-cancel-confirmation__questions-item_cancel-confirm .questions-item__checkmark::after {
-      width: 8px;
-      height: 12px;
-      left: 7px; }
+  font-size: 1.6em; }
 
 .appointment-cancel-confirmation__questions-item {
   margin-bottom: 5px; }
@@ -1516,11 +1593,15 @@ input {
   display: flex; }
 
 .appointment-cancel-confirmation__questions-item_cancel-reason {
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-bottom: 5px; }
 
 .appointment-cancel-confirmation__questions-item_cancel-reason-textarea {
-  resize: none; }
+  width: 100%;
+  resize: none;
+  border: 2px solid #6093DE;
+  border-radius: 6px;
+  outline: none; }
 
 .appointment-cancel-confirmation__confirm-btn, .appointment-cancel-confirmation__deny-btn {
   border-radius: 6px;

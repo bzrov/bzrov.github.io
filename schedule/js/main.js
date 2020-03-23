@@ -96,7 +96,6 @@ const appointmentCancelConfirmationJobNumber = document.querySelector('.appointm
 const appointmentCancelConfirmationServiceResourceNickname = document.querySelector('.appointment-cancel-confirmation__service-resource-nickname')
 const appointmentCancelConfirmationDate = document.querySelector('.appointment-cancel-confirmation__date') 
 const appointmentCancelConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
-const appointmentCancelConfirmationQuestionsItemCancelConfirm = document.querySelector('.appointment-cancel-confirmation__questions-item_cancel-confirm [type=checkbox]')
 const appointmentCancelConfirmationQuestionsItemCancelReasonTextarea = document.querySelector('.appointment-cancel-confirmation__questions-item_cancel-reason-textarea')
 
 const appointmentHover = document.querySelector('.appointment-hover')
@@ -1070,28 +1069,21 @@ appointmentCancelConfirmationBtnDeny.addEventListener('click',function(){
 
 })
 appointmentCancelConfirmationQuestionClientInformed.addEventListener('click',function(){
-  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
     appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
   }
 })
 appointmentCancelConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
-  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
-    appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
-  } else{
-    appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
-  }
-})
-appointmentCancelConfirmationQuestionsItemCancelConfirm.addEventListener('click',function(){
-  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
     appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
   }
 })
 appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.addEventListener('keyup', function(){
-  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelConfirm.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
+  if(appointmentCancelConfirmationQuestionClientInformed.checked==true &&appointmentCancelConfirmationQuestionServiceResourceInformed.checked==true && appointmentCancelConfirmationQuestionsItemCancelReasonTextarea.value!==""){
     appointmentCancelConfirmationBtnConfirm.classList.remove('btn_disabled')
   } else{
     appointmentCancelConfirmationBtnConfirm.classList.add('btn_disabled')
