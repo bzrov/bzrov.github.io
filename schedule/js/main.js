@@ -882,7 +882,7 @@ appointmentRescheduleConfirmationQuestionClientInformed.addEventListener('click'
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }
-  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <60){
+  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <30){
     appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }else{
@@ -896,7 +896,7 @@ appointmentRescheduleConfirmationQuestionServiceResourceInformed.addEventListene
   } else{
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }
-  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <60){
+  if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <30){
     appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
     appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
   }else{
@@ -1017,7 +1017,7 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsStart.
     appointmentRescheduleConfirmationHourSelectTextStart.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].textContent
     appointmentRescheduleConfirmationHourStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
     appointmentRescheduleConfirmationMinsStartTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
-    if(((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) <60){
+    if(((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp)) <30){
       appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
       appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     }else{
@@ -1039,7 +1039,7 @@ for (let i = 0; i < appointmentRescheduleConfirmationHourSelectOptionItemsEnd.le
     appointmentRescheduleConfirmationHourSelectTextEnd.textContent = appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].textContent
     appointmentRescheduleConfirmationHourEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
     appointmentRescheduleConfirmationMinsEndTemp = +appointmentRescheduleConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
-    if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <60){
+    if((appointmentRescheduleConfirmationHourEndTemp*60+appointmentRescheduleConfirmationMinsEndTemp) - (appointmentRescheduleConfirmationHourStartTemp*60+appointmentRescheduleConfirmationMinsStartTemp) <30){
       appointmentRescheduleConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
       appointmentRescheduleConfirmationBtnConfirm.classList.add('btn_disabled')
     }else{
