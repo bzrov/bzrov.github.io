@@ -450,7 +450,7 @@ input {
           align-items: center;
   margin-right: 15px; }
 
-.controls__date-picker-item, .appointment-reschedule-confirmation-controls__date-picker-item {
+.controls__date-picker-item, .appointment-reschedule-confirmation-controls__date-picker-item, .absence-change-confirmation-controls__date-picker-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -466,7 +466,7 @@ input {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer; }
-  .controls__date-picker-item:before, .appointment-reschedule-confirmation-controls__date-picker-item:before {
+  .controls__date-picker-item:before, .appointment-reschedule-confirmation-controls__date-picker-item:before, .absence-change-confirmation-controls__date-picker-item:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -481,12 +481,12 @@ input {
   color: #8391AD;
   font-size: 1.8em; }
 
-.controls__date-picker-date, .appointment-reschedule-confirmation-controls__date-picker-date {
+.controls__date-picker-date, .appointment-reschedule-confirmation-controls__date-picker-date, .absence-change-confirmation-controls__date-picker-date {
   width: 95px;
   padding-right: 10px;
   font-size: 1.4em; }
 
-.calendar, .appointment-reschedule-confirmation-calendar {
+.calendar, .appointment-reschedule-confirmation-calendar, .absence-change-confirmation-calendar {
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -1199,7 +1199,7 @@ input {
 .appointment-hover__zip {
   font-size: 1.4em; }
 
-.appointment-drop-list {
+.appointment-drop-list, .absence-drop-list {
   position: absolute;
   padding: 15px 0px;
   background-color: #ffffff;
@@ -1209,16 +1209,16 @@ input {
   z-index: 5;
   border: 2px solid #8391AD; }
 
-.appointment-drop-list__item {
+.appointment-drop-list__item, .absence-drop-list__item {
   font-size: 1.4em;
   border-bottom: 1px solid #D0D3DA;
   padding: 8px;
   cursor: pointer; }
-  .appointment-drop-list__item:last-child {
+  .appointment-drop-list__item:last-child, .absence-drop-list__item:last-child {
     margin-bottom: 0px; }
-  .appointment-drop-list__item:first-child {
+  .appointment-drop-list__item:first-child, .absence-drop-list__item:first-child {
     border-top: 1px solid #D0D3DA; }
-  .appointment-drop-list__item:hover {
+  .appointment-drop-list__item:hover, .absence-drop-list__item:hover {
     color: #6093DE;
     background-color: #F6F7FB; }
 
@@ -1358,12 +1358,12 @@ input {
 .appointment-reschedule-confirmation__board-hour-select-field_failed {
   border-color: #FF0000; }
 
-.appointemnt-reschedule-confirmation__board-hour-select-text {
+.appointment-reschedule-confirmation__board-hour-select-text {
   height: 14px;
   width: 50px;
   text-transform: uppercase; }
 
-.appointemnt-reschedule-confirmation__board-hour-option {
+.appointment-reschedule-confirmation__board-hour-option {
   padding: 5px 4px;
   background-color: #ffffff;
   border-top: 1px solid #D0D3DA;
@@ -1371,7 +1371,7 @@ input {
   text-transform: uppercase;
   text-align: end;
   cursor: pointer; }
-  .appointemnt-reschedule-confirmation__board-hour-option:hover {
+  .appointment-reschedule-confirmation__board-hour-option:hover {
     background-color: #F6F7FB; }
 
 .appointment-reschedule-confirmation-controls__date-picker-item {
@@ -1660,6 +1660,302 @@ input {
   color: #FF0000; }
 
 .appointment-cancel-confirmation__confirm-btn {
+  border: 2px solid #01B41F;
+  color: #01B41F; }
+
+.absence-cancel-confirmation__cancel-failed {
+  opacity: 0;
+  pointer-events: none; }
+
+.absence-cancel-confirmation-popup {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 25px 0;
+  margin: 0 10px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none; }
+
+.absence-cancel-confirmation__header {
+  width: 100%;
+  margin-bottom: 15px; }
+
+.absence-cancel-confiramtion__header-text {
+  font-size: 2em;
+  background-color: #FF0000;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffffff; }
+
+.absence-cancel-confirmation__absence-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.6em; }
+
+.absence-cancel-confirmation__date {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 5px; }
+
+.absence-cancel-confirmation__cancel-failed {
+  padding: 0 25px;
+  margin-bottom: 15px; }
+
+.absence-cancel-confirmation__cancel-failed-text {
+  font-size: 1.8em;
+  color: #FF0000; }
+
+.absence-cancel-confirmation__date_delimiter {
+  padding: 0 5px; }
+
+.absence-cancel-confirmation__questions-item_cancel-reason-textarea {
+  border: 2px solid #6093DE;
+  border-radius: 6px;
+  resize: none;
+  wdith: 100%;
+  padding: 8px;
+  outline: none; }
+
+.absence-cancel-confirmation__questions-item_cancel-reason {
+  font-size: 1.4em;
+  margin-bottom: 5px; }
+
+.absence-cancel-confirmation__questions {
+  margin-bottom: 15px; }
+
+.absence-cancel-confirmation__btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.absence-cancel-confirmation__deny-btn, .absence-cancel-confirmation__confirm-btn {
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-basis: 40%;
+      -ms-flex-preferred-size: 40%;
+          flex-basis: 40%;
+  padding: 8px 25px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer; }
+
+.absence-cancel-confirmation__deny-btn {
+  margin-right: 20px;
+  border: 2px solid #FF0000;
+  color: #FF0000; }
+
+.absence-cancel-confirmation__confirm-btn {
+  border: 2px solid #01B41F;
+  color: #01B41F; }
+
+.absence-change-confirmation-popup {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 25px 0;
+  margin: 0 10px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none; }
+
+.absence-change-confirmation__header {
+  width: 100%;
+  margin-bottom: 15px; }
+
+.absence-change-confiramtion__header-text {
+  font-size: 2em;
+  background-color: #6093DE;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffffff; }
+
+.absence-change-confirmation__appointment-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.4em; }
+
+.absence-change-confirmation__date_delimiter {
+  padding: 0 5px; }
+
+.absence-change-confirmation__service-resource-nickname {
+  padding-left: 5px; }
+
+.absence-change-confirmation__select-date-day {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px;
+  margin-top: 15px;
+  margin-bottom: 10px; }
+
+.absence-change-confirmation-controls__date-picker-item_start {
+  margin-right: 10px; }
+
+.absence-change-confirmation__select-date-hour {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px; }
+
+.absence-change-confirmation__hour-select-list_start {
+  margin-right: 10px; }
+
+.absence-change-confirmation__board-hour-select-field {
+  border: 1px solid #D0D3DA;
+  border-radius: 6px;
+  padding: 2.5px 5px;
+  cursor: pointer; }
+
+.absence-change-confirmation__board-hour-select-text {
+  height: 14px;
+  width: 50px;
+  font-size: 1.4em;
+  text-transform: uppercase; }
+
+.absence-change-confirmation__board-hour-option {
+  padding: 5px 4px;
+  background-color: #ffffff;
+  border-top: 1px solid #D0D3DA;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: end; }
+
+.absence-change-confirmation-controls__date-picker_failed {
+  color: #D0D3DA;
+  pointer-events: none; }
+  .absence-change-confirmation-controls__date-picker_failed::before {
+    background-color: #D0D3DA; }
+
+.absence-change-confirmation__date-failed {
+  opacity: 0;
+  pointer-events: none; }
+
+.absence-change-confirmation__date-failed-text {
+  font-size: 1.6em;
+  color: #FF0000;
+  margin-bottom: 10px; }
+
+.absence-change-confirmation__questions-wrapper {
+  margin-bottom: 15px; }
+
+.absence-change-confirmation__btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.absence-change-confirmation__deny-btn, .absence-change-confirmation__confirm-btn {
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-basis: 40%;
+      -ms-flex-preferred-size: 40%;
+          flex-basis: 40%;
+  padding: 8px 25px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer; }
+
+.absence-change-confirmation__deny-btn {
+  margin-right: 20px;
+  border: 2px solid #FF0000;
+  color: #FF0000; }
+
+.absence-change-confirmation__confirm-btn {
   border: 2px solid #01B41F;
   color: #01B41F; }
 
