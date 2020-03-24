@@ -1122,9 +1122,10 @@ input {
   font-weight: 400;
   line-height: 1.5;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  max-width: 250px; }
 
 .questions-item__checkbox {
   position: absolute;
@@ -1204,7 +1205,7 @@ input {
 .appointment-hover__zip {
   font-size: 1.4em; }
 
-.appointment-drop-list, .absence-drop-list {
+.appointment-drop-list, .absence-drop-list, .service-resource-drop-list {
   position: absolute;
   top: 0;
   padding: 15px 0px;
@@ -1215,16 +1216,16 @@ input {
   z-index: 5;
   border: 2px solid #8391AD; }
 
-.appointment-drop-list__item, .absence-drop-list__item {
+.appointment-drop-list__item, .absence-drop-list__item, .service-resource-drop-list__item {
   font-size: 1.4em;
   border-bottom: 1px solid #D0D3DA;
   padding: 8px;
   cursor: pointer; }
-  .appointment-drop-list__item:last-child, .absence-drop-list__item:last-child {
+  .appointment-drop-list__item:last-child, .absence-drop-list__item:last-child, .service-resource-drop-list__item:last-child {
     margin-bottom: 0px; }
-  .appointment-drop-list__item:first-child, .absence-drop-list__item:first-child {
+  .appointment-drop-list__item:first-child, .absence-drop-list__item:first-child, .service-resource-drop-list__item:first-child {
     border-top: 1px solid #D0D3DA; }
-  .appointment-drop-list__item:hover, .absence-drop-list__item:hover {
+  .appointment-drop-list__item:hover, .absence-drop-list__item:hover, .service-resource-drop-list__item:hover {
     color: #6093DE;
     background-color: #F6F7FB; }
 
@@ -1921,7 +1922,7 @@ input {
   pointer-events: none; }
 
 .absence-change-confirmation__date-failed {
-  opacity: 0;
+  display: none;
   pointer-events: none; }
 
 .absence-change-confirmation__date-failed-text {
@@ -1929,8 +1930,18 @@ input {
   color: #FF0000;
   margin-bottom: 10px; }
 
+.absence-change-confirmation__date-blocked {
+  display: none;
+  pointer-events: none; }
+
+.absence-change-confirmation__date-blocked-text {
+  font-size: 1.6em;
+  color: #FF0000;
+  margin-bottom: 10px; }
+
 .absence-change-confirmation__questions-wrapper {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  padding: 0 25px; }
 
 .absence-change-confirmation__btns {
   display: -webkit-box;
@@ -1977,6 +1988,9 @@ input {
 .visible {
   opacity: 1;
   pointer-events: auto; }
+
+.active {
+  display: block; }
 
 @media screen and (max-width: 998px) {
   .controls {

@@ -134,6 +134,7 @@ const absenceChangeConfirmationDateFrom = document.querySelector('.absence-chang
 const absenceChangeConfirmationDateTo = document.querySelector('.absence-change-confirmation__date_to') 
 const absenceChangeConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
 const absenceChangeConfirmationDateFailed = document.querySelector('.absence-change-confirmation__date-failed')
+const absenceChangeConfirmationDateBlocked= document.querySelector('.absence-change-confirmation__date-blocked')
 
 const absenceChangeConfirmationHourSelectItemsStart = document.querySelector('.absence-change-confirmation__hour-select-select_start')
 const absenceChangeConfirmationHourSelectItemsEnd = document.querySelector('.absence-change-confirmation__hour-select-select_end')
@@ -157,6 +158,10 @@ const appointmentDropListItemCancel = document.querySelector('.appointment-drop-
 const absenceDropList = document.querySelector('.absence-drop-list')
 const absenceDropListItemChange = document.querySelector('.absence-drop-list__item-change')
 const absenceDropListItemCancel= document.querySelector('.absence-drop-list__item-cancel')
+
+const serviceResourceDropList = document.querySelector('.service-resource-drop-list')
+const serviceResourceDropListItemAdditionalTime = document.querySelector('.service-resource-drop-list__item-additional-time')
+const serviceResourceDropListItemCreateAbsence = document.querySelector('.service-resource-drop-list__item-create-absence')
 
 let date = new Date();
 let day = date.getDate();
@@ -264,6 +269,7 @@ window.addEventListener('click', function(event) {
   let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
   let clickedAppointmentDropList = target.closest('.appointment-drop-list');
   let clickedAbsenceDropList = target.closest('.absence-drop-list')
+  let clickedServiceResourceDropList = target.closest('.service-resource-drop-list')
   let clickedAppointmentRescheduleConfirmationHourSelectTextStart = target.closest('.appointment-reschedule-confirmation__hour-select-text_start')
   let clickedAppointmentRescheduleConfirmationHourSelectTextEnd = target.closest('.appointment-reschedule-confirmation__hour-select-text_end')
   let clickedAppointmentRescheduleConfirmationCalendar = target.closest('.appointment-reschedule-confirmation-calendar')
@@ -292,6 +298,10 @@ window.addEventListener('click', function(event) {
     absenceDropList.classList.remove('visible');
   }
   
+  if (!clickedServiceResourceDropList && serviceResourceDropList.classList.contains('open') && serviceResourceDropList.classList.contains('visible')) {
+    serviceResourceDropList.classList.remove('open');
+    serviceResourceDropList.classList.remove('visible');
+  }
   if(!clickedAppointmentRescheduleConfirmationServiceResourcesBtn && appointmentRescheduleConfirmationServiceResources.classList.contains('open') && appointmentRescheduleConfirmationServiceResources.classList.contains('visible')){
     appointmentRescheduleConfirmationServiceResources.classList.remove('open');
     appointmentRescheduleConfirmationServiceResources.classList.remove('visible');
@@ -1306,8 +1316,8 @@ absenceDropListItemChange.addEventListener('click',function(){
     absenceChangeConfirmationPopup.classList.add('visible');
     absenceChangeConfirmationBtnConfirm.classList.add('btn_disabled')
     absenceChangeConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-    absenceChangeConfirmationDateFailed.classList.remove('open')
-    absenceChangeConfirmationDateFailed.classList.remove('visible')
+    absenceChangeConfirmationDateBlocked.classList.remove('active')
+    absenceChangeConfirmationDateFailed.classList.remove('active')
   }else{
     absenceChangeConfirmationPopup.classList.remove('open');
     absenceChangeConfirmationPopup.classList.remove('visible');
@@ -1318,8 +1328,7 @@ absenceDropListItemChange.addEventListener('click',function(){
     absenceChangeConfirmationDatePickerEnd.classList.add('absence-change-confirmation-controls__date-picker_failed')
     absenceChangeConfirmationBoardHourSelectFieldStart.classList.add('absence-change-confirmation__board-hour-select-field_failed')
     absenceChangeConfirmationBoardHourSelectFieldEnd.classList.add('absence-change-confirmation__board-hour-select-field_failed')
-    absenceChangeConfirmationDateFailed.classList.add('open')
-    absenceChangeConfirmationDateFailed.classList.add('visible')
+    absenceChangeConfirmationDateBlocked.classList.add('active')
   }else if(Date.parse(currentDate)>=Date.parse(contextAbsenceDateStartTemp) && Date.parse(currentDate)<=Date.parse(contextAbsenceDateEndTemp)){
     absenceChangeConfirmationDatePickerStart.classList.add('absence-change-confirmation-controls__date-picker_failed')
     absenceChangeConfirmationDatePickerEnd.classList.remove('absence-change-confirmation-controls__date-picker_failed')
@@ -1363,11 +1372,11 @@ absenceChangeConfirmationBtnConfirm.addEventListener('click',function(){
     absenceChangeConfirmationDateEndTemp.setMinutes(absenceChangeConfirmationMinsEndTemp)
 
     if ((absenceChangeConfirmationDateEndTemp.getTime()-absenceChangeConfirmationDateStartTemp.getTime())/1000/60 < 30){
-      absenceChangeConfirmationDateFailed.classList.add('open')
-      absenceChangeConfirmationDateFailed.classList.add('visible')
+      absenceChangeConfirmationDateFailed.classList.add('active')
+
     }else{
-      absenceChangeConfirmationDateFailed.classList.remove('open')
-      absenceChangeConfirmationDateFailed.classList.remove('visible')
+      absenceChangeConfirmationDateFailed.classList.remove('active')
+
       popupWindow.classList.remove('open');
       popupWindow.classList.remove('visible');
       absenceChangeConfirmationPopup.classList.remove('open');
@@ -1522,8 +1531,7 @@ for (let i = 0; i < absenceChangeConfirmationHourSelectOptionItemsStart.length; 
   absenceChangeConfirmationHourSelectOptionItemsStart[i].addEventListener('click', function(e) {
     absenceChangeConfirmationHourSelectItemsStart.classList.remove('open');
     absenceChangeConfirmationHourSelectItemsStart.classList.remove('visible');
-    absenceChangeConfirmationDateFailed.classList.remove('open')
-    absenceChangeConfirmationDateFailed.classList.remove('visible')
+    absenceChangeConfirmationDateFailed.classList.remove('active')
     for (let j = 0; j < absenceChangeConfirmationHourSelectOptionItemsStart.length; j++) {
       absenceChangeConfirmationHourSelectOptionItemsStart[j].classList.remove('controls__board-hour-option_selected')
     }
@@ -1531,16 +1539,6 @@ for (let i = 0; i < absenceChangeConfirmationHourSelectOptionItemsStart.length; 
     absenceChangeConfirmationHourSelectTextStart.textContent = absenceChangeConfirmationHourSelectOptionItemsStart[i].textContent
     absenceChangeConfirmationHourStartTemp = +absenceChangeConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
     absenceChangeConfirmationMinsStartTemp = +absenceChangeConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
-
-    if(((absenceChangeConfirmationHourEndTemp*60+absenceChangeConfirmationMinsEndTemp) - (absenceChangeConfirmationHourStartTemp*60+absenceChangeConfirmationMinsStartTemp)) <30){
-      absenceChangeConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      absenceChangeConfirmationBtnConfirm.classList.add('btn_disabled')
-    }else{
-      absenceChangeConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      if(absenceChangeConfirmationQuestionServiceResourceInformed.checked==true && (((absenceChangeConfirmationHourEndTemp*60+absenceChangeConfirmationMinsEndTemp) - (absenceChangeConfirmationHourStartTemp*60+absenceChangeConfirmationMinsStartTemp)) >=30)){
-        absenceChangeConfirmationBtnConfirm.classList.remove('btn_disabled')
-      }
-    }
   })
 }
 
@@ -2266,13 +2264,34 @@ const appointments = boardData.appointments;
   }
   const appointmentsForEvents = document.querySelectorAll('.appointment')
   const absencesForEvents=document.querySelectorAll('.absence')
+  const serviceResourcesForEvents = document.querySelectorAll('.board__worker')
+
+  
+  for(let i=0; i<serviceResourcesForEvents.length; i++){
+    let serviceResourceY,serviceResourceX;
+    let serviceResource = serviceResourcesForEvents[i];
+    serviceResource.addEventListener('contextmenu', function(event){
+      event.preventDefault()
+      if (!serviceResourceDropList.classList.contains('open')) {
+        serviceResourceDropList.classList.add('open');
+        serviceResourceDropList.classList.add('visible');
+      }
+
+      constextServiceResource = event.currentTarget
+      constextServiceResourceServiceResourceTemp = event.currentTarget.querySelector('.board__worker-nickname').textContent
+      
+      serviceResourceX = event.currentTarget.getBoundingClientRect().x
+      serviceResourceY = event.currentTarget.getBoundingClientRect().y
+      serviceResourceDropList.style.left= serviceResourceX +"px"
+      serviceResourceDropList.style.top= (serviceResourceY+event.currentTarget.offsetHeight+5)+"px"
+  })
+  }
 
   for(let i=0; i<absencesForEvents.length; i++){
     let absenceY,absenceX;
     let absence = absencesForEvents[i];
     absence.addEventListener('contextmenu', function(event){
       event.preventDefault()
-      console.log('test')
       if (!absenceDropList.classList.contains('open')) {
         absenceDropList.classList.add('open');
         absenceDropList.classList.add('visible');
