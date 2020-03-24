@@ -1916,6 +1916,10 @@ input {
   .absence-change-confirmation-controls__date-picker_failed::before {
     background-color: #D0D3DA; }
 
+.absence-change-confirmation__board-hour-select-field_failed {
+  color: #D0D3DA;
+  pointer-events: none; }
+
 .absence-change-confirmation__date-failed {
   opacity: 0;
   pointer-events: none; }
