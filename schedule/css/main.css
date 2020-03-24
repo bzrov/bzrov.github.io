@@ -450,7 +450,7 @@ input {
           align-items: center;
   margin-right: 15px; }
 
-.controls__date-picker-item, .appointment-reschedule-confirmation-controls__date-picker-item, .absence-change-confirmation-controls__date-picker-item {
+.controls__date-picker-item, .appointment-reschedule-confirmation-controls__date-picker-item, .absence-change-confirmation-controls__date-picker-item, .absence-create-confirmation-controls__date-picker-item {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -466,7 +466,7 @@ input {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer; }
-  .controls__date-picker-item:before, .appointment-reschedule-confirmation-controls__date-picker-item:before, .absence-change-confirmation-controls__date-picker-item:before {
+  .controls__date-picker-item:before, .appointment-reschedule-confirmation-controls__date-picker-item:before, .absence-change-confirmation-controls__date-picker-item:before, .absence-create-confirmation-controls__date-picker-item:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -481,12 +481,12 @@ input {
   color: #8391AD;
   font-size: 1.8em; }
 
-.controls__date-picker-date, .appointment-reschedule-confirmation-controls__date-picker-date, .absence-change-confirmation-controls__date-picker-date {
+.controls__date-picker-date, .appointment-reschedule-confirmation-controls__date-picker-date, .absence-change-confirmation-controls__date-picker-date, .absence-create-confirmation-controls__date-picker-date {
   width: 95px;
   padding-right: 10px;
   font-size: 1.4em; }
 
-.calendar, .appointment-reschedule-confirmation-calendar, .absence-change-confirmation-calendar {
+.calendar, .appointment-reschedule-confirmation-calendar, .absence-change-confirmation-calendar, .absence-create-confirmation-calendar {
   opacity: 0;
   pointer-events: none;
   position: absolute;
@@ -1977,6 +1977,172 @@ input {
   color: #FF0000; }
 
 .absence-change-confirmation__confirm-btn {
+  border: 2px solid #01B41F;
+  color: #01B41F; }
+
+.absence-create-confirmation-popup {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 25px 0;
+  margin: 0 10px;
+  min-width: 320px;
+  max-width: 420px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  opacity: 0;
+  pointer-events: none; }
+
+.absence-create-confirmation__header {
+  width: 100%;
+  margin-bottom: 15px; }
+
+.absence-create-confiramtion__header-text {
+  font-size: 2em;
+  background-color: #6093DE;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffffff; }
+
+.absence-create-confirmation__appointment-info-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.4em; }
+
+.absence-create-confirmation__select-date-day {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px;
+  margin-top: 15px;
+  margin-bottom: 10px; }
+
+.absence-create-confirmation-controls__date-picker-item_start {
+  margin-right: 10px; }
+
+.absence-create-confirmation__select-date-hour {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 25px; }
+
+.absence-create-confirmation__hour-select-list_start {
+  margin-right: 10px; }
+
+.absence-create-confirmation__board-hour-select-field {
+  border: 1px solid #D0D3DA;
+  border-radius: 6px;
+  padding: 2.5px 5px;
+  cursor: pointer; }
+
+.absence-create-confirmation__board-hour-select-text {
+  height: 14px;
+  width: 50px;
+  font-size: 1.4em;
+  text-transform: uppercase; }
+
+.absence-create-confirmation__board-hour-option {
+  padding: 5px 4px;
+  background-color: #ffffff;
+  border-top: 1px solid #D0D3DA;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: end; }
+
+.absence-create-confirmation-controls__date-picker_failed {
+  color: #D0D3DA;
+  pointer-events: none; }
+  .absence-create-confirmation-controls__date-picker_failed::before {
+    background-color: #D0D3DA; }
+
+.absence-create-confirmation__board-hour-select-field_failed {
+  color: #D0D3DA;
+  pointer-events: none; }
+
+.absence-create-confirmation__date-failed {
+  display: none;
+  pointer-events: none; }
+
+.absence-create-confirmation__date-failed-text {
+  font-size: 1.6em;
+  color: #FF0000;
+  margin-bottom: 10px; }
+
+.absence-create-confirmation__questions-wrapper {
+  margin-bottom: 15px;
+  padding: 0 25px; }
+
+.absence-create-confirmation__btns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.absence-create-confirmation__deny-btn, .absence-create-confirmation__confirm-btn {
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-basis: 40%;
+      -ms-flex-preferred-size: 40%;
+          flex-basis: 40%;
+  padding: 8px 25px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer; }
+
+.absence-create-confirmation__deny-btn {
+  margin-right: 20px;
+  border: 2px solid #FF0000;
+  color: #FF0000; }
+
+.absence-create-confirmation__confirm-btn {
   border: 2px solid #01B41F;
   color: #01B41F; }
 
