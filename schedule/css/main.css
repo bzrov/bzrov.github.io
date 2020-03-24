@@ -661,6 +661,10 @@ input {
   font-size: 1.4em;
   text-transform: uppercase; }
 
+.board__items {
+  overflow-y: auto;
+  max-height: 80vh; }
+
 .boards__item:first-child {
   border-top: 1px solid #D0D3DA; }
 

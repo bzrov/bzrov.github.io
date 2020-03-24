@@ -1165,6 +1165,9 @@ appointmentCancelConfirmationBtnConfirm.addEventListener('click',function(){
     appointmentCancelConfirmationPopup.classList.remove('open');
     appointmentCancelConfirmationPopup.classList.remove('visible');
   } 
+  // get new json, including deleted appointment
+  //renderBoard(daysAmountValue,timelineStep)
+  contextAppointment.parentNode.removeChild(contextAppointment)
 
 })
 appointmentCancelConfirmationBtnDeny.addEventListener('click',function(){
@@ -1245,6 +1248,8 @@ absenceCancelConfirmationBtnConfirm.addEventListener('click',function(){
     absenceCancelConfirmationPopup.classList.remove('open');
     absenceCancelConfirmationPopup.classList.remove('visible');
   } 
+  // get new json,including removed absence
+  //renderBoard(daysAmountValue,timelineStep)
 
 })
 absenceCancelConfirmationBtnDeny.addEventListener('click',function(){
@@ -1274,24 +1279,6 @@ absenceCancelConfirmationQuestionsItemCancelReasonTextarea.addEventListener('key
     absenceCancelConfirmationBtnConfirm.classList.add('btn_disabled')
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 absenceDropListItemChange.addEventListener('click',function(){
   if(!popupWindow.classList.contains('open')){
@@ -1490,8 +1477,6 @@ absenceChangeConfirmationCalendarTableDays.forEach((calendarTableDay,idx) => {
         absenceChangeConfirmationDateEndPicked = new Date(absenceChangeConfirmationDatePicked)
         absenceChangeConfirmationDatePickerTextEnd.textContent = `${monthShortList[absenceChangeConfirmationDateEndPicked.getMonth()]} ${absenceChangeConfirmationDateEndPicked.getDate()}, ${absenceChangeConfirmationDateEndPicked.getFullYear()}`;
       }
-      
-
       renderAbsenceChangeConfirmationCalendar(absenceChangeConfirmationMonth,absenceChangeConfirmationYear)
     }
   })
