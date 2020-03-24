@@ -269,7 +269,8 @@ window.addEventListener('click', function(event) {
   let clickedAppointmentRescheduleConfirmationCalendar = target.closest('.appointment-reschedule-confirmation-calendar')
   let clickedAppointmentRescheduleConfirmationDatePicker = target.closest('.appointment-reschedule-confirmation-controls__date-picker-item')
   let clickedAppointmentRescheduleConfirmationServiceResourcesBtn = target.closest('.appointment-reschedule-confirmation__service-resources-btn')
-
+  let clickedAbsenceRescheduleConfirmationHourSelectTextStart = target.closest('.absence-change-confirmation__hour-select-text_start')
+  let clickedAbsenceRescheduleConfirmationHourSelectTextEnd = target.closest('.absence-change-confirmation__hour-select-text_end')
   if (!clickedDaysAmount && daysAmount.classList.contains('open') && daysAmountList.classList.contains('visible')) {
     daysAmount.classList.remove('open');
     daysAmountList.classList.remove('visible');
@@ -309,6 +310,15 @@ window.addEventListener('click', function(event) {
   if(!clickedAppointmentRescheduleConfirmationHourSelectTextStart && appointmentRescheduleConfirmationHourSelectItemsStart.classList.contains('open') && appointmentRescheduleConfirmationHourSelectItemsStart.classList.contains('visible')){
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('open')
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('visible')
+  }
+
+  if(!clickedAbsenceRescheduleConfirmationHourSelectTextEnd && absenceChangeConfirmationHourSelectItemsEnd.classList.contains('open') && absenceChangeConfirmationHourSelectItemsEnd.classList.contains('visible')){
+    absenceChangeConfirmationHourSelectItemsEnd.classList.remove('open')
+    absenceChangeConfirmationHourSelectItemsEnd.classList.remove('visible')
+  }
+  if(!clickedAbsenceRescheduleConfirmationHourSelectTextStart && absenceChangeConfirmationHourSelectItemsStart.classList.contains('open') && absenceChangeConfirmationHourSelectItemsStart.classList.contains('visible')){
+    absenceChangeConfirmationHourSelectItemsStart.classList.remove('open')
+    absenceChangeConfirmationHourSelectItemsStart.classList.remove('visible')
   }
 });
 
@@ -1342,11 +1352,8 @@ absenceDropListItemChange.addEventListener('click',function(){
   absenceChangeConfirmationServiceResourceNickname.textContent= "(" + contextAbsenceServiceResourceTemp +")"
 })
 
-
 absenceChangeConfirmationBtnConfirm.addEventListener('click',function(){
   if(absenceChangeConfirmationPopup.classList.contains('open')){
-    
-
     let absenceChangeConfirmationDateStartTemp = new Date(absenceChangeConfirmationDateStartPicked)
     absenceChangeConfirmationDateStartTemp.setHours(absenceChangeConfirmationHourStartTemp)
     absenceChangeConfirmationDateStartTemp.setMinutes(absenceChangeConfirmationMinsStartTemp)
@@ -1370,6 +1377,7 @@ absenceChangeConfirmationBtnConfirm.addEventListener('click',function(){
   } 
 
 })
+
 absenceChangeConfirmationBtnDeny.addEventListener('click',function(){
   if (popupWindow.classList.contains('open')) {
     popupWindow.classList.remove('open');
