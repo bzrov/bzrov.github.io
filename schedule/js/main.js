@@ -924,6 +924,10 @@ let contextAbsenceDateEndTemp;
 let absenceCancelConfirmationDatePicked;
 let absenceCancelConfirmationDayPicked;
 
+let contextServiceResource;
+let contextServiceResourceServiceResourceTemp;
+let contextServiceResourceServiceResourceIdTemp;
+
 appointmentDropListItemReschedule.addEventListener('click',function(){
   if(!popupWindow.classList.contains('open')){
     popupWindow.classList.add('open');
@@ -1679,7 +1683,7 @@ serviceResourceDropListItemCreateAbsence.addEventListener('click',function(){
   absenceCreateConfirmationDatePickerTextStart.textContent = `${monthShortList[datePicked.getMonth()]} ${datePicked.getDate()}, ${datePicked.getFullYear()}`;
   absenceCreateConfirmationDatePickerTextEnd.textContent = `${monthShortList[datePicked.getMonth()]} ${datePicked.getDate()}, ${datePicked.getFullYear()}`;
 
-  absenceCreateConfirmationServiceResourceNickname.textContent= "(" + contextAbsenceServiceResourceTemp +")"
+  absenceCreateConfirmationServiceResourceNickname.textContent=  contextServiceResourceServiceResourceTemp 
 })
 
 absenceCreateConfirmationBtnConfirm.addEventListener('click',function(){
@@ -1704,7 +1708,8 @@ absenceCreateConfirmationBtnConfirm.addEventListener('click',function(){
       absenceCreateConfirmationPopup.classList.remove('open');
       absenceCreateConfirmationPopup.classList.remove('visible');
     }
-    //renderAppointment(contextAppointment,absenceCreateConfirmationDateStartTemp,absenceCreateConfirmationDateEndTemp,contextAppointmentServiceResourceIdTemp)
+    const absenceCreated = crEl('div','absence')
+    renderAbsence(absenceCreated,absenceCreateConfirmationDateStartTemp,absenceCreateConfirmationDateEndTemp,contextServiceResourceServiceResourceIdTemp)
   } 
 
 })
@@ -1875,15 +1880,7 @@ for (let i = 0; i < absenceCreateConfirmationHourSelectOptionItemsEnd.length; i+
     absenceCreateConfirmationHourSelectTextEnd.textContent = absenceCreateConfirmationHourSelectOptionItemsEnd[i].textContent
     absenceCreateConfirmationHourEndTemp = +absenceCreateConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
     absenceCreateConfirmationMinsEndTemp = +absenceCreateConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
-    if((absenceCreateConfirmationHourEndTemp*60+absenceCreateConfirmationMinsEndTemp) - (absenceCreateConfirmationHourStartTemp*60+absenceCreateConfirmationMinsStartTemp) <30){
-      absenceCreateConfirmationBoardHourSelectFieldEnd.classList.add('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      absenceCreateConfirmationBtnConfirm.classList.add('btn_disabled')
-    }else{
-      absenceCreateConfirmationBoardHourSelectFieldEnd.classList.remove('appointment-reschedule-confirmation__board-hour-select-field_failed')
-      if(absenceCreateConfirmationQuestionServiceResourceInformed.checked==true && (((absenceCreateConfirmationHourEndTemp*60+absenceCreateConfirmationMinsEndTemp) - (absenceCreateConfirmationHourStartTemp*60+absenceCreateConfirmationMinsStartTemp)) >=30)){
-        absenceCreateConfirmationBtnConfirm.classList.remove('btn_disabled')
-      }
-    }
+
   })
 }
 
@@ -2305,6 +2302,7 @@ const renderAbsence = (absencesItem,absenceDateStart,absenceDateEnd,absenceServi
         (Date.parse(absenceDateEnd) >=Date.parse(boardDateStartTemp) && Date.parse(absenceDateEnd) <=Date.parse(boardDateEndTemp)) ||
         (Date.parse(absenceDateStart) <=Date.parse(boardDateStartTemp) && Date.parse(absenceDateEnd) >=Date.parse(boardDateEndTemp)) 
     ){
+      console.log(!iconSetted)
       if(!iconSetted){
         const iconAbsence = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         iconAbsence.setAttribute("viewBox", "0 0 15.52 20");
@@ -2614,7 +2612,8 @@ const appointments = boardData.appointments;
 
       contextServiceResource = event.currentTarget
       contextServiceResourceServiceResourceTemp = event.currentTarget.querySelector('.board__worker-nickname').textContent
-      
+      contextServiceResourceServiceResourceIdTemp= event.currentTarget.closest('.board__row').querySelector('.timegrid__row').getAttribute('data-service-resource')
+      console.log(contextServiceResourceServiceResourceTemp)
       serviceResourceX = event.currentTarget.getBoundingClientRect().x
       serviceResourceY = event.currentTarget.getBoundingClientRect().y
       serviceResourceDropList.style.left= serviceResourceX +"px"
