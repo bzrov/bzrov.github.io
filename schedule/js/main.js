@@ -30,6 +30,9 @@ const calendarBtnNext = document.querySelector('.calendar__controll_next')
 const calendarBtnPrev = document.querySelector('.calendar__controll_prev')
 const controlsDatePicker = document.querySelector('.controls__date-picker-item')
 
+const controlsSearchField = document.querySelector('.search-field')
+const controlsSearchBtn = document.querySelector('.controls__search-btn')
+
 const controlsDatePickerText = document.querySelector('.controls__date-picker-date')
 const controlsDateSelectPrev = document.querySelector('.controls__date-select-prev')
 const controlsDateSelectNext = document.querySelector('.controls__date-select-next')
@@ -174,6 +177,32 @@ const absenceCreateConfirmationHourSelectTextEnd = document.querySelector('.abse
 const absenceCreateConfirmationBoardHourSelectFieldStart = document.querySelector('.absence-create-confirmation__board-hour-select-field_start')
 const absenceCreateConfirmationBoardHourSelectFieldEnd = document.querySelector('.absence-create-confirmation__board-hour-select-field_end')
 
+const addAdditionalTimeConfirmationCalendar = document.querySelector('.add-additional-time-confirmation-calendar')
+const addAdditionalTimeConfirmationCalendarTableDays = document.querySelectorAll('.add-additional-time-confirmation-calendar-table__cell-day')
+const addAdditionalTimeConfirmationCalendarMonthYear = document.querySelector('.add-additional-time-confirmation-calendar__month')
+const addAdditionalTimeConfirmationCalendarBtnNext = document.querySelector('.add-additional-time-confirmation-calendar__controll_next')
+const addAdditionalTimeConfirmationCalendarBtnPrev = document.querySelector('.add-additional-time-confirmation-calendar__controll_prev')
+
+const addAdditionalTimeConfirmationDatePicker = document.querySelector('.add-additional-time-confirmation-controls__date-picker-item')
+const addAdditionalTimeConfirmationDatePickerText = document.querySelector('.add-additional-time-confirmation-controls__date-picker-date')
+
+const addAdditionalTimeConfirmationPopup = document.querySelector('.add-additional-time-confirmation-popup')
+const addAdditionalTimeConfirmationBtnConfirm = document.querySelector('.add-additional-time-confirmation__confirm-btn')
+const addAdditionalTimeConfirmationBtnDeny = document.querySelector('.add-additional-time-confirmation__deny-btn')
+const addAdditionalTimeConfirmationQuestionServiceResourceInformed = document.querySelector('.add-additional-time-confirmation__questions-item_service-resource-informed [type=checkbox]')
+const addAdditionalTimeConfirmationServiceResourceNickname = document.querySelector('.add-additional-time-confirmation__service-resource-nickname')
+const addAdditionalTimeConfirmationQuestionsItemsCheckbox = document.querySelectorAll('.questions-item__checkbox')
+
+const addAdditionalTimeConfirmationHourSelectItemsStart = document.querySelector('.add-additional-time-confirmation__hour-select-select_start')
+const addAdditionalTimeConfirmationHourSelectItemsEnd = document.querySelector('.add-additional-time-confirmation__hour-select-select_end')
+const addAdditionalTimeConfirmationHourSelectOptionItemsStart = document.querySelectorAll('.add-additional-time-confirmation__hour-option_start')
+const addAdditionalTimeConfirmationHourSelectOptionItemsEnd = document.querySelectorAll('.add-additional-time-confirmation__hour-option_end')
+const addAdditionalTimeConfirmationHourSelectTextStart = document.querySelector('.add-additional-time-confirmation__hour-select-text_start')
+const addAdditionalTimeConfirmationHourSelectTextEnd = document.querySelector('.add-additional-time-confirmation__hour-select-text_end')
+const addAdditionalTimeConfirmationBoardHourSelectFieldStart = document.querySelector('.add-additional-time-confirmation__board-hour-select-field_start')
+const addAdditionalTimeConfirmationBoardHourSelectFieldEnd = document.querySelector('.add-additional-time-confirmation__board-hour-select-field_end')
+
+
 const appointmentHover = document.querySelector('.appointment-hover')
 const appointmentHoverJobNumber = document.querySelector('.appointment-hover__job-number')
 const appointmentHoverJobInfo = document.querySelector('.appointment-hover__job-info')
@@ -226,6 +255,14 @@ let absenceCreateConfirmationYear = appointmentRescheduleConfirmationDate.getFul
 let absenceCreateConfirmationDaysOffset = 0;
 let absenceCreateConfirmationDaysInMonth;
 
+let addAdditionalTimeConfirmationDate = new Date();
+
+let addAdditionalTimeConfirmationDay = appointmentRescheduleConfirmationDate.getDate();
+let addAdditionalTimeConfirmationMonth = appointmentRescheduleConfirmationDate.getMonth();
+let addAdditionalTimeConfirmationYear = appointmentRescheduleConfirmationDate.getFullYear();
+let addAdditionalTimeConfirmationDaysOffset = 0;
+let addAdditionalTimeConfirmationDaysInMonth;
+
 
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const weekShortDays = ['Sun','Mon','Tue',"Wed",'Thu','Fri','Sat']
@@ -268,6 +305,16 @@ let absenceCreateConfirmationDateStartPicked;
 let absenceCreateConfirmationDateEndPicked;
 let absenceCreateIsDateStart = true;
 
+let addAdditionalTimeConfirmationHourStart;
+let addAdditionalTimeConfirmationHourEnd;
+
+let addAdditionalTimeConfirmationHourStartTemp;
+let addAdditionalTimeConfirmationHourEndTemp;
+let addAdditionalTimeConfirmationMinsStartTemp; 
+let addAdditionalTimeConfirmationMinsEndTemp; 
+
+let addAdditionalTimeConfirmationDatePicked;
+
 let boardHourStartTemp;
 let boardHourEndTemp;
 
@@ -302,7 +349,7 @@ const getJson = (datePicked,daysAmountValue) =>{
   //getting new json//
   //тк нет запроса за новый json буду брать исходную json строку//
   let newJson = '{"areas":[{"area_id":"e4t8f013shdyj6yh90","area_name":"Miami, FL","area_timezone":"-4","service_resources":[{"service_resource_id":"e4t8f010shd5gyyh70","service_resource_nickname":"Andre","service_resource_name_surname":"Andrey Dinin","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/1.jpg"},{"service_resource_id":"e4t8f010sh8fuiyht9","service_resource_nickname":"Mark","service_resource_name_surname":"Marco Rodrigas","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/2.jpg"}]},{"area_id":"e4t8f013s57yj6yr60","area_name":"Houston, TX","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5ji94r0","service_resource_nickname":"Alan","service_resource_name_surname":"Alan Bilik","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/3.jpg"},{"service_resource_id":"e4t8f010sh8fu78hy4","service_resource_nickname":"Steve","service_resource_name_surname":"Serge Zondre","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/4.jpg"}]},{"area_id":"e4t8f013s5yyj6y777","area_name":"Tampa, FL","area_timezone":"-5","service_resources":[{"service_resource_id":"e4t8f010shd5jtt673","service_resource_nickname":"Sam","service_resource_name_surname":"Sam Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt573","service_resource_nickname":"Serge","service_resource_name_surname":"Alan Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jt4473","service_resource_nickname":"Dilon","service_resource_name_surname":"Dilon Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtt663","service_resource_nickname":"Alex","service_resource_name_surname":"Alex Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtttt3","service_resource_nickname":"Bob","service_resource_name_surname":"Bob Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"},{"service_resource_id":"e4t8f010shd5jtrr73","service_resource_nickname":"Stephen","service_resource_name_surname":"Stephen Gartiz","service_resource_function":"Appliance Technician","service_resource_image":"http:\/\/artemiudintsev.com\/getjson\/urlava\/5.jpg"}]}],"time_slots":{"e4t8f010shd5jtt673":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 11:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 10:00:00","time_slot_end":"March 21, 2020 20:00:00"}],"e4t8f010sh8fu78hy4":[{"time_slot_type":"temporary","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 15:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"}],"e4t8f010sh8fuiyht9":[{"time_slot_type":"regular","time_slot_start":"March 21, 2020 9:00:00","time_slot_end":"March 21, 2020 14:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 11:00:00","time_slot_end":"March 21, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 13:00:00","time_slot_end":"March 21, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 21, 2020 15:00:00","time_slot_end":"March 21, 2020 17:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}],"e4t8f010shd5jtttt3":[{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 9:00:00","time_slot_end":"March 22, 2020 14:00:00"},{"time_slot_type":"temporary","time_slot_start":"March 22, 2020 11:00:00","time_slot_end":"March 22, 2020 13:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 13:00:00","time_slot_end":"March 22, 2020 18:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 19:00:00"},{"time_slot_type":"regular","time_slot_start":"March 22, 2020 15:00:00","time_slot_end":"March 22, 2020 17:00:00"}]},"appointments":[{"appointment_id":"e4t8f212s5kogyyd86","appointment_type":"SC","appointment_job_number":"2341FKL","appointment_info":"Refrigerator, Oven","appointment_zip":"33067","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 11:00:00","appointment_date_end":"March 21, 2020 13:00:00"},{"appointment_id":"e4t8f212s5ko454d82","appointment_type":"FU","appointment_job_number":"2351CKL","appointment_info":"Dryer","appointment_zip":"33045","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5gyyh70","appointment_date_start":"March 21, 2020 17:00:00","appointment_date_end":"March 21, 2020 20:00:00"},{"appointment_id":"e4t8f212s5ko4545rf","appointment_type":"RC","appointment_job_number":"1151LKL","appointment_info":"Dishwasher, Oven","appointment_zip":"77007","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 21, 2020 8:00:00","appointment_date_end":"March 21, 2020 10:00:00"},{"appointment_id":"e4t8f212s5k46745rg","appointment_type":"SC","appointment_job_number":"1451LFL","appointment_info":"Dishwasher","appointment_zip":"77037","appointment_notification":false,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 11:00:00","appointment_date_end":"March 20, 2020 13:00:00"},{"appointment_id":"e4t8f212gg77674559","appointment_type":"SC","appointment_job_number":"1331LRR","appointment_info":"Dishwasher, Stove","appointment_zip":"77034","appointment_notification":true,"appointment_service_resource_id":"e4t8f010sh8fu78hy4","appointment_date_start":"March 20, 2020 10:00:00","appointment_date_end":"March 20, 2020 12:00:00"},{"appointment_id":"e4t8f212rf7767454r","appointment_type":"SC","appointment_job_number":"4531FFR","appointment_info":"Freezer","appointment_zip":"34685","appointment_notification":true,"appointment_service_resource_id":"e4t8f010shd5jtt673","appointment_date_start":"March 21, 2020 14:00:00","appointment_date_end":"March 21, 2020 17:00:00"}],"absences":[{"absences_id":"e4t8f221sh8f56yhrt","absences_service_resource_id":"e4t8f010sh8fuiyht9","absences_date_start":"March 19, 2020 8:00:00","absences_date_end":"March 22, 2020 20:00:00"},{"absences_id":"e4t8f221sh8576yhr5","absences_service_resource_id":"e4t8f010shd5ji94r0","absences_date_start":"March 21, 2020 12:00:00","absences_date_end":"March 21, 2020 14:00:00"}]}'
-   json = newJson
+  json = newJson
   return json
 }
 
@@ -313,12 +360,15 @@ window.addEventListener('click', function(event) {
   let clickedCalendar = target.closest('.calendar');
   let clickedControlsDatePicker = target.closest('.controls__date-picker-item');
   let clickedDaysAmount= target.closest('.controls__days-amount');
+
   let clickedBoardHourSelectList = target.closest('.controls__board-hour-select-list');
   let clickedBoardHourSelectBtnApply = target.closest('.controls__board-hour-select-btn-apply')
   let clickedBoardHourSelectBtn  = target.closest('.controls__board-hour-select-btn');
+
   let clickedAppointmentDropList = target.closest('.appointment-drop-list');
   let clickedAbsenceDropList = target.closest('.absence-drop-list')
   let clickedServiceResourceDropList = target.closest('.service-resource-drop-list')
+
   let clickedAppointmentRescheduleConfirmationHourSelectTextStart = target.closest('.appointment-reschedule-confirmation__hour-select-text_start')
   let clickedAppointmentRescheduleConfirmationHourSelectTextEnd = target.closest('.appointment-reschedule-confirmation__hour-select-text_end')
   let clickedAppointmentRescheduleConfirmationCalendar = target.closest('.appointment-reschedule-confirmation-calendar')
@@ -326,10 +376,16 @@ window.addEventListener('click', function(event) {
   let clickedAppointmentRescheduleConfirmationServiceResourcesBtn = target.closest('.appointment-reschedule-confirmation__service-resources-btn')
   let clickedAbsenceRescheduleConfirmationHourSelectTextStart = target.closest('.absence-change-confirmation__hour-select-text_start')
   let clickedAbsenceRescheduleConfirmationHourSelectTextEnd = target.closest('.absence-change-confirmation__hour-select-text_end')
+
   let clickedAbsenceCreateConfirmationCalendar = target.closest('.absence-create-confirmation-calendar')
   let clickedAbsenceCreateConfirmationDatePicker = target.closest('.absence-create-confirmation-controls__date-picker-item')
   let clickedAbsenceCreateConfirmationHourSelectTextStart = target.closest('.absence-create-confirmation__hour-select-text_start')
   let clickedAbsenceCreateConfirmationHourSelectTextEnd = target.closest('.absence-create-confirmation__hour-select-text_end')
+
+  let clickedAddAdditionalTimeConfirmationCalendar = target.closest('.add-additional-time-confirmation-calendar')
+  let clickedAddAdditionalTimeConfirmationDatePicker = target.closest('.add-additional-time-confirmation-controls__date-picker-item')
+  let clickedAddAdditionalTimeConfirmationHourSelectTextStart = target.closest('.add-additional-time-confirmation__hour-select-text_start')
+  let clickedAddAdditionalTimeConfirmationHourSelectTextEnd = target.closest('.add-additional-time-confirmation__hour-select-text_end')
 
 
   if (!clickedDaysAmount && daysAmount.classList.contains('open') && daysAmountList.classList.contains('visible')) {
@@ -344,6 +400,10 @@ window.addEventListener('click', function(event) {
       datePeriod.classList.remove('open');
       datePeriodList.classList.remove('visible');
   }
+  if (!clickedDatePeriod  && !clickedControlsDatePicker  && !clickedCalendar && calendar.classList.contains('visible')) {;
+    calendar.classList.remove('visible');
+  }
+
   if (!clickedAppointmentDropList && appointmentDropList.classList.contains('open') && appointmentDropList.classList.contains('visible')) {
     appointmentDropList.classList.remove('open');
     appointmentDropList.classList.remove('visible');
@@ -364,10 +424,6 @@ window.addEventListener('click', function(event) {
   if(!clickedAppointmentRescheduleConfirmationCalendar && !clickedAppointmentRescheduleConfirmationDatePicker && appointmentRescheduleConfirmationCalendar.classList.contains('visible')){
     appointmentRescheduleConfirmationCalendar.classList.remove('visible')
   }
-  if (!clickedDatePeriod  && !clickedControlsDatePicker  && !clickedCalendar && calendar.classList.contains('visible')) {;
-    calendar.classList.remove('visible');
-  }
-
   if(!clickedAppointmentRescheduleConfirmationHourSelectTextEnd && appointmentRescheduleConfirmationHourSelectItemsEnd.classList.contains('open') && appointmentRescheduleConfirmationHourSelectItemsEnd.classList.contains('visible')){
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('open')
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('visible')
@@ -376,7 +432,6 @@ window.addEventListener('click', function(event) {
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('open')
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('visible')
   }
-
   if(!clickedAbsenceRescheduleConfirmationHourSelectTextEnd && absenceChangeConfirmationHourSelectItemsEnd.classList.contains('open') && absenceChangeConfirmationHourSelectItemsEnd.classList.contains('visible')){
     absenceChangeConfirmationHourSelectItemsEnd.classList.remove('open')
     absenceChangeConfirmationHourSelectItemsEnd.classList.remove('visible')
@@ -385,10 +440,10 @@ window.addEventListener('click', function(event) {
     absenceChangeConfirmationHourSelectItemsStart.classList.remove('open')
     absenceChangeConfirmationHourSelectItemsStart.classList.remove('visible')
   }
+
   if(!clickedAbsenceCreateConfirmationCalendar && !clickedAbsenceCreateConfirmationDatePicker && absenceCreateConfirmationCalendar.classList.contains('visible')){
     absenceCreateConfirmationCalendar.classList.remove('visible')
   }
-
   if(!clickedAbsenceCreateConfirmationHourSelectTextStart && absenceCreateConfirmationHourSelectItemsStart.classList.contains('open') && absenceCreateConfirmationHourSelectItemsStart.classList.contains('visible')){
     absenceCreateConfirmationHourSelectItemsStart.classList.remove('open')
     absenceCreateConfirmationHourSelectItemsStart.classList.remove('visible')
@@ -396,6 +451,18 @@ window.addEventListener('click', function(event) {
   if(!clickedAbsenceCreateConfirmationHourSelectTextEnd && absenceCreateConfirmationHourSelectItemsEnd.classList.contains('open') && absenceCreateConfirmationHourSelectItemsEnd.classList.contains('visible')){
     absenceCreateConfirmationHourSelectItemsEnd.classList.remove('open')
     absenceCreateConfirmationHourSelectItemsEnd.classList.remove('visible')
+  }
+  
+  if(!clickedAddAdditionalTimeConfirmationCalendar && !clickedAddAdditionalTimeConfirmationDatePicker && addAdditionalTimeConfirmationCalendar.classList.contains('visible')){
+    addAdditionalTimeConfirmationCalendar.classList.remove('visible')
+  }
+  if(!clickedAddAdditionalTimeConfirmationHourSelectTextStart && addAdditionalTimeConfirmationHourSelectItemsStart.classList.contains('open') && addAdditionalTimeConfirmationHourSelectItemsStart.classList.contains('visible')){
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('open')
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('visible')
+  }
+  if(!clickedAddAdditionalTimeConfirmationHourSelectTextEnd && addAdditionalTimeConfirmationHourSelectItemsEnd.classList.contains('open') && addAdditionalTimeConfirmationHourSelectItemsEnd.classList.contains('visible')){
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('open')
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('visible')
   }
 });
 
@@ -670,8 +737,24 @@ boardHourSelectBtnApply.addEventListener('click', function(e) {
       boardHourEnd = boardHourEndTemp
       renderBoard(daysAmountValue,timelineStep)
     }
-    
   }
+})
+
+controlsSearchBtn.addEventListener('click', function(){
+  const controlsSearchFieldValue =  controlsSearchField.value
+  const appointments = document.querySelectorAll('.appointment')
+  for(let i =0; i<appointments.length; i++){
+    const appointment = appointments[i];
+    appointment.classList.remove('appointment_searched')
+    const appointmentJobNumber = appointment.querySelector('.appointment__job-number').textContent.toLowerCase();
+    const appointmentJobInfo = appointment.querySelector('.appointment__job-info').textContent.toLowerCase().replace(/\(|\)/g, '') 
+    const appointmentZip = appointment.querySelector('.appointment__zip').textContent.toLowerCase().replace(/[^\d]/g, '')
+    if(appointmentJobNumber.indexOf(controlsSearchFieldValue)+1 || appointmentJobInfo.indexOf(controlsSearchFieldValue)+1 || appointmentZip.indexOf(controlsSearchFieldValue)+1 /*|| controlsSearchFieldValue.indexOf(appointmentJobNumber)+1 || controlsSearchFieldValue.indexOf(appointmentJobInfo)+1 || controlsSearchFieldValue.indexOf(appointmentZip)+1*/){
+      appointment.classList.add('appointment_searched')
+    }
+    console.log(appointmentZip)
+  }
+  console.log(appointments)
 })
 
 daysAmount.addEventListener('click', function(e) {
@@ -1141,7 +1224,6 @@ appointmentRescheduleConfirmationHourSelectTextStart.addEventListener('click', f
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.add('visible');
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('open');
     appointmentRescheduleConfirmationHourSelectItemsEnd.classList.remove('visible');
-  /* Conditions to close other control-item elements */
   } else {
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('open');
     appointmentRescheduleConfirmationHourSelectItemsStart.classList.remove('visible');
@@ -1642,6 +1724,7 @@ serviceResourceDropList.addEventListener('click',function(){
     serviceResourceDropList.classList.remove('visible');
   }
 })
+
 serviceResourceDropListItemCreateAbsence.addEventListener('click',function(){
   if(!popupWindow.classList.contains('open')){
     popupWindow.classList.add('open');
@@ -1702,14 +1785,15 @@ absenceCreateConfirmationBtnConfirm.addEventListener('click',function(){
 
     }else{
       absenceCreateConfirmationDateFailed.classList.remove('active')
-
       popupWindow.classList.remove('open');
       popupWindow.classList.remove('visible');
       absenceCreateConfirmationPopup.classList.remove('open');
       absenceCreateConfirmationPopup.classList.remove('visible');
+
+      const absenceCreated = crEl('div','absence')
+      renderAbsence(absenceCreated,absenceCreateConfirmationDateStartTemp,absenceCreateConfirmationDateEndTemp,contextServiceResourceServiceResourceIdTemp)
     }
-    const absenceCreated = crEl('div','absence')
-    renderAbsence(absenceCreated,absenceCreateConfirmationDateStartTemp,absenceCreateConfirmationDateEndTemp,contextServiceResourceServiceResourceIdTemp)
+    
   } 
 
 })
@@ -1881,6 +1965,238 @@ for (let i = 0; i < absenceCreateConfirmationHourSelectOptionItemsEnd.length; i+
     absenceCreateConfirmationHourEndTemp = +absenceCreateConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
     absenceCreateConfirmationMinsEndTemp = +absenceCreateConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
 
+  })
+}
+
+
+serviceResourceDropListItemAdditionalTime.addEventListener('click',function(){
+  if(!popupWindow.classList.contains('open')){
+    popupWindow.classList.add('open');
+    popupWindow.classList.add('visible');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('open')
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('visible')
+  }else{
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+
+  if(!addAdditionalTimeConfirmationPopup.classList.contains('open')){
+    addAdditionalTimeConfirmationPopup.classList.add('open');
+    addAdditionalTimeConfirmationPopup.classList.add('visible');
+    addAdditionalTimeConfirmationBtnConfirm.classList.add('btn_disabled')
+
+  }else{
+    addAdditionalTimeConfirmationPopup.classList.remove('open');
+    addAdditionalTimeConfirmationPopup.classList.remove('visible');
+  }
+  for(let i=0; i<addAdditionalTimeConfirmationQuestionsItemsCheckbox.length; i++){
+    addAdditionalTimeConfirmationQuestionsItemsCheckbox[i].checked=false
+  }
+  addAdditionalTimeConfirmationHourSelectTextStart.textContent=  converTime(contextAbsenceDateStartTemp) 
+  addAdditionalTimeConfirmationHourSelectTextEnd.textContent=  converTime(contextAbsenceDateEndTemp) 
+  addAdditionalTimeConfirmationHourStartTemp = 0;
+  addAdditionalTimeConfirmationMinsStartTemp = 0;
+  addAdditionalTimeConfirmationHourEndTemp = 0;
+  addAdditionalTimeConfirmationMinsEndTemp = 0;
+
+  addAdditionalTimeConfirmationDatePicked =  new Date(datePicked);
+  addAdditionalTimeConfirmationDayPicked = addAdditionalTimeConfirmationDatePicked.getDate()-1
+
+  addAdditionalTimeConfirmationDatePickerText.textContent = `${monthShortList[datePicked.getMonth()]} ${datePicked.getDate()}, ${datePicked.getFullYear()}`;
+
+  addAdditionalTimeConfirmationServiceResourceNickname.textContent=  contextServiceResourceServiceResourceTemp 
+})
+
+addAdditionalTimeConfirmationBtnConfirm.addEventListener('click',function(){
+  if(addAdditionalTimeConfirmationPopup.classList.contains('open')){
+    let addAdditionalTimeConfirmationDateStartTemp = new Date(addAdditionalTimeConfirmationDatePicked)
+    addAdditionalTimeConfirmationDateStartTemp.setHours(addAdditionalTimeConfirmationHourStartTemp)
+    addAdditionalTimeConfirmationDateStartTemp.setMinutes(addAdditionalTimeConfirmationMinsStartTemp)
+    
+    let addAdditionalTimeConfirmationDateEndTemp = new Date(addAdditionalTimeConfirmationDatePicked)
+    addAdditionalTimeConfirmationDateEndTemp.setHours(addAdditionalTimeConfirmationHourEndTemp)
+    addAdditionalTimeConfirmationDateEndTemp.setMinutes(addAdditionalTimeConfirmationMinsEndTemp)
+
+    console.log(addAdditionalTimeConfirmationDateStartTemp,addAdditionalTimeConfirmationDateEndTemp)
+    if ((addAdditionalTimeConfirmationDateEndTemp.getTime()-addAdditionalTimeConfirmationDateStartTemp.getTime())/1000/60 < 30){
+
+
+    }else{
+      popupWindow.classList.remove('open');
+      popupWindow.classList.remove('visible');
+      addAdditionalTimeConfirmationPopup.classList.remove('open');
+      addAdditionalTimeConfirmationPopup.classList.remove('visible');
+    }
+    const addAdditionalTimed = crEl('div','absence')
+    renderAbsence(addAdditionalTimed,addAdditionalTimeConfirmationDateStartTemp,addAdditionalTimeConfirmationDateEndTemp,contextServiceResourceServiceResourceIdTemp)
+  } 
+
+})
+
+addAdditionalTimeConfirmationBtnDeny.addEventListener('click',function(){
+  if (popupWindow.classList.contains('open')) {
+    popupWindow.classList.remove('open');
+    popupWindow.classList.remove('visible');
+  }
+  if(addAdditionalTimeConfirmationPopup.classList.contains('open')){
+    addAdditionalTimeConfirmationPopup.classList.remove('open');
+    addAdditionalTimeConfirmationPopup.classList.remove('visible');
+  } 
+
+})
+
+addAdditionalTimeConfirmationQuestionServiceResourceInformed.addEventListener('click',function(){
+  if(addAdditionalTimeConfirmationQuestionServiceResourceInformed.checked==true && (addAdditionalTimeConfirmationHourEndTemp*60+addAdditionalTimeConfirmationMinsEndTemp) - (addAdditionalTimeConfirmationHourStartTemp*60+addAdditionalTimeConfirmationMinsStartTemp) >= 30){
+    addAdditionalTimeConfirmationBtnConfirm.classList.remove('btn_disabled')
+  } else{
+    addAdditionalTimeConfirmationBtnConfirm.classList.add('btn_disabled')
+  }
+})
+
+const renderAddAdditionalTimeConfirmationCalendar = (month,year)=>{
+  addAdditionalTimeConfirmationDaysInMonth = new Date(year,month+1,0).getDate()
+  addAdditionalTimeConfirmationDaysOffset = new Date(year,month).getDay()
+  
+  //Clear all days
+  for(let i=0; i<addAdditionalTimeConfirmationCalendarTableDays.length; i++){
+    addAdditionalTimeConfirmationCalendarTableDays[i].textContent = ""
+    if(addAdditionalTimeConfirmationCalendarTableDays[i].textContent==""){
+      addAdditionalTimeConfirmationCalendarTableDays[i].classList.remove('calendar-table__cell-day_selected-one')
+
+    }
+  }
+
+  //Fill all days
+  for(let i=0; i<addAdditionalTimeConfirmationDaysInMonth; i++){
+    let dateTemp = new Date(year,month,i+1)
+    if(Date.parse(dateTemp)==Date.parse(addAdditionalTimeConfirmationDatePicked) ){
+      addAdditionalTimeConfirmationCalendarTableDays[i+addAdditionalTimeConfirmationDaysOffset].classList.add('calendar-table__cell-day_selected-one')
+      if (addAdditionalTimeConfirmationCalendar.classList.contains('visible')) {;
+        addAdditionalTimeConfirmationCalendar.classList.remove('visible');
+      }
+    }
+    addAdditionalTimeConfirmationCalendarTableDays[i+addAdditionalTimeConfirmationDaysOffset].textContent = i+1
+  }
+
+  //Creating text fot month
+  let textMonth = monthList[month]
+  let textMonthYear = textMonth + ' ' + year
+  addAdditionalTimeConfirmationCalendarMonthYear.textContent = textMonthYear;
+}
+
+addAdditionalTimeConfirmationCalendarBtnNext.addEventListener('click', function() {
+  console.log('test')
+  addAdditionalTimeConfirmationMonth+=1
+  if (addAdditionalTimeConfirmationMonth>11){
+    addAdditionalTimeConfirmationYear+=1;
+    addAdditionalTimeConfirmationMonth=0;
+  }
+  renderAddAdditionalTimeConfirmationCalendar(addAdditionalTimeConfirmationMonth,addAdditionalTimeConfirmationYear)
+})
+addAdditionalTimeConfirmationCalendarBtnPrev.addEventListener('click', function() {
+  addAdditionalTimeConfirmationMonth-=1
+  if (addAdditionalTimeConfirmationMonth<0){
+    addAdditionalTimeConfirmationYear-=1;
+    addAdditionalTimeConfirmationMonth=11;
+  }
+  renderAddAdditionalTimeConfirmationCalendar(addAdditionalTimeConfirmationMonth,addAdditionalTimeConfirmationYear)
+})
+addAdditionalTimeConfirmationDatePicker.addEventListener('click', function() {
+  let monthPicked = addAdditionalTimeConfirmationDatePicked.getMonth()
+  let yearPicked = addAdditionalTimeConfirmationDatePicked.getFullYear()
+  addAdditionalTimeConfirmationMonth = monthPicked;
+  addAdditionalTimeConfirmationYear = yearPicked;
+  renderAddAdditionalTimeConfirmationCalendar(monthPicked,yearPicked)
+  if (!addAdditionalTimeConfirmationCalendar.classList.contains('visible')) {;
+    addAdditionalTimeConfirmationCalendar.classList.add('visible');
+  }
+})
+
+
+
+addAdditionalTimeConfirmationCalendarTableDays.forEach((calendarTableDay,idx) => {
+  calendarTableDay.addEventListener('click', function() {
+    if (idx-addAdditionalTimeConfirmationDaysOffset>=0 && idx-addAdditionalTimeConfirmationDaysOffset<addAdditionalTimeConfirmationDaysInMonth) {        
+      
+      addAdditionalTimeConfirmationDayPicked= idx-addAdditionalTimeConfirmationDaysOffset;
+      addAdditionalTimeConfirmationDatePicked = new Date(addAdditionalTimeConfirmationYear,addAdditionalTimeConfirmationMonth,addAdditionalTimeConfirmationDayPicked+1)
+
+      addAdditionalTimeConfirmationDatePickerText.textContent = `${monthShortList[addAdditionalTimeConfirmationDatePicked.getMonth()]} ${addAdditionalTimeConfirmationDatePicked.getDate()}, ${addAdditionalTimeConfirmationDatePicked.getFullYear()}`;
+      renderAddAdditionalTimeConfirmationCalendar(addAdditionalTimeConfirmationMonth,addAdditionalTimeConfirmationYear)
+    }
+  })
+});
+
+addAdditionalTimeConfirmationHourSelectTextStart.addEventListener('click', function(e) {
+  if(!addAdditionalTimeConfirmationHourSelectItemsStart.classList.contains('open')){
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.add('open');
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.add('visible');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('visible');
+  /* Conditions to close other control-item elements */
+  } else {
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('visible');
+  }
+})
+addAdditionalTimeConfirmationHourSelectTextEnd.addEventListener('click', function(e) {
+  if(!addAdditionalTimeConfirmationHourSelectItemsEnd.classList.contains('open')){
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.add('open');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.add('visible');
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('visible');
+  /* Conditions to close other control-item elements */
+
+  } else {
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('visible');
+  }
+})
+for (let i = 0; i < addAdditionalTimeConfirmationHourSelectOptionItemsStart.length; i++) {
+  
+  addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].addEventListener('click', function(e) {
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsStart.classList.remove('visible');
+    for (let j = 0; j < addAdditionalTimeConfirmationHourSelectOptionItemsStart.length; j++) {
+      addAdditionalTimeConfirmationHourSelectOptionItemsStart[j].classList.remove('controls__board-hour-option_selected')
+    }
+    addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].classList.add('controls__board-hour-option_selected')
+    addAdditionalTimeConfirmationHourSelectTextStart.textContent = addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].textContent
+    addAdditionalTimeConfirmationHourStartTemp = +addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-hour-value')
+    addAdditionalTimeConfirmationMinsStartTemp = +addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
+    if((addAdditionalTimeConfirmationHourEndTemp*60+addAdditionalTimeConfirmationMinsEndTemp) - (addAdditionalTimeConfirmationHourStartTemp*60+addAdditionalTimeConfirmationMinsStartTemp) <30){
+      addAdditionalTimeConfirmationBoardHourSelectFieldEnd.classList.add('add-additional-time-confirmation__board-hour-select-field_failed')
+      addAdditionalTimeConfirmationBtnConfirm.classList.add('btn_disabled')
+    }else{
+      addAdditionalTimeConfirmationBoardHourSelectFieldEnd.classList.remove('add-additional-time-confirmation__board-hour-select-field_failed')
+      if(addAdditionalTimeConfirmationQuestionServiceResourceInformed.checked==true && (((addAdditionalTimeConfirmationHourEndTemp*60+addAdditionalTimeConfirmationMinsEndTemp) - (addAdditionalTimeConfirmationHourStartTemp*60+addAdditionalTimeConfirmationMinsStartTemp)) >=30)){
+        addAdditionalTimeConfirmationBtnConfirm.classList.remove('btn_disabled')
+      }
+    }
+  })
+}
+
+for (let i = 0; i < addAdditionalTimeConfirmationHourSelectOptionItemsEnd.length; i++) {
+  
+  addAdditionalTimeConfirmationHourSelectOptionItemsEnd[i].addEventListener('click', function(e) {
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('open');
+    addAdditionalTimeConfirmationHourSelectItemsEnd.classList.remove('visible');
+    for (let j = 0; j < addAdditionalTimeConfirmationHourSelectOptionItemsEnd.length; j++) {
+      addAdditionalTimeConfirmationHourSelectOptionItemsEnd[j].classList.remove('controls__board-hour-option_selected')
+    }
+    addAdditionalTimeConfirmationHourSelectOptionItemsEnd[i].classList.add('controls__board-hour-option_selected')
+    addAdditionalTimeConfirmationHourSelectTextEnd.textContent = addAdditionalTimeConfirmationHourSelectOptionItemsEnd[i].textContent
+    addAdditionalTimeConfirmationHourEndTemp = +addAdditionalTimeConfirmationHourSelectOptionItemsEnd[i].getAttribute('data-board-hour-value')
+    addAdditionalTimeConfirmationMinsEndTemp = +addAdditionalTimeConfirmationHourSelectOptionItemsStart[i].getAttribute('data-board-mins-value')
+    if((addAdditionalTimeConfirmationHourEndTemp*60+addAdditionalTimeConfirmationMinsEndTemp) - (addAdditionalTimeConfirmationHourStartTemp*60+addAdditionalTimeConfirmationMinsStartTemp) <30){
+      addAdditionalTimeConfirmationBoardHourSelectFieldEnd.classList.add('add-additional-time-confirmation__board-hour-select-field_failed')
+      addAdditionalTimeConfirmationBtnConfirm.classList.add('btn_disabled')
+    }else{
+      addAdditionalTimeConfirmationBoardHourSelectFieldEnd.classList.remove('add-additional-time-confirmation__board-hour-select-field_failed')
+      if(addAdditionalTimeConfirmationQuestionServiceResourceInformed.checked==true && (((addAdditionalTimeConfirmationHourEndTemp*60+addAdditionalTimeConfirmationMinsEndTemp) - (addAdditionalTimeConfirmationHourStartTemp*60+addAdditionalTimeConfirmationMinsStartTemp)) >=30)){
+        addAdditionalTimeConfirmationBtnConfirm.classList.remove('btn_disabled')
+      }
+    }
   })
 }
 
@@ -2058,6 +2374,10 @@ popupOverlay.addEventListener('click',function(){
   if(absenceCreateConfirmationPopup.classList.contains('open')){
     absenceCreateConfirmationPopup.classList.remove('open')
     absenceCreateConfirmationPopup.classList.remove('visible')
+  }
+  if(addAdditionalTimeConfirmationPopup.classList.contains('open')){
+    addAdditionalTimeConfirmationPopup.classList.remove('open')
+    addAdditionalTimeConfirmationPopup.classList.remove('visible')
   }
 })
 dragAndDropConfirmationBtnConfirm.addEventListener('click',function(){
