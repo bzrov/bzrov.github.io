@@ -168,7 +168,8 @@ body {
   font-size: 16px; }
 
 body, html {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100%; }
 
 html, body, div, span, p, article, img {
   margin: 0;
@@ -207,7 +208,7 @@ html, body, div, span, p, article, img {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  height: 100%;
   padding: 20px;
   background-color: var(--main-bg-color);
   -webkit-transition: background-color .3s ease-in-out;
@@ -215,6 +216,10 @@ html, body, div, span, p, article, img {
   transition: background-color .3s ease-in-out; }
 
 .card__img-wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-height: 0px;
   margin-bottom: 20px;
   text-align: center; }
