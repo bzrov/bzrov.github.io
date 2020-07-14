@@ -275,8 +275,8 @@ html, body, div, span, p, article, img {
           transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  -webkit-animation: scaleIn 1s ease-in-out infinite;
-          animation: scaleIn 1s ease-in-out infinite; }
+  -webkit-animation: scaleIn 1s ease-in-out both;
+          animation: scaleIn 1s ease-in-out both; }
 
 .card__content-subtext {
   font-family: 'Roboto', sans-serif;
