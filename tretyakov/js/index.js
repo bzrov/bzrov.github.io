@@ -89,7 +89,7 @@ const paintingsRunningLineWrapperContent = document.querySelector('.paintings-ru
 headTargetsAnimation.forEach(headTargetAnimation=>{
     const targetAuthorName = headTargetAnimation.getAttribute('data-author')
     headTargetAnimation.addEventListener('mouseenter',()=>{
-        headWrapperAnimation.style.backgroundImage = `url('./images/head-bg-${targetAuthorName}.jpg')`
+        headWrapperAnimation.style.backgroundImage = `url('./../images/head-bg-${targetAuthorName}.jpg')`
     })
 })
 
